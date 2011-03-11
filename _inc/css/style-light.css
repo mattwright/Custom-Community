@@ -1,0 +1,699 @@
+/* STYLE LIGHT CSS 
+-- just adapting styles -------------------------------------- */ 
+
+
+
+/* > Global Elements
+-------------------------------------------------------------- */
+
+body {
+	background: none #ededed;
+	color:#888888;
+}
+
+h1 { color:#888888; }
+h2 { color:#888888; }
+h3 { color:#888888; }
+
+a { color: #529e81; }
+a:hover, a:active { color: #888888; }
+
+hr {
+	background-color:#ededed;
+}
+
+img.avatar {
+	border:1px solid #ededed;
+} 
+
+
+/* > Header
+-------------------------------------------------------------- */
+
+#header {
+	color: #888888;
+}
+	
+		#header h1 a {
+			color: #888888;
+		}
+
+		
+/* > Navigation
+-------------------------------------------------------------- */
+
+	ul#nav li a {
+		color:#888888;
+	}
+
+		ul#nav li.selected, ul#nav li.selected a, ul#nav li.current_page_item a { 
+			color: #ffffff;
+		}		
+		
+
+/* > Container
+-------------------------------------------------------------- */
+
+div#container {
+	background-color: #ffffff;
+}
+
+	body.activity-permalink div#container {
+		background: #ffffff;
+	}
+
+
+/* > Sidebar
+-------------------------------------------------------------- */
+
+div#sidebar h3.widgettitle, div#sidebar h3.widgettitle a {
+	background:none repeat scroll 0 0 #ededed;
+	color:#888888;
+}
+
+div#sidebar h3.widgettitle p {
+	color:#888888; 
+}
+
+div#leftsidebar div.item-options a.selected {
+	color:#888888;
+}
+
+.widget li.cat-item a {
+	color:#888888;	
+}
+
+.widget li.current-cat a, div.widget ul li.current_page_item a {
+color:#529e81;
+}
+
+	div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
+		color:#888888;
+		background:#ededed;
+	} 
+
+div#sidebar div.item-options a.selected,	
+div#leftsidebar div.item-options a.selected {
+			color:#888888;
+		}
+	
+
+/* > Item Headers (Profiles, Groups)
+-------------------------------------------------------------- */
+
+		div#item-header h2 a {
+			color: #888888;
+		} 
+
+	div#item-header span.activity, div#item-header h2 span.highlight {
+		color:#888888;
+	}
+
+	div#item-header h2 span.highlight { color:#888888; }
+	div#item-header h2 span.highlight span {
+		background: #529e81;
+		color: #ffffff;
+	}
+
+	div#item-header div#item-meta {
+		color: #888888;
+	}
+
+
+/* > Item Lists (Activity, Friend, Group lists, Widgets)
+-------------------------------------------------------------- */
+
+div.widget-title ul.item-list li.selected {
+	background:none repeat scroll 0 0 #529e81 !important;
+	color:#ffffff;
+} 
+
+div.widget-title ul.item-list li a {
+	color:#888888;
+} 
+
+div.widget-title ul.item-list li a:hover {
+	color:#529e81;
+} 
+
+div.widget-title ul.item-list li.selected a, 
+div.widget-title ul.item-list li.selected a:hover {
+	color:#ffffff !important; 
+} 
+
+	ul.item-list li {
+		border-bottom: 1px solid #ededed;
+	}
+
+			ul.item-list li div.item-title span {
+				color: #888888;
+			}
+
+		ul.item-list li div.item-desc {
+			color: #888888;
+		}
+
+		ul.item-list li div.meta {
+			color:#888888;
+		}
+
+
+/* > Item Tabs
+-------------------------------------------------------------- */
+
+div.item-list-tabs {
+	border-bottom:4px solid #ededed;
+} 
+
+			div.item-list-tabs ul li span {
+				color: #888888;
+			}
+
+			div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
+				background-color:#ededed;
+				color:#888888 !important;
+				border-right:1px solid #cccccc;
+			} 
+	
+	#item-nav a{ 
+		color:#529e81;
+	}
+	#subnav a{
+		color:#888888;
+	}
+	#item-nav a:hover{ 
+		color:#888888;
+	}
+	#subnav a:hover{
+		color:#529e81;
+	}
+	
+	div#subnav.item-list-tabs  {
+		background:none repeat scroll 0 0 #ededed;
+		overflow:hidden;
+	} 
+
+	div#subnav.item-list-tabs ul li.selected a, div#subnav.item-list-tabs ul li.current a  {
+		background-color:#ffffff; 
+	}
+
+
+/* > Item Body
+-------------------------------------------------------------- */
+
+span.activity, div#message p {
+	color:#888888;
+} 
+
+div.widget span.activity {
+	border-bottom:1px solid #ededed;
+	color:#888888;
+}
+
+
+/* > Pagination
+-------------------------------------------------------------- */
+
+div.pagination {
+	background:none repeat scroll 0 0 #ededed;
+	color:#888888;
+} 
+
+
+/* > Buttons
+-------------------------------------------------------------- */
+
+a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a {
+	background:none repeat scroll 0 0 #888888;
+	border-bottom:1px solid #cccccc;
+	border-right:1px solid #cccccc; 
+	color:#ffffff;
+} 
+
+a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, 
+ul.button-nav li a:hover, div.generic-button a:hover, ul.button-nav li a:focus, div.generic-button a:focus {
+	background:none repeat scroll 0 0 #529e81;
+	border-color:#cccccc;
+	color:#ffffff;
+}
+
+	/* Buttons that are disabled */
+	div.pending a, a.disabled {
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc; 
+		color:#888888;
+		background:none repeat scroll 0 0 #aaaaaa; 
+	}
+	
+	div.pending a:hover, a.disabled:hover {
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc; 
+		color:#888888;
+		background:none repeat scroll 0 0 #aaaaaa; 
+	}
+
+	ul.button-nav li.current a {
+		color:#888888;
+	} 
+	
+
+/* > Input Forms
+-------------------------------------------------------------- */
+
+	div#invite-list {
+		background: #ffffff;
+		border: 1px solid #e4e4e4;
+	}
+
+
+/* > Data Tables
+-------------------------------------------------------------- */
+table tr td, table tr th {
+	border-bottom: 1px solid #ededed;
+}
+		table tr td.label {
+			border-right: 1px solid #ededed;
+		}
+
+			table tr td.thread-info p.thread-excerpt {
+				color: #888888;
+			}
+
+	table tr.alt, table tr th {
+		background: #ededed;
+	}
+
+	table.forum tr:first-child {
+		background: #ededed;
+	}
+
+	table.forum tr.sticky td {
+		background: #ffffff;
+		border-top: 1px solid #ededed;
+		border-bottom: 1px solid #ededed;
+	}
+
+	table.forum td p.topic-text {
+		color: #888888;
+	}
+
+
+/* > Activity Stream Posting
+-------------------------------------------------------------- */
+
+form#whats-new-form {
+	border-bottom: 1px solid #ededed;
+}
+
+	form#whats-new-form h5 {
+		color: #888888;
+	}
+
+	form#whats-new-form #whats-new-textarea {
+		border: 1px inset #cccccc;
+		background: #ffffff;
+	}
+
+
+/* > Activity Stream Listing
+-------------------------------------------------------------- */
+
+	.activity-list .activity-content .activity-header,
+	.activity-list .activity-content .comment-header {
+		color: #888888;
+	}
+
+	.activity-list .activity-header a:first-child, span.highlight {
+		color:#529e81;
+	} 
+
+		.activity-list .activity-header a:first-child:hover, span.highlight:hover {
+			color:#888888 !important;
+		}
+
+		.activity-list .activity-content span.time-since {
+			color: #888888;
+		}
+
+	.activity-list .activity-content span.activity-header-meta a {
+		color: #888888;
+	}
+
+	.activity-list .activity-content img.thumbnail {
+		border: 1px solid #ededed;
+	}
+
+	.activity-list li.load-more a {
+		color: #529e81;
+	} 
+	
+/* - additional to activity- */ 
+
+.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote {
+	color:#888888;
+	border-top:1px solid #ededed;
+}
+
+.activity-list .activity-content .comment-header {
+	color:#888888;
+}
+
+	.activity-header a:hover {
+		color:#888888;
+	}
+
+
+/* > Activity Stream Comments
+-------------------------------------------------------------- */
+
+.activity-list div.activity-meta a {
+	background-color:#888888;
+	border-color:#cccccc;
+	border-color:#cccccc;
+	color:#ffffff;
+}  
+	.activity-list div.activity-meta a:hover,
+	.activity-list div.activity-meta a:focus {
+		background-color:#529e81;
+		color:#ffffff;
+	}  
+
+	div.activity-comments ul li {
+		background:none;
+	}
+	
+	div.acomment-avatar img {
+		border:1px solid #ededed !important;
+	} 
+
+	div.activity-comments div.acomment-content {
+		border-color:#ededed;
+		color:#888888;
+	}
+
+	div.activity-comments div.acomment-meta {
+		color: #888888;
+	}
+
+	div.activity-comments form.ac-form {
+		background:none repeat scroll 0 0 #ededed;
+	}
+
+			div.ac-reply-avatar img {
+				border: 1px solid #ededed !important;
+			}
+
+		div.activity-comments form div.ac-reply-content {
+			color: #888888;
+		}
+		
+
+/* > Private Message Threads
+-------------------------------------------------------------- */
+
+table#message-threads tr.unread td {
+	background: #ffffff;
+	border-top: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+}
+	table#message-threads tr.unread td span.activity {
+		background: #ededed;
+	}
+
+	li span.unread-count, tr.unread span.unread-count {
+		background: #ededed;
+		color: #888888;
+	}
+
+		div.item-list-tabs ul li a span.unread-count {
+			color: #888888;
+		}
+
+	div.messages-options-nav {
+		background: #ededed;
+	}
+
+	div#message-thread div.alt {
+		background: #ededed;
+	}
+
+
+/* > Group Forum Topics
+-------------------------------------------------------------- */
+
+	ul#topic-post-list li.alt {
+		background: #ededed;
+	}
+
+	ul#topic-post-list li div.poster-meta {
+		color: #888888;
+	}
+
+div.admin-links {
+	color: #529e81;
+}
+
+div.poster-name a {
+	color:#529e81;
+} 
+
+div.object-name a {
+	color:#529e81;
+} 
+
+
+/* > WordPress Blog Styles
+-------------------------------------------------------------- */
+
+		div.post h2.pagetitle a, div.post h2.posttitle a {
+			color: #888888;
+		}
+
+	div.post dt {
+		border-bottom:1px solid #ededed;
+	}
+
+	div.post dd {
+		background:none repeat scroll 0 0 #ededed;
+	}
+
+	div.post pre, div.post code p {
+		background: #ededed;
+	}
+
+	div.post table {
+		border: 1px solid #ededed;
+	}
+		div.post table th { border-top: 1px solid #ededed; }
+		div.post table td { border-top: 1px solid #ededed; }
+
+		div.post div.author-box img, div.comment-avatar-box img {
+			border: 1px solid #ededed;
+		}
+
+	div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options {
+		color: #888888;
+		border-top: 1px solid #ededed;
+	}
+
+		div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a {
+			color: #529e81;
+		}
+		
+			div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover {
+			color: #888888;
+			}
+
+	div.post .wp-caption {
+		border: 1px solid #ededed;
+		background-color: #ffffff;
+	}
+
+
+/* > WordPress Blog Comment Styles
+-------------------------------------------------------------- */
+
+#comments h3, #trackbacks h3, #respond h3 {
+	color: #888888;
+}
+
+#comments span.title, #trackbacks span.title {
+	color: #888888;
+}
+
+
+/* > Footer
+-------------------------------------------------------------- */
+
+#footer {
+	color:#888888;
+}
+	#footer a {
+		color: #888888;
+	}
+
+#footer .cc-widget a.button {
+        color: #ffffff;
+}
+
+.cc-widget{	 
+	background-color: #ffffff !important; 
+}
+	
+#footer .widget ul li a:hover, 
+#footer .widget li.current-cat a, 
+#footer .widget ul li.current_page_item a  {
+color:#529e81;
+}
+
+
+/* > Widgets
+-------------------------------------------------------------- */
+	
+div.widget ul#blog-post-list li{
+	border-bottom:1px solid #ededed;
+}
+
+	div.widget ul#blog-post-list li a{
+		color:#529e81;
+	}
+
+div.widget ul li a {
+	color:#888888;
+} 
+
+div.widget ul li a:hover {
+	color:#529e81;
+} 
+
+div.widget ul li.recentcomments a {
+	color:#529e81;
+} 
+
+div.widget ul li.recentcomments a:hover {
+	color:#888888;
+} 
+
+div.widget_tag_cloud a {
+	color:#888888;
+}
+div.widget_tag_cloud a:hover {
+	color:#529e81;
+}
+			
+			/* =Calendar Widget
+			-------------------------------------------------------------- */
+			table thead tr {
+				background:none repeat scroll 0 0 #ededed;
+			}
+
+/* =Menu
+-------------------------------------------------------------- */
+
+#access {
+	background: #ffffff;
+}
+
+#access a {
+	color: #888888;
+}
+
+#access ul ul a {
+	background: #ededed;
+	color:#888888; 
+}
+
+#access li:hover > a,
+#access ul ul :hover > a { 
+	background: #ededed;
+	color: #888888;
+}
+
+#access ul.children li:hover > a,
+#access ul.sub-menu li:hover > a { 
+	background: #ffffff !important;
+	color: #888888;
+}
+
+#access ul li:hover > ul { 
+	display: block;
+}
+
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access li.selected > a,
+#access ul li.current-menu-parent > a, 
+#access ul li.current_page_item > a:hover, 
+#access ul li.current-menu-item > a:hover {
+	color: #888888; 
+	background:none repeat scroll 0 0 #ededed;
+}
+
+* html #access ul li.current_page_item a,
+* html #access ul li.current-menu-ancestor a,
+* html #access ul li.current-menu-item a,
+* html #access ul li.current-menu-parent a,
+* html #access ul li a:hover {
+	color: #888888;
+}
+
+
+/* =Slider
+-------------------------------------------------------------- */
+
+#slider-top{
+	background-color:#ffffff;
+}
+.featured{ 
+	background:#ededed;
+}
+
+.featured ul.ui-tabs-nav li{ 
+	color:#888888; 
+}
+.featured ul.ui-tabs-nav li img{ 
+	background:#ededed; 
+	border:1px solid #ffffff;
+}
+.featured li.ui-tabs-nav-item a{ 
+	color:#888888 !important;  
+	background:#ededed; 
+}
+.featured li.ui-tabs-nav-item a:hover{ 
+	background:#f9f9f9;  
+}
+.featured li.ui-tabs-selected{ 
+	background:url('../../images/slideshow/selected-item-light.png') top left no-repeat;  
+}
+.featured ul.ui-tabs-nav li.ui-tabs-selected a{ 
+	background:#ffffff; 
+}
+.featured .ui-tabs-panel{ 
+	background:#ffffff; 
+}
+.featured .info h2 > a{ 
+	color:#ffffff !important; 
+}
+.featured .info p{ 
+	color:#ffffff !important;
+}
+.featured .info a{ 
+	color:#ffffff !important; 
+}
+
+
+/* =Post templates
+-------------------------------------------------------------- */
+
+.boxgrid {
+border:1px solid #ededed !important;
+}
+
+div.listposts img { 
+	border: 1px solid #ededed;
+}
+
+div.posts-img-over-content h3, div.posts-img-under-content h3 {  
+	border-top: 1px solid #ededed;
+}
