@@ -25,12 +25,6 @@
 
 			<ol class="commentlist">
 			
-			
-			
-			
-			
-			
-			
 			<?php if(defined('BP_VERSION')){ ?>
 				<?php wp_list_comments( array( 'callback' => 'bp_dtheme_blog_comments' ) ); ?>
 			<?php } else {?>		
@@ -53,24 +47,14 @@
 				
 					<?php if ( comments_open() ) : ?>
 						<!-- If comments are open, but there are no comments. -->
-				
+						<p class="nocomments">No comments jet.</p>
 					 <?php else : // comments are closed ?>
 						<!-- If comments are closed. -->
 						<p class="nocomments">Comments are closed.</p>
 				
 					<?php endif; ?>
 				<?php endif; ?>
-			<?php } ?>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			<?php } ?>		
 			
 			</ol><!-- .comment-list -->
 

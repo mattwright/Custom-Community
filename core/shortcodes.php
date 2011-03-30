@@ -9,8 +9,20 @@ function h_line($atts) {
         case 'dark':
 	    	$color = '333333';
         break;
+        case 'natural':
+        	$color = 'f5e5b3';
+        break;
+        case 'white':
+        	$color = 'dddddd';
+        break;
+        case 'light':
+        	$color = 'ededed';
+        break;
         case 'grey':
         	$color = 'f1f1f1';
+        break;
+        case 'black':
+        	$color = '333333';
         break;
         default:   
 			$color = 'f1f1f1';
@@ -26,7 +38,6 @@ function h_line($atts) {
 	return $tmp;
 }
 add_shortcode('cc_h_line', 'h_line');
-
 
 //[shortcode facebook like button]
 function facebook_like() { 
@@ -69,7 +80,7 @@ add_shortcode('cc_button', 'button');
 
 // [break = horizontal line / enter]
 function horline($atts,$content = null) { 
-	return '<br>';
+	return '<br />';
 }
 add_shortcode('cc_break', 'horline');
 
@@ -84,7 +95,6 @@ function col_end(){
 return '</div>';
 }
 add_shortcode('cc_col_end', 'col_end');
-
 
 // [full_width_col = full width column]
 function full_width_col($atts,$content = null) { 
@@ -164,7 +174,6 @@ function half_col_left($atts,$content = null) {
 	return $tmp;	
 }
 add_shortcode('cc_half_col_left', 'half_col_left');
-
 
 // [half_col_right = half column, right floated]
 function half_col_right($atts,$content = null) { 
@@ -288,48 +297,42 @@ add_shortcode('cc_third_col_right', 'third_col_right');
 
 // [list posts]
 function cc_list_posts($atts,$content = null) {
-	global $cap, $cc_page_options;
+	global $cap, $cc_page_options, $post;	
+	$tmp = '';
 	
 	extract(shortcode_atts(array(
 		'amount' => '12',
 		'category_name' => 'All categories',
-		'img_position' => 'posts-img-right-content-left',
+		'img_position' => 'mouse_over',
 		'height' => 'auto',
+		'name' => '',
+		'post_type' => '',
 	), $atts));
 
-	switch ($img_position){
-        case 'left':
-		$img_position = 'posts-img-left-content-right';
-        break;
-        case 'right':
-		$img_position = 'posts-img-right-content-left';
-        break;
-        case 'over':
-		$img_position = 'posts-img-over-content';
-        break;
-        case 'under':
-		$img_position = 'posts-img-under-content';
-        break;
-        case 'mouse_over':
-		$img_position = 'boxgrid';
-        break;
-    }
-		$img_position = 'boxgrid';
-	if($category_name == 'All categories'){
+	$img_position = 'boxgrid';
+    
+	if($category_name == 'All categories' && $name == ''){
 		query_posts('posts_per_page='.$amount);
 	} else {
-		query_posts('category_name='.$category_name.'&posts_per_page='.$amount);
+		if($name != "") {
+			query_posts('name='.$name.'&post_type='.$post_type);
+		} else {
+			query_posts('category_name='.$category_name.'&posts_per_page='.$amount);
+		}
 	}
 	if (have_posts()) : while (have_posts()) : the_post();
 
 		if($img_position == 'boxgrid'){
 			$thumb = get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
 			$pattern= "/(?<=src=['|\"])[^'|\"]*?(?=['|\"])/i";
-			preg_match($pattern, $thumb, $thePath);  
+			preg_match($pattern, $thumb, $thePath); 
+			if(!isset($thePath[0])){
+			$thePath[0] = get_template_directory_uri().'/images/1x1-trans.gif';
+			}
 			$tmp .= '<div class="boxgrid captionfull" style="background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
 			$tmp .= '<div class="cover boxcaption">';
-			$tmp .= '<h3><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
-			$tmp .= '<p>'.substr(get_the_excerpt(), 0, 30); if(strlen(get_the_excerpt()) >= 30) '" [...]" <a href="'. get_permalink().'"><br>read more</a></p>';
+			$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
+			$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
 			$tmp .= '</div>';		
 			$tmp .= '</div>';		
 		} else {
@@ -337,7 +340,7 @@ function cc_list_posts($atts,$content = null) {
 			if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 			if($height != 'auto'){ $height = $height.'px'; }
-			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br>Weiter lesen</a></p>';
+			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'._e('read more','buddypress').'</a></p>';
 			if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '</div>';
 			if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
@@ -364,14 +367,9 @@ function cc_list_posts($atts,$content = null) {
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 
-
-
-
-/*---------------------------------*/
-
-
+// [slideshow]
 function slider($atts,$content = null) {
-
+	global $post;
 	extract(shortcode_atts(array(
 		'amount' => '4',
 		'category_name' => 'All categories',
@@ -396,7 +394,6 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
-	
 	$tmp = '<script type="text/javascript">'. chr(13);
 	$tmp .= '		jQuery.noConflict();'. chr(13);
 	$tmp .= '		jQuery(document).ready(function(){'. chr(13);
@@ -413,14 +410,12 @@ function slider($atts,$content = null) {
 	$tmp .= '		});'. chr(13);
 	$tmp .= '</script>'. chr(13);
 
-	$tmp .= '<style>'. chr(13);
+	$tmp .= '<style type="text/css">'. chr(13);
     $tmp .= 'div.post img {'. chr(13);
 	$tmp .= 'margin: 0 0 1px 0;'. chr(13);
 	$tmp .= '}'. chr(13);
-	$tmp .= '</style>'. chr(13);	
-
+	
 	if($slider_nav == 'off'){
-		$tmp .= '<style>'. chr(13);
 	    $tmp .= '#featured'.$id.' ul.ui-tabs-nav {'. chr(13);
 		$tmp .= 'visibility: hidden;'. chr(13);
 		$tmp .= '}'. chr(13);
@@ -429,51 +424,39 @@ function slider($atts,$content = null) {
 	    $tmp .= 'padding:0;';
 		$tmp .= '}'. chr(13);
 	
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($width != ""){
-		$tmp .= '<style>'. chr(13);
 	    $tmp .= '#featured'.$id.' ul.ui-tabs-nav {'. chr(13);
 		$tmp .= 'left:'.$width.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($caption_height != ""){
-		$tmp .= '<style>'. chr(13);
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
 		$tmp .= 'height:'.$caption_height.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($caption_width != ""){
-		$tmp .= '<style>'. chr(13);
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
 		$tmp .= 'width:'.$caption_width.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($caption_top != ""){
-		$tmp .= '<style>'. chr(13);
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
 		$tmp .= 'top:'.$caption_top.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($background != ''){
-		$tmp .= '<style>'. chr(13);
 		$tmp .= '#featured'.$id.'{'. chr(13);
 	    $tmp .= 'background: #'.$background.';'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($width != '' || $height != '' || $slider_nav == 'off'){
-		$tmp .= '<style>'. chr(13);
 		$tmp .= '#featured'.$id.'{'. chr(13);
 	    $tmp .= 'width:'.$width.'px;'. chr(13);
 	    $tmp .= 'height:'.$height.'px;'. chr(13);
@@ -482,27 +465,20 @@ function slider($atts,$content = null) {
 	    $tmp .= 'width:'.$width.'px; height:'.$height.'px;'. chr(13);
 	    $tmp .= 'background:none; position:relative;'. chr(13);
 		$tmp .= '}'. chr(13);
-		
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($slider_nav_color != '') {
-		$tmp .= '<style>'. chr(13);
 		$tmp .= '#featured'.$id.' li.ui-tabs-nav-item a{'. chr(13);
 		$tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_color.';'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	if($slider_nav_hover_color != '') {
-		$tmp .= '<style>'. chr(13);
 		$tmp .= '#featured'.$id.' li.ui-tabs-nav-item a:hover{'. chr(13);
 		$tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_hover_color.';'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 
 	if($slider_nav_selected_color != '') {
-		$tmp .= '<style>'. chr(13);
 		$tmp .= '#featured'.$id.' .ui-tabs-selected {'. chr(13);
 		$tmp .= 'padding-left:0;'. chr(13);
 		$tmp .= '}'. chr(13);
@@ -510,17 +486,15 @@ function slider($atts,$content = null) {
 		$tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_selected_color.' !important;'. chr(13);
 		$tmp .= 'padding-left:0;'. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
 	
 	if($slider_nav_font_color != ''){
-		$tmp .= '<style>'. chr(13);	
 		$tmp .= '#featured'.$id.' ul.ui-tabs-nav li span{'. chr(13);
 		$tmp .= 'color:#'.$slider_nav_font_color. chr(13);
 		$tmp .= '}'. chr(13);
-		$tmp .= '</style>'. chr(13);	
 	}
-
+	$tmp .= '</style>'. chr(13);	
+	
 	
 	if($category_name != 'All categories' || $page_id != ''){
 		if($page_id != ''){
@@ -544,16 +518,24 @@ function slider($atts,$content = null) {
 		    $tmp .='</ul>'. chr(13);
 		$i = 1; 
 		while (have_posts()) : the_post();
-		    $tmp .='<div id="fragment-'.$id.'-'.$i.'" class="ui-tabs-panel">'. chr(13);
+		
+		$url = get_permalink();
+		$theme_fields = get_post_custom_values('my_url');
+		if(isset($theme_fields[0])){
+		 	$url = $theme_fields[0];
+		}
+		   
+		$tmp .='<div id="fragment-'.$id.'-'.$i.'" class="ui-tabs-panel">'. chr(13);
+		    
 		    if($width != '' || $height != ''){
-		    	$tmp .='	<a class="reflect" href="'.get_permalink().'">'.get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ).'</a>'. chr(13);
+		    	$tmp .='	<a class="reflect" href="'.$url.'">'.get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ).'</a>'. chr(13);
 		    } else {
-				$tmp .='	<a class="reflect" href="'.get_permalink().'">'.get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ).'</a>'. chr(13);
+				$tmp .='	<a class="reflect" href="'.$url.'">'.get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ).'</a>'. chr(13);
 		    }
 			if($caption == 'on'){
 				$tmp .=' <div class="info" >'. chr(13);
-				$tmp .='	<h2><a href="'.get_permalink().'" >'.get_the_title().'</a></h2>'. chr(13);
-				$tmp .='	<p>'.get_the_excerpt( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ).'</p>'. chr(13);
+				$tmp .='	<h2><a href="'.$url.'" >'.get_the_title().'</a></h2>'. chr(13);
+				$tmp .='	<p>'.get_the_excerpt().'</p>'. chr(13);
 				$tmp .=' </div>'. chr(13);
 			}
 			$tmp .='</div>'. chr(13);
@@ -572,12 +554,10 @@ function slider($atts,$content = null) {
 		return '<div>'.$tmp.'</div>'. chr(13);
 }
 
+// [nothing]
 // [empty = test to display shortcodes inside shortcodes without execution]
 function nothing($atts,$content = null) {  
 	return $content;
 }
 add_shortcode('cc_empty', 'nothing');
-
-
-
 ?>

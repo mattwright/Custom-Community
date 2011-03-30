@@ -1,4 +1,9 @@
 <?php get_header() ?>
+<?php global $cap; ?>
+<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
+<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
+	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
+<?php };?>
 
 	<div id="content">
 		<div class="padder">
@@ -32,6 +37,7 @@
 		<div class="clear"></div>
 		<?php do_action( 'bp_after_blog_page' ) ?>
 		<?php edit_post_link( __( 'Edit this entry.', 'buddypress' ), '<p>', '</p>'); ?>
+		<!-- instead of comment_form() we use comments_template(). If you want to fall back to wp, change this function call ;-) -->
 		<?php comments_template(); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->

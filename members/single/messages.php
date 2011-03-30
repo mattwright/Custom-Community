@@ -1,4 +1,4 @@
-<div class="item-list-tabs no-ajax" id="<?php global $cap; if($cap->bp_default_navigation == true){?>	subnav<?php } ?>">
+<div class="item-list-tabs no-ajax" id="<?php global $cap; if($cap->bp_default_navigation == true){?>subnav<?php } ?>">
 	<ul>
 		<?php bp_get_options_nav() ?>
 	</ul>

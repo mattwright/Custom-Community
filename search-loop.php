@@ -17,18 +17,16 @@
 			<?php do_action( 'bp_before_blog_post' ) ?>
                 <div class="post"> <!-- Post goes here... --> 
                 	<div class="post-content"> 
-                    	<h3 class="post-title"><?php the_title();?></h3>
-                        <div> 
+                    	<a href="<?php the_permalink();?>"><h3 class="post-title"><?php the_title();?></h3></a>
+                    <div class="postmetadata"> 
+                    	<span><?php the_time('F j, Y') ?>  | <?php the_category(', ') ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'bpmag' ), __( '1 Comment &#187;', 'bpmag' ), __( '% Comments &#187;', 'bpmag' ) ); ?></span>
+                    </div>
+				        <div> 
                         	<?php the_excerpt();?>                           
                         </div>                       
                         <div class="clear"> </div>
                     </div>
-                    <div class="postmetadata"> 
-                    	<span><?php the_time('F j, Y') ?>  | <?php the_category(', ') ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'bpmag' ), __( '1 Comment &#187;', 'bpmag' ), __( '% Comments &#187;', 'bpmag' ) ); ?></span>
-                        <div class="readmore"><a href="<?php the_permalink();?>"><?php _e("Read more...","bpmag");?></a></div>
-                    </div>
-					
-                </div><!-- Post ends here... -->
+              </div><!-- Post ends here... -->
 				<?php do_action( 'bp_after_blog_post' ) ?>
                 <?php endwhile;?>
 				<?php if(!bpmag_is_advance_search()):?>

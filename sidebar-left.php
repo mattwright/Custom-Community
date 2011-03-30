@@ -3,11 +3,11 @@
 <div id="leftsidebar">
   <div class="paddersidebar">
   <?php if(defined('BP_VERSION')){ ?>
-  		<?php if( ! dynamic_sidebar( 'left sidebar' )) : ?>    
+  		<?php if( ! dynamic_sidebar( 'leftsidebar' )) : ?>    
 			<?php widget_community_nav() ?>
 		<?php endif; // end primary widget area ?>
 	<?php } else {?>
-  		<?php if( ! dynamic_sidebar( 'left sidebar' )) : ?>
+  		<?php if( ! dynamic_sidebar( 'leftsidebar' )) : ?>
   		<?php endif ?>  
 	<?php } ?>
   </div><!-- #padder -->	

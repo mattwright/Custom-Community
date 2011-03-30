@@ -31,6 +31,7 @@
 		}
 
 		$option_post_templates[0] = "img-left-content-right";
+		$option_post_templates[1] = "more options in the pro version";
 		
 		?>
 		
@@ -40,13 +41,13 @@
 	}
 	</style>
 	<div id="cc_page_metabox" class="postbox">
-		<div class="handlediv" title="<?php _e('klick'); ?>">
+		<div class="handlediv" title="<?php _e('klick','buddypress'); ?>">
 			<br />
 		</div>
 		<h3 class="hndle"><?php _e('Custom Community settings')?></h3>
 		<div class="inside">
 			<b>Use a post template for this post</b>
-			<p>You can select a predefined post template:<br></br>
+			<p>You can select a predefined post template:<br />
 				<label for="cc_post_template"><?php _e('Post template on')?>:</label>
 				<input name="cc_post_template_on" id="cc_post_template_on" type="checkbox" <?php echo $checked_post_template ?> value="1" />
 				Select a template to use:<select id="cc_post_template_type" name="cc_post_template_type">
@@ -74,7 +75,7 @@
  }
  
 function cc_post_meta_add($id){
-	if ($_POST['cc_post_template_on'] == "1") {
+	if (isset($_POST['cc_post_template_on']) == "1") {
 	 	update_post_meta($id,"_cc_post_template_on",1);
 	}else{
 	 	update_post_meta($id,"_cc_post_template_on",0);
@@ -84,22 +85,22 @@ function cc_post_meta_add($id){
 	    update_post_meta($id,"_cc_post_template_type",$_POST["cc_post_template_type"]);
 	}
 	
-	if ($_POST['cc_post_template_avatar'] == "1") {
+	if (isset($_POST['cc_post_template_avatar']) == "1") {
 	 	update_post_meta($id,"_cc_post_template_avatar",1);
 	}else{
 	 	update_post_meta($id,"_cc_post_template_avatar",0);
 	}
-	if ($_POST['cc_post_template_date'] == "1") {
+	if (isset($_POST['cc_post_template_date']) == "1") {
 	 	update_post_meta($id,"_cc_post_template_date",1);
 	}else{
 	 	update_post_meta($id,"_cc_post_template_date",0);
 	}
-	if ($_POST['cc_post_template_tags'] == "1") {
+	if (isset($_POST['cc_post_template_tags']) == "1") {
 	 	update_post_meta($id,"_cc_post_template_tags",1);
 	}else{
 	 	update_post_meta($id,"_cc_post_template_tags",0);
 	}
-	if ($_POST['cc_post_template_comments_info'] == "1") {
+	if (isset($_POST['cc_post_template_comments_info']) == "1") {
 	 	update_post_meta($id,"_cc_post_template_comments_info",1);
 	}else{
 	 	update_post_meta($id,"_cc_post_template_comments_info",0);

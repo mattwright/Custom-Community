@@ -1,12 +1,16 @@
 <?php get_header() ?>
-
+<?php global $cap; ?> 
+<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
+<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
+	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
+<?php };?>
 	<?php do_action( 'bp_before_directory_forums_content' ) ?>
 
 	<div id="content">
 		<div class="padder">
 
 		<form action="" method="post" id="forums-search-form" class="dir-form">
-			<h3><?php _e( 'Group Forums Directory', 'buddypress' ) ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'buddypress' ) ?></a><?php endif; ?></h3>
+			<h2 class="pagetitle" ><?php _e( 'Group Forums Directory', 'buddypress' ) ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'buddypress' ) ?></a><?php endif; ?></h2>
 
 			<!--<div id="forums-dir-search" class="dir-search">
 				<?php bp_directory_forums_search_form() ?>
@@ -105,7 +109,7 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-<?php global $cap; if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
+<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
 		<?php locate_template( array( 'sidebar.php' ), true ) ?>
 <?php };?>
 <?php get_footer() ?>

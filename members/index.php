@@ -1,11 +1,16 @@
 <?php get_header() ?>
+<?php global $cap; ?>
+<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
+<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
+	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
+<?php };?>
 
 	<div id="content">
 		<div class="padder">
 
 		<form action="" method="post" id="members-directory-form" class="dir-form">
 
-			<h3><?php _e( 'Members Directory', 'buddypress' ) ?></h3>
+			<h2 class="pagetitle" ><?php _e( 'Members Directory', 'buddypress' ) ?></h2>
 
 			<?php do_action( 'bp_before_directory_members_content' ) ?>
 
@@ -54,7 +59,7 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-<?php global $cap; if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
+<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
 		<?php locate_template( array( 'sidebar.php' ), true ) ?>
 <?php };?>
 	

@@ -3,9 +3,10 @@
  * Template Name: Full Width 
  */
 ?>
-	<?php locate_template( array( 'page-template-header.php' ), true ) ?> 
+<?php get_header() ?>
+<?php global $cap; ?>
 
-	<style>
+	<style type="text/css">
 	#container { background-image:none !important; }
 	div#content .padder { margin: 0; }
 	</style>

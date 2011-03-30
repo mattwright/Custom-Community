@@ -1,11 +1,15 @@
 <?php get_header(); ?>
-
+<?php global $cap; ?>
+<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
+<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
+	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
+<?php };?>
 	<div id="content">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_404' ) ?>
 
-		<div class="page 404">
+		<div class="error404 not-found page">
 
 			<h2 class="pagetitle"><?php _e( 'Page Not Found', 'buddypress' ) ?></h2>
 

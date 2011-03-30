@@ -1,46 +1,23 @@
 <?php do_action( 'bp_before_group_header' ) ?>
 
-<div id="item-actions">
-	<?php if ( bp_group_is_visible() ) : ?>
+<?php if( ! dynamic_sidebar( 'groupheader' )) : ?>
+ <?php cc_groups_header();?>
+<?php endif; ?>
 
-		<h3><?php _e( 'Group Admins', 'buddypress' ) ?></h3>
-		<?php bp_group_list_admins() ?>
-
-		<?php do_action( 'bp_after_group_menu_admins' ) ?>
-
-		<?php if ( bp_group_has_moderators() ) : ?>
-			<?php do_action( 'bp_before_group_menu_mods' ) ?>
-
-			<h3><?php _e( 'Group Mods' , 'buddypress' ) ?></h3>
-			<?php bp_group_list_mods() ?>
-
-			<?php do_action( 'bp_after_group_menu_mods' ) ?>
-		<?php endif; ?>
-
-	<?php endif; ?>
-</div><!-- #item-actions -->
-
-<div id="item-header-avatar">
-	<a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>">
-		<?php bp_group_avatar() ?>
-	</a>
-</div><!-- #item-header-avatar -->
-
-<div id="item-header-content">
-	<h2><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
-	<span class="highlight"><?php bp_group_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'buddypress' ), bp_get_group_last_active() ) ?></span>
-
-	<?php do_action( 'bp_before_group_header_meta' ) ?>
-
-	<div id="item-meta">
-		<?php bp_group_description() ?>
-
-		<?php bp_group_join_button() ?>
-
-		<?php do_action( 'bp_group_header_meta' ) ?>
+<?php if (is_active_sidebar('groupheaderleft') ){ ?>
+	<div class="widgetarea cc-widget">
+	<?php dynamic_sidebar( 'groupheaderleft' )?>
 	</div>
-</div><!-- #item-header-content -->
+<?php } ?>
+<?php if (is_active_sidebar('groupheadercenter') ){ ?>
+	<div <?php if(!is_active_sidebar('groupheaderleft')) { echo 'style="margin-left:30% !important"'; } ?> class="widgetarea cc-widget">
+	<?php dynamic_sidebar( 'groupheadercenter' ) ?>
+	</div>
+<?php } ?>
+<?php if (is_active_sidebar('groupheaderright') ){ ?>
+	<div class="widgetarea cc-widget cc-widget-right">
+	<?php dynamic_sidebar( 'groupheaderright' ) ?>
+	</div>
+<?php } ?>
 
 <?php do_action( 'bp_after_group_header' ) ?>
-
-<?php do_action( 'template_notices' ) ?>

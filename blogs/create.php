@@ -1,5 +1,9 @@
 <?php get_header() ?>
-
+<?php global $cap; ?>
+<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
+<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
+	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
+<?php };?>
 	<?php do_action( 'bp_before_directory_blogs_content' ) ?>
 
 	<div id="content">

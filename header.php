@@ -2,17 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
 	<head profile="http://gmpg.org/xfn/11">
-
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<?php global $cap, $cc_page_options; ?>
 		<?php $cc_page_options=get_cc_page_options();?>
-		<title><?php if(defined('BP_VERSION')){ bp_page_title(); } else { the_title(); } ?></title>
-
+		
+		<link rel="shortcut icon" href="<?php echo $cap->favicon ?>" />
+		
+		<title><?php if(defined('BP_VERSION')){ bp_page_title(''); } else { wp_title(''); } ?></title>
+		
 		<?php do_action( 'bp_head' ) ?>
 
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-		<?php switch_css(); ?>
+		
 		<?php if ( function_exists( 'bp_sitewide_activity_feed_link' ) ) : ?>
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php _e('Site Wide Activity RSS Feed', 'buddypress' ) ?>" href="<?php bp_sitewide_activity_feed_link() ?>" />
 		<?php endif; ?>
@@ -31,9 +33,6 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 		<?php wp_head(); ?>
-		
-		<?php include('style.php'); ?>
-	
 	</head>
 
 	<body <?php body_class() ?> id="bp-default">
@@ -42,17 +41,59 @@
 		<?php do_action( 'bp_before_header' ) ?>
 
 	<div id="header">
-	
-		<h1 id="logo"><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
-	
+		<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
+		<?php endif; ?>
+		<?php if (is_active_sidebar('headerleft') ){ ?>
+		<div class="widgetarea cc-widget">
+			<?php dynamic_sidebar( 'headerleft' )?>
+	  	</div>
+		<?php } ?>
+  		<?php if (is_active_sidebar('headercenter') ){ ?>
+		<div <?php if(!is_active_sidebar('headerleft')) { echo 'style="margin-left:350px !important"'; } ?> class="widgetarea cc-widget">
+			<?php dynamic_sidebar( 'headercenter' ) ?>
+	  	</div>
+  		<?php } ?>
+  		<?php if (is_active_sidebar('headerright') ){ ?>
+		<div class="widgetarea cc-widget cc-widget-right">
+			<?php dynamic_sidebar( 'headerright' ) ?>
+	  	</div>
+	  	<?php } ?>
+  		
+		<?php if(is_home()): ?>
+			<div id="logo">
+			<h1><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
+			<?php if($cap->logo){ ?>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<?php } ?>
+			</div>
+		<?php else: ?>
+			<div id="logo">
+			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
+			<?php if($cap->logo){ ?>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<?php } ?>
+			</div>
+		<?php endif; ?>
+				
 		<div id="access">
         <!--<div id="access" role="navigation">//-->
 			<div class="menu">
-		<?php if(defined('BP_VERSION')) {?>	
+	
+		<?php if(!defined('BP_VERSION')) {?>
+			<?php if($cap->menue_disable_home == true){ ?>
+				<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
+					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
+				</li>
+			<?php }?>
+		<?php } ?>	
+	
+		<?php if(defined('BP_VERSION')) {?>		
 			<ul>
+			<?php if($cap->menue_disable_home == true){ ?>
 				<li id="nav-home"<?php if ( bp_is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
 				</li>
+			<?php }?>
 				<?php if($cap->menue_enable_community == true){ ?>
 				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'buddypress' ) ?>"><?php _e( 'Community', 'buddypress' ) ?></a>
@@ -97,7 +138,7 @@
 			<?php if($cap->menue_enable_search){?>	
 				<div id="search-bar">
 					<div class="padder">
-		
+					
 					<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
 						<input type="text" id="search-terms" name="search-terms" value="" />
 						<?php echo bp_search_form_type_select() ?>
@@ -114,25 +155,29 @@
 		<?php } ?>	
 			<?php do_action( 'bp_header' ) ?>
 		<div class="clear"></div>
-	</div><!-- #header -->
+	
+		</div><!-- #header -->
 		<?php do_action( 'bp_after_header' ) ?>
-		<?php if(defined('BP_VERSION')){ 
-			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
+		<?php if($cap->enable_slideshow_home != ''):?>
+			<?php if(defined('BP_VERSION')){ 
+				if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
+					<div id="slider-top">
+						<?php echo slidertop();?>	
+					</div>
+					<?php if($cap->slideshow_shadow == "shadow"){?>
+					<div style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/slider-shadow.png"></img></div>		
+					<?php };?>
+				<?php } ?>
+			<?php } elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
 				<div id="slider-top">
-					<?php echo slidertop();?>	
-				</div>
+						<?php echo slidertop();?>
+				</div>	
+				<?php if($cap->slideshow_shadow == "shadow"){?>
+				<div style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/slider-shadow.png"></img></div>		
+				<?php }?>
 			<?php } ?>
-		<?php } elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
-			<div id="slider-top">
-				<?php echo slidertop();?>
-			</div>	
-		<?php } ?>
-						
+		<?php endif; ?>			
 		
 		<?php do_action( 'bp_before_container' ) ?>
 
 		<div id="container">
-<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
-<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
-	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
-<?php };?>

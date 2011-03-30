@@ -3,6 +3,7 @@
 add_action('wp_ajax_cc_ajax_img_upload', 'cc_ajax_img_upload');
 
 function cc_ajax_img_upload() {
+
 global $wpdb; // this is how you get access to the database
 /* echo "<pre>";
 print_r($wpdb);
@@ -40,8 +41,8 @@ elseif($save_type == 'image_reset'){
 die();
 }
 
-
-add_action('admin_head', 'my_action_javascript');
+        
+//add_action('admin_footer', 'my_action_javascript');
 
 function my_action_javascript() {
 ?>
