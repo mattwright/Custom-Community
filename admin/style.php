@@ -63,7 +63,7 @@ max-width:1030px;
 min-width:1030px;
 }
 h1, h2, h3, h4, h5, h6 {
-margin: 0 0 0 12px;
+margin: 0 0 12px 0;
 }
 h1 { font-size: 28px; color:#<?php echo $font_color; ?>; margin-bottom: 25px; line-height: 170%; }
 h2 { font-size: 24px; color:#<?php echo $font_color; ?>;  margin-top: -8px; margin-bottom: 25px; line-height: 170%; }
@@ -739,7 +739,7 @@ width: 100%;
 
 ul.item-list li {
 position: relative;
-padding: 15px 0;
+padding: 15px 0 20px 0;
 border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
 }
 ul.single-line li { border: none; }
@@ -888,7 +888,6 @@ background-color:#<?php echo $body_bg_color; ?>;
 color:#<?php echo $font_color; ?> !important;
 font-weight: normal;
 margin-top:0;
-border-right:1px solid #777777;
 }
 ul li.loading a {
 background-image: url(<?php echo get_template_directory_uri() ?>/images/ajax-loader.gif );
@@ -962,6 +961,7 @@ text-decoration:none;
 -webkit-border-radius: 3px;
 border-radius: 3px;
 line-height: 120%;
+width:80%;
 }
 div.widget span.activity {
 -moz-border-radius:3px 3px 3px 3px;
@@ -2766,7 +2766,7 @@ background:url(<?php echo get_template_directory_uri() ?>/images/<?php color_sch
 background:#<?php echo $container_bg_color ?>;
 }
 .featured .ui-tabs-panel{
-width:750px; height:250px;
+width:756px; height:250px;
 background:#<?php echo $container_bg_color; ?>; position:relative;
 }
 .featured .ui-tabs-panel .info{

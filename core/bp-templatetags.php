@@ -24,10 +24,10 @@
 	 * @package BuddyPress Theme
 	 * @since 1.2
 	 */
-	function cc_bp_dtheme_add_blog_comments_js() {
+	function bp_dtheme_add_blog_comments_js() {
 		if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 	}
-	add_action( 'template_redirect', 'cc_bp_dtheme_add_blog_comments_js' );
+	add_action( 'template_redirect', 'bp_dtheme_add_blog_comments_js' );
 	
 	/**
 	 * HTML for outputting blog comments as defined by the WP comment API
