@@ -47,238 +47,241 @@ if($cap->bp_groups_nav_order != ''){
 	add_action('wp', 'cc_change_groups_tab_order');
 }
 
-### Add Sidebars
-register_sidebars( 1,
-	array(
-		'name' => 'header full width',
-		'id' => 'headerfullwidth',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'header left',
-		'id' => 'headerleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'header center',
-		'id' => 'headercenter',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'header right',
-		'id' => 'headerright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'Sidebar',
-		'id' => 'sidebar',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title'  => '<h3 class="widgettitle">',
-		'after_title'   => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'left sidebar',
-		'id' => 'leftsidebar',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'footer full width',
-		'id' => 'footerfullwidth',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'footer left',
-		'id' => 'footerleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'footer center',
-		'id' => 'footercenter',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'footer right',
-		'id' => 'footerright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member header',
-		'id' => 'memberheader',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member header left',
-		'id' => 'memberheaderleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member header center',
-		'id' => 'memberheadercenter',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member header right',
-		'id' => 'memberheaderright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member sidebar left',
-		'id' => 'membersidebarleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'member sidebar right',
-		'id' => 'membersidebarright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group header',
-		'id' => 'groupheader',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group header left',
-		'id' => 'groupheaderleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group header center',
-		'id' => 'groupheadercenter',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group header right',
-		'id' => 'groupheaderright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group sidebar left',
-		'id' => 'groupsidebarleft',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 1,
-	array(
-		'name' => 'group sidebar right',
-		'id' => 'groupsidebarright',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-register_sidebars( 15,
-	array(
-		'name' => 'shortcode %1$s',
-		'id' => 'shortcode %1$s',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div><div class="clear"></div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
+function cc_widgets_init(){
+	### Add Sidebars
+	register_sidebars( 1,
+		array(
+			'name' => 'header full width',
+			'id' => 'headerfullwidth',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'header left',
+			'id' => 'headerleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'header center',
+			'id' => 'headercenter',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'header right',
+			'id' => 'headerright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'Sidebar',
+			'id' => 'sidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title'  => '<h3 class="widgettitle">',
+			'after_title'   => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'left sidebar',
+			'id' => 'leftsidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'footer full width',
+			'id' => 'footerfullwidth',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'footer left',
+			'id' => 'footerleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'footer center',
+			'id' => 'footercenter',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'footer right',
+			'id' => 'footerright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member header',
+			'id' => 'memberheader',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member header left',
+			'id' => 'memberheaderleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member header center',
+			'id' => 'memberheadercenter',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member header right',
+			'id' => 'memberheaderright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member sidebar left',
+			'id' => 'membersidebarleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'member sidebar right',
+			'id' => 'membersidebarright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group header',
+			'id' => 'groupheader',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group header left',
+			'id' => 'groupheaderleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group header center',
+			'id' => 'groupheadercenter',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group header right',
+			'id' => 'groupheaderright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group sidebar left',
+			'id' => 'groupsidebarleft',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'group sidebar right',
+			'id' => 'groupsidebarright',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 15,
+		array(
+			'name' => 'shortcode %1$s',
+			'id' => 'shortcode %1$s',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
 
+}
+add_action( 'widgets_init', 'cc_widgets_init' );
 
 ## This theme uses wp_nav_menu() in one location.
 register_nav_menus( array(
@@ -308,7 +311,7 @@ define( 'BP_DISABLE_ADMIN_BAR', false );
 }
 
 ### Define excerpt length
-function new_excerpt_length() {
+function cc_excerpt_length() {
 	global $cap;
 	$excerpt_length = 30;
 	if($cap->excerpt_length){
@@ -319,11 +322,11 @@ function new_excerpt_length() {
 function slide1_excerpt_length() {
 	return 30;
 }
-add_filter('excerpt_length', 'new_excerpt_length');
+add_filter('excerpt_length', 'cc_excerpt_length');
 
 
 // custom login for theme
-function custom_login() { 
+function cc_custom_login() { 
 
 	global $cap;?> 
 <style type="text/css">
@@ -384,36 +387,36 @@ body {
 <?php 
 }
  
-add_action('login_head', 'custom_login');
+add_action('login_head', 'cc_custom_login');
 
 if($cap->buddydev_search == true){
 
 if(defined('BP_VERSION')) {
 /* Add these code to your cunctions.php to allow Single Search page for all buddypress components*/
 //	Remove Buddypress search drowpdown for selecting members etc
-add_filter("bp_search_form_type_select", "bpmag_remove_search_dropdown"  );
-function bpmag_remove_search_dropdown($select_html){
+add_filter("bp_search_form_type_select", "cc_remove_search_dropdown"  );
+function cc_remove_search_dropdown($select_html){
     return '';
 }
 
 remove_action( 'init', 'bp_core_action_search_site', 5 );//force buddypress to not process the search/redirect
-add_action( 'init', 'bp_buddydev_search', 10 );// custom handler for the search
+add_action( 'init', 'cc_bp_buddydev_search', 10 );// custom handler for the search
 
-function bp_buddydev_search(){
+function cc_bp_buddydev_search(){
 global $bp;
 	if ( $bp->current_component == BP_SEARCH_SLUG )//if thids is search page
 		bp_core_load_template( apply_filters( 'bp_core_template_search_template', 'search-single' ) );//load the single searh template
 }
-add_action("advance-search","bpmag_show_search_results",1);//highest priority
+add_action("advance-search","cc_show_search_results",1);//highest priority
 
 /* we just need to filter the query and change search_term=The search text*/
-function bpmag_show_search_results(){
+function cc_show_search_results(){
     //filter the ajaxquerystring
-     add_filter("bp_ajax_querystring","bpmag_global_search_qs",100,2);
+     add_filter("bp_ajax_querystring","cc_global_search_qs",100,2);
 }
 
 //show the search results for member*/
-function bpmag_show_member_search(){
+function cc_show_member_search(){
     ?>
    <div class="memberss-search-result search-result">
    <h2 class="content-title"><?php _e("Members Results","buddypress");?></h2>
@@ -427,8 +430,8 @@ function bpmag_show_member_search(){
  }
 
 //Hook Member results to search page
-add_action("advance-search","bpmag_show_member_search",10); //the priority defines where in page this result will show up(the order of member search in other searchs)
-function bpmag_show_groups_search(){
+add_action("advance-search","cc_show_member_search",10); //the priority defines where in page this result will show up(the order of member search in other searchs)
+function cc_show_groups_search(){
     ?>
 <div class="groups-search-result search-result">
  	<h2 class="content-title"><?php _e("Group Search","buddypress");?></h2>
@@ -442,13 +445,13 @@ function bpmag_show_groups_search(){
 
 //Hook Groups results to search page
  if(bp_is_active( 'groups' ))
-    add_action("advance-search","bpmag_show_groups_search",10);
+    add_action("advance-search","cc_show_groups_search",10);
 
 /**
  *
  * Show blog posts in search
  */
-function bpmag_show_site_blog_search(){
+function cc_show_site_blog_search(){
     ?>
  <div class="blog-search-result search-result">
  
@@ -461,10 +464,10 @@ function bpmag_show_site_blog_search(){
   }
 
 //Hook Blog Post results to search page
- add_action("advance-search","bpmag_show_site_blog_search",10);
+ add_action("advance-search","cc_show_site_blog_search",10);
 
 //show forums search
-function bpmag_show_forums_search(){
+function cc_show_forums_search(){
     ?>
  <div class="forums-search-result search-result">
    <h2 class="content-title"><?php _e("Forums Search","buddypress");?></h2>
@@ -476,12 +479,12 @@ function bpmag_show_forums_search(){
 
 //Hook Forums results to search page
 if ( bp_is_active( 'forums' ) && bp_is_active( 'groups' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() )
- add_action("advance-search","bpmag_show_forums_search",20);
+ add_action("advance-search","cc_show_forums_search",20);
 
 
 //show blogs search result
 
-function bpmag_show_blogs_search(){
+function cc_show_blogs_search(){
 
     ?>
   <div class="blogs-search-result search-result">
@@ -494,15 +497,15 @@ function bpmag_show_blogs_search(){
 
 //Hook Blogs results to search page if blogs comonent is active
  if(bp_is_active( 'blogs' ))
-    add_action("advance-search","bpmag_show_blogs_search",10);
+    add_action("advance-search","cc_show_blogs_search",10);
 
 
  //modify the query string with the search term
-function bpmag_global_search_qs(){
+function cc_global_search_qs(){
 	return "search_terms=".$_REQUEST['search-terms'];
 }
 
-function bpmag_is_advance_search(){
+function cc_is_advance_search(){
 global $bp;
 if($bp->current_component == BP_SEARCH_SLUG)
 	return true;

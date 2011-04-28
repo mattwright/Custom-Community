@@ -3734,7 +3734,7 @@ header image, repeat  **/
 <?php } ?>
 
 <?php if ( $cap->header_text == 'off' ) { ?>
-	#header div#logo h1, #header #desc, #header div#logo h4 { 
+	#header div#logo h1, #header #desc, #header div#logo h4, div#blog-description { 
 		display: none; 
 	}
 <?php } ?>

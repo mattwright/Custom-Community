@@ -57,7 +57,8 @@ function cap_add_admin() {
 				break;
 			case 'Import':
 				$method = 'Import';
-				$data = unserialize( file_get_contents( $_FILES['file']['tmp_name'] ) );
+		//		$data = unserialize( file_get_contents( $_FILES['file']['tmp_name'] ) );
+				$data = unserialize( implode ('', file ($_FILES['file']['tmp_name'])));
 				break;
 		}
 
@@ -73,7 +74,7 @@ function cap_add_admin() {
 	}
 
 	$pgName = "$themename Settings";
-	$hook = add_theme_page( $pgName, $pgName, isset( $req_cap_to_edit ) ? $req_cap_to_edit : 'manage_options', basename( __FILE__ ), 'top_level_settings' );
+	$hook = add_theme_page( $pgName, $pgName, isset( $req_cap_to_edit ) ? $req_cap_to_edit : 'edit_theme_options', basename( __FILE__ ), 'top_level_settings' );
 	add_action( "admin_print_scripts-$hook", 'cap_admin_js_libs' );
 	add_action( "admin_footer-$hook", 'cap_admin_js_footer' );
 	add_action( "admin_print_styles-$hook", 'cap_admin_css' );

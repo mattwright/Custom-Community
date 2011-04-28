@@ -9,7 +9,7 @@
 //
 
 $themename = 'Theme'; // used on the title of the custom admin page
-$req_cap_to_edit = 'manage_options'; // the user capability that is required to access the CheezCap settings page
+$req_cap_to_edit = 'edit_theme_options'; // the user capability that is required to access the CheezCap settings page
 
 function cap_get_options() {
 	$pages = get_pages();
