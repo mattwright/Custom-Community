@@ -75,6 +75,5 @@
 	<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
 		<?php locate_template( array( 'sidebar.php' ), true ) ?>
 	<?php };?>
-
-
+	
 <?php get_footer() ?>

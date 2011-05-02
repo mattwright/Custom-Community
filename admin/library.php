@@ -153,12 +153,20 @@ class DropdownOption extends Option {
 				<p><b><?php echo $this->name; ?></b></p>
 			<?php } ?>
 			<?php echo $this->desc.'<br />'; ?>
+			<?php echo "Std: ".$this->std.'<br />'; ?>
 				<select name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>">
 				<?php
+				
 				foreach( $this->options as $option ) :
-				?>
-				<option<?php if ( get_option( $this->id ) == $option || ( ! get_option( $this->id ) && $this->options[$this->std] == $option )) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
-				<?php
+					// If standard value is given
+					if( $this->std != "" ){
+						?>
+						<option<?php if ( get_option( $this->id ) == $option || ( ! get_option( $this->id ) && $this->options[ $this->std ] == $option )) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
+						<?php
+					}else{ 
+						?>
+						<option<?php if ( get_option( $this->id ) == $option ) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
+					<?php }
 				endforeach;
 				?>
 				</select>
