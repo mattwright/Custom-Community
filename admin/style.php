@@ -2129,15 +2129,6 @@ font-size: 13px;
 padding: 5px 0;
 margin: 5px 0 25px 0;
 }
-.alignright {
-float: right;
-margin-left: 15px;
-}
-
-.alignleft {
-float: left;
-margin-right: 15px;
-}
 
 div.post p { margin: 0 0 20px 0; }
 div.post ul, div.post ol, div.post dl { margin: 0 0 12px 0; }
@@ -2284,6 +2275,7 @@ padding-top: 4px;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 border-radius: 3px;
+margin-bottom:12px;
 }
 
 div.post .wp-caption img {
@@ -3740,7 +3732,7 @@ header image, repeat  **/
 <?php } ?>
 
 <?php if ( $cap->header_text_color) { ?>
-	#header h1 a, #desc { 
+	#header div#logo h1 a, #header div#logo h4 a, #desc, div#blog-description { 
 		color:#<?php echo $cap->header_text_color ?>; 
 	}
 <?php } ?>			

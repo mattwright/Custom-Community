@@ -71,6 +71,7 @@
 		<?php else: ?>
 			<div id="logo">
 			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
+			<div id="blog-description"><?php bloginfo('description'); ?></div>
 			<?php if($cap->logo){ ?>
 			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
 			<?php } ?>

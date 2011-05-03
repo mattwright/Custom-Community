@@ -91,6 +91,8 @@
 					</div>
 				<?php } ?>	
 
+				<div class="clear"></div>
+
 				<?php comments_template(); ?>
 	
 				<?php endwhile; else: ?>
