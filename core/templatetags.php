@@ -254,7 +254,7 @@ function style_switcher(){?>
 }
 
 function cc_list_posts_on_page(){
-$cc_page_options=cc_get_post_options(); 
+$cc_page_options=cc_get_post_meta(); 
     if(isset($cc_page_options) && $cc_page_options['cc_page_template_on'] == 1){
     
     switch ($cc_page_options['cc_posts_on_page_type'])

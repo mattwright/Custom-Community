@@ -22,7 +22,7 @@
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php
 						global $cc_post_options;
-						$cc_post_options=cc_get_post_options(); 
+						$cc_post_options=cc_get_post_meta(); 
 						$single_class = false;
 					    if(isset($cc_post_options) && $cc_post_options['cc_post_template_on'] == 1){
 					    		
