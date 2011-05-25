@@ -49,26 +49,25 @@ class Option {
 		echo '';
 	}
 	
-	function Update( $ignored ) {
-		$value = stripslashes_deep( $_POST[$this->id] );
-		update_option( $this->id, $value );
-	}
-	
 	function Reset( $ignored ) {
 		update_option( $this->id, $this->std );
 	}
 	
 	function Import( $data ) {
 		if ( array_key_exists( $this->id, $data->dict ) )
-			update_option( $this->id, $data->dict[$this->id] );
+				$cap = get_option('custom_community_theme_options');
+				$cap[$this->id] = $data->dict[$this->id];
+				update_option( 'custom_community_theme_options', $cap );
 	}
 	
 	function Export( $data ) {
-		$data->dict[$this->id] = get_option( $this->id );
+		$cap = get_option('custom_community_theme_options');
+		$data->dict[$this->id] = $cap[$this->id];	
 	}
 
 	function get() {
-		return get_option( $this->id );
+		$value = get_option('custom_community_theme_options');
+		return $value[$this->id];
 	}
 }
 
@@ -83,12 +82,12 @@ class TextOption extends Option {
 	}
 	
 	function WriteHtml() {
-		$stdText = $this->std;
-	
-		$stdTextOption = get_option( $this->id );	
-	        if ( ! empty( $stdTextOption ) )
-			$stdText = $stdTextOption;
 
+		$stdText = $this->std;
+		$value = get_option('custom_community_theme_options');
+    	if ( $value[$this->id] != "" )
+            $stdText =  $value[$this->id];
+	
 			if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
 				<?php if($this->accordion_name != 'off') { ?>
 					<h3><a href="#"><?php echo $this->accordion_name; ?></a></h3>
@@ -106,11 +105,11 @@ class TextOption extends Option {
 			if ( $this->useTextArea ) :
 				$commentWidth = 1;
 				?>
-				<textarea style="width:100%;height:100%;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>"><?php echo esc_attr( $stdText ); ?></textarea>
+				<textarea onfocus="jQuery('textarea').elastic();" style="width:100%;height:100%;" name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>"><?php echo esc_attr( $stdText ); ?></textarea>
 				<?php
 			else :
 				?>
-				<input name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>" type="text" value="<?php echo esc_attr( $stdText ); ?>" size="40" />
+				<input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>" type="text" value="<?php echo esc_attr( $stdText ); ?>" size="40" />
 				<?php
 			endif; 
 			
@@ -121,7 +120,9 @@ class TextOption extends Option {
 	}
 
 	function get() {
-		$value = get_option( $this->id );
+		$value = get_option('custom_community_theme_options');
+		$value = $value[$this->id];
+
 		if ( empty( $value ) )
 			return $this->std;
 		return $value;
@@ -152,20 +153,22 @@ class DropdownOption extends Option {
 			<?php } else { ?>
 				<p><b><?php echo $this->name; ?></b></p>
 			<?php } ?>
-			<?php echo $this->desc.'<br />'; ?>
-			<?php echo "Std: ".$this->std.'<br />'; ?>
-				<select name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>">
+			
+				<select name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>">
 				<?php
 				
 				foreach( $this->options as $option ) :
 					// If standard value is given
+			
+					$value = get_option('custom_community_theme_options');
+					$value = $value[$this->id];
 					if( $this->std != "" ){
 						?>
-						<option<?php if ( get_option( $this->id ) == $option || ( ! get_option( $this->id ) && $this->options[ $this->std ] == $option )) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
+						<option<?php if ( $value == $option || ( ! $value && $this->options[ $this->std ] == $option )) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
 						<?php
 					}else{ 
 						?>
-						<option<?php if ( get_option( $this->id ) == $option ) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
+						<option<?php if ( $value == $option ) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
 					<?php }
 				endforeach;
 				?>
@@ -177,8 +180,10 @@ class DropdownOption extends Option {
 	}
 
 	function get() {
-		$value = get_option( $this->id, $this->std );
-        	if ( strtolower( $value ) == 'disabled' )
+		$value = get_option('custom_community_theme_options');
+		$value = $value[$this->id];
+		//echo $value;
+	     	if ( strtolower( $value ) == 'disabled' )
 			return false;
 		return $value;
 	}
@@ -195,7 +200,8 @@ class BooleanOption extends DropdownOption {
 	}
 
 	function get() {
-		$value = get_option( $this->id, $this->default );
+		$value = get_option('custom_community_theme_options');
+		$value = $value[$this->id];
 		if ( is_bool( $value ) )
 			return $value;
 		switch ( strtolower( $value ) ) {
@@ -219,12 +225,12 @@ class ColorOption extends Option
 		$this->accordion_name = $_accordion_name;
 	}
 	
-	function WriteHtml()
-	{
+	function WriteHtml(){
+	
 		$stdText = $this->std;
-		
-        if ( get_option( $this->id ) != "" )
-            $stdText =  get_option( $this->id );
+		$value = get_option('custom_community_theme_options');
+    	if ( $value[$this->id] != "" )
+            $stdText =  $value[$this->id];
 
 			if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
 				<?php if($this->accordion_name != 'off') { ?>
@@ -239,24 +245,24 @@ class ColorOption extends Option
 				<p><b><?php echo $this->name; ?></b></p>
 			<?php } ?>
 			<?php echo $this->desc.'<br />'; ?>
-        	<input name="<?php echo $this->id ?>" id="<?php echo $this->id ?>" type="text" value="<?php echo htmlspecialchars($stdText) ?>" size="40" />
+        	<input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id ?>" type="text" value="<?php echo htmlspecialchars($stdText) ?>" size="40" />
 			<?php 
         	if($this->accordion == 'on' || $this->accordion == 'end'){ ?>
 				</div>
 			<?php } ?>
 
 			<script type="text/javascript">
-				$('#<?php echo $this->id ?>').ColorPicker({
+				jQuery('#<?php echo $this->id ?>').ColorPicker({
 					onSubmit: function(hsb, hex, rgb, el) {
-						$(el).val(hex);
-						$(el).ColorPickerHide();
+					jQuery(el).val(hex);
+						jQuery(el).ColorPickerHide();
 					},
 					onBeforeShow: function () {
-						$(this).ColorPickerSetColor(this.value);
+						jQuery(this).ColorPickerSetColor(this.value);
 					}
 				})
 				.bind('keyup', function(){
-					$(this).ColorPickerSetColor(this.value);
+					jQuery(this).ColorPickerSetColor(this.value);
 				});
 		
 		</script>
@@ -265,7 +271,8 @@ class ColorOption extends Option
 
     function get()
     {
-        $value = get_option($this->id);
+		$value = get_option('custom_community_theme_options');
+    	$value = $value[$this->id];
         if (!$value)
             return $this->std;
         return $value;
@@ -285,10 +292,11 @@ class FileOption extends Option
 	
 	function WriteHtml()
 	{
+
 		$stdText = $this->std;
-		
-        if ( get_option( $this->id ) != "" )
-            $stdText =  get_option( $this->id );
+		$value = get_option('custom_community_theme_options');
+    	if ( $value[$this->id] != "" )
+            $stdText =  $value[$this->id];
 		   
 			if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
 				<?php if($this->accordion_name != 'off') { ?>
@@ -305,7 +313,7 @@ class FileOption extends Option
 			<?php echo $this->desc.'<br />'; ?>
 			<div class="option-inputs">
 				<p>
-					<input class="regular-text uploaded_url" type="text" name="<?php echo $this->id ?>" value="<?php echo htmlspecialchars($stdText) ?>" /><br/><br/>
+					<input class="regular-text uploaded_url" type="text" name="custom_community_theme_options[<?php echo $this->id; ?>]" value="<?php echo htmlspecialchars($stdText) ?>" /><br/><br/>
 					<span id="<?php echo $this->id ?>" class="image_upload_button button">Upload Image</span>
 					<span title="<?php echo $this->id ?>" id="<?php echo $this->id ?>" class="image_reset_button button">Remove</span>
 					<input type="hidden" class="ajax_action_url" name="wp_ajax_action_url" value="<?php echo admin_url("admin-ajax.php"); ?>" />
@@ -323,8 +331,9 @@ class FileOption extends Option
 
     function get()
     {
-        $value = get_option($this->id);
-        if (!$value)
+		$value = get_option('custom_community_theme_options');
+		$value = $value[$this->id];
+    if (!$value)
             return $this->std;
         return $value;
     }
@@ -334,6 +343,7 @@ class FileOption extends Option
 // 
 // $cap->post_ratings is the same as get_bool_option("cap_post_ratings", false)
 //
+
 class autoconfig {
 	private $data = false;
 	private $cache = array();
@@ -376,29 +386,29 @@ function cap_admin_css() {
 }
 
 function cap_admin_js_libs() {
-	wp_deregister_script( 'jquery');
-	wp_register_script( 'jquery', get_template_directory_uri() . '/admin/js/jquery-1.5.1.min.js', false, '1.5.1'); // registriere SchlŸssel jquery mit der URL von Google CDN
-   	wp_enqueue_script( 'jquery' ); 
-
-	wp_deregister_script( 'jquery-ui' );
-	wp_register_script( 'jquery-ui', get_template_directory_uri() . '/admin/js/jquery-ui-1.8.11.min.js', false, '1.8.11'); // registriere SchlŸssel jquery mit der URL von Google CDN
-   	wp_enqueue_script( 'jquery-ui' );	
-
-	wp_enqueue_script( 'colorpicker-js', get_template_directory_uri()."/admin/js/colorpicker.js" );
-	wp_enqueue_script( 'fileuploader-js', get_template_directory_uri()."/admin/js/fileuploader.js" );
 	
+	wp_enqueue_script( 'jquery-ui' );	
+	wp_enqueue_script( 'jquery-ui-tabs' );
+	wp_enqueue_script( 'jquery-ui-widget' );
+	wp_enqueue_script( 'jquery-color' );
+	
+	wp_register_script( 'jquery-ui-accordion', get_template_directory_uri() . '/admin/js/jquery.ui.accordion.js', array( 'jquery' ), '1.8.9', true );
+	wp_enqueue_script( 'jquery-ui-accordion' );	
+	
+	wp_enqueue_script( 'colorpicker-js', get_template_directory_uri()."/admin/js/colorpicker.js", array(), true );
+	wp_enqueue_script( 'fileuploader-js', get_template_directory_uri()."/admin/js/fileuploader.js", array(), true );
+	wp_enqueue_script( 'autogrow-textarea', get_template_directory_uri()."/admin/js/jquery.autogrow-textarea.js", array(), true );
+
 }
-
-
 
 function cap_admin_js_footer() {
 ?>
 <script type="text/javascript">
 /* <![CDATA[ */
 	jQuery(document).ready(function($) {
-		$("#config-tabs").tabs();
-		$(".accordion").accordion({ header: "h3", active: false, autoHeight: false, collapsible:true });
-	});
+		jQuery("#config-tabs").tabs();
+		jQuery(".accordion").accordion({ header: "h3", active: false, autoHeight: false, collapsible:true });
+});
 /* ]]> */
 </script>
 <?php
@@ -407,6 +417,11 @@ function cap_admin_js_footer() {
 function top_level_settings() {
 	global $themename;
 	
+		if ( ! isset( $_REQUEST['updated'] ) )
+		$_REQUEST['updated'] = false;
+	
+	
+	
 	if ( isset( $_REQUEST['saved'] ) )
 		echo "<div id='message' class='updated fade'><p><strong>$themename settings saved.</strong></p></div>";
 	if ( isset( $_REQUEST['reset'] ) )
@@ -414,44 +429,44 @@ function top_level_settings() {
 	?>
 
 	<div class="wrap">
+	
 		<h2><b><?php echo $themename; ?> Options</b></h2>
 		 <p style="margin-bottom:20px; color:#000;">Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank">Themekraft</a>.
 		 <br>For support, check out the <a href="http://themekraft.com/forums/" target="_blank">FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank">FAQ</a>. 
 		 Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank">Get the Full Version</a> </p>
 		
 		
-		<form method="post">
+	<form method="post" action="options.php">
+	<?php settings_fields( 'custom_community_options' ); ?>
 
-			<div id="config-tabs">
-				<ul>
-	<?php 
-	$groups = cap_get_options();
-	foreach( $groups as $group ) :
-	?>
-					<li><a href='#<?php echo $group->id; ?>'><?php echo $group->name; ?></a></li>
-	<?php
-	endforeach;
-	 echo " <li><a href='#cap_getpro'>Get the Pro</a></li>";
-	?>
-				</ul>
-	<?php
-	foreach( $groups as $group ) :
-	?>
-				<div id='<?php echo $group->id;?>'>
-	<?php
-					$group->WriteHtml();
-	?>
-				</div>
-	<?php
-	endforeach;get_pro();
-	?>
+	<div id="config-tabs">
+		<ul>
+			<?php 
+			$groups = cap_get_options();
+			foreach( $groups as $group ) :
+			?>
+				<li><a href='#<?php echo $group->id; ?>'><?php echo $group->name; ?></a></li>
+			<?php
+			endforeach;
+			echo " <li><a href='#cap_getpro'>Get the Pro</a></li>";
+			?>
+		</ul>
+		<?php
+		foreach( $groups as $group ) : ?>
+			<div id='<?php echo $group->id;?>'>
+				<?php $group->WriteHtml(); ?>
 			</div>
-			<p class="submit alignleft">
-				<input type="hidden" name="action" value="save" />
-				<input name="save" type="submit" value="Save changes" />    
-			</p>
-		</form>
-		<form enctype="multipart/form-data" method="post">
+		<?php
+		endforeach;get_pro();
+		?>
+	</div>
+	
+		<p class="submit">
+			<input type="submit" class="button-primary" value="<?php _e( 'Save Options' ); ?>" />
+		</p>
+		
+	</form>
+			<form enctype="multipart/form-data" method="post">
 			<p class="submit alignleft">
 				<input name="action" type="submit" value="Reset" />
 			</p>
@@ -478,4 +493,37 @@ function cap_serialize_export( $data ) {
 	header( 'Content-disposition: attachment; filename=theme-export.txt' );
 	echo serialize( $data );
 	exit();
+}
+
+/**
+ * Sanitize and validate input. Accepts an array, return a sanitized array.
+ */
+function custom_community_theme_options_validate( $input ) {
+
+$cap_options = cap_get_options();
+
+$cap_options_types = Array();
+
+foreach( $cap_options as $cap_option ) :
+	$cap_option_arr = (Array) $cap_option;
+	foreach ($cap_option_arr['options'] AS $option){
+		$cap_options_types[$option->id] = get_class($option);
+	}
+endforeach;
+
+foreach($input as $key => $value) :
+	
+	switch($cap_options_types[$key]){
+		case 'BooleanOption':
+			if( $input[$key] == 1 ? 1 : 0);
+		break;
+		default:
+			if(!is_string($input[$key])){
+				$input[$key] = '';
+			}
+		break;
+	}
+endforeach;
+
+ return $input;
 }

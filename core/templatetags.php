@@ -1,4 +1,20 @@
 <?php 
+function cc_wp_title(){
+global $blog_id;
+	if(defined('BP_VERSION')){
+		if(defined('SITE_ID_CURRENT_SITE')){
+			if($blog_id == SITE_ID_CURRENT_SITE){
+				bp_page_title(''); 
+			}else{ 
+				wp_title(''); 
+			}
+		}else{
+			bp_page_title(''); 
+		} 
+	} else { 
+		wp_title(''); 
+	} 
+}
 function switch_css(){
 	global $cap;
 		
@@ -6,6 +22,7 @@ function switch_css(){
 	'body_bg_color' => 'f1f1f1',
 	'container_bg_color' => 'dddddd', 
 	'container_alt_bg_color' => 'f1f1f1', 
+	'details_bg_color' => 'dddddd', 
 	'details_hover_bg_color' => 'ededed', 
 	'font_color' => '555555',
 	'link_color' => '1f8787',
@@ -19,6 +36,7 @@ function switch_css(){
 			'body_bg_color' => '333333',
 			'container_bg_color' => '181818',
 			'container_alt_bg_color' => '333333',
+			'details_bg_color' => '181818', 
 			'details_hover_bg_color' => '252525',
 			'font_color' => '888888',
 			'link_color' => 'ffffff',
@@ -29,6 +47,7 @@ function switch_css(){
 			'body_bg_color' => 'F5E5B3',
 			'container_bg_color' => 'FFF9DB',
 			'container_alt_bg_color' => 'F5E5B3',
+			'details_bg_color' => 'FFF9DB', 
 			'details_hover_bg_color' => 'FFE5B3',
 			'font_color' => '888888',
 			'link_color' => 'ff7400',
@@ -40,6 +59,7 @@ function switch_css(){
 			'body_bg_color' => 'ffffff',
 			'container_bg_color' => 'ffffff',
 			'container_alt_bg_color' => 'dddddd',
+			'details_bg_color' => 'dddddd', 
 			'details_hover_bg_color' => 'f9f9f9',
 			'font_color' => '888888',
 			'link_color' => '489ed5',
@@ -50,6 +70,7 @@ function switch_css(){
 			'body_bg_color' => 'ededed',
 			'container_bg_color' => 'ffffff',
 			'container_alt_bg_color' => 'ededed',
+			'details_bg_color' => 'ffffff', 
 			'details_hover_bg_color' => 'f9f9f9',
 			'font_color' => '888888',
 			'link_color' => '529e81',
@@ -60,6 +81,7 @@ function switch_css(){
 			'body_bg_color' => 'f1f1f1',
 			'container_bg_color' => 'dddddd',
 			'container_alt_bg_color' => 'f1f1f1',
+			'details_bg_color' => 'dddddd', 
 			'details_hover_bg_color' => 'ededed', 
 			'font_color' => '555555',
 			'link_color' => '1f8787',
@@ -70,6 +92,7 @@ function switch_css(){
 			'body_bg_color' => '000000',
 			'container_bg_color' => '000000',
 			'container_alt_bg_color' => '333333',
+			'details_bg_color' => '333333', 
 			'details_hover_bg_color' => '181818',
 			'font_color' => '888888',
 			'link_color' => 'ffffff',
@@ -79,6 +102,7 @@ function switch_css(){
       endif;
       return $switch_css;
 }
+
 
 
 function color_scheme(){
@@ -230,7 +254,7 @@ function style_switcher(){?>
 }
 
 function cc_list_posts_on_page(){
-$cc_page_options=get_cc_page_options(); 
+$cc_page_options=cc_get_post_options(); 
     if(isset($cc_page_options) && $cc_page_options['cc_page_template_on'] == 1){
     
     switch ($cc_page_options['cc_posts_on_page_type'])

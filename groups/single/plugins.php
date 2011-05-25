@@ -1,9 +1,30 @@
 <?php get_header() ?>
 <?php global $cap; ?>
+
 <?php if($cap->bp_groups_sidebars == ""){
 	$cap->bp_groups_sidebars = 'default';
 }?>
 <?php if($cap->bp_groups_sidebars != 'none'){?>
+
+	<?php if($cap->bg_container_img == "" && $cap->bp_groups_sidebars != "default"){ ?>
+		<style type="text/css">
+			div#container { 
+				background-image:url(<?php echo get_template_directory_uri(); ?>/images/<?php 
+					color_scheme();?>/<?php  
+					switch ($cap->bp_groups_sidebars) 
+					{
+					    case 'left': echo "zeile-left.png"; $cssmargin = "margin-left: 224px; margin-right: 0;"; break;
+					    case 'right': echo "zeile-right.png"; $cssmargin = "margin-left: 0; margin-right: 225px;"; break;
+					    case 'left and right': echo "zeile.png"; $cssmargin = "margin-left: 224px; margin-right: 225px;"; break;
+					}
+					?>);
+			}
+			div#content .padder{
+			<?php echo $cssmargin; ?>
+			}
+			
+		</style>
+	<?php } ?>
 	<?php if($cap->bp_groups_sidebars == 'default'){?>
 		<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
 		<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
@@ -20,6 +41,7 @@
 	div#content .padder { margin: 0; }
 	</style>
 <?php } ?>
+
 <div id="content">
 	<div class="padder">
 		<?php if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group(); ?>
@@ -31,7 +53,7 @@
 		</div>
 		<?php else:?>
 		<div id="item-header">
-			<h2 class="pagetitle"><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
+			<h2><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
 		</div>
 		<?php endif;?>
 

@@ -4,11 +4,11 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<?php global $cap, $cc_page_options; ?>
-		<?php $cc_page_options=get_cc_page_options();?>
+		<?php $cc_page_options=cc_get_page_meta();?>
 		
 		<link rel="shortcut icon" href="<?php echo $cap->favicon ?>" />
 		
-		<title><?php if(defined('BP_VERSION')){ bp_page_title(''); } else { wp_title(''); } ?></title>
+		<title> <?php cc_wp_title(); ?> </title>
 		
 		<?php do_action( 'bp_head' ) ?>
 
@@ -164,7 +164,7 @@
 		<?php if($cap->enable_slideshow_home != ''):?>
 			<?php if(defined('BP_VERSION')){ 
 				if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
-					<div id="slider-top">
+					<div id="cc_slider-top">
 						<?php echo slidertop();?>	
 					</div>
 					<?php if($cap->slideshow_shadow == "shadow"){?>
@@ -172,7 +172,7 @@
 					<?php };?>
 				<?php } ?>
 			<?php } elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
-				<div id="slider-top">
+				<div id="cc_slider-top">
 						<?php echo slidertop();?>
 				</div>	
 				<?php if($cap->slideshow_shadow == "shadow"){?>

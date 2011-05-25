@@ -71,7 +71,7 @@ function cc_login_widget(){?>
 		<?php if ( is_user_logged_in() ) : ?>
 	
 			<?php do_action( 'bp_before_sidebar_me' ) ?>
-	
+			<div class="widget">
 			<div id="sidebar-me">
 				<a href="<?php echo bp_loggedin_user_domain() ?>">
 					<?php bp_loggedin_user_avatar( 'type=thumb&width=40&height=40' ) ?>
@@ -82,7 +82,7 @@ function cc_login_widget(){?>
 	
 				<?php do_action( 'bp_sidebar_me' ) ?>
 			</div>
-	
+			</div>
 			<?php do_action( 'bp_after_sidebar_me' ) ?>
 	
 			<?php if ( function_exists( 'bp_message_get_notices' ) ) : ?>
@@ -92,7 +92,7 @@ function cc_login_widget(){?>
 		<?php else : ?>
 	
 			<?php do_action( 'bp_before_sidebar_login_form' ) ?>
-	
+			<div class="widget">
 			<p id="login-text">
 			<?php if(!$cap->bp_login_sidebar_text) { ?>
 				<?php _e( 'To start connecting please log in first.', 'buddypress' ) ?>
@@ -117,7 +117,7 @@ function cc_login_widget(){?>
 				<input type="submit" name="wp-submit" id="sidebar-wp-submit" value="<?php _e('Log In','buddypress'); ?>" tabindex="100" />
 				<input type="hidden" name="testcookie" value="1" />
 			</form>
-	
+			</div>
 			<?php do_action( 'bp_after_sidebar_login_form' ) ?>
 		<?php endif; ?>
 <?php } ?>

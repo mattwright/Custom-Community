@@ -272,7 +272,7 @@ function cc_widgets_init(){
 	register_sidebars( 15,
 		array(
 			'name' => 'shortcode %1$s',
-			'id' => 'shortcode %1$s',
+			'id' => 'shortcode',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div><div class="clear"></div>',
 			'before_title' => '<h3 class="widgettitle">',
