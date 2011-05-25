@@ -3726,43 +3726,75 @@ header height / navigation position **/
 #access {
 	margin-top:<?php echo $cap->header_height; ?>px;
 }
-<?php } ?>
+<?php } ?> 
 
-<?php if($cap->header_img){?>
+<?php if($cap->header_img != ''){?>
 /** ***   
 header image, repeat  **/
 
 #header {
 	background-image:url(<?php echo $cap->header_img?>);	
 		<?php 
-				switch ($cap->header_img_repeat)
-		        {
-		        case 'no repeat':
-					?>background-repeat: no-repeat;<?php	
-		        	break;
-		        case 'x':
-					?>background-repeat: repeat-x;<?php	
-		        	break;
-		        case 'y':
-					?>background-repeat: repeat-y;<?php	
-		        	break;
-		        case 'x+y':
-					?>background-repeat: repeat;<?php	
-		        	break;
-				default:
-					?>background-repeat: no-repeat;<?php	
-		        	break;
-		        }
+		switch ($cap->header_img_repeat)
+        {
+        case 'no repeat':
+			?>background-repeat: no-repeat;<?php	
+        	break;
+        case 'x':
+			?>background-repeat: repeat-x;<?php	
+        	break;
+        case 'y':
+			?>background-repeat: repeat-y;<?php	
+        	break;
+        case 'x+y':
+			?>background-repeat: repeat;<?php	
+        	break;
+		default:
+			?>background-repeat: no-repeat;<?php	
+        	break;
+       	}
 		?>
-		<?php if($cap->header_img_x == 'center' ){?>
-			background-position: center <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
-		<?php } elseif($cap->header_img_x == 'right' ){?>
-			background-position: right <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
-		<?php }?>  
-		<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
-			background-position: left <?php echo $cap->header_img_y ?>px;
-		<?php } ?>
-		}
+	<?php if($cap->header_img_x == 'center' ){?>
+		background-position: center <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php } elseif($cap->header_img_x == 'right' ){?>
+		background-position: right <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php }?>  
+	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
+		background-position: left <?php echo $cap->header_img_y ?>px;
+	<?php } ?>
+}
+<?php } elseif ( get_header_image() != '' && $cap->add_custom_image_header == true ) { ?>
+	#header {
+	background-image:url(<?php echo header_image(); ?>);	
+		<?php 
+		switch ($cap->header_img_repeat)
+        {
+        case 'no repeat':
+			?>background-repeat: no-repeat;<?php	
+        	break;
+        case 'x':
+			?>background-repeat: repeat-x;<?php	
+        	break;
+        case 'y':
+			?>background-repeat: repeat-y;<?php	
+        	break;
+        case 'x+y':
+			?>background-repeat: repeat;<?php	
+        	break;
+		default:
+			?>background-repeat: no-repeat;<?php	
+        	break;
+       	}
+		?>
+	<?php if($cap->header_img_x == 'center' ){?>
+		background-position: center <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php } elseif($cap->header_img_x == 'right' ){?>
+		background-position: right <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php }?>  
+	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
+		background-position: left <?php echo $cap->header_img_y ?>px;
+	<?php } ?>
+}
 <?php } ?>
 
 <?php if ( $cap->header_text == 'off' ) { ?>
