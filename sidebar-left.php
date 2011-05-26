@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
 
-<div id="leftsidebar">
+<div id="leftsidebar" class="widgetarea">
   <div class="paddersidebar">
   <?php if(defined('BP_VERSION')){ ?>
   		<?php if( ! dynamic_sidebar( 'leftsidebar' )) : ?>    

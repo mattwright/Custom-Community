@@ -284,11 +284,9 @@ margin-bottom:20px;
 
 .right-sidebar-padder { padding: 30px 15px 30px 20px; }
 
-.left-sidebar-padder {
-padding:13px 5px 0 5px;
-}
+.left-sidebar-padder { padding:30px 15px 30px 20px; }
 
-div#sidebar, div.widgetarea {
+div#sidebar {
 -moz-background-clip:border;
 -moz-background-inline-policy:continuous;
 -moz-background-origin:padding;
@@ -300,6 +298,15 @@ border-left:none;
 float:left;
 margin-left:-225px;
 margin-top:1px;
+width:224px;
+}
+
+div.widgetarea {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent;
+float:left;
 width:224px;
 }
 
@@ -323,7 +330,7 @@ div#sidebar ul#bp-nav li, div.widgetarea  ul#bp-nav li {
 padding: 10px 15px;
 }
 
-div#sidebar h3.widgettitle, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle, div.widgetarea h3.widgettitle a {
+div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle {
 -moz-border-radius:4px 4px 4px 4px;
 -webkit-border-radius:4px 4px 4px 4px;
 border-radius:4px;
@@ -333,26 +340,18 @@ color:#<?php echo $font_color; ?>;
 font-size:12px;
 margin:0 8px 12px -9px;
 padding:5px 10px;
-text-transform:uppercase;
 width:182px;
 }
 
-div#leftsidebar div#item-header-avatar img.avatar {
-margin-bottom:26px; 
-margin-left: 36px;
+div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
+clear:left;
+color:#<?php echo $font_color; ?>;
+font-size:12px;
 }
 
-div#sidebar div#item-header-avatar img.avatar { 
+div#leftsidebar div#item-header-avatar img.avatar, div#sidebar div#item-header-avatar img.avatar { 
 margin-bottom:20px;
 } 
-
-
-/* temporarily correction for sidebar member widgets */
-div#container div#leftsidebar span.activity, 
-div#container div#leftsidebar span.highlight {
-text-align: left;   
-margin-right:20px; 
-}
 
 div#sidebar h3.widgettitle p, div.widgetarea h3.widgettitle p {
 padding: 5px 10px;
@@ -381,7 +380,6 @@ margin-right: 10px;
 div#sidebar div.item-avatar img, div.widgetarea  div.item-avatar img{
 width: 40px;
 height: 40px;
-margin: 2px;
 }
 
 div#sidebar .avatar-block, div.widgetarea .avatar-block{ overflow: hidden; } 
@@ -396,17 +394,12 @@ line-height:140%;
 div#sidebar div.item-options, div.widgetarea div.item-options{
 background:none repeat scroll 0 0 transparent;
 font-size:11px;
-margin:-12px 0 10px -12px;
+margin:-12px 0 10px -14px;
 padding:5px 15px;
 text-align:left;
 }
 
-div#leftsidebar div.item-options a.selected {
-color:#<?php echo $font_color; ?>;
-}
-
-div#sidebar div.item-meta, div#sidebar div.item-content, div.widgetarea  div.item-meta, div.widgetarea div.item-content{
-margin-left: 38px;
+div#sidebar div.item-meta, div#sidebar div.item-content, div.widgetarea div.item-meta, div.widgetarea div.item-content{
 font-size: 11px;
 }
 
@@ -426,7 +419,6 @@ text-decoration:none;
 }
 
 .widget li.cat-item {
-height:20px;
 margin-bottom:8px;
 }
 .widget li.current-cat a, div.widget ul li.current_page_item a {
@@ -454,107 +446,11 @@ margin-top:1px;
 position:relative;
 width:224px;
 }
-.paddersidebar{
-padding:30px 8px;
-}
-
-div#leftsidebar div#leftsidebar-me img.avatar {
-float: left;
-margin: 0 10px 15px 0;
-}
-
-div#leftsidebar div#leftsidebar-me h4 {
-font-size: 16px;
-margin: 0 0 8px 0;
-font-weight: normal;
-}
-
-
-div#leftsidebar ul#bp-nav {
-clear: left;
-margin: 15px -16px;
-}
-div#leftsidebar ul#bp-nav li {
-padding: 10px 15px;
-}
-
-div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
--moz-border-radius:4px 4px 4px 4px;
--webkit-border-radius:4px;
-border-radius:4px;
-margin-top:0px;
-color:#<?php echo $font_color; ?>;
-padding: 5px 10px;
-font-size: 12px;
-clear: left;
-text-align:right;
-text-transform:uppercase;
-background:#<?php echo $container_alt_bg_color; ?>;
-}
-
-div#leftsidebar ul {
-text-align:right;
-margin-left:0;
-margin-right:10px;
-}
-
-div#leftsidebar .widget_search {
-margin-top: 0;
-}
-div#leftsidebar .widget_search input[type=text] {
-width: 132px;
-padding: 2px;
-}
-
-div#leftsidebar ul#recentcomments li {
-margin-bottom: 15px;
-}
-
-div#leftsidebar ul.item-list img.avatar {
-width: 25px;
-height: 25px;
-margin-left: 10px;
-float:right;
-}
-div#leftsidebar div.item-avatar img {
-width: 40px;
-height: 40px;
-margin: 1px;
-}
-
-div#leftsidebar .avatar-block {
-overflow:hidden;
-width:199px;
-}
-
-div#leftsidebar ul.item-list div.item-title {
-font-size: 12px;
-margin-top:-3px;
-}
-
-div#leftsidebar div.item-options {
-margin: -12px 0px 10px 0px;
-background: none;
-padding: 5px 10px;
-font-size: 11px;
-text-align:right;
-}
+.paddersidebar{ padding:30px 15px 30px 20px; }
 
 div#sidebar div.item-options a.selected,
 div#leftsidebar div.item-options a.selected, div.widgetarea {
 color:#<?php echo $font_color; ?>;
-}
-
-div#leftsidebar div.item-meta, div#leftsidebar div.item-content {
-margin-left: 38px;
-font-size: 11px;
-width:160px;
-}
-
-div#leftsidebar div.tags div#tag-text {
-font-size: 1.4em;
-line-height: 140%;
-padding-top: 10px;
 }
 
 /* > Content
@@ -707,11 +603,6 @@ margin-bottom:8px;
 padding:0;
 }
 
-div#leftsidebar ul.item-list li{
-text-align:right;
-padding-right:10px;
-}
-
 div.widget-title ul.item-list li.selected {
 background:none;
 border:none;
@@ -747,15 +638,11 @@ body.activity-permalink ul.item-list li { padding-top: 0; border-bottom:none; }
 
 ul.item-list li img.avatar {
 float: left;
-margin: 5px 10px 10px 0;
+margin: 3px 10px 10px 0;
 }
 div.widget ul.item-list li img.avatar {
 width:25px;
 height:25px;
-}
-ul#groups-list li img.avatar {
-float:left;
-margin:2px 10px 0 0;
 }
 ul.item-list li div.item-title, ul.item-list li h4 {
 float:left;
@@ -764,9 +651,11 @@ font-weight:normal;
 margin:0;
 width:47%;
 }
-#leftsidebar ul#members-list li div.item-title, ul.item-list li h4 {
-width:72%;
+div.widget ul.item-list li div.item-title, div.widget  ul.item-list li h4 {
+float:none;
+width:100%;
 }
+
 ul.item-list li div.item-title span {
 font-size: 12px;
 color: #<?php echo $font_color; ?>;
@@ -789,12 +678,7 @@ width: 34%;
 
 .item-meta{
 float:left;
-width:300px;
-}
-
-ul#groups-list .item-meta {
-float:right;
-width:160px;
+width:92%;
 }
 
 ul.item-list li div.meta {
@@ -976,9 +860,9 @@ float:left;
 font-size:11px;
 font-weight:normal;
 margin-bottom:8px;
-margin-left:-36px;
+margin-left:0px;
 margin-top:0;
-width:186px !important;
+width:100%;
 padding:3px 0;
 text-decoration:none;
 }
@@ -1100,7 +984,8 @@ cursor:pointer;
 font-weight:normal;
 padding:3px 5px;
 text-decoration:none;
-vertical-align:middle;
+vertical-align:top; 
+margin-top:0;
 }
 
 a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover,
@@ -2419,29 +2304,14 @@ min-height:64px;
 width:189px;
 margin-bottom:0 !important;
 }
-#leftsidebar div.widget ul li {
-border-bottom:medium none;
-margin-bottom:8px;
-margin-left:0;
-padding-right:0;
-text-align:right;
-}
-#leftsidebar div.widget ul li.current_page_item a {
-padding-right:6px;
-}
+
 li.vcard, div.widget ul#groups-list li {
 padding:0px !important;
 }
 div.widget ul#blog-post-list li{
 border-bottom:1px solid #<?php echo $body_bg_color; ?>;
 }
-div#leftsidebar div.widget ul#members-list,
-div#leftsidebar div.widget ul#groups-list {
-padding-left:10px;
-}
-div#leftsidebar div.widget ul#groups-list ul {
-padding-left:0;
-}
+
 div.widget ul#blog-post-list li,
 div.widget ul#blog-post-list li p,
 div.widget ul#blog-post-list li a,
@@ -2449,14 +2319,7 @@ div.widget ul#blog-post-list li div {
 height:auto;
 background:none;
 }
-div#leftsidebar div.widget ul#blog-post-list li,
-div#leftsidebar div.widget ul#blog-post-list li p,
-div#leftsidebar div.widget ul#blog-post-list li a,
-div#leftsidebar div.widget ul#blog-post-list li div {
-height:auto;
-background:none;
-width:198px;
-}
+
 div.widget ul#blog-post-list li a{
 color:#<?php echo $link_color; ?>;
 text-transform:none;
@@ -2522,38 +2385,6 @@ text-transform:none;
 
 div.widget div.textwidget {
 padding: 0 10px 0 0;
-}
-
-#leftsidebar div.widget div {
-text-align:right;
-}
-#leftsidebar div.widget div.simpleimage {
-margin-right:10px;
-}
-
-#leftsidebar form#searchform {
-text-align:right;
-}
-
-#leftsidebar div.avatar-block img.avatar {
-float:right;
-}
-
-div#leftsidebar div#sidebar-me {
-float:right;
-}
-
-div#leftsidebar div#sidebar-me img {
-float:right;
-margin-right: 10px;
-}
-
-div#leftsidebar div#sidebar-me h4 {
-float:right;
-margin-right: 12px;
-}
-div#leftsidebar div#sidebar-me a.button {
-margin:12px 12px 0 90px;
 }
 
 /* =Calendar Widget
@@ -3999,11 +3830,12 @@ menu background colour drop down menu item hover  **/
 /** ***   
 sidebars: widget title style, background colour and image  **/ 
 
-div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle {
+div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle, 
+div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
-			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin:0 -8px 12px -8px; padding:5px 17px;<?php 	
+			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin: 0 0 12px -19px; padding: 5px 22px 5px 20px;<?php 	
         	break;
         case 'transparent':
 			?>background: transparent;<?php	
@@ -4034,12 +3866,12 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
         }
 		?>
 }
-
-div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle{
+/* just for the left sidebar */
+div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
-			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin:0 0 12px -19px; padding:5px 24px 5px 19px;<?php 	
+			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin:0 0 12px -20px; padding:5px 22px 5px 19px;<?php 	
         	break;
         case 'transparent':
 			?>background: transparent;<?php	

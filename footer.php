@@ -31,7 +31,7 @@
 	  	
 	  		<div class="clear"></div>
 		  	<br />
-		<br />
+			<br />
 			<p><?php printf( __( '%s is proudly powered by <a href="http://wordpress.org">WordPress</a> and <a href="http://buddypress.org">BuddyPress</a>. ', 'buddypress' ), bloginfo('name') ); ?>
 			<a href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.</p>
 		

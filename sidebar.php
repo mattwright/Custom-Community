@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
 
-<div id="sidebar">
+<div id="sidebar" class="widgetarea">
 	<div class="right-sidebar-padder">
 
 	<?php do_action( 'bp_before_after_sidebar' ) ?>
