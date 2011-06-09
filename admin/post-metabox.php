@@ -6,7 +6,13 @@ function cc_post_metabox(){
    	$cc_post_options=cc_get_post_meta();
    	
 	$option_post_templates[0] = "img-left-content-right";
-	$option_post_templates[1] = "more options in the pro version";
+	if(defined('is_pro')){
+		$option_post_templates[1] = "img-right-content-left";
+		$option_post_templates[2] = "img-over-content";
+		$option_post_templates[3] = "img-under-content";
+	} else {
+		$option_post_templates[1] = "more options in the pro version";
+	}
 	
 	?>
 
@@ -56,6 +62,9 @@ add_action('save_post','cc_add_post_meta');
 function cc_add_post_meta(){
 
 	global $post;
+	
+	if(!isset($post))
+		return;
 	
 	if ($post->post_type == 'page')
 		return;

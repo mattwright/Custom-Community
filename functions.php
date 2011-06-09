@@ -1,9 +1,17 @@
 <?php
 require_once('admin/cheezcap.php');
 require_once('core/core-loader.php');
-
+ 
 global $content_width, $cap;
 
+/** check if its a child theme or parent and return the correct path */
+function cc_require_path($path){
+	if( TEMPLATEPATH != STYLESHEETPATH && is_file(STYLESHEETPATH . $path) ): 	
+        return STYLESHEETPATH . $path;
+    else:
+        return TEMPLATEPATH . $path;
+    endif;
+}
 
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'cc_setup' );

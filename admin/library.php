@@ -370,8 +370,7 @@ class autoconfig {
 
 		$option = $this->data[$name];
 		if ( empty($option) )
-			throw new Exception("Unknown key: $name");
-
+			return ''; 
 		$value = $this->cache[$name] = $option->get();
 		return $value;
 	}
@@ -431,42 +430,47 @@ function top_level_settings() {
 	<div class="wrap">
 	
 		<h2><b><?php echo $themename; ?> Options</b></h2>
-		 <p style="margin-bottom:20px; color:#000;">Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank">Themekraft</a>.
-		 <br>For support, check out the <a href="http://themekraft.com/forums/" target="_blank">FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank">FAQ</a>. 
-		 Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank">Get the Full Version</a> </p>
+		<p style="margin-bottom:20px; color:#000;">Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank">Themekraft</a>.
+		<br>For support, check out the <a href="http://themekraft.com/forums/" target="_blank">FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank">FAQ</a>. 
+		<?php if(!defined('is_pro')){ ?>
+			Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank">Get the Full Version</a> </p>
+		<?php } ?>
 		
-		
-	<form method="post" action="options.php">
-	<?php settings_fields( 'custom_community_options' ); ?>
-
-	<div id="config-tabs">
-		<ul>
-			<?php 
-			$groups = cap_get_options();
-			foreach( $groups as $group ) :
-			?>
-				<li><a href='#<?php echo $group->id; ?>'><?php echo $group->name; ?></a></li>
-			<?php
-			endforeach;
-			echo " <li><a href='#cap_getpro'>Get the Pro</a></li>";
-			?>
-		</ul>
-		<?php
-		foreach( $groups as $group ) : ?>
-			<div id='<?php echo $group->id;?>'>
-				<?php $group->WriteHtml(); ?>
-			</div>
-		<?php
-		endforeach;get_pro();
-		?>
-	</div>
+		<form method="post" action="options.php">
+		<?php settings_fields( 'custom_community_options' ); ?>
 	
-		<p class="submit">
-			<input type="submit" class="button-primary" value="<?php _e( 'Save Options','buddypress' ); ?>" />
-		</p>
+		<div id="config-tabs">
+			<ul>
+				<?php 
+				$groups = cap_get_options();
+				foreach( $groups as $group ) :
+				?>
+					<li><a href='#<?php echo $group->id; ?>'><?php echo $group->name; ?></a></li>
+				<?php
+				endforeach;
+				$cap_getpro = 'Get the Pro';
+				if(defined('is_pro')){
+					$cap_getpro = 'Support';
+				}
+				echo " <li><a href='#cap_getpro'>$cap_getpro</a></li>";
+				?>
+			</ul>
+			<?php
+			foreach( $groups as $group ) : ?>
+				<div id='<?php echo $group->id;?>'>
+					<?php $group->WriteHtml(); ?>
+				</div>
+			<?php
+			endforeach;get_pro();
+			?>
+		</div>
 		
-	</form>
-			<form enctype="multipart/form-data" method="post">
+			<p class="submit">
+				<input type="submit" class="button-primary" value="<?php _e( 'Save Options','buddypress' ); ?>" />
+			</p>
+			
+		</form>
+		<form enctype="multipart/form-data" method="post">
 			<p class="submit alignleft">
 				<input name="action" type="submit" value="Reset" />
 			</p>

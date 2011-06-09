@@ -1,5 +1,5 @@
 <?php 
-require_once('shortcodes.php');
+require_once(cc_require_path('/core/shortcodes.php'));
 require_once('templatetags.php');
 require_once('cc_widgets.php');
 
@@ -11,7 +11,7 @@ add_action('wp_enqueue_scripts', 'cc_js_site');
  
 ### enqueue js for the slider
 function cc_js_site() {
-     if( isset( $_GET['page'] ) )
+     if( is_admin() )
         return;
 
     wp_deregister_script( 'ep-jquery-css' );
