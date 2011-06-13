@@ -10,7 +10,8 @@
   		<?php if( ! dynamic_sidebar( 'leftsidebar' )) : ?>
   		<?php endif ?>  
 	<?php } ?>
-  </div><!-- #padder -->	
-</div><!-- #sidebar -->
+  </div><!-- #paddersidebar -->	
+</div><!-- #leftsidebar -->
+<div class="v_line v_line_left"></div>
 
 <?php do_action( 'bp_after_sidebar' ) ?>

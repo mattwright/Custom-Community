@@ -51,20 +51,20 @@ function facebook_like() {
   $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
  }
  
-$tmp = '<iframe src="http://www.facebook.com/plugins/like.php?href='.$pageURL.'&layout=standard&show_faces=true&width=450&action=like&colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:60px"></iframe>';
+$tmp = '<iframe src="http://www.facebook.com/plugins/like.php?href='.$pageURL.'&layout=standard&show_faces=true&width=450&action=like&colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:auto; height:60px"></iframe>';
 return $tmp;
 }
 add_shortcode('cc_facebook_like', 'facebook_like');
 
 // [blockquote_left = add a quotation, left floated]
 function blockquote_left($atts,$content = null) { 
-	return '<span style="float:left; width:30%; padding:2%; font-family: times, serif !important; font-size: 19px !important; font-style: italic;">"'.$content.'"</span>';
+	return '<span class="cc_blockquote cc_blockquote_left">"'.$content.'"</span>';
 }
 add_shortcode('cc_blockquote_left', 'blockquote_left');
 
 // [blockquote_right = add a quotation, right floated]
 function blockquote_right($atts,$content = null) { 
-	return '<span style="float:right; width:30%; padding:2%; font-family: times, serif !important; font-size: 19px !important; font-style: italic;">"'.$content.'"</span>';
+	return '<span class="cc_blockquote cc_blockquote_right">"'.$content.'"</span>';
 }
 add_shortcode('cc_blockquote_right', 'blockquote_right');
 
@@ -509,13 +509,7 @@ function slider($atts,$content = null) {
 	if (have_posts()) :
 
 		$tmp .=' <div id="featured'.$id.'" class="featured">'. chr(13);
-			$tmp .='<ul class="ui-tabs-nav">'. chr(13);
-			$i = 1; 
-			while (have_posts()) : the_post(); 
-		    	$tmp .='<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-'.$id.'-'.$i.'"><a href="#fragment-'.$id.'-'.$i.'">'.get_the_post_thumbnail( $post->ID, 'slider-thumbnail' ).'<span>'.get_the_title().'</span></a></li>'. chr(13);
-				$i++;
-			endwhile;
-		    $tmp .='</ul>'. chr(13);
+		
 		$i = 1; 
 		while (have_posts()) : the_post();
 		
@@ -530,7 +524,9 @@ function slider($atts,$content = null) {
 		    if($width != '' || $height != ''){
 		    	$tmp .='	<a class="reflect" href="'.$url.'">'.get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ).'</a>'. chr(13);
 		    } else {
-				$tmp .='	<a class="reflect" href="'.$url.'">'.get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ).'</a>'. chr(13);
+		    	
+		    	if (get_the_post_thumbnail( $post->ID, array(756,250),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ); }
+				$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
 		    }
 			if($caption == 'on'){
 				$tmp .=' <div class="info" >'. chr(13);
@@ -541,17 +537,28 @@ function slider($atts,$content = null) {
 			$tmp .='</div>'. chr(13);
 			$i++;
 		endwhile;
+		
+		$tmp .='<ul class="ui-tabs-nav">'. chr(13);
+		$i = 1; 
+		while (have_posts()) : the_post();
+			if (get_the_post_thumbnail( $post->ID, 'slider-thumbnail' ) == '') { $ftrdimgs = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg-80x50.jpg" />'; } else { $ftrdimgs = get_the_post_thumbnail( $post->ID, 'slider-thumbnail' ); } 
+	    	$tmp .='<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-'.$id.'-'.$i.'"><a href="#fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'<span>'.get_the_title().'</span></a></li>'. chr(13);
+			$i++;
+		endwhile;
+	    $tmp .='</ul>'. chr(13);
+	    
 		$tmp .= '</div>'. chr(13);
 
 		else :
 
 			$tmp .='<h2 class="center">'._e( 'Not Found', 'buddypress' ).'</h2>'. chr(13);
 			$tmp .='<p class="center">'._e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ).'</p>'. chr(13);
+			
+			
 		endif;
-
-	
+		   
 		wp_reset_query();
-		return '<div>'.$tmp.'</div>'. chr(13);
+		return $tmp . chr(13);
 }
 
 // [nothing]

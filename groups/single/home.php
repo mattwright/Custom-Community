@@ -4,27 +4,27 @@
 <?php if($cap->bp_groups_sidebars == ""){
 	$cap->bp_groups_sidebars = 'default';
 }?>
-<?php if($cap->bp_groups_sidebars != 'none'){?>
+<?php if($cap->bp_profile_sidebars != 'none'){ ?>
 
-	<?php if($cap->bg_container_img == "" && $cap->bp_groups_sidebars != "default"){ ?>
+	<?php if($cap->bp_groups_sidebars != "default"){ 
+	// correct the margin of the content if the sidebars for profiles 
+	// are set to something else than default 
+
+		switch ($cap->bp_groups_sidebars) 
+		{
+		    case 'left': $cssmargin = "margin-left: 224px; margin-right: 0;"; break;
+		    case 'right': $cssmargin = "margin-left: 0; margin-right: 225px;"; break;
+		    case 'left and right': $cssmargin = "margin-left: 224px; margin-right: 225px;"; break;
+		} ?>
+		
 		<style type="text/css">
-			div#container { 
-				background-image:url(<?php echo get_template_directory_uri(); ?>/images/<?php 
-					color_scheme();?>/<?php  
-					switch ($cap->bp_groups_sidebars) 
-					{
-					    case 'left': echo "zeile-left.png"; $cssmargin = "margin-left: 224px; margin-right: 0;"; break;
-					    case 'right': echo "zeile-right.png"; $cssmargin = "margin-left: 0; margin-right: 225px;"; break;
-					    case 'left and right': echo "zeile.png"; $cssmargin = "margin-left: 224px; margin-right: 225px;"; break;
-					}
-					?>);
-			}
 			div#content .padder{
-			<?php echo $cssmargin; ?>
-			}
-			
+				<?php echo $cssmargin; ?>
+			}			
 		</style>
-	<?php } ?>
+		
+	 <?php } ?>
+
 	<?php if($cap->bp_groups_sidebars == 'default'){?>
 		<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
 		<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
@@ -35,11 +35,17 @@
 			<?php locate_template( array( 'groups/single/group-sidebar-left.php' ), true );?>
 		<?php endif;?>
 	<?php }?>
-<?php } else {?>
+<?php } else { // what means if bp_groups_sidebars is = "none" ?>
+
 	<style type="text/css">
-	#container { background-image:none !important; }
-	div#content .padder { margin: 0; }
+		
+	<?php if ( $cap->bg_container_img == "" ) { 	// check if a custiom image is selected for the container else display no container image by default (the vertical lines) ?>	
+	#container { background-image: none; background-image: none !important; }	
+	<?php } ?>
+	
+	div#content .padder { margin-left: 0; margin-right: 0; }
 	</style>
+
 <?php } ?>
 
 <div id="content">

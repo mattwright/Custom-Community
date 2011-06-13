@@ -6,8 +6,7 @@
 <?php get_header() ?>
 <?php global $cap; ?>
 
-	<style type="text/css">
-	#container { background-image:none !important; }
+	<style type="text/css">	
 	div#content .padder { margin: 0; }
 	</style>
 

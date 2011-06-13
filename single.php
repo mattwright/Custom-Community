@@ -47,7 +47,7 @@
 						}
 						
 					?>		
-				<?php if($cc_post_options['cc_post_template_avatar'] != '1') {?>
+				<?php if($cc_post_options['cc_post_template_avatar'] != '1') { ?>
 					<div class="author-box">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
 						<?php if(defined('BP_VERSION')){ ?>
@@ -55,7 +55,8 @@
 						<?php } ?>
 					</div>
 				<?php } ?>
-				<div class="post-content">	
+				
+				<div class="post-content" style="<?php if($cc_post_options['cc_post_template_avatar'] == '1') { echo 'margin-left:0;'; } ?>">	
 				<?php if ($single_class != false){ ?>
 				<div class="<?php echo $single_class ?>">
 				<?php } ?>

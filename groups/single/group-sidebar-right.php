@@ -1,4 +1,5 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
+<div class="v_line v_line_right"></div>
 	<div id="sidebar" class="widgetarea">
 	<div class="right-sidebar-padder">
 	<?php if( ! dynamic_sidebar( 'groupsidebarright' )) : cc_groups_sidebar(); ?>

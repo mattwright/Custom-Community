@@ -41,6 +41,23 @@ function cap_get_options() {
 			"Select the colour scheme of your website", 
 			"style_css", 
 			array('grey', 'dark', 'more colour schemes in the pro version' )),
+		new TextOption(
+			"Website width", 
+			"Just type in the number, either in px or %. Default is 1000. <br>
+			Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview.", 
+			"website_width", 
+			"",
+			"",
+			"start",
+			"Website width"),
+		new DropdownOption(
+			"Fluid or static width?", 
+			"Do you want your layout fluid(%) or static(px)? <br>
+			Attention: when you use the slideshow, better don't use fluid width. ", 
+			"website_width_unit", 
+			array('px', '%'),
+			"",
+			'end'),		
 		new BooleanOption(
 			"Use standard Wordpress background settings", 
 			"Enable this option, if you like to use the standard wordpress settings page.", 
@@ -93,6 +110,22 @@ function cap_get_options() {
 			"",
 			"start",
 			"Container"),
+			new DropdownOption(
+				"Show / hide the vertical lines", 
+				"The vertical lines that divide your container are default, <br>
+				you can disable them if you like.", 
+				"bg_container_nolines", 
+				array('show', 'hide'),
+				"",
+				false),
+			new ColorOption(
+				"Vertical lines colour", 
+				"Change the colour of the vertical lines. <br>
+				Tip: Best is to have them in the colour of the background and other lines. ", 
+				"v_line_color", 
+				"",
+				'',
+				''),
 			new FileOption(
 				"Container background image", 
 				"Change background image for the container (currently the vertical lines <br>
@@ -115,10 +148,10 @@ function cap_get_options() {
 			"",
 			'end'),
 		new DropdownOption(
-			"Sidebar position", 
+			"Sidebar default position", 
 			"Where do you like to have your sidebars? Define your default layout.", 
 			"sidebar_position", 
-			array('left and right', 'left', 'right')),
+			array('left and right', 'left', 'right', 'full-width')),
 		new DropdownOption(
 			"Title font style", 
 			"Change the title font style (h1 and h2)", 
@@ -145,6 +178,26 @@ function cap_get_options() {
 			"Title colour", 
 			"Change title colour", 
 			"title_color", 
+			"","end"),
+		new DropdownOption(
+			"Subtitle font style", 
+			"Change the subtitle font style (h3-h6)", 
+			"subtitle_font_style", 
+			array('Arial, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Arial Black, Arial, sans-serif', 'Impact, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
+			"",
+			"start",
+			"Subtitles"),
+			new DropdownOption(
+				"Subtitles font weight", 
+				"Do you want your subtitles bold or normal?", 
+				"subtitle_weight", 
+				array('bold', 'normal'),
+				"",
+				false),
+		new ColorOption(
+			"Subtitle colour", 
+			"Change subtitle colour", 
+			"subtitle_color", 
 			"","end"),
 		new DropdownOption(
 			"Show excerpts", 
@@ -188,6 +241,31 @@ function cap_get_options() {
 			"Favicon image", 
 			"Insert your own favicon image. Upload or insert url.", 
 			"favicon"),
+		new DropdownOption(
+			"Show / hide avatars", 
+			"Show or hide the avatars in the post listing. <br> 
+			This option is for the standard WordPress Homepage showing your latest articles. <br>
+			To select a page as your homepage, go to Settings -> Reading.", 
+			"default_homepage_hide_avatar", 
+			array('show', 'hide'),
+			"",
+			"start",
+			"Default homepage"),
+		new DropdownOption(
+			"Post listing style", 
+			"Select a style how to display the latest posts. <br> 
+			If you'd like to display the featured image also, check out our list post function.", 
+			"default_homepage_style", 
+			array('default', 'bubbles'),
+			"", 
+			false),	
+		new DropdownOption(
+			"Show / hide date, category and author", 
+			"Show or hide the date, category and author in the post listing.", 
+			"default_homepage_hide_date", 
+			array('show', 'hide'),
+			"",
+			'end'),
 		new FileOption(
 			"Login page logo", 
 			"Insert your own image for the login page. Upload or insert url.", 
@@ -226,8 +304,7 @@ function cap_get_options() {
 			"",
 			"end"),
 		)
-		)
-		,
+		),
 	new Group ("Header", "header",
 		array(
 		new BooleanOption(
@@ -256,6 +333,11 @@ function cap_get_options() {
 			Try 25px or 63px less than your header-image-height to fit perfectly...", 
 			"header_height", 
 			""),
+		new DropdownOption(
+			"Header width", 
+			"Do you like the header in full width or as wide as your site?", 
+			"header_width", 
+			array('default', 'full-width')),
 		new FileOption(
 			"Header image", 
 			"Insert your own header image. Upload or insert url. <br>
@@ -409,28 +491,64 @@ function cap_get_options() {
 			"Repeat background image: x=horizontally, y=vertically", 
 			"bg_widgettitle_img_repeat", 
 			array('no repeat', 'x', 'y', 'x+y')),
+		new DropdownOption(
+			"Capitalizing in widgets", 
+			"Capitalize the fonts in lists in your widgets?", 
+			"capitalize_widgets_li", 
+			array('no', 'yes')),
+		new DropdownOption(
+			"Capitalizing the widget titles", 
+			"Capitalize the titles in your widgets?", 
+			"capitalize_widgettitles", 
+			array('no', 'yes')),					
 		)
 		),
 	new Group ("Footer", "footer",
 		array(
+		new DropdownOption(
+			"Footer width", 
+			"Do you like the footer in full width or as wide as your site?", 
+			"footer_width", 
+			array('default', 'full-width')),
 		new TextOption(
 			"Footer height", 
 			"Change the footer height, in px, just enter a number <br>
-			This option is also nice to have your footer widget areas all the same height.", 
-			"footer_height", 
+			This option is not the footer widget height, you can define that one below.", 
+			"footerall_height", 
 			""),
 		new ColorOption(
 			"Footer background", 
 			"Change background colour of the footer", 
-			"bg_footer_color", 
+			"bg_footerall_color", 
 			""),
 		new FileOption(
 			"Footer background image", 
 			"Background image for the footer background. Upload or insert url.", 
-			"bg_footer_img", 
+			"bg_footerall_img", 
 			""),
 		new DropdownOption(
 			"Footer background image repeat", 
+			"Repeat background image: x=horizontally, y=vertically", 
+			"bg_footerall_img_repeat", 
+			array('no repeat', 'x', 'y', 'x+y')),	
+		new TextOption(
+			"Footer widget height", 
+			"Change the footer widgets height, in px, just enter a number <br>
+			This option is nice to have your footer widget areas all the same height.", 
+			"footer_height", 
+			""),	
+		new ColorOption(
+			"Footer widget background", 
+			"Change background colour of the footer widgets", 
+			"bg_footer_color", 
+			""),
+		new FileOption(
+			"Footer widget background image", 
+			"Background image for the footer widgets background. Upload or insert url.", 
+			"bg_footer_img", 
+			""),
+		new DropdownOption(
+			"Footer widget background image repeat", 
 			"Repeat background image: x=horizontally, y=vertically", 
 			"bg_footer_img_repeat", 
 			array('no repeat', 'x', 'y', 'x+y')),

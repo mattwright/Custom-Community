@@ -24,7 +24,7 @@
 					<?php do_action( 'bp_friend_requests_item_action' ) ?>
 				</div>
 			</li>
-
+			<div class="clear"></div>
 		<?php endwhile; ?>
 	</ul>
 

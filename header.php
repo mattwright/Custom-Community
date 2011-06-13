@@ -37,7 +37,8 @@
 
 	<body <?php body_class() ?> id="bp-default">
  <div id="outerrim">
-    <div id="innerrim">
+    <?php $innerrim = '<div id="innerrim">'; ?>
+    <?php if ($cap->header_width == "default") { echo $innerrim; }?>
 		<?php do_action( 'bp_before_header' ) ?>
 
 	<div id="header">
@@ -160,11 +161,19 @@
 		<div class="clear"></div>
 	
 		</div><!-- #header -->
+		<?php if ($cap->header_width == "full-width") { echo $innerrim; }?>
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php if($cap->enable_slideshow_home != ''):?>
 			<?php if(defined('BP_VERSION')){ 
 				if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
 					<div id="cc_slider-top">
+						<?php if ( $cap->slideshow_style == "full width" ) { ?>
+						<style type="text/css">
+						div#cc_slider-top div.featured {
+						width:100%;
+						} 
+						</style>
+						<?php } ?>
 						<?php echo slidertop();?>	
 					</div>
 					<?php if($cap->slideshow_shadow == "shadow"){?>

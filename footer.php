@@ -1,9 +1,14 @@
 
-		</div> <!-- #container -->
+		</div> <!-- #container -->		
 
 		<?php do_action( 'bp_after_container' ) ?>
+		
 		<?php do_action( 'bp_before_footer' ) ?>
-
+		
+		<?php global $cap; ?>
+		<?php $close_innerrim = '</div><!-- #innerrim -->'; ?>
+    	<?php if ($cap->footer_width == "full-width") { echo $close_innerrim; }?>
+		
 		<div id="footer">
 		<?php global $cap; ?>
 		
@@ -42,7 +47,7 @@
 		<?php do_action( 'bp_after_footer' ) ?>
 
 
-		</div><!-- #innerrim -->
+		<?php if ($cap->footer_width == "default") { echo $close_innerrim; }?>
 	</div><!-- #outerrim -->
 	<?php wp_footer(); ?>
 	</body>
