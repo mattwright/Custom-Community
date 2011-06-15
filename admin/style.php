@@ -83,11 +83,16 @@ h3 { font-size: 20px; color:#<?php echo $font_color; ?>; }
 h4 { font-size: 16px; margin-bottom: 15px; }
 h5 { font-size: 14px; margin-bottom: 0; }
 h6 { font-size: 12px; margin-bottom: 0; }
-a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration:none !important; }
+a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration:none; padding: 1px 0; }
 a:hover, a:active { color: #<?php echo $font_color; ?>; }
 a:focus { outline: none; }
 .padder { padding: 20px; }
 .clear { clear: left; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, 
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+text-decoration: none; background-color: transparent; 
+} 
 p, em {
 font-size: 13px;
 margin-bottom: 15px;
@@ -162,8 +167,8 @@ font-style: italic;
 -------------------------------------------------------------- */
 
 body#bp-default #wp-admin-bar .padder {
-max-width:100% !important;
-min-width:100% !important;
+max-width:100%;
+min-width:100%;
 }
 #wp-admin-bar {
 font-size:11px;
@@ -174,9 +179,7 @@ top:0;
 width:100%;
 z-index:1000;
 }
-#wp-admin-bar .padder {
-width: 90% !important; /* Line up the admin bar with the content body in this theme */
-}
+#wp-admin-bar a { background-color: transparent; text-decoration: none; }
 
 /* > Header
 -------------------------------------------------------------- */
@@ -199,7 +202,7 @@ background-repeat: no-repeat;
 }
 #header #search-bar {
 position: absolute;
-top: 36px;
+top: 27px;
 right: 0;
 width: 390px;
 text-align: right;
@@ -215,7 +218,7 @@ top: 35px;
 font-size: 28px;
 }
 #header #search-bar .padder {
-padding: 10px 20px;
+padding: 10px 0;
 }
 #header #search-bar input[type=text] {
 -moz-border-radius: 3px;
@@ -233,7 +236,6 @@ margin-left: 4px;
 #header div#logo h1 a, #header div#logo h4 a {
 color: #<?php echo $font_color; ?>;
 font-size: 26px;
-text-decoration: none;
 }
 
 /* > Navigation
@@ -272,7 +274,6 @@ display:block;
 font-size:13px;
 font-weight:bold;
 padding:0;
-text-decoration:none;
 
 }
 
@@ -337,7 +338,7 @@ background:transparent;
 border-left:none;
 float:right;
 margin-left:-224px;
-margin-top:1px;
+margin-top: 0px;
 width:224px;
 }
 
@@ -381,14 +382,24 @@ font-size:12px;
 margin:0 8px 12px -9px;
 padding:5px 10px;
 width:182px;
+font-family: arial, helvetica, sans-serif; 
 }
 
 div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
 clear:left;
 color:#<?php echo $font_color; ?>;
+background-color: transparent; 
+text-decoration: none; 
 font-size:12px;
+font-family: arial, helvetica, sans-serif; 
 }
-
+div#leftsidebar h3.widgettitle a:hover, div#leftsidebar h3.widgettitle a:focus,
+div#sidebar h3.widgettitle a:hover, div#sidebar h3.widgettitle a:focus,
+div.widgetarea h3.widgettitle a:hover, div.widgetarea h3.widgettitle a:focus {
+color:#<?php echo $link_color; ?>;
+background-color: transparent; 
+text-decoration: none; 
+}
 div#leftsidebar div#item-header-avatar img.avatar, div#sidebar div#item-header-avatar img.avatar { 
 margin-bottom:20px;
 } 
@@ -453,11 +464,6 @@ div#sidebar ul , div.widgetarea ul {
 text-align:left;
 }
 
-.widget li.cat-item a {
-color:#<?php echo $font_color; ?>;
-text-decoration:none;
-}
-
 .widget li.cat-item {
 margin-bottom:8px;
 }
@@ -482,7 +488,7 @@ border-left:0 none;
 border-right:none;
 float:left;
 margin-right:-225px;
-margin-top:1px;
+margin-top: 0px;
 position:relative;
 width:224px;
 }
@@ -543,8 +549,6 @@ margin: -5px 0 15px 0;
 line-height: 120%;
 }
 div#item-header h2 a {
-text-decoration: none;
-color: #<?php echo $font_color; ?>;
 font-size:28px;
 }
 
@@ -638,27 +642,15 @@ div.widget-title ul.item-list li{
 background:none;
 border-bottom:medium none;
 font-size:12px;
-font-weight:bold;
 margin-bottom:8px;
 padding:0;
 }
-
 div.widget-title ul.item-list li.selected {
 background:none;
 border:none;
 font-size:12px;
 color:#<?php echo $link_color; ?>;
 }
-
-div.widget-title ul.item-list li a {
-color:#<?php echo $font_color; ?>;
-font-weight: normal;
-text-decoration:none;
-}
-div.widget-title ul.item-list li a:hover {
-color:#<?php echo $link_color; ?>;
-}
-
 div.widget-title ul.item-list li.selected a {
 color:#<?php echo $link_color; ?>;
 }
@@ -744,11 +736,10 @@ margin: 0px -20px 15px;
 overflow:hidden;
 padding-top:15px;
 }
-
 div.item-list-tabs ul li a {
-text-decoration: none;
+    text-decoration: none;
+    background-color: transparent; 
 }
-
 div.item-list-tabs ul {
 width: 100%;
 }
@@ -756,22 +747,15 @@ div.item-list-tabs ul li {
 float: left;
 margin: 0px;
 }
-
 div.item-list-tabs ul li.selected {
 background:none;
 }
-
-
-
-
 div.item-list-tabs#subnav ul li {
 margin-top: 0;
 }
-
 div.item-list-tabs ul li:first-child {
 margin-left: 20px;
 }
-
 div.item-list-tabs ul li.last {
 float: right;
 margin: 7px 20px 0 0;
@@ -779,27 +763,22 @@ margin: 7px 20px 0 0;
 div.item-list-tabs#subnav ul li.last {
 margin-top: -4px;
 }
-
 div.item-list-tabs ul li.last select {
 max-width: 175px;
 }
-
 div.item-list-tabs ul li a,
 div.item-list-tabs ul li span {
 display: block;
 padding: 4px 8px;
-text-decoration: none;
 }
 div.item-list-tabs ul li span {
 color: #<?php echo $font_color; ?>;
 }
-
 div.item-list-tabs ul li a span {
 display: inline;
 padding: 0;
 color: inherit;
 }
-
 div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
 -moz-border-radius-topleft:6px;
 -moz-border-radius-topright:6px;
@@ -822,7 +801,6 @@ z-index: 1000;
 div#item-nav ul li.loading a {
 background-position: 88% 50%;
 }
-
 #item-nav a{
 color:#<?php echo $link_color; ?>;
 }
@@ -835,7 +813,6 @@ color:#<?php echo $font_color; ?>;
 #subnav a:hover{
 color:#<?php echo $link_color; ?>;
 }
-
 div#subnav.item-list-tabs ul li {
 margin-top:1px;
 }
@@ -879,7 +856,6 @@ font-size:11px;
 font-weight:normal;
 margin-top:6px;
 padding:3px 0 3px 0;
-text-decoration:none;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 border-radius: 3px;
@@ -903,7 +879,6 @@ margin-left:0px;
 margin-top:0;
 width:100%;
 padding:3px 0;
-text-decoration:none;
 }
 
 #footer div.widget span.activity, #header div.widget span.activity {
@@ -1018,6 +993,7 @@ border-right:1px solid #aaaaaa;
 border-top:none;
 border-left:none;
 color:#<?php echo $container_bg_color; ?>;
+font-family: arial, sans-serif; 
 font-size:12px;
 cursor:pointer;
 font-weight:normal;
@@ -1039,7 +1015,7 @@ font-size:12px;
 font-weight:normal;
 padding:3px 5px;
 text-decoration:none;
-vertical-align:middle;
+vertical-align: top;
 outline: none;
 }
 
@@ -1574,23 +1550,17 @@ line-height: 170%;
 
 
 }
-.activity-list .activity-header a:first-child, span.highlight {
-background:none !important;
+span.highlight {
 border:none;
 color:#<?php echo $link_color; ?>;
 margin-right:3px;
-padding:3px 0 3px 0;
-text-decoration:none;
--moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		border-radius: 4px;
 }
 
-.activity-list .activity-header a:first-child:hover, span.highlight:hover {
+span.highlight:hover {
 background:none !important;
 border:none;
+color:#<?php echo $font_color; ?>; 
 color:#<?php echo $font_color; ?> !important;
-text-decoration:none;
 }
 
 .activity-list .activity-content a:first-child:focus { outline: none; }
@@ -1606,11 +1576,9 @@ font-size: 11px;
 margin: 0;
 border: none;
 color: #<?php echo $font_color; ?>;
-text-decoration: none !important;
 }
 .activity-list .activity-content span.activity-header-meta a:hover {
 color: inherit;
-text-decoration: none;
 }
 
 .activity-list .activity-content .activity-inner,
@@ -1671,24 +1639,13 @@ margin: 0;
 min-height:16px;
 padding-top:4px;
 }
-
-.activity-header p, .activity-header a, .activity-header span.time-since {
-
-
-}
 .activity-header a:hover {
 color:#<?php echo $font_color; ?>;
 }
-
 div.activity-meta {
 clear:left;
 margin:0 0 3px 3px;
 }
-
-.activity-list .activity-content .view {
-
-}
-
 .activity-list div.activity-meta a {
 -moz-border-radius:4px;
 -webkit-border-radius:4px;
@@ -1699,19 +1656,15 @@ border-right:1px solid #<?php echo $font_color; ?>;
 color:#<?php echo $container_bg_color; ?>;
 margin-right:3px;
 padding:4px 8px;
-text-decoration:none;
 font-size:11px;
+text-decoration: none;
+font-family: arial, sans-serif;
 }
 .activity-list div.activity-meta a:hover,
 .activity-list div.activity-meta a:focus {
 background:none repeat scroll 0 0 #<?php echo $link_color; ?>;
 color:#<?php echo $container_bg_color; ?>;
 }
-
-.activity-list .activity-content a.item-button {
-
-}
-
 .activity-filter-selector {
 text-align: right;
 }
@@ -1854,8 +1807,8 @@ background-repeat: no-repeat;
 
 div.activity-comments form .ac-textarea {
 padding: 8px;
-border: 1px inset #ccc;
-background: #fff !important;
+border: 1px inset #cccccc;
+background: #ffffff !important;
 margin-bottom: 10px;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
@@ -1951,9 +1904,6 @@ vertical-align: middle;
 div#message-thread strong {
 margin: 0;
 font-size: 16px;
-}
-div#message-thread strong a {
-text-decoration: none;
 }
 
 div#message-thread strong span.activity {
@@ -2057,14 +2007,8 @@ div.post h2.pagetitle, div.post h2.posttitle {
 margin: 0px 0 25px 0;
 line-height: 120%;
 }
-div.post h2.pagetitle a, div.post h2.posttitle a {
-color: #<?php echo $font_color; ?>;
-text-decoration: none;
-}
-
 .navigation, .paged-navigation, .comment-navigation {
 overflow: hidden;
-font-family: arial, helvetica, sans-serif;
 font-style:normal;
 font-weight:normal;
 font-size: 13px;
@@ -2125,7 +2069,6 @@ div.post table td { border-top: 1px solid #<?php echo $body_bg_color; ?>; }
 div.post div.author-box, div.comment-avatar-box {
 background:none repeat scroll 0 0 transparent;
 float:left;
-font-family:Arial;
 font-style:italic;
 margin:0 15px 15px 0;
 padding:0;
@@ -2146,7 +2089,6 @@ font-size:10px;
 font-style:normal;
 margin:5px 0 0;
 }
-div.author-box a, div.comment-avatar-box a { text-decoration: none; }
 
 div.post div.author-box img, div.comment-avatar-box img {
 float: none;
@@ -2159,14 +2101,12 @@ margin-left: 94px;
 div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options {
 color: #<?php echo $font_color; ?>;
 font-size: 12px;
-font-family: Arial, sans-serif;
 padding: 3px 0;
 margin: 10px 0;
 border-bottom: none;
 border-top: 1px solid #<?php echo $body_bg_color; ?>;
 }
 div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a {
-color: #<?php echo $link_color; ?>;
 font-size: 12px;
 }
 
@@ -2278,7 +2218,6 @@ border-bottom: none;
 -------------------------------------------------------------- */
 
 #footer{
-color:#<?php echo $font_color; ?>;
 text-align:left;
 text-shadow:none; 
 margin-top:8px;
@@ -2288,18 +2227,13 @@ border-radius: 6px;
 margin-bottom: 8px;
 padding: 8px; 
 }
-#footer a {
-color: #<?php echo $font_color; ?>;
-}
-
+#footer div.credits, #footer a.credits, #footer a.credits:hover, #footer a.credits:focus { text-align: center; text-decoration: none; background-color: transparent; color: #<?php echo $font_alt_color; ?>; }
 #footer .cc-widget a.button, #header .cc-widget a.button{
 color: #<?php echo $container_bg_color; ?>;
 }
-
-#footer p { 
+#footer span.credits { 
 text-align: center;
 }
-
 .cc-widget{
 width:30% !important;
 float:left;
@@ -2312,12 +2246,10 @@ background-color: #<?php echo $container_bg_color; ?> !important;
 padding:1% !important;
 overflow: hidden;
 }
-
 .cc-widget-right{
 margin:20px 0 20px !important;
 float:right !important;
 }
-
 #footer div.widgetarea h3.widgettitle, #header div.widgetarea h3.widgettitle,
 #footer div.widgetarea h3.widgettitle a, #header div.widgetarea h3.widgettitle {
 width:100%;
@@ -2327,16 +2259,9 @@ border-radius:0 !important;
 margin:0 0 12px -19px !important;
 padding:5px 24px 5px 19px !important;
 }
-
 div#content div.widgetarea h3.widgettitle,
 div#content div.widgetarea h3.widgettitle a {
 background: none !important;
-}
-
-#footer .widget ul li a:hover, #header .widget ul li a:hover,
-#footer .widget li.current-cat a, #header .widget li.current-cat a,
-#footer .widget ul li.current_page_item a, #header .widget ul li.current_page_item a  {
-color:#<?php echo $link_color; ?>;
 }
 
 
@@ -2384,9 +2309,7 @@ background:none;
 }
 
 div.widget ul#blog-post-list li a{
-color:#<?php echo $link_color; ?>;
 font-weight:normal;
-text-decoration:none;
 }
 div.widget_pages ul li {
 min-height:20px;
@@ -2402,45 +2325,24 @@ display:none;
 }
 
 div.widget ul li a {
-color:#<?php echo $font_color; ?>;
-text-decoration:none;
 }
 div.widget ul li a:hover {
-color:#<?php echo $link_color; ?>;
-text-decoration:none;
 }
-
 div.widget ul li.recentcomments a {
-color:#<?php echo $link_color; ?>;
 font-weight:normal;
-text-decoration: none !important;
 }
 div.widget ul li.recentcomments a:hover {
-color:#<?php echo $font_color; ?>;
 font-weight:normal;
-text-decoration: none !important;
 }
-
 select#cat {
 width:100%;
 }
 div.widget ul.item-list li div.item-title {
 margin-top: 3px;
 }
-
-div.widget_tag_cloud a {
-text-decoration:none;
-color:#<?php echo $font_color; ?>;
-}
-div.widget_tag_cloud a:hover {
-text-decoration:none;
-color:#<?php echo $link_color; ?>;
-}
-
 div.widget ul li a.rsswidget {
 line-height:17px;
 }
-
 div.widget div.textwidget {
 padding: 0 10px 0 0;
 }
@@ -2477,7 +2379,7 @@ width:100%;
 div.menu {
 font-size: 13px;
 margin-left: 12px;
-width: 1009px;
+width: 100%;
 }
 
 #access .menu-header ul,
@@ -2506,12 +2408,13 @@ color: #<?php echo $font_color; ?>;
 display: block;
 line-height: 30px;
 padding: 0 15px 2px 15px;
-text-decoration: none;
 -moz-border-radius:6px 6px 0 0;
 -webkit-border-top-left-radius:6px;
 -webkit-border-top-right-radius:6px;
 border-top-left-radius:6px;
 border-top-right-radius:6px;
+text-decoration: none; 
+background-color: transparent;
 }
 #access ul ul {
 -moz-box-shadow:0 3px 3px rgba(0, 0, 0, 0.2);
@@ -2647,6 +2550,10 @@ line-height:20px;
 padding: 0 2px; 
 width:100%;
 }
+div#cc_slider-top a, div#cc_slider-top a:hover, div#cc_slider-top a:focus { 
+text-decoration: none; 
+background-color: transparent; 
+}
 div#cc_slider-top li.ui-tabs-nav-item a:hover{
 background:#<?php echo $details_hover_bg_color; ?>;
 }
@@ -2686,12 +2593,10 @@ line-height:15px;
 color:#ffffff !important;
 }
 div#cc_slider-top .featured .info a{
-text-decoration:underline;
-color:#<?php echo $body_bg_color; ?> !important;
+color:#<?php echo $body_bg_color; ?>; color:#<?php echo $body_bg_color; ?> !important;
 padding-left:0;
 }
 div#cc_slider-top .featured .info a:hover{
-text-decoration:none;
 }
 div#cc_slider-top .featured .ui-tabs-hide{
 display:none;
@@ -3360,6 +3265,11 @@ div#container, body.activity-permalink div#container {
 		-moz-border-radius: 0px;
 		-webkit-border-radius: 0px; 
 		border-radius: 0px; 
+		}
+		div#leftsidebar, div#sidebar {
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px; 
+		border-radius: 0px; 	
 	<?php } ?>
 
 }
@@ -3369,47 +3279,46 @@ div#container, body.activity-permalink div#container {
 /** ***  
 adapting footer widgets to container background colour, image, repeat and corner radius - if it is NOT specified extra for the footer! **/
 
-<?php if($cap->bg_container_color && !$cap->bg_footer_color){ ?> 
-	div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right { 
-		background-color: <?php if($cap->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $cap->bg_container_color;?>; 
+	<?php if($cap->bg_container_color && !$cap->bg_footer_color){ ?> 
+		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right { 
+			background-color: <?php if($cap->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $cap->bg_container_color; ?>; 
+		}
 	<?php } ?>
 	
 	<?php if($cap->bg_container_img && !$cap->bg_footer_img){?>
-		background-image:url(<?php echo $cap->bg_container_img?>);	
-			<?php switch ($cap->bg_container_img_repeat) {
-		        case 'no repeat':
-					?>background-repeat: no-repeat;<?php	
-		        	break;
-		        case 'x':
-					?>background-repeat: repeat-x;<?php	
-		        	break;
-		        case 'y':
-					?>background-repeat: repeat-y;<?php	
-		        	break;
-		        case 'x+y':
-					?>background-repeat: repeat;<?php	
-		        	break;
-	        } ?>		 
-	}
-<?php } ?>
+		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
+			background-image:url(<?php echo $cap->bg_container_img?>);	
+				<?php switch ($cap->bg_container_img_repeat) {
+			        case 'no repeat':
+						?>background-repeat: no-repeat;<?php	
+			        	break;
+			        case 'x':
+						?>background-repeat: repeat-x;<?php	
+			        	break;
+			        case 'y':
+						?>background-repeat: repeat-y;<?php	
+			        	break;
+			        case 'x+y':
+						?>background-repeat: repeat;<?php	
+			        	break;
+		        } ?>		 
+		}
+	<?php } ?>
 
-<?php if($cap->container_corner_radius == 'not rounded' ) { ?>
-#footer, div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px; 
-	border-radius: 0px; 
-}
-<?php } ?>
+	<?php if($cap->container_corner_radius == 'not rounded' ) { ?>
+		#footer, div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
+			-moz-border-radius: 0px;
+			-webkit-border-radius: 0px; 
+			border-radius: 0px; 
+		}
+		div#cc_slider-top{
+		-moz-border-radius:0px;
+		-webkit-border-radius:0px;
+		border-radius:0px;
+		}
+	<?php } ?>
 
 <?php endif; ?>	
-
-<?php if($cap->container_corner_radius =='not rounded' ) { ?>
-#slider-top{
--moz-border-radius:0px;
--webkit-border-radius:0px;
-border-radius:0px;
-}
-<?php } ?>
 
 <?php if($cap->bg_footer_color != '' || $cap->bg_footer_img != '' || $cap->footer_height != ''): ?>
 /** ***   
@@ -3506,7 +3415,7 @@ buttons and widgets that want some FONT COLOR tweaking to the container backgrou
 
 a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
 .activity-list div.activity-meta a.acomment-reply, 
-.activity-list div.activity-meta a, div.widget-title ul.item-list li.selected a, div.widget-title ul.item-list li.selected a:hover  {
+.activity-list div.activity-meta a  {
 	color: #<?php echo $cap->bg_container_color?> !important;
 }
 <?php };?>
@@ -3515,26 +3424,8 @@ a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.ge
 /** ***   
 font family  **/
 
-a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a,   
-.activity-list .activity-header a:first-child, span.highlight, #item-nav a, div.widget ul li a:hover, 
-#subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul li.recentcomments a, div.widget_tag_cloud a:hover, 
-body, p, em, div.post, div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options, 
-div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
-ul.item-list li div.meta, div.item-list-tabs ul li span, span.activity, div#message p, div.widget span.activity, 
-div.pagination, div#message.updated p, #subnav a, div.widget-title ul.item-list li a, 
-div.post h2.pagetitle a, div.post h2.posttitle a, div#item-header span.activity, div#item-header h2 span.highlight, 
-form.standard-form input:focus, form.standard-form textarea:focus, form.standard-form select:focus, table tr td.label, 
-table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
-form#whats-new-form h5, form#whats-new-form #whats-new-textarea, .activity-list li .activity-inreplyto, 
-.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header, 
-.activity-list .activity-content span.time-since, .activity-list .activity-content span.activity-header-meta a, 
-.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote, 
-.activity-list .activity-content .comment-header, .activity-header a:hover, div.activity-comments div.acomment-meta,  
-div.activity-comments form .ac-textarea, div.activity-comments form textarea, div.activity-comments form div.ac-reply-content, 
-li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
-div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
-#comments h3, #trackbacks h3, #respond h3, #footer, #footer a, div.widget ul li a, div.widget ul li.recentcomments a:hover, 
-div.widget_tag_cloud a, div#item-header span.activity, div#item-header h2 span.highlight, a:hover, a:active, .widget li.cat-item a, #item-nav a:hover {
+a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a, span.highlight, #item-nav a, div.widget ul li a:hover, 
+body {
 	font-family: <?php echo $cap->font_style?>;
 }
 <?php };?> 
@@ -3543,9 +3434,8 @@ div.widget_tag_cloud a, div#item-header span.activity, div#item-header h2 span.h
 /** ***   
 standard font size  **/
 
-div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle,div.widgetarea h3.widgettitle, a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a,   
-.activity-list .activity-header a:first-child, span.highlight, #item-nav a, div.widget ul li a:hover, 
-#subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul#blog-post-list li, div.widget ul#blog-post-list li p, 
+div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle,div.widgetarea h3.widgettitle, a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a, 
+span.highlight, #item-nav a, div.widget ul li a:hover, #subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul#blog-post-list li, div.widget ul#blog-post-list li p, 
 div.widget ul#blog-post-list li div, div.widget ul li.recentcomments a, div#sidebar div#sidebar-me h4,div.widgetarea div#sidebar-me h4, 
 body, p, em, div.post, div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options, 
 div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
@@ -3576,16 +3466,15 @@ div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, 
 	div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
 	ul.item-list li div.meta, div.item-list-tabs ul li span, span.activity, div#message p, div.widget span.activity, 
 	div.pagination, div#message.updated p, #subnav a, div.widget-title ul.item-list li a, 
-	div.post h2.pagetitle a, div.post h2.posttitle a, div#item-header span.activity, div#item-header h2 span.highlight, 
-	form.standard-form input:focus, form.standard-form textarea:focus, form.standard-form select:focus, table tr td.label, 
+	div#item-header span.activity, div#item-header h2 span.highlight, 
+	form.standard-form input:focus, form.standard-form select:focus, table tr td.label, 
 	table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
 	form#whats-new-form h5, form#whats-new-form #whats-new-textarea, .activity-list li .activity-inreplyto, 
 	.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header, 
 	.activity-list .activity-content span.time-since, .activity-list .activity-content span.activity-header-meta a, 
 	.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote, 
 	.activity-list .activity-content .comment-header, .activity-header a:hover, div.activity-comments div.acomment-meta,  
-	div.activity-comments form .ac-textarea, div.activity-comments form textarea, div.activity-comments form div.ac-reply-content, 
-	li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
+	div.activity-comments form div.ac-reply-content, li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
 	div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
 	#comments h3, #trackbacks h3, #respond h3, #footer, div.widget ul li a, div.widget ul li.recentcomments a:hover, #footer a, 
 	div.widget_tag_cloud a, div#item-header span.activity, div#item-header h2 span.highlight, a:hover, a:active, .widget li.cat-item a, #item-nav a:hover {
@@ -3612,8 +3501,7 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 /** ***   
 title font style, size, weight and colour  **/
 
-div.post h2.pagetitle a, div.post h2.posttitle a, 
-h1, h2, div#item-header h2 a {
+h1, h2 {
 <?php if($cap->title_font_style){?>
 	font-family: <?php echo $cap->title_font_style?>;
 <?php };?>
@@ -3633,7 +3521,7 @@ h1, h2, div#item-header h2 a {
 /** ***   
 subtitle font style, weight and colour  **/
 
-#content h3, #content h4, #content h5, #content h6 {
+h3, h4, h5, h6 {
 <?php if($cap->subtitle_font_style){?>
 	font-family: <?php echo $cap->subtitle_font_style?>;
 <?php };?>
@@ -3646,35 +3534,19 @@ subtitle font style, weight and colour  **/
 }
 <?php endif; ?>
 
-	
-
 <?php if($cap->link_color){?>
 /** ***   
 link colour  **/
 
-a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a,   
-.activity-list .activity-header a:first-child, span.highlight, #item-nav a, div.widget ul li a:hover, 
+a, div.widget-title ul.item-list li.selected a, span.highlight, #item-nav a, div.widget ul li a:hover, 
 #subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul li.recentcomments a, div.widget_tag_cloud a:hover, 
 .widget li.current-cat a, div.widget ul li.current_page_item a, 
-#footer .widget li.current-cat a,#header .widget li.current-cat a , #footer div.widget ul li.current_page_item a, #header div.widget ul li.current_page_item a, #footer .widget ul li a:hover, #header .widget ul li a:hover  {
+#footer .widget li.current-cat a,#header .widget li.current-cat a , #footer div.widget ul li.current_page_item a, #header div.widget ul li.current_page_item a  {
 	color:#<?php echo $cap->link_color?>;
 }
-div.widget-title ul.item-list li a:hover  {
-	color:#<?php echo $cap->link_color?> !important;
-}
-<?php if($cap->link_color && !$cap->bg_container_color){?>
-	div.widget-title ul.item-list li.selected a:hover {
-		color:#<?php switch ($cap->style_css) {
-		    	case 'dark': echo "181818"; break;
-		    	case 'light': echo "cdcdcd"; break;
-				} ?>  !important;
-	}
-<?php } ?> 
-
 /** ***   
 buttons and widgets that want some adapting to the link colour  **/
 
-div.widget-title ul.item-list li.selected, 
 a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, 
 ul.button-nav li a:hover, div.generic-button a:hover, ul.button-nav li a:focus, div.generic-button a:focus, 
 .activity-list div.activity-meta a.acomment-reply, 
@@ -3682,6 +3554,190 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 	background-color:#<?php echo $cap->link_color?> !important;
 }
 <?php } ?> 
+
+<?php if($cap->link_color_hover != ""):?>
+	/** ***   
+	link colour hover  **/
+	
+	div#sidebar div.item-options a.selected:hover, div#leftsidebar div.item-options a.selected:hover, 
+	a:hover, a:active, form.standard-form input:focus, form.standard-form select:focus, .activity-header a:hover,   
+	div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
+	div.widget ul li a:hover, div.widget ul li.recentcomments a:hover, #item-nav a:hover, div.widget-title ul.item-list li a:hover, 
+	<?php if ( $cap->link_color_subnav_adapt == "link colour and hover colour" ) { echo '#subnav a:hover, #subnav a:focus'; } 
+	// this was the check if the option to adapt the subnav links to the link hover colour was selected ?> {
+		color:#<?php echo $cap->link_color_hover ?>;
+	} 	
+<?php endif; ?>
+
+<?php if($cap->link_underline != "never"): ?>
+
+	<?php if($cap->link_underline == "just for mouse over"){ 
+		$stylethis = 'a:hover, a:focus'; 
+	} else {
+		
+		if($cap->link_underline == "always") { 
+		$stylethis = 'a, a:hover, a:focus';
+		} else { 
+			$stylethis = 'a:hover, a:focus { text-decoration: none; } a';
+		}
+	} ?>
+	
+	/** ***   
+	link underline  **/
+	
+	<?php echo $stylethis ?> {
+		text-decoration: underline;
+	} 	
+	
+<?php endif; ?>
+
+<?php if($cap->link_bg_color != ""):?>
+	/** ***   
+	link BACKGROUND colour  **/
+	
+	a {
+		background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+	} 
+<?php endif; ?>
+
+<?php if($cap->link_bg_color_hover != ""):?>
+	/** ***   
+	link BACKGROUND colour hover  **/
+	
+	a:hover, a:focus {
+		background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+	} 
+<?php endif; ?>
+
+<?php if($cap->link_styling_title_adapt != "just link colour and link hover colour"):?>
+
+	<?php switch ($cap->link_styling_title_adapt) { 
+        
+		case 'no, only the link colour!': ?>
+        
+        	<?php if ($cap->link_bg_color_hover || $cap->link_bg_color_hover) { ?>
+				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+					color: #<?php if (!$cap->font_color) { echo $font_color; } else { echo $cap->font_color;  } ?>; 
+				} 
+			<?php } ?>
+			
+		<?php break; 
+		
+		case 'the underline effects too': ?>
+        
+        	<?php if($cap->link_underline != "never"): ?>
+
+				<?php if($cap->link_underline == "just for mouse over"){ 
+					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
+				} else {	
+					if($cap->link_underline == "always") { 
+						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
+					} else { 
+						$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+										text-decoration: none; 
+										} 
+										h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
+					}
+				} ?>
+				
+				/** ***   
+				title links underline  **/
+				
+				<?php echo $stylethis ?> {
+					text-decoration: underline;
+				} 	
+			
+			<?php endif; ?>
+			
+		<?php break; 
+		
+		case 'adapt all link styles': ?>
+        
+        	<?php if($cap->link_underline != "never"): ?>
+
+				<?php if($cap->link_underline == "just for mouse over"){ 
+					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
+				} else {	
+					if($cap->link_underline == "always") { 
+						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
+					} else { 
+						$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+										text-decoration: none; 
+										} 
+										h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
+					}
+				} ?>
+				
+				/** ***   
+				title links underline  **/
+				
+				<?php echo $stylethis ?> {
+					text-decoration: underline;
+				} 	
+			
+			<?php endif; ?>
+			
+			<?php if($cap->link_bg_color != ""):?>
+				/** ***   
+				title links BACKGROUND colour  **/
+				
+				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+					background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+				} 
+			<?php endif; ?>
+			
+			<?php if($cap->link_bg_color_hover != ""):?>
+				/** ***   
+				title links BACKGROUND colour hover  **/
+				
+				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
+					background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+				} 
+			<?php endif; ?>
+			
+			
+		<?php break; 
+		
+		case 'the background colours too': ?>
+        
+			<?php if($cap->link_bg_color != ""):?>
+				/** ***   
+				title links BACKGROUND colour  **/
+				
+				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+					background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+				} 
+			<?php endif; ?>
+			
+			<?php if($cap->link_bg_color_hover != ""):?>
+				/** ***   
+				title links BACKGROUND colour hover  **/
+				
+				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
+					background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+				} 
+			<?php endif; ?>
+						
+		<?php break; 
+		
+		
+		?>		
+		
+      <?php } ?>
+
+
+	
+	
+<?php endif; ?>
 
 <?php if($cap->default_homepage_hide_avatar == "hide"){?>
 /** ***   
@@ -3837,39 +3893,37 @@ header image, repeat  **/
 <?php } ?>			
 
 <?php if($cap->searchbar_x != "" || $cap->searchbar_y != ""): ?>
-/** ***   
-header search bar position  **/
+	/** ***   
+	header search bar position  **/
 
-#header #search-bar { 
-<?php if($cap->searchbar_x == 'left'){?>
-	left:0; 
-<?php };?>
-<?php if($cap->searchbar_y){?>
-	top:<?php echo $cap->searchbar_y; ?>px !important;
-<?php };?>
-}
+	<?php if($cap->searchbar_y){?>
+		#header #search-bar { 
+			top:<?php echo $cap->searchbar_y; ?>px !important;
+		}
+	<?php } ?>
+	
+	<?php if($cap->searchbar_x == 'left'){?>
+		#header #search-bar { 
+			left:0; 
+		}
+		#header #search-bar {
+		    text-align: left;
+		}
+	<?php } ?>
 <?php endif; ?>
  
-<?php if($cap->bg_menu_style != ""): ?>
+<?php if($cap->bg_menu_style != "tab style"): ?>
 /** ***   
 menu style  **/ 
 
-#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
-#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
-#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover,
-#access ul li.current_page_item, #access ul li.current-menu-item, #access li.selected, 
-#access li:hover > a {
-
-<?php 
-		switch ($cap->bg_menu_style)
-        {
-        case 'closed style':
-			?>-moz-border-radius: 6px; -webkit-border-radius:6px; border-radius:6px; 
-			<?php break; ?>
-<?php };?>
-} 
-
 <?php if($cap->bg_menu_style == 'closed style'){?>
+	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
+	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
+	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover,
+	#access ul li.current_page_item, #access ul li.current-menu-item, #access li.selected, 
+	#access li:hover > a {
+		-moz-border-radius: 6px; -webkit-border-radius:6px; border-radius:6px; 	
+	} 
 	#access ul li {
 		margin-bottom: 4px; 
 	}
@@ -3878,14 +3932,43 @@ menu style  **/
 	}
 	#access ul ul a {
 		margin-bottom: 0px;
-	}
-	
-<?php };?>
-<?php if($cap->bg_menu_style == 'simple'){?>
-	#access {
-		background: transparent;
 	}	
-<?php };?>
+<?php } ?>
+<?php if($cap->bg_menu_style == 'simple'){?>
+	div#access {
+		background-color: transparent;
+	}	
+	#access .menu-header, div.menu {
+    margin-left: 0;
+    }
+    #access a {
+    padding: 0 12px 2px 12px;
+	}
+	div#access div.menu ul li a:hover, div#access div.menu ul li a:focus, 
+	#access ul ul :hover > a, #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
+	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
+	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
+	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a { 
+		color: #<? echo $link_color ?>; 
+	}
+<?php } ?>
+
+<?php if($cap->bg_menu_style == 'bordered'){?>
+	div#access {
+		background-color: transparent;
+		border-top: 1px solid #<? echo $container_bg_color ?>;
+		border-bottom: 1px solid #<? echo $container_bg_color ?>;
+	}	
+	div#access div.menu ul li a:hover, div#access div.menu ul li a:focus, 
+	#access ul ul :hover > a, #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
+	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
+	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
+	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a { 
+		color: #<? echo $link_color ?>; 
+	}
+<?php } ?>
+
+
 <?php endif; ?>
 
 <?php if($cap->menu_x == 'right'){?>
@@ -3895,9 +3978,9 @@ menu x-position  **/
 div.menu ul { 
 	float: right;
 }
-<?php };?>
+<?php } ?>
 
-<?php if($cap->menue_link_color	){?>
+<?php if($cap->menue_link_color	) { ?>
 /** ***   
 menu font colour  **/
 
@@ -3908,22 +3991,22 @@ menu font colour  **/
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a  {
 	color: #<?php echo $cap->menue_link_color?>;
 }
-<?php };?>
+<?php } ?>
 
-<?php if($cap->menue_link_color_current	){?>
+<?php if($cap->menue_link_color_current	) { ?>
 /** ***   
 menu font colour current and mouse over **/ 
 
 #access li:hover > a, #access ul ul :hover > a, 
 #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
-#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
+#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a {
 	color: #<?php echo $cap->menue_link_color_current?>;
 } 
 
 /** ***   
-IE browser hack for menu font colour  **/ 
+IE browser hack for menu font colour current and mouse over  **/ 
 
 * html #access ul li.current_page_item a,
 * html #access ul li.current-menu-ancestor a,
@@ -3932,7 +4015,7 @@ IE browser hack for menu font colour  **/
 * html #access ul li a:hover {
 	color: #<?php echo $cap->menue_link_color_current?>;
 } 
-<?php };?>
+<?php } ?>
 
 <?php if($cap->bg_menue_link_color != "" || $cap->menu_underline != "" || $cap->bg_menu_img != ""):?>
 /** ***   
@@ -3941,13 +4024,13 @@ menu background colour, border-bottom, image and repeat  **/
 #access {
 <?php if($cap->bg_menue_link_color	){?>
 	background-color: <?php if ( $cap->bg_menue_link_color != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color; ?>;
-<?php };?>
+<?php } ?>
 <?php if($cap->menu_underline ){?>
 	border-bottom: 1px solid #<?php echo $cap->menu_underline?>;
-<?php };?>
+<?php } ?>
 <?php if($cap->bg_menu_img){?>
 	background-image:url(<?php echo $cap->bg_menu_img?>);	
-<?php }; ?>
+<?php } ?>
 <?php 
 		switch ($cap->bg_menu_img_repeat)
         {
@@ -3979,12 +4062,12 @@ menu corner radius  **/
 	-webkit-border-top-right-radius:0px;
 	border-top-left-radius:0px;
 	border-top-right-radius:0px;
-<?php };?> 
+<?php } ?> 
 <?php if($cap->menu_corner_radius == 'not rounded'){?>
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
 	border-radius:0px;
-<?php };?> 
+<?php } ?> 
 }
 <?php endif; ?>
 
@@ -3999,7 +4082,7 @@ menu background colour, image and repeat of current  **/
 	background-color: <?php if ( $cap->bg_menue_link_color_current != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_current; ?>;
 	<?php if($cap->bg_menu_img_current){?>
 	background-image:url(<?php echo $cap->bg_menu_img_current?>);	
-	<?php }; ?>
+	<?php } ?>
 	<?php if($cap->bg_menu_img_current) {
 		switch ($cap->bg_menu_img_current_repeat) {
         case 'no repeat':
@@ -4015,9 +4098,9 @@ menu background colour, image and repeat of current  **/
 			?>background-repeat: repeat;<?php	
         break;
         } 
-	}; ?>	        
+	} ?>	        
 } 
-<?php };?>
+<?php } ?>
 
 <?php if($cap->bg_menue_link_color_hover){?>
 /** ***   
@@ -4030,7 +4113,7 @@ menu background colour hover and drop down list  **/
 	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_hover; ?>;
 	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_hover; ?> !important;
 }
-<?php };?> 
+<?php } ?> 
 
 <?php if($cap->bg_menue_link_color_dd_hover	){?>
 /** ***   
@@ -4040,14 +4123,122 @@ menu background colour drop down menu item hover  **/
 #access ul.sub-menu li:hover > a {
 	background: #<?php echo $cap->bg_menue_link_color_dd_hover?> !important;
 } 
-<?php };?>
+<?php } ?>
+
+<?php if ( $cap->leftsidebar_width != "") { ?>
+	/** ***   
+	left sidebar width  **/ 
+
+	div#leftsidebar {
+		width: <?php echo $cap->leftsidebar_width ?>px;
+		margin-right: -<?php echo$cap->leftsidebar_width ?>px;
+	} 
+	div#content .padder { 
+		margin-left: <?php if($cap->sidebar_position != 'full-width' && $cap->sidebar_position != 'right'){ echo $cap->leftsidebar_width; } else { echo '0'; } ?>px;
+	}
+	div.v_line_left {
+		margin-left: <?php echo $cap->leftsidebar_width ?>px;
+	}
+	
+	<?php // change the width of the widget titles, which is always 41px less because of its padding.. 
+	$old = $cap->leftsidebar_width; $wdth = $old - 41; ?>
+	 
+	div#leftsidebar h3.widgettitle { 
+		width: <?php echo $wdth ?>px;
+	}
+	
+<?php } ?>
+
+<?php if ( $cap->bg_leftsidebar_color != "" || $cap->bg_leftsidebar_img != "") { ?>
+/** ***   
+left sidebar background colour  **/ 
+
+div#leftsidebar {
+	<?php if ( $cap->bg_leftsidebar_color != "" ) { ?>background-color: #<?php echo $cap->bg_leftsidebar_color; } ?>;
+	
+	<?php if($cap->bg_leftsidebar_img != ""){ ?>
+		background-image:url(<?php echo $cap->bg_leftsidebar_img ?>);	
+	
+		<?php switch ($cap->bg_leftsidebar_img_repeat)
+		        {
+		        case 'no repeat':
+					?>background-repeat: no-repeat;<?php	
+		        	break;
+		        case 'x':
+					?>background-repeat: repeat-x;<?php	
+		        	break;
+		        case 'y':
+					?>background-repeat: repeat-y;<?php	
+		        	break;
+		        case 'x+y':
+					?>background-repeat: repeat;<?php	
+		        	break;
+		        } ?>
+	<?php } ?>
+
+} 
+<?php } ?>
+
+<?php if ( $cap->rightsidebar_width != "") { ?>
+	/** ***   
+	right sidebar width  **/ 
+
+	div#sidebar {
+		width: <?php echo $cap->rightsidebar_width ?>px;
+		margin-left: -<?php echo$cap->rightsidebar_width ?>px;
+	} 
+	
+	div#content .padder { 
+		margin-right: <?php if($cap->sidebar_position != 'full-width' && $cap->sidebar_position != 'left'){ echo $cap->rightsidebar_width; } else { echo '0'; } ?>px;
+	}
+	div.v_line_right {
+		right: <?php echo $cap->rightsidebar_width ?>px;
+	}
+	
+	<?php // change the width of the widget titles, which is always 41px less because of its padding.. 
+	$old = $cap->rightsidebar_width; $wdth = $old - 41; ?>
+	 
+	div#sidebar h3.widgettitle { 
+		width: <?php echo $wdth ?>px;
+	}
+	
+<?php } ?>
+
+<?php if ( $cap->bg_rightsidebar_color != "" || $cap->bg_rightsidebar_img != "") { ?>
+/** ***   
+right sidebar background colour  **/ 
+
+div#sidebar {
+	<?php if ( $cap->bg_rightsidebar_color != "" ) { ?>background-color: #<?php echo $cap->bg_rightsidebar_color; } ?>;
+	
+	<?php if($cap->bg_rightsidebar_img != ""){ ?>
+		background-image:url(<?php echo $cap->bg_rightsidebar_img ?>);	
+	
+		<?php switch ($cap->bg_rightsidebar_img_repeat)
+		        {
+		        case 'no repeat':
+					?>background-repeat: no-repeat;<?php	
+		        	break;
+		        case 'x':
+					?>background-repeat: repeat-x;<?php	
+		        	break;
+		        case 'y':
+					?>background-repeat: repeat-y;<?php	
+		        	break;
+		        case 'x+y':
+					?>background-repeat: repeat;<?php	
+		        	break;
+		        } ?>
+	<?php } ?>
+
+} 
+<?php } ?>
 
 <?php if($cap->bg_widgettitle_style != "" || $cap->bg_widgettitle_color != "" || $cap->bg_widgettitle_img != "" ): ?>
 /** ***   
 sidebars: widget title style, background colour and image  **/ 
 
-div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle, 
-div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
+div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle {
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
@@ -4059,8 +4250,8 @@ div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h
         }
 ?>
 <?php if($cap->bg_widgettitle_color){?>
-	background: #<?php echo $cap->bg_widgettitle_color?>;
-<?php };?>
+	background-color: #<?php echo $cap->bg_widgettitle_color?>;
+<?php } ?>
 <?php if($cap->bg_widgettitle_img){ ?>
 	background-image:url(<?php echo $cap->bg_widgettitle_img?>);	
 <?php } ?>
@@ -4097,15 +4288,17 @@ div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
 }
 <?php endif; ?>
 
-<?php if($cap->widgettitle_font_size || $cap->widgettitle_font_color){?>
+<?php if($cap->widgettitle_font_size || $cap->widgettitle_font_color || $cap->widgettitle_font_style){?>
 /** ***   
-sidebars: widget title font size and color **/ 
+sidebars: widget title font style, size and color **/ 
 
-	div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle {
-	font-size: <?php echo $cap->widgettitle_font_size?>px; 
-	color: #<?php echo $cap->widgettitle_font_color?>;
+	div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle, 
+	div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
+	font-family: <?php echo $cap->widgettitle_font_style ?>;
+	<?php if($cap->widgettitle_font_size != "") { ?>font-size: <?php echo $cap->widgettitle_font_size; } ?>px; 
+	<?php if($cap->widgettitle_font_color != "") { ?>color: #<?php echo $cap->widgettitle_font_color; } ?>;
 }
-<?php };?>
+<?php } ?>
 
 <?php if($cap->capitalize_widgets_li == 'yes'){?>
 /** ***   
@@ -4113,7 +4306,7 @@ widgets: capitalize fonts in lists**/
 
 div.widget-title ul.item-list li a, div.widget ul li a { text-transform: uppercase; }
 
-<?php };?>
+<?php } ?>
 
 <?php if($cap->capitalize_widgettitles == 'yes'){?>
 /** ***   
@@ -4121,7 +4314,7 @@ widgets: capitalize widgettitles**/
 
 h3.widgettitle, h3.widgettitle a { text-transform: uppercase; }
 
-<?php };?>
+<?php } ?>
 
 <?php global $cc_post_options; ?>
 <?php if($cc_post_options['cc_post_template_avatar'] == '1') { ?>
@@ -4145,7 +4338,7 @@ div.item-list-tabs {
 border-bottom: 4px solid #<?php echo $cap->bg_content_nav_color?>;
 }
 
-<?php };?>
+<?php } ?>
 
 /** ***   
 overwrite css area adding  **/ 

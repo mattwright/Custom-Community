@@ -25,6 +25,7 @@ function switch_css(){
 	'details_bg_color' => 'dddddd', 
 	'details_hover_bg_color' => 'ededed', 
 	'font_color' => '555555',
+	'font_alt_color' => 'aaaaaa',
 	'link_color' => '1f8787',
 	);
 
@@ -39,6 +40,7 @@ function switch_css(){
 			'details_bg_color' => '181818', 
 			'details_hover_bg_color' => '252525',
 			'font_color' => '888888',
+			'font_alt_color' => '555555',
 			'link_color' => 'ffffff',
 			);
         break;
@@ -50,6 +52,7 @@ function switch_css(){
 			'details_bg_color' => 'FFF9DB', 
 			'details_hover_bg_color' => 'FFE5B3',
 			'font_color' => '888888',
+			'font_alt_color' => 'aaaaaa',
 			'link_color' => 'ff7400',
 			);
         	
@@ -62,6 +65,7 @@ function switch_css(){
 			'details_bg_color' => 'dddddd', 
 			'details_hover_bg_color' => 'f9f9f9',
 			'font_color' => '888888',
+			'font_alt_color' => 'afafaf',
 			'link_color' => '489ed5',
 			);
         break;
@@ -73,6 +77,7 @@ function switch_css(){
 			'details_bg_color' => 'ffffff', 
 			'details_hover_bg_color' => 'f9f9f9',
 			'font_color' => '888888',
+			'font_alt_color' => 'afafaf',
 			'link_color' => '529e81',
 			);
         break;
@@ -84,6 +89,7 @@ function switch_css(){
 			'details_bg_color' => 'dddddd', 
 			'details_hover_bg_color' => 'ededed', 
 			'font_color' => '555555',
+			'font_alt_color' => 'aaaaaa',
 			'link_color' => '1f8787',
 			);
         break;
@@ -95,6 +101,7 @@ function switch_css(){
 			'details_bg_color' => '333333', 
 			'details_hover_bg_color' => '181818',
 			'font_color' => '888888',
+			'font_alt_color' => '555555',
 			'link_color' => 'ffffff',
 			);
         break;

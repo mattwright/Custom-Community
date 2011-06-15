@@ -38,7 +38,7 @@
 	<body <?php body_class() ?> id="bp-default">
  <div id="outerrim">
     <?php $innerrim = '<div id="innerrim">'; ?>
-    <?php if ($cap->header_width == "default") { echo $innerrim; }?>
+    <?php if ($cap->header_width != "full-width") { echo $innerrim; }?>
 		<?php do_action( 'bp_before_header' ) ?>
 
 	<div id="header">
@@ -169,23 +169,23 @@
 					<div id="cc_slider-top">
 						<?php if ( $cap->slideshow_style == "full width" ) { ?>
 						<style type="text/css">
-						div#cc_slider-top div.featured {
+						div#cc_slider-top div.featured div.ui-tabs-panel {
 						width:100%;
 						} 
 						</style>
 						<?php } ?>
 						<?php echo slidertop();?>	
 					</div>
-					<?php if($cap->slideshow_shadow == "shadow"){?>
-					<div style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/slider-shadow.png"></img></div>		
+					<?php if($cap->slideshow_shadow != "no shadow"){?>
+					<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/<?php cc_slider_shadow(); ?>"></img></div>		
 					<?php };?>
 				<?php } ?>
 			<?php } elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
 				<div id="cc_slider-top">
 						<?php echo slidertop();?>
 				</div>	
-				<?php if($cap->slideshow_shadow == "shadow"){?>
-				<div style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/slider-shadow.png"></img></div>		
+				<?php if($cap->slideshow_shadow != "no shadow"){?>
+				<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/<?php cc_slider_shadow(); ?>"></img></div>		
 				<?php }?>
 			<?php } ?>
 		<?php endif; ?>			

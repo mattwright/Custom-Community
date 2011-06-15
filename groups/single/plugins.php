@@ -10,20 +10,17 @@
 	// correct the margin of the content if the sidebars for profiles 
 	// are set to something else than default 
 
+		$lw = get_leftsidebar_width();
+		$rw = get_rightsidebar_width();
+		
 		switch ($cap->bp_groups_sidebars) 
 		{
-		    case 'left': $cssmargin = "margin-left: 224px; margin-right: 0;"; break;
-		    case 'right': $cssmargin = "margin-left: 0; margin-right: 225px;"; break;
-		    case 'left and right': $cssmargin = "margin-left: 224px; margin-right: 225px;"; break;
+		    case 'left': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: 0; } </style>'; break;
+		    case 'right': echo '<style type="text/css"> div#content .padder{ margin-right: '.$rw.'; margin-left: 0; } </style>'; break;
+		    case 'left and right': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: '.$rw.'; } </style>'; break;
 		} ?>
-		
-		<style type="text/css">
-			div#content .padder{
-				<?php echo $cssmargin; ?>
-			}			
-		</style>
-		
-<?php } ?>
+			
+	<?php } ?>
 	 
 	 
 	<?php if($cap->bp_groups_sidebars == 'default'){?>

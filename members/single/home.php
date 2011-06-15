@@ -11,18 +11,15 @@
 	// correct the margin of the content if the sidebars for profiles 
 	// are set to something else than default 
 
+		$lw = get_leftsidebar_width();
+		$rw = get_rightsidebar_width();
+		
 		switch ($cap->bp_profile_sidebars) 
 		{
-		    case 'left': $cssmargin = "margin-left: 224px; margin-right: 0;"; break;
-		    case 'right': $cssmargin = "margin-left: 0; margin-right: 225px;"; break;
-		    case 'left and right': $cssmargin = "margin-left: 224px; margin-right: 225px;"; break;
+		    case 'left': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: 0; } </style>'; break;
+		    case 'right': echo '<style type="text/css"> div#content .padder{ margin-right: '.$rw.'; margin-left: 0; } </style>'; break;
+		    case 'left and right': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: '.$rw.'; } </style>'; break;
 		} ?>
-		
-		<style type="text/css">
-			div#content .padder{
-				<?php echo $cssmargin; ?>
-			}			
-		</style>
 		
 	 <?php } ?>
 
@@ -41,12 +38,7 @@
 
 <?php } else { // what means if bp_profile_sidebars is = "none" ?>
 
-	<style type="text/css">
-		
-	<?php if ( $cap->bg_container_img == "" ) { 	// check if a custiom image is selected for the container else display no container image by default (the vertical lines) ?>	
-	#container { background-image: none; background-image: none !important; }	
-	<?php } ?>
-	
+	<style type="text/css">	
 	div#content .padder { margin-left: 0; margin-right: 0; }
 	</style>
 
@@ -67,8 +59,6 @@
 					<h2 class="fn"><a href="<?php bp_user_link() ?>"><?php bp_displayed_user_fullname() ?></a> <span class="highlight">@<?php bp_displayed_user_username() ?> <span>?</span></span></h2>
 			</div>
 		<?php endif;?>
-			
-			
 			
 			<?php if($cap->bp_default_navigation == true){?>
 			<div id="item-nav">

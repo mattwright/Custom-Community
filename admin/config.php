@@ -53,7 +53,8 @@ function cap_get_options() {
 		new DropdownOption(
 			"Fluid or static width?", 
 			"Do you want your layout fluid(%) or static(px)? <br>
-			Attention: when you use the slideshow, better don't use fluid width. ", 
+			Notes: when you use the slideshow, better don't use fluid width. <br>
+			And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.", 
 			"website_width_unit", 
 			array('px', '%'),
 			"",
@@ -234,9 +235,58 @@ function cap_get_options() {
 			'end'),
 		new ColorOption(
 			"Link colour", 
-			"Change link colour", 
+			"Change link colour. <br>
+			Notes: You just need to change the link colour to have a nice effect on all link and button colours. <br>
+			The hover colour will automatically be your font colour or the default font colour. <br>
+			Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline. ", 
 			"link_color", 
-			""),
+			"",
+			"start",
+			"Links"),
+		new ColorOption(
+			"Link hover colour", 
+			"Change link colour for mouse moves over.", 
+			"link_color_hover", 
+			"",
+			false),
+		new DropdownOption(
+			"BuddyPress subnavigation adapting", 
+			"Use link hover colour for the BuddyPress subnav also? <br> 
+			By default the subnav links adapts the link colour and link hover colour. <br>
+			Sometimes the link hover colour can look ugly here and you don't want the subnav to adapt. <br>
+			Then you can change the colour adapting here easily. ", 
+			"link_color_subnav_adapt", 
+			array('just the link colour', 'link colour and hover colour'),
+			"", 
+			false),	
+		new DropdownOption(
+			"Link underline", 
+			"Choose if (and when) to underline links.", 
+			"link_underline", 
+			array('never', 'always', 'just for mouse over', 'just when normal'),
+			"", 
+			false),
+		new ColorOption(
+			"Link background colour", 
+			"Change link background colour.", 
+			"link_bg_color", 
+			"",
+			false),
+		new ColorOption(
+			"Link background hover colour", 
+			"Change link background colour for mouse moves over. <br>
+			Watch out you have enough contrast to the (hover) link colour and also the font colour!", 
+			"link_bg_color_hover", 
+			"", 
+			false),
+		new DropdownOption(
+			"Titles adapting", 
+			"Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? <br> 
+			By default they adapt just the link colour and link hover colour.", 
+			"link_styling_title_adapt", 
+			array('just link colour and link hover colour', 'the underline effects too', 'the background colours too', 'adapt all link styles', 'no, only the link colour!', ),
+			"", 
+			'end'),	
 		new FileOption(
 			"Favicon image", 
 			"Insert your own favicon image. Upload or insert url.", 
@@ -341,7 +391,7 @@ function cap_get_options() {
 		new FileOption(
 			"Header image", 
 			"Insert your own header image. Upload or insert url. <br>
-			Default width is 1033px, height can be adjusted above. <br>
+			Default width is 1000px, the height (and full width option) can be adjusted above. <br>
 			For no image write 'none'.", 
 			"header_img",
 			'',
@@ -393,7 +443,7 @@ function cap_get_options() {
 			"Menu style", 
 			"Choose a menu style", 
 			"bg_menu_style", 
-			array('tab style', 'closed style', 'simple' )),
+			array('tab style', 'closed style', 'simple', 'bordered' )),
 		new ColorOption(
 			"Menu border bottom", 
 			"Would you like to underline your menu? Select a colour.", 
@@ -461,46 +511,122 @@ function cap_get_options() {
 		),
 	new Group ("Sidebars", "sidebars",
 		array(
+		new TextOption(
+			"Left sidebar width", 
+			"Change the left sidebar width - in pixel. Just enter a number. ", 
+			"leftsidebar_width", 
+			"",
+			"",
+			"start",
+			"Left sidebar"),
+			new ColorOption(
+				"Left sidebar background colour", 
+				"Change background colour of the left sidebar. ", 
+				"bg_leftsidebar_color", 
+				"", 
+				false),
+			new FileOption(
+				"Left sidebar background image", 
+				"Your own background image for the left sidebar. Upload or insert url.", 
+				"bg_leftsidebar_img", 
+				"", 
+				false),
 		new DropdownOption(
-			"Widget title style", 
+			"Left sidebar background repeat", 
+			"Repeat background image: x=horizontally, y=vertically", 
+			"bg_leftsidebar_img_repeat", 
+			array('no repeat', 'x', 'y', 'x+y'), 
+			"",
+			'end'),
+		new TextOption(
+			"Right sidebar width", 
+			"Change the right sidebar width - in pixel. Just enter a number. ", 
+			"rightsidebar_width", 
+			"",
+			"",
+			"start",
+			"Right sidebar"),
+			new ColorOption(
+				"Right sidebar background colour", 
+				"Change background colour of the right sidebar. ", 
+				"bg_rightsidebar_color", 
+				"", 
+				false),
+			new FileOption(
+				"Right sidebar background image", 
+				"Your own background image for the right sidebar. Upload or insert url.", 
+				"bg_rightsidebar_img", 
+				"", 
+				false),
+		new DropdownOption(
+			"Right sidebar background repeat", 
+			"Repeat background image: x=horizontally, y=vertically", 
+			"bg_rightsidebar_img_repeat", 
+			array('no repeat', 'x', 'y', 'x+y'), 
+			"",
+			'end'),		
+		new DropdownOption(
+			"Sidebar widget title style", 
 			"Choose a style for the widget titles", 
 			"bg_widgettitle_style", 
 			array('angled', 'rounded', 'transparent')),
-		new TextOption(
-			"Widget title font size", 
-			"Font size of your widget titles in px, just enter a number, default=13", 
-			"widgettitle_font_size", 
-			""),
+		new DropdownOption(
+			"Sidebar widget title font style", 
+			"Change the widget title's font style", 
+			"widgettitle_font_style", 
+			array('Arial, sans-serif', 'Impact, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
+			"",
+			"start",
+			"Sidebar widget title fonts"),
+			new TextOption(
+				"Widget title font size", 
+				"Font size of your widget titles in px, just enter a number, default=13", 
+				"widgettitle_font_size", 
+				"",
+				"", 
+				false),
 		new ColorOption(
-			"Widget title font colour", 
+			"Sidebar widget title font colour", 
 			"Change font colour of the widget titles", 
 			"widgettitle_font_color", 
-			""),
+			"", 
+			'end'),
 		new ColorOption(
-			"Widget title background colour", 
+			"Sidebar widget title background colour", 
 			"Change background colour of the widget titles", 
 			"bg_widgettitle_color", 
-			""),
+			"", 
+			"start", 
+			"Sidebar widget titles background",
+			false),
 		new FileOption(
-			"Widget title background image", 
+			"Sidebar widget title background image", 
 			"Your own background image for the widget title. Upload or insert url.", 
 			"bg_widgettitle_img", 
-			""),
+			"", 
+			false),
 		new DropdownOption(
-			"Widget title background repeat", 
+			"Sidebar widget title background repeat", 
 			"Repeat background image: x=horizontally, y=vertically", 
 			"bg_widgettitle_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y')),
+			array('no repeat', 'x', 'y', 'x+y'), 
+			"",
+			'end'),
 		new DropdownOption(
 			"Capitalizing in widgets", 
 			"Capitalize the fonts in lists in your widgets?", 
 			"capitalize_widgets_li", 
-			array('no', 'yes')),
+			array('no', 'yes'), 
+			"",
+			"start",
+			"Capitalizing"),
 		new DropdownOption(
 			"Capitalizing the widget titles", 
 			"Capitalize the titles in your widgets?", 
 			"capitalize_widgettitles", 
-			array('no', 'yes')),					
+			array('no', 'yes'),
+			"",
+			'end'),					
 		)
 		),
 	new Group ("Footer", "footer",
@@ -736,9 +862,9 @@ function cap_get_options() {
 		new DropdownOption(
 			"Shadow", 
 			"Select if you'd like to have a shadow under the top slideshow.<br>
-			This just makes sense for a bright background colour.", 
+			Note: just for bright background and static width between 990 and about 1100 pixels.", 
 			"slideshow_shadow", 
-			array('no shadow', 'shadow')),
+			array('no shadow', 'shadow', 'sharper shadow')),
 		)
 		),
 	new Group ("CSS", "overwrite",

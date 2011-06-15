@@ -74,14 +74,14 @@ global $cap, $content_width;
 		add_custom_background();
 	}
 	// Your changeable header business starts here
-	define( 'HEADER_TEXTCOLOR', '000' );
+	define( 'HEADER_TEXTCOLOR', '888888' );
 	
 	// No CSS, just an IMG call. The %s is a placeholder for the theme template directory URI.
 	define( 'HEADER_IMAGE', '%s/_inc/images/default_header.jpg' );
 
 	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
 	// Add a filter to cc_header_image_width and cc_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'cc_header_image_width', 1033 ) );
+	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'cc_header_image_width', 1000 ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'cc_header_image_height', 233 ) );
 
 
@@ -689,4 +689,53 @@ if($cap->buddydev_search == true){
 		
 	}
 }
+
+function leftsidebar_width() {
+	global $cap;
+	$wdth = '224';
+	if ( $cap->leftsidebar_width != "224") { 
+		$wdth = $cap->leftsidebar_width; 
+		$wdth .= 'px';
+	}
+	echo $wdth; 
+}
+
+function get_leftsidebar_width() {
+	global $cap;
+	$wdth = '224';
+	if ( $cap->leftsidebar_width != "224") { 
+		$wdth = $cap->leftsidebar_width; 
+		$wdth .= 'px';
+	}
+	return $wdth; 
+}
+
+function rightsidebar_width() {
+	global $cap;
+	$wdth = '225';
+	if ( $cap->rightsidebar_width != "225") { 
+		$wdth = $cap->rightsidebar_width; 
+		$wdth .= 'px';
+	}
+	echo $wdth; 
+}
+
+function get_rightsidebar_width() {
+	global $cap; 
+	$wdth = '225';
+	if ( $cap->rightsidebar_width != "225" && $cap->rightsidebar_width != "") { 
+		$wdth = $cap->rightsidebar_width;
+		$wdth .= 'px'; 
+	}
+	return $wdth; 
+}
+function cc_slider_shadow() {
+	global $cap;
+	if ($cap->slideshow_shadow == "shadow") { 
+		echo "slider-shadow.png"; 
+	} else { 
+		echo "slider-shadow-sharp.png"; 
+	}
+}  
+ 
 ?>
