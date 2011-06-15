@@ -3596,7 +3596,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 	link BACKGROUND colour  **/
 	
 	a {
-		background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+		background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
 	} 
 <?php endif; ?>
 
@@ -3605,7 +3605,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 	link BACKGROUND colour hover  **/
 	
 	a:hover, a:focus {
-		background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+		background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
 	} 
 <?php endif; ?>
 
@@ -3689,7 +3689,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
 				} 
 			<?php endif; ?>
 			
@@ -3699,7 +3699,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
 				} 
 			<?php endif; ?>
 			
@@ -3713,7 +3713,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <? if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
 				} 
 			<?php endif; ?>
 			
@@ -3723,7 +3723,7 @@ div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight 
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <? if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
 				} 
 			<?php endif; ?>
 						
@@ -3949,22 +3949,22 @@ menu style  **/
 	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
 	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a { 
-		color: #<? echo $link_color ?>; 
+		color: #<?php echo $link_color ?>; 
 	}
 <?php } ?>
 
 <?php if($cap->bg_menu_style == 'bordered'){?>
 	div#access {
 		background-color: transparent;
-		border-top: 1px solid #<? echo $container_bg_color ?>;
-		border-bottom: 1px solid #<? echo $container_bg_color ?>;
+		border-top: 1px solid #<?php echo $container_bg_color ?>;
+		border-bottom: 1px solid #<?php echo $container_bg_color ?>;
 	}	
 	div#access div.menu ul li a:hover, div#access div.menu ul li a:focus, 
 	#access ul ul :hover > a, #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
 	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
 	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a { 
-		color: #<? echo $link_color ?>; 
+		color: #<?php echo $link_color ?>; 
 	}
 <?php } ?>
 
