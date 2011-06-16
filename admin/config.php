@@ -38,7 +38,7 @@ function cap_get_options() {
 		array(
 		new DropdownOption(
 			"Colour scheme", 
-			"Select the colour scheme of your website", 
+			"Select the colour scheme of your website.", 
 			"style_css", 
 			array('grey', 'dark', 'more colour schemes in the pro version' )),
 		new TextOption(
@@ -49,7 +49,7 @@ function cap_get_options() {
 			"",
 			"",
 			"start",
-			"Website width"),
+			"Website width"), 
 		new DropdownOption(
 			"Fluid or static width?", 
 			"Do you want your layout fluid(%) or static(px)? <br>

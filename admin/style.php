@@ -652,7 +652,7 @@ font-size:12px;
 color:#<?php echo $link_color; ?>;
 }
 div.widget-title ul.item-list li.selected a {
-color:#<?php echo $link_color; ?>;
+color:#<?php echo $font_color; ?>;
 }
 
 ul.item-list {
@@ -736,10 +736,6 @@ margin: 0px -20px 15px;
 overflow:hidden;
 padding-top:15px;
 }
-div.item-list-tabs ul li a {
-    text-decoration: none;
-    background-color: transparent; 
-}
 div.item-list-tabs ul {
 width: 100%;
 }
@@ -771,8 +767,16 @@ div.item-list-tabs ul li span {
 display: block;
 padding: 4px 8px;
 }
+div.item-list-tabs ul li a {
+    text-decoration: none;
+    background-color: transparent; 
+}
+div.item-list-tabs ul li a:hover,
+div.item-list-tabs ul li a:focus {
+    color: #<?php echo $font_color; ?>; 
+}
 div.item-list-tabs ul li span {
-color: #<?php echo $font_color; ?>;
+	color: #<?php echo $font_color; ?>;
 }
 div.item-list-tabs ul li a span {
 display: inline;
@@ -3112,7 +3116,10 @@ margin: 0;
 #content .gallery br+br {
 display: none;
 }
-#content .attachment img { /* single attachment images should be centered */
+
+/* =single attachment images should be centered */
+
+#content .attachment img { 
 display: block;
 margin: 0 auto;
 }
@@ -3120,14 +3127,17 @@ margin: 0 auto;
 /* =Search View 
 -------------------------------------------------------------- */ 
 
-body.search div.post div.post-content, body.search div.comment-content
-{
+body.search div.post div.post-content, body.search div.comment-content {
     margin-left: 0; 
 }
 
-div.search-result { margin-bottom: 30px; } 
+div.search-result { 
+	margin-bottom: 30px; 
+} 
 
-body.search div#message p { padding: 10px 0; } 
+body.search div#message p { 
+	padding: 10px 0; 
+} 
 
 body.search ul.item-list li div.item-title {
     font-size: 20px; 
@@ -3135,6 +3145,14 @@ body.search ul.item-list li div.item-title {
     font-weight: bold;
 }
 
+h2.content-title {
+	border-bottom: 1px solid #<?php echo $container_bg_color; ?>; 
+}
+div.search-result {
+    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+    margin-bottom: 22px;
+    padding: 20px;
+}
 
 
 
@@ -3465,19 +3483,17 @@ div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, 
 	body, p, em, div.post, div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options, 
 	div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
 	ul.item-list li div.meta, div.item-list-tabs ul li span, span.activity, div#message p, div.widget span.activity, 
-	div.pagination, div#message.updated p, #subnav a, div.widget-title ul.item-list li a, 
-	div#item-header span.activity, div#item-header h2 span.highlight, 
+	div.pagination, div#message.updated p, #subnav a,  
+	div#item-header span.activity, div#item-header h2 span.highlight, div.widget-title ul.item-list li.selected a, 
 	form.standard-form input:focus, form.standard-form select:focus, table tr td.label, 
 	table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
 	form#whats-new-form h5, form#whats-new-form #whats-new-textarea, .activity-list li .activity-inreplyto, 
 	.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header, 
-	.activity-list .activity-content span.time-since, .activity-list .activity-content span.activity-header-meta a, 
+	.activity-list .activity-content span.time-since,  
 	.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote, 
-	.activity-list .activity-content .comment-header, .activity-header a:hover, div.activity-comments div.acomment-meta,  
+	.activity-list .activity-content .comment-header, div.activity-comments div.acomment-meta,  
 	div.activity-comments form div.ac-reply-content, li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
-	div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
-	#comments h3, #trackbacks h3, #respond h3, #footer, div.widget ul li a, div.widget ul li.recentcomments a:hover, #footer a, 
-	div.widget_tag_cloud a, div#item-header span.activity, div#item-header h2 span.highlight, a:hover, a:active, .widget li.cat-item a, #item-nav a:hover {
+	div.admin-links, #comments h3, #trackbacks h3, #respond h3, #footer, div#item-header span.activity, div#item-header h2 span.highlight, #item-nav a:hover {
 		color:#<?php echo $cap->font_color?>;
 	} 
 	div#item-header h2 span.highlight, div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
@@ -3535,38 +3551,69 @@ h3, h4, h5, h6 {
 <?php endif; ?>
 
 <?php if($cap->link_color){?>
-/** ***   
-link colour  **/
-
-a, div.widget-title ul.item-list li.selected a, span.highlight, #item-nav a, div.widget ul li a:hover, 
-#subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul li.recentcomments a, div.widget_tag_cloud a:hover, 
-.widget li.current-cat a, div.widget ul li.current_page_item a, 
-#footer .widget li.current-cat a,#header .widget li.current-cat a , #footer div.widget ul li.current_page_item a, #header div.widget ul li.current_page_item a  {
-	color:#<?php echo $cap->link_color?>;
-}
-/** ***   
-buttons and widgets that want some adapting to the link colour  **/
-
-a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, 
-ul.button-nav li a:hover, div.generic-button a:hover, ul.button-nav li a:focus, div.generic-button a:focus, 
-.activity-list div.activity-meta a.acomment-reply, 
-div.activity-meta a.fav:hover, a.unfav:hover, div#item-header h2 span.highlight span {
-	background-color:#<?php echo $cap->link_color?> !important;
-}
+	/** ***   
+	link colour  **/
+	
+	a,  
+	span.highlight, #item-nav a, 
+	div.widget ul#blog-post-list li a, 
+	div.widget ul li.recentcomments a, 
+	.widget li.current-cat a, 
+	div.widget ul li.current_page_item a, 
+	#footer .widget li.current-cat a,#header .widget li.current-cat a , 
+	#footer div.widget ul li.current_page_item a, 
+	#header div.widget ul li.current_page_item a, 
+	#subnav a:hover  {
+		color:#<?php echo $cap->link_color?>;
+	}
+	
+	/** ***   
+	buttons and widgets that want some adapting to the link colour  **/
+	
+	a.button:focus, 
+	a.button:hover, 
+	input[type="submit"]:hover, 
+	input[type="button"]:hover, 
+	ul.button-nav li a:hover, 
+	div.generic-button a:hover, 
+	ul.button-nav li a:focus, 
+	div.generic-button a:focus, 
+	.activity-list div.activity-meta a.acomment-reply, 
+	div.activity-meta a.fav:hover, 
+	a.unfav:hover, 
+	div#item-header h2 span.highlight span {
+		background-color:#<?php echo $cap->link_color?> !important;
+		background-color:#<?php echo $cap->link_color?>;
+	}
 <?php } ?> 
 
 <?php if($cap->link_color_hover != ""):?>
 	/** ***   
 	link colour hover  **/
 	
-	div#sidebar div.item-options a.selected:hover, div#leftsidebar div.item-options a.selected:hover, 
-	a:hover, a:active, form.standard-form input:focus, form.standard-form select:focus, .activity-header a:hover,   
-	div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
-	div.widget ul li a:hover, div.widget ul li.recentcomments a:hover, #item-nav a:hover, div.widget-title ul.item-list li a:hover, 
-	<?php if ( $cap->link_color_subnav_adapt == "link colour and hover colour" ) { echo '#subnav a:hover, #subnav a:focus'; } 
-	// this was the check if the option to adapt the subnav links to the link hover colour was selected ?> {
+	a:hover, 
+	a:focus, 
+	div#sidebar div.item-options a.selected:hover, 
+	div#leftsidebar div.item-options a.selected:hover, 
+	form.standard-form input:focus, 
+	form.standard-form select:focus, 
+	.activity-header a:hover,   
+	div.post p.date a:hover, 
+	div.post p.postmetadata a:hover, 
+	div.comment-meta a:hover, 
+	div.comment-options a:hover, 
+	div.widget ul li a:hover, 
+	div.widget ul li.recentcomments a:hover,  
+	div.widget-title ul.item-list li a:hover {
 		color:#<?php echo $cap->link_color_hover ?>;
-	} 	
+	}
+
+	<?php if ( $cap->link_color_subnav_adapt == "link colour and hover colour" ) { ?> 
+		#subnav a:hover, #subnav a:focus, div.item-list-tabs ul li a:hover, div.item-list-tabs ul li a:focus {
+			color:#<?php echo $cap->link_color_hover ?>;
+		} 	
+	<?php } ?>
+	
 <?php endif; ?>
 
 <?php if($cap->link_underline != "never"): ?>
