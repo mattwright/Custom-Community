@@ -4,6 +4,25 @@ require_once('core/core-loader.php');
  
 global $content_width, $cap;
 
+function cc_home_body_class($classes){
+
+	if(defined('BP_VERSION')){
+		if(!in_array('home',$classes)){
+			if (bp_is_front_page() )
+			$classes[] = 'home';
+		}
+	}
+	
+	if(is_home()){
+		$classes[] = 'bubble';
+	}
+	
+	return $classes;
+
+}
+
+add_filter('body_class','cc_home_body_class',10);
+
 /** check if its a child theme or parent and return the correct path */
 function cc_require_path($path){
 	if( TEMPLATEPATH != STYLESHEETPATH && is_file(STYLESHEETPATH . $path) ): 	

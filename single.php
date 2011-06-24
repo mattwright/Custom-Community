@@ -77,6 +77,8 @@
 					<?php wp_link_pages(array('before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
 				
 				</div>
+				
+				<div class="clear"></div>
 
 				<?php if($cc_post_options['cc_post_template_tags'] != '1') {?>
 					<?php $tags = get_the_tags(); if($tags)	{  ?>

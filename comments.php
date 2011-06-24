@@ -47,7 +47,7 @@
 				
 					<?php if ( comments_open() ) : ?>
 						<!-- If comments are open, but there are no comments. -->
-						<p class="nocomments">No comments jet.</p>
+						<p class="nocomments">No comments yet.</p>
 					 <?php else : // comments are closed ?>
 						<!-- If comments are closed. -->
 						<p class="nocomments">Comments are closed.</p>

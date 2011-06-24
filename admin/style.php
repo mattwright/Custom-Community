@@ -133,16 +133,6 @@ img.avatar {
 border:1px solid #<?php echo $body_bg_color; ?>;
 float:left;
 }
-div.comment-author img.avatar {
-margin: 4px 12px 12px 0;
-}
-div.comment-body div.commentmetadata {
-margin-top:0;
-}
-div.comment-body div.comment-author {
-border-top:1px solid #<?php echo $body_bg_color; ?>;
-padding-top:6px;
-}
 span.cc_blockquote {
 width:30%; 
 padding:2%; 
@@ -161,6 +151,7 @@ font-size: 19px;
 font-size: 19px !important; 
 font-style: italic;
 }
+
 
 
 /* > Admin Bar
@@ -187,7 +178,9 @@ z-index:1000;
 #header {
 position: relative;
 color: #<?php echo $font_color; ?>;
+<?php if($cap->header_img != none){?>
 background: url(<?php echo get_template_directory_uri() ?>/images/default-header.png);
+<?php } ?>
 -moz-border-radius-bottomleft: 6px;
 -webkit-border-bottom-left-radius: 6px;
 border-bottom-left-radius: 6px;
@@ -202,7 +195,7 @@ background-repeat: no-repeat;
 }
 #header #search-bar {
 position: absolute;
-top: 27px;
+top: 27px;header_img
 right: 0;
 width: 390px;
 text-align: right;
@@ -987,27 +980,28 @@ margin: 0 0 10px 0;
 /* > Buttons
 -------------------------------------------------------------- */
 
-a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a {
--moz-border-radius:4px;
--webkit-border-radius:4px;
-border-radius:4px;
-background:none repeat scroll 0 0 #<?php echo $font_color; ?>;
-border-bottom:1px solid #aaaaaa;
-border-right:1px solid #aaaaaa;
-border-top:none;
-border-left:none;
-color:#<?php echo $container_bg_color; ?>;
+a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+background: none repeat scroll 0 0 #<?php echo $font_color; ?>;
+border-bottom: 1px solid #aaaaaa;
+border-right: 1px solid #aaaaaa;
+border-top: none;
+border-left: none;
+color: #<?php echo $container_bg_color; ?>;
 font-family: arial, sans-serif; 
-font-size:12px;
-cursor:pointer;
-font-weight:normal;
-padding:3px 5px;
-text-decoration:none;
-vertical-align:top; 
-margin-top:0;
+font-size: 12px;
+cursor: pointer;
+font-weight: normal;
+padding: 3px 5px;
+text-decoration: none;
+text-shadow: none; 
+vertical-align: top; 
+margin-top: 0;
 }
 
-a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover,
+a.comment-edit-link:hover, a.comment-edit-link:focus, a.comment-reply-link:hover, a.comment-reply-link:focus, a.button:focus, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover,
 ul.button-nav li a:hover, div.generic-button a:hover, ul.button-nav li a:focus, div.generic-button a:focus {
 background:none repeat scroll 0 0 #<?php echo $link_color; ?>;
 border-color:#aaaaaa;
@@ -2020,11 +2014,10 @@ padding: 5px 0;
 margin: 5px 0 25px 0;
 }
 div.post p { margin: 0 0 20px 0; }
-div.post ul, div.post ol, div.post dl { margin: 0 0 12px 0; }
-div.post ul li, div.page ul li { margin-left: 14px; }
-div.post ul, div.page ul { list-style: circle inside none; }
-div.post ol, div.page ol { list-style: decimal inside none; }
-div.post ol ol { list-style: upper-alpha; }
+div.post ul, div.post ol, div.post dl { margin: 0 0 0 20px; }
+div.post ul, div.page ul { list-style: circle outside none; margin: 0 0 6px 20px; }
+div.post ol, div.page ol { list-style: decimal outside none; margin: 0 0 6px 20px; }
+div.post ol ol { list-style: upper-alpha outside none; }
 div.post dl { margin-left: 0; }
 div.post dt {
 border-bottom:1px solid #<?php echo $body_bg_color; ?>;
@@ -2070,45 +2063,16 @@ border: 1px solid #<?php echo $body_bg_color; ?>;
 div.post table th { border-top: 1px solid #<?php echo $body_bg_color; ?>; text-align: left; }
 div.post table td { border-top: 1px solid #<?php echo $body_bg_color; ?>; }
 
-div.post div.author-box, div.comment-avatar-box {
-background:none repeat scroll 0 0 transparent;
-float:left;
-font-style:italic;
-margin:0 15px 15px 0;
-padding:0;
-text-align:center;
-width:70px;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-}
-
-div#blog-archives div.post div.author-box {
-    margin: 5px 15px 15px 0;
-}
-
-div.author-box p, div.comment-avatar-box p,
-div.author-box a, div.comment-avatar-box a {
-font-size:10px;
-font-style:normal;
-margin:5px 0 0;
-}
-
-div.post div.author-box img, div.comment-avatar-box img {
-float: none;
-border: 1px solid #<?php echo $body_bg_color; ?>;
-margin:0 10px;
-}
-div.post div.post-content, div.comment-content {
+div.post div.post-content {
 margin-left: 94px;
 }
-div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options {
+div.post p.date, div.post p.postmetadata, div.comment-meta {
 color: #<?php echo $font_color; ?>;
 font-size: 12px;
 padding: 3px 0;
 margin: 10px 0;
 border-bottom: none;
-border-top: 1px solid #<?php echo $body_bg_color; ?>;
+border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 }
 div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a {
 font-size: 12px;
@@ -2128,8 +2092,8 @@ overflow: hidden;
 div.post .tags { float: left; }
 div.post .comments { float: right; }
 
-div.post img { margin: 15px 0; border: none!important; }
-div.post img.wp-smiley { padding: 0 !important; margin: 0 !important; border: none !important; float: none !important; clear: none !important; }
+div.post img { margin: 15px 0; border: none; border: none !important; }
+div.post img.wp-smiley { padding: 0 !important; margin: 0 !important; border: none; float: none !important; clear: none !important; }
 
 div.post img.centered, img.aligncenter {
 display: block;
@@ -2179,8 +2143,52 @@ padding: 0 4px 5px 0;
 margin: 0;
 }
 
-/* > WordPress Blog Comment Styles
+div.author-box, div.comment-avatar-box {
+width:50px; 
+float:left; 
+} 
+
+div.author-box p, 
+div.author-box a,
+div.comment-avatar-box p,  
+div.comment-avatar-box a {
+	font-size: 10px;
+	font-style: normal;
+	line-height: 120%;
+	margin: 5px 0 0;	
+	text-align: center;
+	width: 50px;
+}
+
+div.post div.author-box img {
+float: none;
+border: 1px solid #<?php echo $body_bg_color; ?>;
+margin: 8px 0 0 0;
+background:none repeat scroll 0 0 transparent;
+float: none;
+padding:0;
+width:50px;
+}
+
+
+
+/* > WordPress & BuddyPress Comment Styles
 -------------------------------------------------------------- */
+
+div.comment-avatar-box img {
+float: none;
+border: 1px solid #<?php echo $body_bg_color; ?>;
+margin: 16px 0 0 4px;
+background:none repeat scroll 0 0 transparent;
+float: none;
+padding:0;
+width:50px;
+}
+
+div.comment-content {
+    margin-left: 75px;
+    min-height: 110px;
+}
 
 #trackbacks {
 margin-top: 30px;
@@ -2197,8 +2205,34 @@ color: #<?php echo $font_color; ?>;
 color: #<?php echo $font_color; ?>;
 }
 
+div.post ol.commentlist, 
+div.page ol.commentlist { 
+	list-style: none outside none; 
+	margin-left: 0; 
+}
+
+div.post ol.commentlist ul, 
+div.page ol.commentlist ul { 
+	list-style: none outside none; 
+	margin-left: 20px; 
+	padding-bottom: 12px;
+}
+
 ol.commentlist li {
-margin: 0 0 30px 0;
+margin: 0 0 20px 0;
+border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
+}
+
+.commentlist ul li {
+padding: 0 12px; 
+background: #<?php echo $container_alt_bg_color; ?>;
+}
+.commentlist ul ul li {
+padding: 0 12px; 
+background: #<?php echo $container_bg_color; ?>;
+}
+.commentlist ul ul ul li {
+padding: 0; 
 }
 
 div.comment-meta {
@@ -2214,9 +2248,71 @@ div.comment-meta em {
 float: right;
 }
 
-div.comment-options {
-border-bottom: none;
+div.post .commentlist div.comment-content ol {
+    list-style: decimal outside none;
+    margin-bottom: 0;
+    padding-bottom: 6px;
 }
+
+div.post .commentlist div.comment-content ul {
+    list-style: circle outside none;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+}
+
+div.post .commentlist div.comment-content li {
+	border: none; 
+	margin-bottom: 0;
+}
+
+/* > Additional WP comment styles 
+-------------------------------------------------- */
+
+
+div.comment-author img.avatar {
+margin: 4px 12px 12px -45px;
+}
+div.comment-body div.commentmetadata {
+margin-top:0;
+}
+div.comment-body div.comment-author {
+padding-top:6px;
+}
+div.reply {
+	height: 32px;
+}
+div.comment-body {
+    margin-bottom: 12px;
+    margin-left: 45px;
+}
+div.post div.commentmetadata a.comment-edit-link {   
+float:right; 
+line-height: 120%;
+padding: 3px 5px;
+}
+
+ul.children li.comment { 
+margin-left: 26px;
+}
+
+div.post .commentlist div.comment-body ol {
+	list-style: decimal outside none;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+}
+
+div.post .commentlist div.comment-body ul {
+	list-style: circle outside none;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+}
+
+.commentlist div.comment-body li {
+border:none;
+margin: 0;
+}
+
+
 
 /* > Footer
 -------------------------------------------------------------- */
@@ -3431,7 +3527,7 @@ div#subnav.item-list-tabs ul li.selected a, div#subnav.item-list-tabs ul li.curr
 /** ***   
 buttons and widgets that want some FONT COLOR tweaking to the container background colour  **/ 
 
-a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
+a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
 .activity-list div.activity-meta a.acomment-reply, 
 .activity-list div.activity-meta a  {
 	color: #<?php echo $cap->bg_container_color?> !important;
@@ -3503,7 +3599,7 @@ div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, 
 /** ***   
 buttons and widgets that want some adapting to the font colour  **/
 
-a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
+a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
 .activity-list div.activity-meta a  {
 	background:#<?php echo $cap->font_color?>;
 }  
@@ -3570,6 +3666,10 @@ h3, h4, h5, h6 {
 	/** ***   
 	buttons and widgets that want some adapting to the link colour  **/
 	
+	a.comment-edit-link:hover, 
+	a.comment-edit-link:focus, 
+	a.comment-reply-link:hover, 
+	a.comment-reply-link:focus, 
 	a.button:focus, 
 	a.button:hover, 
 	input[type="submit"]:hover, 
@@ -3582,8 +3682,8 @@ h3, h4, h5, h6 {
 	div.activity-meta a.fav:hover, 
 	a.unfav:hover, 
 	div#item-header h2 span.highlight span {
-		background-color:#<?php echo $cap->link_color?> !important;
 		background-color:#<?php echo $cap->link_color?>;
+		background-color:#<?php echo $cap->link_color?> !important;
 	}
 <?php } ?> 
 
@@ -3788,22 +3888,25 @@ h3, h4, h5, h6 {
 
 <?php if($cap->default_homepage_hide_avatar == "hide"){?>
 /** ***   
-default home page: hide avatar**/
+standard wordpress  home page: hide avatar**/
 
-body.home-page div.post div.post-content, div.comment-content {
+body.home div.post div.post-content, div.comment-content {
     margin-left: 0;
 }
 
-body.home-page div.author-box {
+body.home div.author-box {
 	display: none;
 }
 <?php } ?>
 
 <?php if($cap->default_homepage_style == "bubbles"){?>
-body.home-page div.author-box p {
+/** ***   
+standard wordpress home page: bubble style**/
+
+body.bubble div.author-box p {
     display: none;
 }
-body.home-page div.post h2.posttitle {
+body.bubble div.post h2.posttitle {
     line-height: 120%;
     margin: 0 0 12px;
 }
@@ -3818,7 +3921,7 @@ div.post span.marker {
     position: absolute;
     width: 20px;
 }
-body.home-page div.post div.post-content {
+body.bubble div.post div.post-content {
 	border-radius: 11px;
 	-moz-border-radius: 11px;
 	-webkit-border-radius: 11px; 
@@ -3827,14 +3930,14 @@ body.home-page div.post div.post-content {
     padding: 15px 5px 5px 15px;
     margin-bottom:8px;
 }
-body.home-page div.post p.date { 
+body.bubble div.post p.date { 
 border-top: 1px solid #<?php echo $container_bg_color; ?>;
 border-bottom: 1px solid #<?php echo $container_bg_color; ?>; 
 }
-body.home-page div.post p.postmetadata { 
+body.bubble div.post p.postmetadata { 
 border-top: 1px solid #<?php echo $container_bg_color; ?>; 
 }
-body.home-page div.post div.author-box {
+body.bubble div.post div.author-box {
 margin-top: 20px;
 display: block;	
 }
@@ -3842,9 +3945,9 @@ display: block;
 
 <?php if($cap->default_homepage_hide_date == "hide"){?>
 /** ***   
-default home page: hide date, category and author**/
+standard wordpress home page: hide date, category and author**/
 
-body.home-page div.post p.date {
+body.home div.post p.date {
 	display: none;
 }
 <?php } ?>
