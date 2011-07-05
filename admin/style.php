@@ -157,6 +157,7 @@ font-style: italic;
 /* > Admin Bar
 -------------------------------------------------------------- */
 
+body#bp-default.activity-permalink #wp-admin-bar .padder, 
 body#bp-default #wp-admin-bar .padder {
 max-width:100%;
 min-width:100%;
@@ -195,7 +196,7 @@ background-repeat: no-repeat;
 }
 #header #search-bar {
 position: absolute;
-top: 27px;header_img
+top: 27px;
 right: 0;
 width: 390px;
 text-align: right;
@@ -1018,23 +1019,23 @@ outline: none;
 }
 
 /* Buttons that are disabled */
-div.pending a, a.disabled {
+div.pending a, a.disabled, a.requested {
 border-bottom:1px solid #888888;
 border-right:1px solid #888888;
 border-top:none;
 border-left:none;
-color:#888888;
-background:none repeat scroll 0 0 #aaaaaa;
+color:#<?php echo $container_bg_color; ?>;
+background:none repeat scroll 0 0 #888888;
 cursor:default;
 }
 
-div.pending a:hover, a.disabled:hover {
+div.pending a:hover, a.disabled:hover, a.requested:hover {
 border-bottom:1px solid #888888;
 border-right:1px solid #888888;
 border-top:none;
 border-left:none;
-color:#888888;
-background:none repeat scroll 0 0 #aaaaaa;
+color:#<?php echo $container_bg_color; ?>;
+background:none repeat scroll 0 0 #888888;
 cursor:default;
 }
 

@@ -4,6 +4,49 @@ require_once('core/core-loader.php');
  
 global $content_width, $cap;
 
+function addnavtogroup(){
+	global $bp;
+	$bp->bp_options_nav['groups']['home']['name'] = 'Something';
+	$bp->bp_options_nav['groups']['home'] = false;
+	
+	echo '<pre>';
+	print_r($doc);
+	echo '</pre>';
+	
+	
+	
+	$args['name'] = 'test';
+//	$args['post_type'] = 'bp_doc';
+	$buy_doc = new WP_Query( $args );
+	
+	
+	echo '<pre>';
+	print_r($buy_doc->posts);
+	echo '</pre>';
+	
+	
+	foreach ( $buy_doc->posts as $post ) {
+	
+	print_r($post);
+	echo '<br> --'.$post->ID;
+			$args = array(
+				'name'            => $post->name, // Display name for the nav item
+				'slug'            => 'sven', // URL slug for the nav item
+				'parent_slug'     => 'groups', // URL slug of the parent nav item
+				'parent_url'      => $doc->item_slug, // URL of the parent item
+				'item_css_id'     => 'sven', // The CSS ID to apply to the HTML of the nav item
+				'user_has_access' => '1',  // Can the logged in user see this nav item?
+				'site_admin_only' => false, // Can only site admins see this nav item?
+				'position'        => 90,    // Index of where this nav item should be positioned
+				'screen_function' => 'my_sven_function', // The name of the function to run when clicked
+				'link' 			=> $doc->doc_slug
+			);
+			bp_core_new_subnav_item($args);
+	}
+	
+}
+//add_action( 'wp', 'addnavtogroup' );
+
 function cc_home_body_class($classes){
 
 	if(defined('BP_VERSION')){
