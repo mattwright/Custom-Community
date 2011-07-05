@@ -508,7 +508,8 @@ function slider($atts,$content = null) {
 	}
 	if (have_posts()) :
 
-		$tmp .=' <div id="featured'.$id.'" class="featured">'. chr(13);
+		$tmp .='<div id="cc_slider'.$id.'" class="cc_slider">'. chr(13);
+		$tmp .='<div id="featured'.$id.'" class="featured">'. chr(13);
 		
 		$i = 1; 
 		while (have_posts()) : the_post();
@@ -547,7 +548,7 @@ function slider($atts,$content = null) {
 		endwhile;
 	    $tmp .='</ul>'. chr(13);
 	    
-		$tmp .= '</div>'. chr(13);
+		$tmp .= '</div></div>'. chr(13);
 
 		else :
 
