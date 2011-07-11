@@ -10,11 +10,9 @@
 
 require_once(cc_require_path('/admin/get-pro.php'));
 require_once('style.php');
-require_once('post-metabox.php');
-
+require_once(cc_require_path('/admin/post-metabox.php'));
 require_once('cc-upload.php');
 require_once('library.php');
-
 require_once(cc_require_path('/admin/config.php'));
 
 
