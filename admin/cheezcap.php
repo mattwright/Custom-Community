@@ -23,24 +23,26 @@ function custom_community_theme_options_init(){
 
 add_action( 'admin_init', 'cc_update_old_version' );
 function cc_update_old_version(){
-	if(get_option('cap_bg_body_color')){
-		global $wpdb;
-		$options = $wpdb->get_results("SELECT * FROM wp_options ORDER BY option_name");
-		foreach((array) $options as $option) :
-	  		$option->option_name = esc_attr($option->option_name);
-	  		if(substr($option->option_name, 0, 4)=='cap_') {
+
+	if(get_option('cc_version') <= 1.79){
+	
+	global $wpdb;
+		$options = get_alloptions();
+		foreach((array) $options as $kay => $value) :
+			$kay = esc_attr($kay);
+	  		if(substr($kay, 0, 4)=='cap_') {
 		  		
 		  		$cap = get_option('custom_community_theme_options');
-		  		$cap[$option->option_name] = get_option($option->option_name);
+		  		$cap[$kay] = $value;
 		  		update_option( 'custom_community_theme_options', $cap );
 		  		
-		    	delete_option($option->option_name);     
+		    	delete_option($kay);     
 	  		}
 	  	endforeach;
-	    update_option( 'cc_version', 1 );
+	    update_option( 'cc_version', 1.8 );
 	} else if (!get_option('cc_version')){
-		cap_defaults_init();
-		update_option( 'cc_version', 1 );
+	cap_defaults_init();
+		update_option( 'cc_version', 1.8 );
 	}
 }
 
