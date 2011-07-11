@@ -23,11 +23,10 @@ function custom_community_theme_options_init(){
 
 add_action( 'admin_init', 'cc_update_old_version' );
 function cc_update_old_version(){
-
-	if(get_option('cc_version') <= 1.79){
-	
 	global $wpdb;
-		$options = get_alloptions();
+	
+	if(get_option('cc_version') <= 1.8){
+		$options = wp_load_alloptions();
 		foreach((array) $options as $kay => $value) :
 			$kay = esc_attr($kay);
 	  		if(substr($kay, 0, 4)=='cap_') {
@@ -39,10 +38,10 @@ function cc_update_old_version(){
 		    	delete_option($kay);     
 	  		}
 	  	endforeach;
-	    update_option( 'cc_version', 1.8 );
+	    update_option( 'cc_version', 1.9 );
 	} else if (!get_option('cc_version')){
 	cap_defaults_init();
-		update_option( 'cc_version', 1.8 );
+		update_option( 'cc_version', 1.9 );
 	}
 }
 
