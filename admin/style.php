@@ -703,7 +703,7 @@ width: 34%;
 
 .item-meta{
 float:left;
-width:92%;
+width:87%;
 }
 
 ul.item-list li div.meta {
