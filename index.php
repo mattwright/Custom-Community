@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<?php global $cap; ?>
+<?php global $cap, $preview; ?>
 <?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
 <?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
 	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
@@ -9,7 +9,26 @@
 
 		<?php do_action( 'bp_before_blog_home' ) ?>
 
+		<?php
+		if($cap->preview == true){
+			$args = array(
+					'amount' => '3',
+					'category_name' => 'All categories',
+					'img_position' => 'mouse_over',
+					'height' => 'auto',
+					'name' => '',
+					'post_type' => '',
+				);
+				
+			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
+		}
+		?>
+
+		
 		<div class="page" id="blog-latest">
+
+		
+
 
 			<?php if ( have_posts() ) : ?>
 
@@ -35,7 +54,7 @@
 							<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?><?php if(defined('BP_VERSION')){  printf( __( ' by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) );}?></em></p>
 
 							<div class="entry">
-								<?php if($cap->excerpt_on == 'excerpt'){?>
+								<?php if($cap->excerpt_on != 'content'){?>
 							        <?php the_excerpt( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
 							    <?php } else {?>
 							        <?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>

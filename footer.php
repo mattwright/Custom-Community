@@ -10,27 +10,57 @@
     	<?php if ($cap->footer_width == "full-width") { echo $close_innerrim; }?>
 		
 		<div id="footer">
-		<?php global $cap; ?>
 		
 			<?php if( ! dynamic_sidebar( 'footerfullwidth' )) :?>
-			 
+				<?php if($cap->preview == true){ ?>
+					<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
+							<h3 class="widgettitle" ><?php _e('35 widget areas all over the site', 'buddypress'); ?></h3>
+							<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas: 2 full width and 6 columns. <br>
+							6 widget areas for members + 6 for groups. 15 shortcode widget areas to place anywhere on your site!
+							</p></div>
+					
+					</div>
+				<?php } ?>	
 			<?php endif; ?>
 		
-			<?php if (is_active_sidebar('footerleft') ){ ?>
+			<?php  if (is_active_sidebar('footerleft') || $cap->preview == true ){ ?>
 			<div class="widgetarea cc-widget">
-				<?php dynamic_sidebar( 'footerleft' )?>
+				<?php if( ! dynamic_sidebar( 'footerleft' )){ ?>
+					<div class="widget">
+						<h3 class="widgettitle" ><?php _e('Links', 'buddypress'); ?></h3>
+						<ul>
+							<?php wp_list_bookmarks('title_li=&categorize=0&orderby=id'); ?>
+						</ul>
+					</div>
+				<?php } ?>
 		  	</div>
-			<?php } ?>
+			<?php  } ?>
 	  	
-	  		<?php if (is_active_sidebar('footercenter') ){ ?>
-			<div <?php if(!is_active_sidebar('footerleft')) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
-				<?php dynamic_sidebar( 'footercenter' ) ?>
+	  		<?php if (is_active_sidebar('footercenter') || $cap->preview == true){ ?>
+			<div <?php if(!is_active_sidebar('footerleft') && $cap->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
+				<?php if( ! dynamic_sidebar( 'footercenter' )){ ?>
+					<div class="widget">
+						<h3 class="widgettitle" ><?php _e('Archives', 'buddypress'); ?></h3>
+						<ul>
+							<?php wp_get_archives( 'type=monthly' ); ?>
+						</ul>
+					</div>				
+				<?php } ?>
 		  	</div>
 	  		<?php } ?>
 	  	
-	  		<?php if (is_active_sidebar('footerright') ){ ?>
+	  		<?php if (is_active_sidebar('footerright') || $cap->preview == true ){ ?>
 			<div class="widgetarea cc-widget cc-widget-right">
-				<?php dynamic_sidebar( 'footerright' ) ?>
+				<?php if( ! dynamic_sidebar( 'footerright' )){ ?>
+					<div class="widget">
+						<h3 class="widgettitle" ><?php _e('Meta', 'buddypress'); ?></h3>
+						<ul>
+							<?php wp_register(); ?>
+							<li><?php wp_loginout(); ?></li>
+							<?php wp_meta(); ?>
+						</ul>
+					</div>
+				<?php } ?>
 		  	</div>
 		  	<?php } ?>
 	  	

@@ -19,14 +19,14 @@ function switch_css(){
 	global $cap;
 		
 	$switch_css =  array(
-	'body_bg_color' => 'f1f1f1',
-	'container_bg_color' => 'dddddd', 
-	'container_alt_bg_color' => 'f1f1f1', 
-	'details_bg_color' => 'dddddd', 
-	'details_hover_bg_color' => 'ededed', 
-	'font_color' => '555555',
-	'font_alt_color' => 'aaaaaa',
-	'link_color' => '1f8787',
+	'body_bg_color' => 'ffffff',
+	'container_bg_color' => 'ffffff',
+	'container_alt_bg_color' => 'ededed',
+	'details_bg_color' => 'ededed', 
+	'details_hover_bg_color' => 'f9f9f9',
+	'font_color' => '888888',
+	'font_alt_color' => 'afafaf',
+	'link_color' => '489ed5',
 	);
 
 	if ($cap->style_css != false):;
@@ -61,8 +61,8 @@ function switch_css(){
 			$switch_css =  array(
 			'body_bg_color' => 'ffffff',
 			'container_bg_color' => 'ffffff',
-			'container_alt_bg_color' => 'dddddd',
-			'details_bg_color' => 'dddddd', 
+			'container_alt_bg_color' => 'ededed',
+			'details_bg_color' => 'ededed', 
 			'details_hover_bg_color' => 'f9f9f9',
 			'font_color' => '888888',
 			'font_alt_color' => 'afafaf',
@@ -160,7 +160,7 @@ function slidertop(){
 				if($cc_page_options['cc_page_slider_caption'] == 1){
 					$caption = 'off';
 				}
-				
+				echo $cap->slideshow_amount;
 				if($cap->slideshow_amount != ''){
 					$slideshow_amount = $cap->slideshow_amount;
 				}	else {
@@ -177,7 +177,7 @@ function slidertop(){
 				if($cap->slideshow_orderby != ''){
 					$slideshow_orderby = $cap->slideshow_orderby;
 				}	else {
-					$slideshow_orderby = '';
+					$slideshow_orderby = 'DESC';
 				}
 				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_orderby'] != ''){
 					$slideshow_orderby = $cc_page_options['cc_page_slider_orderby'];
@@ -186,7 +186,7 @@ function slidertop(){
 				if($cap->slideshow_post_type != ''){
 					$slideshow_post_type = $cap->slideshow_post_type;
 				}	else {
-					$slideshow_post_type = 'page';
+					$slideshow_post_type = 'post';
 				}
 				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_post_type'] != ''){
 					$slideshow_post_type = $cc_page_options['cc_page_slider_post_type'];
@@ -197,14 +197,19 @@ function slidertop(){
 				}	else {
 					$slideshow_show_page = '';
 				}
+				
 				if($cc_page_options['cc_page_slider_on'] == 1){
 					$slideshow_show_page = $cc_page_options['cc_page_slider_show_page'];
 				}
 
 				
-				if($cap->slideshow_cat != ''){
-					$slidercat =  $cap->slideshow_cat;
+				if($cap->slideshow_cat == 'All categories'){
+					$slidercat =  '';
 				}
+				if($cap->slideshow_cat != '' && $cap->slideshow_cat != 'All categories'){
+					$slidercat = $cap->slideshow_cat;
+				}
+				
 				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_cat'] != ''){
 					$slidercat = $cc_page_options['cc_page_slider_cat'];
 				}
@@ -261,7 +266,7 @@ function style_switcher(){?>
 }
 
 function cc_list_posts_on_page(){
-$cc_page_options=cc_get_post_meta(); 
+$cc_page_options=cc_get_page_meta(); 
     if(isset($cc_page_options) && $cc_page_options['cc_page_template_on'] == 1){
     
     switch ($cc_page_options['cc_posts_on_page_type'])

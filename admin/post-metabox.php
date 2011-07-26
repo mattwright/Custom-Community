@@ -69,12 +69,6 @@ function cc_add_post_meta(){
 	if ($post->post_type == 'page')
 		return;
 	
-	// if this fails, check_admin_referer() will automatically print a "failed" page and die.
-	if ( !empty($_POST) && check_admin_referer('cc_post_metabox','cc_post_meta_nonce') )
-	{
-	   // process form data, e.g. update fields
-	}
-	
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
 	{
 	     return $post_id;
@@ -195,12 +189,6 @@ function cc_add_page_meta($id){
 	
 	if ($post->post_type != 'page')
 	return;
-	
-	// if this fails, check_admin_referer() will automatically print a "failed" page and die.
-	if ( !empty($_POST) && check_admin_referer('cc_page_metabox','cc_page_meta_nonce') )
-	{
-	   // process form data, e.g. update fields
-	}
 	
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
 	{

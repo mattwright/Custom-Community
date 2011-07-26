@@ -83,7 +83,7 @@ h3 { font-size: 20px; color:#<?php echo $font_color; ?>; }
 h4 { font-size: 16px; margin-bottom: 15px; }
 h5 { font-size: 14px; margin-bottom: 0; }
 h6 { font-size: 12px; margin-bottom: 0; }
-a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration:none; padding: 1px 0; }
+a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration: none; padding: 1px 0; }
 a:hover, a:active { color: #<?php echo $font_color; ?>; }
 a:focus { outline: none; }
 .padder { padding: 20px; }
@@ -1999,7 +1999,7 @@ width: 70%;
 -------------------------------------------------------------- */
 
 div.post {
-margin:2px 0;
+margin:2px 0 20px 0;
 overflow: hidden;
 }
 div.post h2.pagetitle, div.post h2.posttitle {
@@ -2082,6 +2082,10 @@ font-size: 12px;
 div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover {
 color: #<?php echo $font_color; ?>;
 font-size: 12px;
+}
+
+div.post p.date em {
+font-style: normal;
 }
 
 div.post p.postmetadata {
@@ -2678,8 +2682,10 @@ width:100%;
 }
 div.cc_slider .featured .info h2 > a{
 font-size:18px;
-color:#ffffff !important;
-overflow:hidden;
+color: #ffffff; 
+color: #ffffff !important; 
+overflow:hidden; 
+font-family: arial, sans-serif;
 }
 div.cc_slider .featured .info h2 {
 padding:2px 2px 2px 5px;
@@ -2691,7 +2697,8 @@ div.cc_slider .featured .info p{
 margin:0 5px;
 font-size:13px;
 line-height:15px;
-color:#ffffff !important;
+color:#ffffff;
+font-family: arial, sans-serif;
 }
 div.cc_slider .featured .info a{
 color:#<?php echo $body_bg_color; ?>; color:#<?php echo $body_bg_color; ?> !important;
@@ -3581,6 +3588,7 @@ div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, 
 	div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
 	ul.item-list li div.meta, div.item-list-tabs ul li span, span.activity, div#message p, div.widget span.activity, 
 	div.pagination, div#message.updated p, #subnav a,  
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus, 
 	div#item-header span.activity, div#item-header h2 span.highlight, div.widget-title ul.item-list li.selected a, 
 	form.standard-form input:focus, form.standard-form select:focus, table tr td.label, 
 	table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
@@ -3614,27 +3622,31 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 /** ***   
 title font style, size, weight and colour  **/
 
-h1, h2 {
+h1, h2, h1 a, h2 a {
 <?php if($cap->title_font_style){?>
 	font-family: <?php echo $cap->title_font_style?>;
 <?php };?>
 <?php if($cap->title_size){?>
 	font-size: <?php echo $cap->title_size?>px;
 <?php };?>
-<?php if($cap->title_color){?>
-	color:#<?php echo $cap->title_color?>;
-<?php };?>
 <?php if($cap->title_weight){?>
 	font-weight:<?php echo $cap->title_weight?>;
 <?php };?>
 }
+
+h1, h2, h1 a, h2 a {
+<?php if($cap->title_color){?>
+	color:#<?php echo $cap->title_color?>;
+<?php };?>
+}
+
 <?php endif; ?>
 
 <?php if($cap->subtitle_font_style != "" || $cap->subtitle_color != "" || $cap->subtitle_weight != ""):?>
 /** ***   
 subtitle font style, weight and colour  **/
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 <?php if($cap->subtitle_font_style){?>
 	font-family: <?php echo $cap->subtitle_font_style?>;
 <?php };?>
@@ -3717,7 +3729,7 @@ h3, h4, h5, h6 {
 	
 <?php endif; ?>
 
-<?php if($cap->link_underline != "never"): ?>
+<?php if($cap->link_underline != "never" && $cap->link_underline != "" ): ?>
 
 	<?php if($cap->link_underline == "just for mouse over"){ 
 		$stylethis = 'a:hover, a:focus'; 
@@ -3757,10 +3769,29 @@ h3, h4, h5, h6 {
 	} 
 <?php endif; ?>
 
-<?php if($cap->link_styling_title_adapt != "just link colour and link hover colour"):?>
+<?php if($cap->link_styling_title_adapt != "just the hover effect"):?>
+/** ***   
+	link styling titles adapt**/
+
+	<?php if ($cap->link_hover_color != '') { 
+	// use the link hover colour anyway - if one is selected ?>
+				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+					color: #<?php echo $cap->link_hover_color; ?>; 
+				} 
+	<?php } ?>
+
 
 	<?php switch ($cap->link_styling_title_adapt) { 
         
+		case 'link colour and hover colour': ?>
+        
+        	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        		color: #<?php echo $cap->link_color; ?>;
+        	}
+			
+		<?php break; 
+	
 		case 'no, only the link colour!': ?>
         
         	<?php if ($cap->link_bg_color_hover || $cap->link_bg_color_hover) { ?>
@@ -3772,7 +3803,7 @@ h3, h4, h5, h6 {
 			
 		<?php break; 
 		
-		case 'the underline effects too': ?>
+		case 'link colour and hover colour': ?>
         
         	<?php if($cap->link_underline != "never"): ?>
 
@@ -3900,7 +3931,7 @@ body.home div.author-box {
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_style == "bubbles"){?>
+<?php if($cap->default_homepage_style != "default"){?>
 /** ***   
 standard wordpress home page: bubble style**/
 
@@ -4090,7 +4121,8 @@ menu style  **/
 		background-color: transparent;
 	}	
 	#access .menu-header, div.menu {
-    margin-left: 0;
+    margin-left: 0; 
+    padding-left: 0;
     }
     #access a {
     padding: 0 12px 2px 12px;
@@ -4136,7 +4168,7 @@ div.menu ul {
 menu font colour  **/
 
 #access a, #access ul ul a, #access ul.children li.selected > a, 
-#access li:hover > a, #access ul ul :hover > a, 
+#access ul li:hover > a, #access ul ul :hover > a, 
 #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
 #access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a  {
@@ -4148,11 +4180,18 @@ menu font colour  **/
 /** ***   
 menu font colour current and mouse over **/ 
 
-#access li:hover > a, #access ul ul :hover > a, 
-#access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
-#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover, 
-#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
-#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a {
+div#access div.menu ul li a:hover, 
+div#access div.menu ul li a:focus, 
+#access ul ul *:hover > a, 
+#access ul.children li:hover > a, 
+#access ul.sub-menu li:hover > a, 
+#access ul li.current_page_item > a, 
+#access ul li.current-menu-ancestor > a, 
+#access ul li.current_page_item > a:hover, 
+#access ul li.current-menu-item > a:hover, 
+#access ul li.current-menu-item > a, 
+#access ul li.current-menu-parent > a, 
+#access li.selected > a {
 	color: #<?php echo $cap->menue_link_color_current?>;
 } 
 

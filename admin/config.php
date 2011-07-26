@@ -40,7 +40,7 @@ function cap_get_options() {
 			"Colour scheme", 
 			"Select the colour scheme of your website.", 
 			"style_css", 
-			array('grey', 'dark', 'more colour schemes in the pro version' )),
+			array( 'white', 'grey', 'dark', 'more colour schemes in the pro version' )),
 		new TextOption(
 			"Website width", 
 			"Just type in the number, either in px or %. Default is 1000. <br>
@@ -152,7 +152,7 @@ function cap_get_options() {
 			"Sidebar default position", 
 			"Where do you like to have your sidebars? Define your default layout.", 
 			"sidebar_position", 
-			array('left and right', 'left', 'right', 'full-width')),
+			array('right', 'left and right', 'left', 'full-width')),
 		new DropdownOption(
 			"Title font style", 
 			"Change the title font style (h1 and h2)", 
@@ -284,7 +284,7 @@ function cap_get_options() {
 			"Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? <br> 
 			By default they adapt just the link colour and link hover colour.", 
 			"link_styling_title_adapt", 
-			array('just link colour and link hover colour', 'the underline effects too', 'the background colours too', 'adapt all link styles', 'no, only the link colour!', ),
+			array('just the hover effect', 'link colour and hover colour', '...the underline effects too', 'the background colours too', 'adapt all link styles' ),
 			"", 
 			'end'),	
 		new FileOption(
@@ -304,9 +304,9 @@ function cap_get_options() {
 		new DropdownOption(
 			"Post listing style", 
 			"Select a style how to display the latest posts. <br> 
-			If you'd like to display the featured image also, check out our list post function.", 
+			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.", 
 			"default_homepage_style", 
-			array('default', 'bubbles'),
+			array('bubbles', 'default'),
 			"", 
 			false),	
 		new DropdownOption(

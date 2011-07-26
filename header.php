@@ -4,6 +4,14 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<?php global $cap, $cc_page_options; ?>
+		
+		<?php if($cap->sidebar_position == ''){
+			$cap->sidebar_position = 'right';
+			$cap->menue_disable_home = true;
+			$cap->header_text = 'off';
+			$cap->preview = true;
+		} ?>
+			
 		<?php $cc_page_options=cc_get_page_meta();?>
 		
 		<link rel="shortcut icon" href="<?php echo $cap->favicon ?>" />
@@ -161,9 +169,11 @@
 		<div class="clear"></div>
 	
 		</div><!-- #header -->
+		
+		
 		<?php if ($cap->header_width == "full-width") { echo $innerrim; }?>
 		<?php do_action( 'bp_after_header' ) ?>
-		<?php if($cap->enable_slideshow_home != ''):?>
+		<?php if($cap->enable_slideshow_home != 'off'):?>
 			<?php if(defined('BP_VERSION')){ 
 				if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
 					<div id="cc_slider-top">
@@ -180,7 +190,7 @@
 					<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/<?php cc_slider_shadow(); ?>"></img></div>		
 					<?php };?>
 				<?php } ?>
-			<?php } elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
+			<?php } elseif($cap->enable_slideshow_home == '' || $cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){?>
 				<div id="cc_slider-top">
 						<?php echo slidertop();?>
 				</div>	
@@ -188,6 +198,7 @@
 				<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="<?php echo get_template_directory_uri(); ?>/images/slideshow/<?php cc_slider_shadow(); ?>"></img></div>		
 				<?php }?>
 			<?php } ?>
+			
 		<?php endif; ?>			
 		
 		<?php do_action( 'bp_before_container' ) ?>

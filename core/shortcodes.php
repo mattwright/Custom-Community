@@ -327,7 +327,7 @@ function cc_list_posts($atts,$content = null) {
 			$pattern= "/(?<=src=['|\"])[^'|\"]*?(?=['|\"])/i";
 			preg_match($pattern, $thumb, $thePath); 
 			if(!isset($thePath[0])){
-			$thePath[0] = get_template_directory_uri().'/images/1x1-trans.gif';
+			$thePath[0] = get_template_directory_uri().'/images/slideshow/noftrdimg-222x160.jpg';
 			}
 			$tmp .= '<div class="boxgrid captionfull" style="background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
 			$tmp .= '<div class="cover boxcaption">';
@@ -372,10 +372,10 @@ function slider($atts,$content = null) {
 	global $post;
 	extract(shortcode_atts(array(
 		'amount' => '4',
-		'category_name' => 'All categories',
+		'category_name' => '',
 		'page_id' => '',
-		'post_type' => 'page',
-		'orderby' => '',
+		'post_type' => 'post',
+		'orderby' => 'DESC',
 		'slider_nav' => 'on',
 		'caption' => 'on',
 		'caption_height' => '',
@@ -394,6 +394,10 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
+	if($category_name == 'All categories'){
+		$category_name = '';
+	}
+	
 	$tmp = '<script type="text/javascript">'. chr(13);
 	$tmp .= '		jQuery.noConflict();'. chr(13);
 	$tmp .= '		jQuery(document).ready(function(){'. chr(13);
@@ -496,16 +500,22 @@ function slider($atts,$content = null) {
 	$tmp .= '</style>'. chr(13);	
 	
 	
-	if($category_name != 'All categories' || $page_id != ''){
-		if($page_id != ''){
-			$page_id = explode(',',$page_id);
-			query_posts(array('orderby'=> $orderby, 'post_type' => $post_type, 'post__in' => $page_id));
-		} else {
-			query_posts(array('orderby'=> $orderby, 'category_name' => $category_name, 'posts_per_page' => $amount));
-		}
-	} else {
-		query_posts(array('orderby'=> $orderby, 'posts_per_page' => $amount));
+	if($page_id != ''){
+		$page_id = explode(',',$page_id);
 	}
+	
+	$args = array(
+		'orderby' => $orderby,
+		'post_type' => $post_type,
+		'post__in' => $page_id,
+		'category_name' => $category_name,
+		'posts_per_page' => $amount
+	);
+	
+//	print_r($args);
+	query_posts($args);
+	
+	
 	if (have_posts()) :
 
 		$tmp .='<div id="cc_slider'.$id.'" class="cc_slider">'. chr(13);
@@ -551,10 +561,11 @@ function slider($atts,$content = null) {
 		$tmp .= '</div></div>'. chr(13);
 
 		else :
-
-			$tmp .='<h2 class="center">'._e( 'Not Found', 'buddypress' ).'</h2>'. chr(13);
-			$tmp .='<p class="center">'._e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ).'</p>'. chr(13);
-			
+			$tmp .='<div id="cc_slider_prev" class="cc_slider" style="background: #ededed;">'. chr(13);
+			$tmp .='<div id="featured_prev" class="featured" style="background: #ededed;">'. chr(13);
+			$tmp .='<h2 class="center" style="margin-top:50px; margin-left: 20px;">'.__( 'Empty Slideshow', 'buddypress' ).'</h2>'. chr(13);
+			$tmp .='<p class="center" style="margin-top:20px; margin-left: 20px;">'.__( 'You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'buddypress' ).'</p>'. chr(13);
+			$tmp .='</div></div>'. chr(13);
 			
 		endif;
 		   
