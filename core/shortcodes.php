@@ -524,21 +524,22 @@ function slider($atts,$content = null) {
 		$i = 1; 
 		while (have_posts()) : the_post();
 		
-		$url = get_permalink();
-		$theme_fields = get_post_custom_values('my_url');
-		if(isset($theme_fields[0])){
-		 	$url = $theme_fields[0];
-		}
-		   
-		$tmp .='<div id="fragment-'.$id.'-'.$i.'" class="ui-tabs-panel">'. chr(13);
+			$url = get_permalink();
+			$theme_fields = get_post_custom_values('my_url');
+			if(isset($theme_fields[0])){
+			 	$url = $theme_fields[0];
+			}
+			   
+			$tmp .='<div id="fragment-'.$id.'-'.$i.'" class="ui-tabs-panel">'. chr(13);
 		    
 		    if($width != '' || $height != ''){
-		    	$tmp .='	<a class="reflect" href="'.$url.'">'.get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ).'</a>'. chr(13);
+		    	if (get_the_post_thumbnail( $post->ID, array($width,$height),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg-1006x250.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ); }
 		    } else {
-		    	
 		    	if (get_the_post_thumbnail( $post->ID, array(756,250),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ); }
-				$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
 		    }
+		    
+			$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
+
 			if($caption == 'on'){
 				$tmp .=' <div class="info" >'. chr(13);
 				$tmp .='	<h2><a href="'.$url.'" >'.get_the_title().'</a></h2>'. chr(13);

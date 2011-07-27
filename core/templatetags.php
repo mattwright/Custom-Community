@@ -149,107 +149,116 @@ echo get_color_scheme();
 
 function slidertop(){
 	global $cc_page_options, $cap;
-	
-				$slideshow_time = '5000';
-	
-				if($cap->slideshow_caption == 'off'){
-					$caption = 'off';
-				}	else {
-					$caption = 'on';
-				}
-				if($cc_page_options['cc_page_slider_caption'] == 1){
-					$caption = 'off';
-				}
-				echo $cap->slideshow_amount;
-				if($cap->slideshow_amount != ''){
-					$slideshow_amount = $cap->slideshow_amount;
-				}	else {
-					$slideshow_amount = '4';
-				}
-				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_amount'] != ''){
-					$slideshow_amount = $cc_page_options['cc_page_slider_amount'];
-				}
-				
-				if($cap->slideshow_time != ''){
-					$slideshow_time = $cap->slideshow_time;
-				}	
-				
-				if($cap->slideshow_orderby != ''){
-					$slideshow_orderby = $cap->slideshow_orderby;
-				}	else {
-					$slideshow_orderby = 'DESC';
-				}
-				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_orderby'] != ''){
-					$slideshow_orderby = $cc_page_options['cc_page_slider_orderby'];
-				}			
-				
-				if($cap->slideshow_post_type != ''){
-					$slideshow_post_type = $cap->slideshow_post_type;
-				}	else {
-					$slideshow_post_type = 'post';
-				}
-				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_post_type'] != ''){
-					$slideshow_post_type = $cc_page_options['cc_page_slider_post_type'];
-				}
-				
-				if($cap->slideshow_show_page != ''){
-					$slideshow_show_page = $cap->slideshow_show_page;
-				}	else {
-					$slideshow_show_page = '';
-				}
-				
-				if($cc_page_options['cc_page_slider_on'] == 1){
-					$slideshow_show_page = $cc_page_options['cc_page_slider_show_page'];
-				}
 
-				
-				if($cap->slideshow_cat == 'All categories'){
-					$slidercat =  '';
-				}
-				if($cap->slideshow_cat != '' && $cap->slideshow_cat != 'All categories'){
-					$slidercat = $cap->slideshow_cat;
-				}
-				
-				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_cat'] != ''){
-					$slidercat = $cc_page_options['cc_page_slider_cat'];
-				}
+	$slideshow_time = '5000';
 
-				if($cap->slideshow_style == 'full width'){
-				$slider_style = 'full width';
-				}
-				if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_style'] != ''){
-				$slider_style = $cc_page_options['cc_page_slider_style'];						
-				}
-				
-				if($slider_style == 'full width' || $slider_style == 'full-width-image' ){
-					$atts = array(
-						'amount' => $slideshow_amount,
-						'category_name' => $slidercat,
-						'slider_nav' => 'off',
-						'caption' => $caption,
-						'caption_width' => '1006',
-						'width' => '1006',
-						'height' => '250',
-						'id' => 'slidertop',
-						'time_in_ms' => $slideshow_time,
-						'orderby' => $slideshow_orderby,
-						'page_id' => $slideshow_show_page,
-						'post_type' =>$slideshow_post_type
-					);
-				} else {
-					$atts = array(
-						'amount' => '4',
-						'category_name' => $slidercat,
-						'slider_nav' => 'on',
-						'caption' => $caption,
-						'id' => 'slidertop',
-						'time_in_ms' => $slideshow_time,
-						'orderby' => $slideshow_orderby,
-						'page_id' => $slideshow_show_page,
-						'post_type' =>$slideshow_post_type
-		 				);					
-				}
-				return slider($atts,$content = null);
+	if($cap->slideshow_caption == 'off'){
+		$caption = 'off';
+	}	else {
+		$caption = 'on';
+	}
+	if($cc_page_options['cc_page_slider_caption'] == 1){
+		$caption = 'off';
+	}
+	
+	if($cap->slideshow_amount != ''){
+		$slideshow_amount = $cap->slideshow_amount;
+	}	else {
+		$slideshow_amount = '4';
+	}
+	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_amount'] != ''){
+		$slideshow_amount = $cc_page_options['cc_page_slider_amount'];
+	}
+	
+	if($cap->slideshow_time != ''){
+		$slideshow_time = $cap->slideshow_time;
+	}	
+	
+	if($cap->slideshow_orderby != ''){
+		$slideshow_orderby = $cap->slideshow_orderby;
+	}	else {
+		$slideshow_orderby = 'DESC';
+	}
+	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_orderby'] != ''){
+		$slideshow_orderby = $cc_page_options['cc_page_slider_orderby'];
+	}			
+	
+	if($cap->slideshow_post_type != ''){
+		$slideshow_post_type = $cap->slideshow_post_type;
+	}	else {
+		$slideshow_post_type = 'post';
+	}
+	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_post_type'] != ''){
+		$slideshow_post_type = $cc_page_options['cc_page_slider_post_type'];
+	}
+	
+	if($cap->slideshow_show_page != ''){
+		$slideshow_show_page = $cap->slideshow_show_page;
+	}	else {
+		$slideshow_show_page = '';
+	}
+	
+	if($cc_page_options['cc_page_slider_on'] == 1){
+		$slideshow_show_page = $cc_page_options['cc_page_slider_show_page'];
+	}
+
+	
+	if($cap->slideshow_cat == 'All categories'){
+		$slidercat =  '';
+	}
+	if($cap->slideshow_cat != '' && $cap->slideshow_cat != 'All categories'){
+		$slidercat = $cap->slideshow_cat;
+	}
+	
+	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_cat'] != ''){
+		$slidercat = $cc_page_options['cc_page_slider_cat'];
+	}
+
+	if($cap->slideshow_style == 'full width'){
+	$slider_style = 'full width';
+	}
+	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_style'] != ''){
+	$slider_style = $cc_page_options['cc_page_slider_style'];						
+	}
+	
+	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){
+		$atts = array(
+			'amount' => $slideshow_amount,
+			'category_name' => $slidercat,
+			'slider_nav' => 'off',
+			'caption' => $caption,
+			'caption_width' => '1006',
+			'width' => '1006',
+			'height' => '250',
+			'id' => 'slidertop',
+			'time_in_ms' => $slideshow_time,
+			'orderby' => $slideshow_orderby,
+			'page_id' => $slideshow_show_page,
+			'post_type' =>$slideshow_post_type
+		);
+	} else {
+		$atts = array(
+			'amount' => '4',
+			'category_name' => $slidercat,
+			'slider_nav' => 'on',
+			'caption' => $caption,
+			'id' => 'slidertop',
+			'time_in_ms' => $slideshow_time,
+			'orderby' => $slideshow_orderby,
+			'page_id' => $slideshow_show_page,
+			'post_type' =>$slideshow_post_type
+ 			);					
+	}
+
+	$tmp .= '<div id="cc_slider-top">';
+	$tmp .= slider($atts,$content = null);
+	$tmp .= '</div>';
+	if($cap->slideshow_shadow != "no shadow"){
+		$tmp .= '<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="'.get_template_directory_uri().'/images/slideshow/'.cc_slider_shadow().'"></img></div>';
+	}
+		
+	return $tmp;
+
 }
 
 function style_switcher(){?>

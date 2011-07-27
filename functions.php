@@ -751,9 +751,9 @@ function get_rightsidebar_width() {
 function cc_slider_shadow() {
 	global $cap;
 	if ($cap->slideshow_shadow == "shadow") { 
-		echo "slider-shadow.png"; 
+		return "slider-shadow.png"; 
 	} else { 
-		echo "slider-shadow-sharp.png"; 
+		return "slider-shadow-sharp.png"; 
 	}
 }  
  
