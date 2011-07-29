@@ -525,7 +525,9 @@ function slider($atts,$content = null) {
 	
 	if (have_posts()) :
 
-		$tmp .='<div id="cc_slider'.$id.'" class="cc_slider">'. chr(13);
+		if ( $id == "top" ) $shortcodeclass = "cc_slider_shortcode"; 
+		
+		$tmp .='<div id="cc_slider'.$id.'" class="cc_slider '.$shortcodeclass.'">'. chr(13);
 		$tmp .='<div id="featured'.$id.'" class="featured">'. chr(13);
 		
 		$i = 1; 

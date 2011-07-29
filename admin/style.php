@@ -2602,11 +2602,16 @@ background-repeat:repeat-y;
 border:medium none;
 overflow:hidden;
 padding:0;
+margin-bottom: 12px;
 }
 div.cc_slider {
-margin-bottom: 12px;
+margin-bottom: 0;
 overflow: hidden;
 }
+div.cc_slider.cc_slider_shortcode {
+margin-bottom: 12px;
+}
+
 div.cc_slider .featured{
 width:100%;
 padding-right:248px;

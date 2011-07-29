@@ -220,6 +220,14 @@ function slidertop(){
 	if($cc_page_options['cc_page_slider_on'] == 1 && $cc_page_options['cc_page_slider_style'] != ''){
 	$slider_style = $cc_page_options['cc_page_slider_style'];						
 	}
+
+	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){ ?>
+		<style type="text/css">
+			div#cc_slider-top div.cc_slider .featured .ui-tabs-panel{
+			width: 100%;
+			}
+		</style>
+	<?php }
 	
 	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){
 		$atts = array(
