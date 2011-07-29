@@ -2601,8 +2601,11 @@ background-color:#<?php echo $container_bg_color; ?>;
 background-repeat:repeat-y;
 border:medium none;
 overflow:hidden;
-margin-bottom:12px;
 padding:0;
+}
+div.cc_slider {
+margin-bottom: 12px;
+overflow: hidden;
 }
 div.cc_slider .featured{
 width:100%;
@@ -2669,9 +2672,17 @@ div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected a{
 background:#<?php echo $container_alt_bg_color; ?>;
 }
 div.cc_slider .featured .ui-tabs-panel{
-width:756px; height:250px;
-background:#<?php echo $container_bg_color; ?>; position:relative; 
-padding:0;  border: medium none; border-radius: 0 0 0 0;
+width: 716px; 
+height: 250px;
+overflow:hidden; 
+background:#<?php echo $container_bg_color; ?>; 
+position:relative; 
+padding:0;  
+border: medium none; 
+border-radius: 0 0 0 0;
+}
+div#cc_slider-top div.cc_slider .featured .ui-tabs-panel{
+width: 756px;
 }
 div.cc_slider .featured .ui-tabs-panel .info{
 position:absolute;

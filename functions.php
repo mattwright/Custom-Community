@@ -710,44 +710,31 @@ if($cap->buddydev_search == true){
 }
 
 function leftsidebar_width() {
-	global $cap;
-	$wdth = '224';
-	if ( $cap->leftsidebar_width != "224") { 
-		$wdth = $cap->leftsidebar_width; 
-		$wdth .= 'px';
-	}
-	echo $wdth; 
+	echo get_leftsidebar_width();
 }
-
-function get_leftsidebar_width() {
-	global $cap;
-	$wdth = '224';
-	if ( $cap->leftsidebar_width != "224") { 
-		$wdth = $cap->leftsidebar_width; 
-		$wdth .= 'px';
+	function get_leftsidebar_width() {
+		global $cap;
+		$width = '224';
+		if ( $cap->leftsidebar_width != '') { 
+			$width = $cap->leftsidebar_width; 
+		}
+		$width .= 'px';		
+		return $width; 
 	}
-	return $wdth; 
-}
 
 function rightsidebar_width() {
-	global $cap;
-	$wdth = '225';
-	if ( $cap->rightsidebar_width != "225") { 
-		$wdth = $cap->rightsidebar_width; 
-		$wdth .= 'px';
-	}
-	echo $wdth; 
+	echo get_rightsidebar_width();
 }
-
-function get_rightsidebar_width() {
-	global $cap; 
-	$wdth = '225';
-	if ( $cap->rightsidebar_width != "225" && $cap->rightsidebar_width != "") { 
-		$wdth = $cap->rightsidebar_width;
-		$wdth .= 'px'; 
+	function get_rightsidebar_width() {
+		global $cap;
+		$width = '225';
+		if ( $cap->rightsidebar_width != '') { 
+			$width = $cap->rightsidebar_width; 
+		}
+		$width .= 'px';
+		return $width; 
 	}
-	return $wdth; 
-}
+	
 function cc_slider_shadow() {
 	global $cap;
 	if ($cap->slideshow_shadow == "shadow") { 

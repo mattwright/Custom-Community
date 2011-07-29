@@ -305,19 +305,26 @@ function cc_list_posts($atts,$content = null) {
 		'category_name' => 'All categories',
 		'img_position' => 'mouse_over',
 		'height' => 'auto',
-		'name' => '',
-		'post_type' => '',
+		'page_id' => '',
+		'post_type' => 'page',
+		'orderby' => '',
+		'order' => '',
 	), $atts));
 
 	$img_position = 'boxgrid';
     
-	if($category_name == 'All categories' && $name == ''){
+	if($category_name == 'All categories' && $page_id == '' && $post_type == 'page'){
 		query_posts('posts_per_page='.$amount);
 	} else {
-		if($name != "") {
-			query_posts('name='.$name.'&post_type='.$post_type);
+		if($page_id != "" || $post_type != 'page') {
+			if($page_id != ""){
+				$page_id = explode(',',$page_id);
+				query_posts(array('orderby'=> $orderby, 'order'=> $order, 'post_type' => $post_type, 'post__in' => $page_id));
+			} else {
+				query_posts(array('orderby'=> $orderby, 'order'=> $order, 'post_type' => $post_type));
+			}
 		} else {
-			query_posts('category_name='.$category_name.'&posts_per_page='.$amount);
+			query_posts(array('orderby'=> $orderby, 'order'=> $order, 'category_name' => $category_name, 'posts_per_page' => $amount));
 		}
 	}
 	if (have_posts()) : while (have_posts()) : the_post();
@@ -340,7 +347,7 @@ function cc_list_posts($atts,$content = null) {
 			if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 			if($height != 'auto'){ $height = $height.'px'; }
-			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'._e('read more','buddypress').'</a></p>';
+			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','buddypress').'</a></p>';
 			if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '</div>';
 			if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
