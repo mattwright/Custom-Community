@@ -48,9 +48,13 @@
  <div id="outerrim">
     <?php $innerrim = '<div id="innerrim">'; ?>
     <?php if ($cap->header_width != "full-width") { echo $innerrim; }?>
-		<?php do_action( 'bp_before_header' ) ?>
-
-	<div id="header">
+	<?php do_action( 'bp_before_header' ) ?>
+	
+	
+	<div id="header">	
+	
+    	<?php wp_nav_menu( array( 'container_class' => 'menu menu-top', 'theme_location' => 'menu_top','container' => 'div', 'fallback_cb' => false ) ); ?>
+	
 		<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
 		<?php endif; ?>
 		<?php if (is_active_sidebar('headerleft') ){ ?>
@@ -89,8 +93,7 @@
 		<?php endif; ?>
 				
 		<div id="access">
-        <!--<div id="access" role="navigation">//-->
-			<div class="menu">
+    		<div class="menu">
 	
 		<?php if(!defined('BP_VERSION')) {?>
 			<?php if($cap->menue_disable_home == true){ ?>

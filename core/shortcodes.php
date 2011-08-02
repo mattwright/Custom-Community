@@ -306,27 +306,28 @@ function cc_list_posts($atts,$content = null) {
 		'img_position' => 'mouse_over',
 		'height' => 'auto',
 		'page_id' => '',
-		'post_type' => 'page',
+		'post_type' => 'post',
 		'orderby' => '',
-		'order' => '',
 	), $atts));
 
 	$img_position = 'boxgrid';
     
-	if($category_name == 'All categories' && $page_id == '' && $post_type == 'page'){
-		query_posts('posts_per_page='.$amount);
-	} else {
-		if($page_id != "" || $post_type != 'page') {
-			if($page_id != ""){
-				$page_id = explode(',',$page_id);
-				query_posts(array('orderby'=> $orderby, 'order'=> $order, 'post_type' => $post_type, 'post__in' => $page_id));
-			} else {
-				query_posts(array('orderby'=> $orderby, 'order'=> $order, 'post_type' => $post_type));
-			}
-		} else {
-			query_posts(array('orderby'=> $orderby, 'order'=> $order, 'category_name' => $category_name, 'posts_per_page' => $amount));
-		}
+	if($category_name == 'All categories'){
+		$category_name = '0';
 	}
+		
+	$args = array(
+		'orderby' => $orderby,
+		'post_type' => $post_type,
+		'post__in' => $page_id,
+		'category_name' => $category_name,
+		'posts_per_page' => $amount
+	);
+	
+	remove_all_filters('posts_orderby');
+	query_posts($args);
+	
+	
 	if (have_posts()) : while (have_posts()) : the_post();
 
 		if($img_position == 'boxgrid'){

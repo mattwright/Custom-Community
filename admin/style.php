@@ -2466,6 +2466,103 @@ div#sidebar div#calendar_wrap, div.widgetarea div#calendar_wrap{
 margin-left:5px;
 }
 
+/* =Menu Top
+-------------------------------------------------------------- */
+
+div.menu-top {
+font-size: 13px;
+margin-left: 12px;
+width: 100%;
+}
+
+div.menu-top.menu ul {
+list-style: none;
+margin: 0;
+float: right; 
+}
+
+div.menu-top li {
+float: left;
+position: relative;
+list-style:none outside none;
+margin:4px 4px 0 0;
+}
+
+div.menu-top a {
+color: #<?php echo $link_color; ?>;
+display: block;
+line-height: 30px;
+padding: 0 15px 2px 15px;
+text-decoration: none; 
+background-color: transparent;
+}
+
+div.menu-top ul ul {
+display:none;
+float:left;
+left:0;
+position:absolute;
+top:27px;
+width:180px;
+z-index:1000000;
+}
+
+div.menu-top ul li ul li {
+min-width: 180px;
+z-index:1000000;
+margin-top:0px !important;
+}
+
+div.menu-top ul ul ul {
+left: 100%;
+top: 0;
+}
+
+div.menu-top ul ul a {
+background: #<?php echo $body_bg_color; ?>;
+color: #<?php echo $link_color; ?>;
+line-height: 1em;
+padding: 10px 15px;
+width: 160px;
+height: auto;
+}
+
+div.menu-top li:hover > a,
+div.menu-top ul ul:hover > a {
+color: #<?php echo $font_color; ?>;
+}
+
+div.menu-top ul.children li:hover > a,
+div.menu-top ul.sub-menu li:hover > a {
+background: #<?php echo $details_hover_bg_color; ?> !important;
+color: #<?php echo $font_color; ?>;
+border-radius:0px;
+}
+
+div.menu-top ul li:hover > ul {
+display: block;
+}
+div.menu-top ul li.current_page_item > a,
+div.menu-top ul li.current-menu-ancestor > a,
+div.menu-top ul li.current-menu-item > a,
+div.menu-top li.selected > a,
+div.menu-top ul li.current-menu-parent > a,
+div.menu-top ul li.current_page_item > a:hover,
+div.menu-top ul li.current-menu-item > a:hover {
+background:none repeat scroll 0 0 #<?php echo $body_bg_color; ?>;
+color:#<?php echo $font_color; ?>;
+}
+* html div.menu-top ul li.current_page_item a,
+* html div.menu-top ul li.current-menu-ancestor a,
+* html div.menu-top ul li.current-menu-item a,
+* html div.menu-top ul li.current-menu-parent a,
+* html div.menu-top ul li a:hover {
+color: #<?php echo $font_color; ?>;
+}
+
+
+
+
 /* =Menu
 -------------------------------------------------------------- */
 
@@ -2587,9 +2684,6 @@ color:#<?php echo $font_color; ?>;
 * html #access ul li a:hover {
 color: #<?php echo $font_color; ?>;
 }
-
-
-
 
 /* =Slider
 -------------------------------------------------------------- */

@@ -12,13 +12,8 @@
 		<?php
 		if($cap->preview == true){
 			$args = array(
-					'amount' => '3',
-					'category_name' => 'All categories',
-					'img_position' => 'mouse_over',
-					'height' => 'auto',
-					'name' => '',
-					'post_type' => '',
-				);
+				'amount' => '3',
+		 	);
 				
 			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
 		}
