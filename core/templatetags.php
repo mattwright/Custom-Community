@@ -204,7 +204,7 @@ function slidertop(){
 
 	
 	if($cap->slideshow_cat == 'All categories'){
-		$slidercat =  '';
+		$slidercat = '0';
 	}
 	if($cap->slideshow_cat != '' && $cap->slideshow_cat != 'All categories'){
 		$slidercat = $cap->slideshow_cat;
@@ -228,7 +228,6 @@ function slidertop(){
 			}
 		</style>
 	<?php }
-	
 	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){
 		$atts = array(
 			'amount' => $slideshow_amount,

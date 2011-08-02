@@ -379,7 +379,7 @@ function slider($atts,$content = null) {
 	global $post;
 	extract(shortcode_atts(array(
 		'amount' => '4',
-		'category_name' => '',
+		'category_name' => '0',
 		'page_id' => '',
 		'post_type' => 'post',
 		'orderby' => 'DESC',
@@ -402,7 +402,7 @@ function slider($atts,$content = null) {
 	), $atts));
 
 	if($category_name == 'All categories'){
-		$category_name = '';
+		$category_name = '0';
 	}
 	
 	$tmp = '<script type="text/javascript">'. chr(13);
@@ -519,7 +519,7 @@ function slider($atts,$content = null) {
 		'posts_per_page' => $amount
 	);
 	
-//	print_r($args);
+	remove_all_filters('posts_orderby');
 	query_posts($args);
 	
 	
