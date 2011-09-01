@@ -4041,7 +4041,7 @@ body.home div.author-box {
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_style != "default"){?>
+<?php if($cap->default_homepage_style == "bubbles"){?>
 /** ***   
 standard wordpress home page: bubble style**/
 

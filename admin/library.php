@@ -189,6 +189,67 @@ class DropdownOption extends Option {
 	}
 }
 
+class DropdownCatOption extends Option {
+	var $options;
+
+	function DropdownCatOption( $_name, $_desc, $_id, $_options, $_stdIndex = 0, $_accordion = 'on', $_accordion_name = "off" ) {
+		$this->Option( $_name, $_desc, $_id, $_stdIndex );
+		$this->options = $_options;
+		$this->accordion = $_accordion;
+		$this->accordion_name = $_accordion_name;
+	}
+	
+	function WriteHtml() {
+
+			if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
+				<?php if($this->accordion_name != 'off') { ?>
+					<h3><a href="#"><?php echo $this->accordion_name; ?></a></h3>
+					<div>
+					<p><b><?php echo $this->name; ?></b></p>
+				<?php } else {?>
+					<h3><a href="#"><?php echo $this->name; ?></a></h3>
+					<div>
+				<?php }?>
+			<?php } else { ?>
+				<p><b><?php echo $this->name; ?></b></p>
+			<?php } ?>
+				<?php echo $this->desc; ?></br>
+				<select name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>">
+				<?php
+				
+				foreach( $this->options as $option ) :
+					// If standard value is given
+			
+					$value = get_option('custom_community_theme_options');
+					$value = $value[$this->id];
+					if( $this->std != "" ){
+						?>
+						<option<?php if ( $value == $option['slug'] || ( ! $value && $this->options[ $this->std ] == $option['slug'] )) { echo ' selected="selected"'; } ?> value="<?php echo $option['slug'] ?>"><?php echo $option['name']; ?></option>
+						<?php
+					}else{ 
+						?>
+						<option<?php if ( $value == $option['slug'] ) { echo ' selected="selected"'; } ?> value="<?php echo $option['slug'] ?>"><?php echo $option['name']; ?></option>
+					<?php }
+				endforeach;
+				?>
+				</select>
+			<?php if( $this->accordion == 'on' || $this->accordion == 'end'){ ?>
+				</div>
+			<?php } ?>
+			<?php
+	}
+
+	function get() {
+		$value = get_option('custom_community_theme_options');
+		$value = $value[$this->id];
+		//echo $value;
+	     	if ( strtolower( $value ) == 'disabled' )
+			return false;
+		return $value;
+	}
+}
+
+
 class BooleanOption extends DropdownOption {
 	var $default;
 
@@ -311,17 +372,16 @@ class FileOption extends Option
 				<p><b><?php echo $this->name; ?></b></p>
 			<?php } ?>
 			<?php echo $this->desc.'<br />'; ?>
+			
 			<div class="option-inputs">
-				<p>
-					<input class="regular-text uploaded_url" type="text" name="custom_community_theme_options[<?php echo $this->id; ?>]" value="<?php echo htmlspecialchars($stdText) ?>" /><br/><br/>
-					<span id="<?php echo $this->id ?>" class="image_upload_button button">Upload Image</span>
-					<span title="<?php echo $this->id ?>" id="<?php echo $this->id ?>" class="image_reset_button button">Remove</span>
-					<input type="hidden" class="ajax_action_url" name="wp_ajax_action_url" value="<?php echo admin_url("admin-ajax.php"); ?>" />
-					<input type="hidden" class="image_preview_size" name="img_size_<?php echo $this->id ?>" value="100"/>
-				</p>
-				<?php if($stdText):?>
-					<img class="cc_image_preview" id="image_<?php echo $this->id ?>" src="<?php echo htmlspecialchars($stdText);  ?>" style="max-width: 100px"/>
-				<?php endif;?>
+
+				<label for="image1">
+				<input id=#upload_image<?php echo $this->id ?>" type="text" size="36" name="custom_community_theme_options[<?php echo $this->id; ?>]" value="<?php echo htmlspecialchars($stdText) ?>" />
+				<input class="upload_image_button" type="button" value="Browse.." /><br></br>
+				<img class="cc_image_preview" id="image_<?php echo $this->id ?>" src="<?php echo htmlspecialchars($stdText);  ?>" style="max-width: 100px"/>
+				
+				</label>
+
 			</div> 
 		<?php 	if($this->accordion == 'on' || $this->accordion == 'end'){ ?>
 				</div>
@@ -378,8 +438,10 @@ class autoconfig {
 
 function cap_admin_css() {
 
+	wp_enqueue_style('thickbox');
+
 	wp_enqueue_style( 'colorpicker-css', get_template_directory_uri().'/admin/css/colorpicker.css', false );
-	wp_enqueue_style( 'fileuploader-css', get_template_directory_uri().'/admin/css/fileuploader.css' );
+	//wp_enqueue_style( 'fileuploader-css', get_template_directory_uri().'/admin/css/fileuploader.css' );
 	wp_enqueue_style( 'jquery-ui-css', get_template_directory_uri().'/admin/css/jquery-ui.css' );
 	
 }
@@ -391,11 +453,15 @@ function cap_admin_js_libs() {
 	wp_enqueue_script( 'jquery-ui-widget' );
 	wp_enqueue_script( 'jquery-color' );
 	
+	wp_enqueue_script('media-upload');
+	wp_enqueue_script('thickbox');
+	wp_register_script('my-upload', get_template_directory_uri() . '/admin/js/uploader.js', array('jquery','media-upload','thickbox'));
+	wp_enqueue_script('my-upload');
+	
 	wp_register_script( 'jquery-ui-accordion', get_template_directory_uri() . '/admin/js/jquery.ui.accordion.js', array( 'jquery' ), '1.8.9', true );
 	wp_enqueue_script( 'jquery-ui-accordion' );	
 	
 	wp_enqueue_script( 'colorpicker-js', get_template_directory_uri()."/admin/js/colorpicker.js", array(), true );
-	wp_enqueue_script( 'fileuploader-js', get_template_directory_uri()."/admin/js/fileuploader.js", array(), true );
 	wp_enqueue_script( 'autogrow-textarea', get_template_directory_uri()."/admin/js/jquery.autogrow-textarea.js", array(), true );
 
 }

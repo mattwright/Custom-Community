@@ -10,7 +10,7 @@
 		<?php do_action( 'bp_before_blog_home' ) ?>
 
 		<?php
-		if($cap->preview == true){
+		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
 			$args = array(
 				'amount' => '3',
 		 	);

@@ -25,14 +25,14 @@ function cc_post_metabox(){
 	<div class="handlediv" title="<?php _e('klick','buddypress'); ?>">
 		<br />
 	</div>
-	<h3 class="hndle"><?php _e('Custom Community settings')?></h3>
+	<h3 class="hndle"><?php _e('Custom Community settings','buddypress')?></h3>
 	<div class="inside">
 	
 	<?php wp_nonce_field('cc_post_metabox','cc_post_meta_nonce'); ?>
 
 	<b>Use a post template for this post</b>
 	<p>You can select a predefined post template:<br />
-		<label for="cc_post_template"><?php _e('Post template on')?>:</label>
+		<label for="cc_post_template"><?php _e('Post template on','buddypress')?>:</label>
 		<input name="cc_post_template_on" id="cc_post_template_on" type="checkbox" <?php checked( $cc_post_options['cc_post_template_on'], 1 ); ?> value="1" />
 		Select a template to use:<select id="cc_post_template_type" name="cc_post_template_type">
 		<?php foreach($option_post_templates as $option_template){?>
@@ -42,14 +42,14 @@ function cc_post_metabox(){
 	</p>
 	<b>Schow/hide meta info</b>
 	<p>
-	<label for="cc_post_templater"><?php _e('Hide avatar')?>:</label>
+	<label for="cc_post_templater"><?php _e('Hide avatar','buddypress')?>:</label>
 	<input name="cc_post_template_avatar" id="cc_post_template_avatar" type="checkbox" <?php checked( $cc_post_options['cc_post_template_avatar'], 1 ); ?> value="1" />
-	<label for="cc_post_templater"><?php _e('Hide date/category')?>:</label>
+	<label for="cc_post_templater"><?php _e('Hide date/category','buddypress')?>:</label>
 	<input name="cc_post_template_date" id="cc_post_template_date" type="checkbox" <?php checked( $cc_post_options['cc_post_template_date'], 1 ); ?> value="1" />
-	<label for="cc_post_templater"><?php _e('Hide tags')?>:</label>
+	<label for="cc_post_templater"><?php _e('Hide tags','buddypress')?>:</label>
 	
 	<input name="cc_post_template_tags" id="cc_post_template_tags" type="checkbox" <?php checked( $cc_post_options['cc_post_template_tags'], 1 ); ?> value="1" />
-	<label for="cc_post_templater"><?php _e('Hide comment-info')?>:</label>
+	<label for="cc_post_templater"><?php _e('Hide comment-info','buddypress')?>:</label>
 	<input name="cc_post_template_comments_info" id="cc_post_template_comments_info" type="checkbox" <?php checked( $cc_post_options['cc_post_template_comments_info'], 1 ); ?> value="1" />
 	</p>
 	
@@ -106,7 +106,8 @@ function cc_page_metabox(){
 		$option[0] = "All categories";
 		$i = 1;
 		foreach($categories as $category) { 
-			$option[$i] = $category->name;
+			$option[$i][name] = $category->name;
+			$option[$i][slug] = $category->slug;
 			$i++;
 		}
     	$option_categories = $option;
@@ -121,8 +122,7 @@ function cc_page_metabox(){
 			
 		$option_post_templates[0] = "img-mouse-over";
 		$option_post_templates[1] = "more options in the pro version";
-		
-			
+				
 		$option_styles[0] = "default";
 		$option_styles[1] = "full-width-slider in the pro version";
 		?>
@@ -133,10 +133,10 @@ function cc_page_metabox(){
 	}
 	</style>
 	<div id="cc_page_metabox" class="postbox">
-		<div class="handlediv" title="<?php _e('klick','buddypress'); ?>">
+		<div class="handlediv" title="<?php _e('klick','buddypress','buddypress'); ?>">
 			<br />
 		</div>
-		<h3 class="hndle"><?php _e('Custom Community settings')?></h3>
+		<h3 class="hndle"><?php _e('Custom Community settings','buddypress')?></h3>
 		<div class="inside">
 		
 		<?php wp_nonce_field('cc_page_metabox','cc_page_meta_nonce'); ?>
@@ -144,11 +144,11 @@ function cc_page_metabox(){
 		
 		<p>
 			<b>Slideshow</b><br />
-			<label for="cc_page_slider"><?php _e('Slideshow on')?>:</label>
+			<label for="cc_page_slider"><?php _e('Slideshow on','buddypress')?>:</label>
 			<input name="cc_page_slider_on" id="cc_page_slider_on" type="checkbox" <?php checked( $cc_page_options['cc_page_slider_on'], 1 ); ?> value="1" />
 			Select a category to display in slideshow: <select id="cc_page_slider_cat" name="cc_page_slider_cat">
 					<?php foreach($option_categories as $option_cat){?>
-						<option <?php selected( $cc_page_options['cc_page_slider_cat'], $option_cat ); ?>><?php echo $option_cat; ?></option>
+						<option <?php selected( $cc_page_options['cc_page_slider_cat'], $option_cat['slug'] ); ?> value="<?php echo $option_cat['slug'] ?>"><?php echo $option_cat['name']; ?></option>
 					<?php }?>
 			</select>
 			Select a slideshow style: <select id="cc_page_slider_style" name="cc_page_slider_style">
@@ -156,13 +156,13 @@ function cc_page_metabox(){
 						<option <?php selected( $cc_page_options['cc_page_slider_style'], $option_style ); ?>><?php echo $option_style; ?></option>
 					<?php }?>
 			</select><br />
-			<label for="cc_page_slider_post_type"><b><?php _e('Get The PRO Version for more options:')?></b></label><br />
+			<label for="cc_page_slider_post_type"><b><?php _e('Get The PRO Version for more options:','buddypress')?></b></label><br />
 		
-			<label for="cc_page_slider_caption"><?php _e('Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount')?></label>
+			<label for="cc_page_slider_caption"><?php _e('Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount','buddypress')?></label>
 		
 			<br /><br /><b>Lists Posts under this Page</b>
 			<p>You can show your posts in a predefined template:<br />
-			<label for="cc_page_template"><?php _e('Post template on')?>:</label>
+			<label for="cc_page_template"><?php _e('Post template on','buddypress')?>:</label>
 			<input name="cc_page_template_on" id="cc_page_template_on" type="checkbox" <?php checked( $cc_page_options['cc_page_template_on'], 1 ); ?> value="1" />
 			Select a template to use: <select id="cc_posts_on_page_type" name="cc_posts_on_page_type">
 					<?php foreach($option_post_templates as $option_template){?>

@@ -72,9 +72,9 @@
 	
 				<div class="comment-options">
 					<?php echo comment_reply_link( array('depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ?>
-					<?php edit_comment_link( __( 'Edit' ),'','' ); ?>
+					<?php edit_comment_link( __( 'Edit', 'buddypress' ),'','' ); ?>
 				</div>
-	
+
 			</div>
 	<?php
 	}

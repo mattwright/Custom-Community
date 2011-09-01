@@ -14,9 +14,9 @@
 			<?php if( ! dynamic_sidebar( 'footerfullwidth' )) :?>
 				<?php if($cap->preview == true){ ?>
 					<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
-							<h3 class="widgettitle" ><?php _e('35 widget areas all over the site', 'buddypress'); ?></h3>
-							<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas: 2 full width and 6 columns. <br>
-							6 widget areas for members + 6 for groups. 15 shortcode widget areas to place anywhere on your site!
+							<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'buddypress'); ?></h3>
+							<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
+							6 widget areas for members + 6 for groups. 
 							</p></div>
 					
 					</div>

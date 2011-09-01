@@ -1,4 +1,5 @@
 <?php
+	
 require_once('admin/cheezcap.php');
 require_once('core/core-loader.php');
  

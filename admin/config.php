@@ -28,7 +28,8 @@ function cap_get_options() {
 	$option[0] = "All categories";
 	$i = 1;
 	foreach($categories as $category) {
-		$option[$i] = $category->name;
+		$option[$i][name] = $category->name;
+		$option[$i][slug] = $category->slug;
 		$i++;
 	}
     $option_categories = $option;
@@ -301,6 +302,13 @@ function cap_get_options() {
 			"",
 			"start",
 			"Default homepage"),
+		new DropdownOption(
+			"Last 3 Posts on home", 
+			"Display last 3 posts. <br> ",
+			"default_homepage_last_posts", 
+			array('show', 'hide'),
+			"", 
+			false),	
 		new DropdownOption(
 			"Post listing style", 
 			"Select a style how to display the latest posts. <br> 
@@ -806,7 +814,7 @@ function cap_get_options() {
 			"Enable slideshow", 
 			"enable_slideshow_home", 
 			array('home', 'off', 'all')),
-		new DropdownOption(
+		new DropdownCatOption(
 			"Slideshow post categories", 
 			"The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>
 			You can select the category the posts should be taken from. <br>

@@ -11,7 +11,6 @@
 require_once(cc_require_path('/admin/get-pro.php'));
 require_once('style.php');
 require_once(cc_require_path('/admin/post-metabox.php'));
-require_once('cc-upload.php');
 require_once('library.php');
 require_once(cc_require_path('/admin/config.php'));
 
@@ -95,9 +94,7 @@ function cap_add_admin() {
 	$hook = add_theme_page( $pgName, $pgName, isset( $req_cap_to_edit ) ? $req_cap_to_edit : 'edit_theme_options', 'theme_settings', 'top_level_settings' );
 	add_action( "admin_print_scripts-$hook", 'cap_admin_js_libs' );
 	add_action( "admin_footer-$hook", 'cap_admin_js_footer' );
-	add_action( "admin_print_styles-$hook", 'cap_admin_css' );
-	add_action( "admin_footer-$hook", 'my_action_javascript');
-	
+	add_action( "admin_print_styles-$hook", 'cap_admin_css' );	
 }
 
 function cap_defaults_init(){
