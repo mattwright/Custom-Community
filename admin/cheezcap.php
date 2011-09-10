@@ -8,11 +8,10 @@
 // License: GNU General Public License, version 2 (GPL), http://www.gnu.org/licenses/gpl-2.0.html
 //
 
-require_once(cc_require_path('/admin/get-pro.php'));
-require_once('style.php');
-require_once(cc_require_path('/admin/post-metabox.php'));
+require_once('get-pro.php');
+require_once('post-metabox.php');
 require_once('library.php');
-require_once(cc_require_path('/admin/config.php'));
+require_once('config.php');
 
 
 add_action( 'admin_init', 'custom_community_theme_options_init' );

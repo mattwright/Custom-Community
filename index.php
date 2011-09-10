@@ -1,29 +1,11 @@
 <?php get_header() ?>
-<?php global $cap, $preview; ?>
-<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
-<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
-	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
-<?php };?>
+
 	<div id="content">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_home' ) ?>
-
-		<?php
-		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
-			$args = array(
-				'amount' => '3',
-		 	);
-				
-			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
-		}
-		?>
-
 		
 		<div class="page" id="blog-latest">
-
-		
-
 
 			<?php if ( have_posts() ) : ?>
 
@@ -49,11 +31,7 @@
 							<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?><?php if(defined('BP_VERSION')){  printf( __( ' by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) );}?></em></p>
 
 							<div class="entry">
-								<?php if($cap->excerpt_on != 'content'){?>
-							        <?php the_excerpt( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-							    <?php } else {?>
-							        <?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-							    <?php } ?>
+								<?php do_action('blog_post_entry')?>
 							</div>
 							<?php $tags = get_the_tags(); if($tags)	{  ?>
 								<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'buddypress' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
@@ -89,8 +67,5 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-	<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
-		<?php locate_template( array( 'sidebar.php' ), true ) ?>
-	<?php };?>
 	
 <?php get_footer() ?>

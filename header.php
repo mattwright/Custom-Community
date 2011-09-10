@@ -3,19 +3,8 @@
 
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-		<?php global $cap, $cc_page_options; ?>
 		
-		<?php if($cap->sidebar_position == ''){
-			$cap->sidebar_position = 'right';
-			$cap->menue_disable_home = true;
-			$cap->enable_slideshow_home = 'home';
-			$cap->header_text = 'off';
-			$cap->preview = true;
-		} ?>
-			
-		<?php $cc_page_options=cc_get_page_meta();?>
-		
-		<link rel="shortcut icon" href="<?php echo $cap->favicon ?>" />
+		<?php do_action('favicon') ?>
 		
 		<title> <?php cc_wp_title(); ?> </title>
 		
@@ -46,10 +35,8 @@
 
 	<body <?php body_class() ?> id="bp-default">
  <div id="outerrim">
-    <?php $innerrim = '<div id="innerrim">'; ?>
-    <?php if ($cap->header_width != "full-width") { echo $innerrim; }?>
-	<?php do_action( 'bp_before_header' ) ?>
-	
+ 
+ 	<?php do_action( 'bp_before_header' ) ?>
 	
 	<div id="header">	
 	
@@ -57,136 +44,47 @@
 	
 		<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
 		<?php endif; ?>
+
 		<?php if (is_active_sidebar('headerleft') ){ ?>
-		<div class="widgetarea cc-widget">
-			<?php dynamic_sidebar( 'headerleft' )?>
-	  	</div>
+			<div class="widgetarea cc-widget">
+				<?php dynamic_sidebar( 'headerleft' )?>
+		  	</div>
 		<?php } ?>
+
   		<?php if (is_active_sidebar('headercenter') ){ ?>
-		<div <?php if(!is_active_sidebar('headerleft')) { echo 'style="margin-left:350px !important"'; } ?> class="widgetarea cc-widget">
-			<?php dynamic_sidebar( 'headercenter' ) ?>
-	  	</div>
+			<div <?php if(!is_active_sidebar('headerleft')) { echo 'style="margin-left:350px !important"'; } ?> class="widgetarea cc-widget">
+				<?php dynamic_sidebar( 'headercenter' ) ?>
+		  	</div>
   		<?php } ?>
+
   		<?php if (is_active_sidebar('headerright') ){ ?>
-		<div class="widgetarea cc-widget cc-widget-right">
-			<?php dynamic_sidebar( 'headerright' ) ?>
-	  	</div>
+			<div class="widgetarea cc-widget cc-widget-right">
+				<?php dynamic_sidebar( 'headerright' ) ?>
+		  	</div>
 	  	<?php } ?>
   		
-		<?php if(is_home()): ?>
-			<div id="logo">
-			<h1><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
-			<div id="blog-description"><?php bloginfo('description'); ?></div>
-			
-			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
-			<?php } ?>
-			</div>
-		<?php else: ?>
-			<div id="logo">
-			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
-			<div id="blog-description"><?php bloginfo('description'); ?></div>
-			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
-			<?php } ?>
-			</div>
-		<?php endif; ?>
+		<?php do_action( 'bp_before_access')?>
 				
 		<div id="access">
     		<div class="menu">
 	
-		<?php if(!defined('BP_VERSION')) {?>
-			<?php if($cap->menue_disable_home == true){ ?>
-				<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
-				</li>
-			<?php }?>
-		<?php } ?>	
-	
-		<?php if(defined('BP_VERSION')) {?>		
-			<ul>
-			<?php if($cap->menue_disable_home == true){ ?>
-				<li id="nav-home"<?php if ( bp_is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
-				</li>
-			<?php }?>
-				<?php if($cap->menue_enable_community == true){ ?>
-				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'buddypress' ) ?>"><?php _e( 'Community', 'buddypress' ) ?></a>
-					<ul class="children">
-						<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
-							<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'buddypress' ) ?>"><?php _e( 'Activity', 'buddypress' ) ?></a>
-							</li>
-						<?php endif; ?>
-		
-						<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member() ) : ?> class="selected"<?php endif; ?>>
-							<a href="<?php echo site_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'buddypress' ) ?>"><?php _e( 'Members', 'buddypress' ) ?></a>
-						</li>
-		
-						<?php if ( bp_is_active( 'groups' ) ) : ?>
-							<li<?php if ( bp_is_page( BP_GROUPS_SLUG ) || bp_is_group() ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_GROUPS_SLUG ?>/" title="<?php _e( 'Groups', 'buddypress' ) ?>"><?php _e( 'Groups', 'buddypress' ) ?></a>
-							</li>
-							<?php if ( bp_is_active( 'forums' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() ) : ?>
-								<li<?php if ( bp_is_page( BP_FORUMS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-									<a href="<?php echo site_url() ?>/<?php echo BP_FORUMS_SLUG ?>/" title="<?php _e( 'Forums', 'buddypress' ) ?>"><?php _e( 'Forums', 'buddypress' ) ?></a>
-								</li>
-							<?php endif; ?>
-						<?php endif; ?>
-		
-						<?php if ( bp_is_active( 'blogs' ) && bp_core_is_multisite() ) : ?>
-							<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'buddypress' ) ?>"><?php _e( 'Blogs', 'buddypress' ) ?></a>
-							</li>
-						<?php endif; ?>
-					</ul>
-				</li>
-        		<?php do_action( 'bp_nav_items' ); ?>
-        		<?php } ?>
-			</ul>
-		<?php } ?>
+				<?php do_action('bp_menu') ?>
+
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
 				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary','container' => '' ) ); ?>
 			</div>
 		</div>
-		<?php if(defined('BP_VERSION')){ ?>
-			<?php if($cap->menue_enable_search){?>	
-				<div id="search-bar">
-					<div class="padder">
-					
-					<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
-						<input type="text" id="search-terms" name="search-terms" value="" />
-						<?php echo bp_search_form_type_select() ?>
 		
-						<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ) ?>" />
-						<?php wp_nonce_field( 'bp_search_form' ) ?>
-					</form><!-- #search-form -->
+		<?php do_action( 'bp_after_header_nav' ) ?>
 		
-					<?php do_action( 'bp_search_login_bar' ) ?>
-		
-					</div><!-- .padder -->
-				</div><!-- #search-bar -->
-			<?php } ?>
-		<?php } ?>	
-			<?php do_action( 'bp_header' ) ?>
 		<div class="clear"></div>
 	
 		</div><!-- #header -->
 
 		<?php do_action( 'bp_after_header' ) ?>		
 		
-		<?php if ($cap->header_width == "full-width") { echo $innerrim; }?>
-		
-			<?php 
-			if(defined('BP_VERSION')){ 
-				if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
-					echo slidertop();
-				}
-			} elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
-				echo slidertop();
-			}?>			
-		
 		<?php do_action( 'bp_before_container' ) ?>
 
 		<div id="container">
+		
+		<?php do_action('sidebar_left');?>

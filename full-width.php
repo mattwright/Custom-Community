@@ -4,7 +4,6 @@
  */
 ?>
 <?php get_header() ?>
-<?php global $cap; ?>
 
 	<style type="text/css">	
 	div#content .padder { margin: 0; }

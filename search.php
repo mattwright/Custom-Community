@@ -1,9 +1,4 @@
 <?php get_header() ?>
-<?php global $cap; ?>
-<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
-<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
-	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
-<?php };?>
 
 	<div id="content">
 		<div class="padder">
@@ -42,11 +37,7 @@
 							<p class="date"><?php the_time() ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){ printf( __( 'by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); } ?></em></p>
 
 							<div class="entry">
-								<?php if($cap->excerpt_on == 'excerpt'){?>
-									<?php the_excerpt( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-								<?php } else {?>
-									<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-								<?php } ?>
+								<?php do_action('blog_post_entry')?>
 							</div>
 
 							<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'buddypress' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
@@ -76,9 +67,5 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-
-<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
-		<?php locate_template( array( 'sidebar.php' ), true ) ?>
-<?php };?>
 
 <?php get_footer() ?>

@@ -1,27 +1,40 @@
-<div class="item-list-tabs" id="<?php global $cap; if($cap->bp_default_navigation == true){?>	subnav<?php } ?>">	
+<?php
+
+/**
+ * BuddyPress - Users Blogs
+ *
+ * @package BuddyPress
+ * @subpackage bp-default
+ */
+
+?>
+
+<div class="item-list-tabs" id="subnav" role="navigation">
 	<ul>
-		<?php bp_get_options_nav() ?>
+
+		<?php bp_get_options_nav(); ?>
 
 		<li id="blogs-order-select" class="last filter">
-			<?php _e( 'Order By:', 'buddypress' ) ?>
-			<select id="blogs-all">
-				<option value="active"><?php _e( 'Last Active', 'buddypress' ) ?></option>
-				<option value="newest"><?php _e( 'Newest', 'buddypress' ) ?></option>
-				<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ) ?></option>
 
-				<?php do_action( 'bp_member_blog_order_options' ) ?>
+			<label for="blogs-all"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+			<select id="blogs-all">
+				<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
+				<option value="newest"><?php _e( 'Newest', 'buddypress' ); ?></option>
+				<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
+
+				<?php do_action( 'bp_member_blog_order_options' ); ?>
+
 			</select>
 		</li>
 	</ul>
 </div><!-- .item-list-tabs -->
-<?php if($cap->bp_default_navigation == false){?>
-	<div class="item-list-tabs no-ajax" id="subnav"></div>
-<?php } ?>
 
-<?php do_action( 'bp_before_member_blogs_content' ) ?>
+<?php do_action( 'bp_before_member_blogs_content' ); ?>
 
-<div class="blogs myblogs">
-	<?php locate_template( array( 'blogs/blogs-loop.php' ), true ) ?>
-</div><!-- .blogs -->
+<div class="blogs myblogs" role="main">
 
-<?php do_action( 'bp_after_member_blogs_content' ) ?>
+	<?php locate_template( array( 'blogs/blogs-loop.php' ), true ); ?>
+
+</div><!-- .blogs.myblogs -->
+
+<?php do_action( 'bp_after_member_blogs_content' ); ?>

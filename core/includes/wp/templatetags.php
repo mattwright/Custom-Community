@@ -331,7 +331,6 @@ $cc_page_options=cc_get_page_meta();
 	}
 }
 
-
 function cc_groups_header() {
 global $cap; ?>
     

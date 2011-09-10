@@ -4,34 +4,33 @@
 	<div class="right-sidebar-padder">
 
 	<?php do_action( 'bp_before_after_sidebar' ) ?>
-	<?php global $cap;?>
 	<?php if( ! dynamic_sidebar( 'sidebar' )): ?>    
 		
-<?php if ( is_singular() ) { ?>
-	<div class="widget">
-		<h3 class="widgettitle" ><?php _e('Recent Posts', 'buddypress'); ?></h3>
-		<ul>
-			<?php
-			$myposts = get_posts('numberposts=5&offset=0&category=0');
-			foreach($myposts as $post) : setup_postdata($post);
-			?>
-			<li><span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span></li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
-<?php } else { ?>
-	<div class="widget">
-		<h3 class="widgettitle" ><?php _e('Random Posts', 'buddypress'); ?></h3>
-		<ul>
-			<?php
-			$rand_posts = get_posts('numberposts=5&orderby=rand');
-			foreach( $rand_posts as $post ) :
-			?>
-			<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
-<?php } ?>
+	<?php if ( is_singular() ) { ?>
+		<div class="widget">
+			<h3 class="widgettitle" ><?php _e('Recent Posts', 'buddypress'); ?></h3>
+			<ul>
+				<?php
+				$myposts = get_posts('numberposts=5&offset=0&category=0');
+				foreach($myposts as $post) : setup_postdata($post);
+				?>
+				<li><span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php } else { ?>
+		<div class="widget">
+			<h3 class="widgettitle" ><?php _e('Random Posts', 'buddypress'); ?></h3>
+			<ul>
+				<?php
+				$rand_posts = get_posts('numberposts=5&orderby=rand');
+				foreach( $rand_posts as $post ) :
+				?>
+				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php } ?>
 	<div class="widget tags">
 		<h3 class="widgettitle" ><?php _e('Search by Tags!', 'buddypress'); ?></h3>
 		<div><?php wp_tag_cloud('smallest=9&largest=18'); ?></div>
@@ -57,7 +56,6 @@
 		</ul>
 	</div>
 
-	<?php if(defined('BP_VERSION')) { if($cap->login_sidebar != 'off' || $cap->login_sidebar == false){ cc_login_widget();}} ?>
 	<?php endif; // end primary widget area ?>
 	
 	

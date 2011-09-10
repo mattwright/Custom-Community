@@ -1,113 +1,69 @@
-<?php get_header() ?>
-<?php global $cap; ?>
+<?php
 
-<?php if($cap->bp_profile_sidebars == ""){
-	$cap->bp_profile_sidebars = 'default';
-}?>
-<?php if($cap->bp_profile_sidebars != 'none'){ ?>
+/**
+ * BuddyPress - Users Plugins
+ *
+ * This is a fallback file that external plugins can use if the template they
+ * need is not installed in the current theme. Use the actions in this template
+ * to output everything your plugin needs.
+ *
+ * @package BuddyPress
+ * @subpackage bp-default
+ */
 
-	<?php if($cap->bp_profile_sidebars != "default"){ 
-	// correct the margin of the content if the sidebars for profiles 
-	// are set to something else than default 
+?>
 
-		$lw = get_leftsidebar_width();
-		$rw = get_rightsidebar_width();
-		
-		switch ($cap->bp_profile_sidebars) 
-		{
-		    case 'left': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: 0; } </style>'; break;
-		    case 'right': echo '<style type="text/css"> div#content .padder{ margin-right: '.$rw.'; margin-left: 0; } </style>'; break;
-		    case 'left and right': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: '.$rw.'; } </style>'; break;
-		} ?>
-	
-		
-	 <?php } ?>
-
-
-	<?php if($cap->bp_profile_sidebars == 'default'){?>
-		<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
-		<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
-			<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
-		<?php };?>
-	<?php } else {?>
-		<?php if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ):?>
-			<?php locate_template( array( 'members/single/member-sidebar-left.php' ), true );?>
-		<?php endif;?>
-	<?php }?>
-<?php } else { // <!-- what means if bp_profile_sidebars is = "none" --> ?>
-
-	<style type="text/css">
-		
-	<?php if ( $cap->bg_container_img == "" ) { 	// check if a custiom image is selected for the container else display no container image by default (the vertical lines) ?>	
-	#container { background-image: none; background-image: none !important; }	
-	<?php } ?>
-	
-	div#content .padder { margin-left: 0; margin-right: 0; }
-	</style>
-
-<?php } ?>
-
-
+<?php get_header( 'buddypress' ); ?>
 
 	<div id="content">
 		<div class="padder">
 
-			<?php do_action( 'bp_before_member_plugin_template' ) ?>
+			<?php do_action( 'bp_before_member_plugin_template' ); ?>
 
-		<?php if($cap->bp_profile_header == 'on'):?>
 			<div id="item-header">
-					<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
-			</div>
-		<?php else:?>
-			<div id="item-header">
-					<h2 class="fn"><a href="<?php bp_user_link() ?>"><?php bp_displayed_user_fullname() ?></a> <span class="highlight">@<?php bp_displayed_user_username() ?> <span>?</span></span></h2>
-			</div>
-		<?php endif;?>
-		
-			<?php if($cap->bp_default_navigation == true){  ?>
-			
+
+				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
+
+			</div><!-- #item-header -->
+
 			<div id="item-nav">
-				<div class="item-list-tabs no-ajax" id="object-nav">
+				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 					<ul>
-						<?php bp_get_displayed_user_nav() ?>
-			
-						<?php do_action( 'bp_member_options_nav' ) ?>
+
+						<?php bp_get_displayed_user_nav(); ?>
+
+						<?php do_action( 'bp_member_options_nav' ); ?>
+
 					</ul>
 				</div>
 			</div><!-- #item-nav -->
-			<?php } ?>
-			
 
+			<div id="item-body" role="main">
 
-
-			<div id="item-body">
+				<?php do_action( 'bp_before_member_body' ); ?>
 
 				<div class="item-list-tabs no-ajax" id="subnav">
 					<ul>
-						<?php bp_get_options_nav() ?>
 
-						<?php do_action( 'bp_member_plugin_options_nav' ) ?>
+						<?php bp_get_options_nav(); ?>
+
+						<?php do_action( 'bp_member_plugin_options_nav' ); ?>
+
 					</ul>
-				</div>
+				</div><!-- .item-list-tabs -->
 
-				<?php do_action( 'bp_template_content' ) ?>
+				<h3><?php do_action( 'bp_template_title' ); ?></h3>
+
+				<?php do_action( 'bp_template_content' ); ?>
+
+				<?php do_action( 'bp_after_member_body' ); ?>
 
 			</div><!-- #item-body -->
 
-			<?php do_action( 'bp_after_member_plugin_template' ) ?>
+			<?php do_action( 'bp_after_member_plugin_template' ); ?>
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-	
-<?php if($cap->bp_profile_sidebars != 'none'){?>
-	<?php if($cap->bp_profile_sidebars == 'default'){?>
-		<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
-			<?php locate_template( array( 'sidebar.php' ), true ) ?>
-		<?php };?>
-	<?php } else {?>
-		<?php if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ):?>	
-			<?php locate_template( array( 'members/single/member-sidebar-right.php' ), true );?>
-		<?php endif;?>
-	<?php } ?>
-<?php } ?>
-<?php get_footer() ?>
+
+<?php get_sidebar( 'buddypress' ); ?>
+<?php get_footer( 'buddypress' ); ?>

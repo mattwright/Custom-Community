@@ -1,9 +1,4 @@
 <?php get_header() ?>
-<?php global $cap; ?>
-<?php if($cap->sidebar_position == ""){ $cap->sidebar_position = "left and right"; }?>
-<?php if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){?>
-	<?php locate_template( array( 'sidebar-left.php' ), true ) ?>
-<?php };?>
 
 	<div id="content">
 		<div class="padder">
@@ -17,18 +12,13 @@
 				<h2 class="pagetitle"><?php the_title(); ?></h2>
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 					<div class="entry">
 
 						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
-
 						<?php wp_link_pages( array( 'before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
-						
 
 					</div>
-					
 					<div class="clear"></div>
-
 				</div>
 
 			<?php endwhile; endif; ?>
@@ -37,14 +27,15 @@
 		<?php cc_list_posts_on_page(); ?> 
 		
 		<div class="clear"></div>
+		
 		<?php do_action( 'bp_after_blog_page' ) ?>
+		
 		<?php edit_post_link( __( 'Edit this entry.', 'buddypress' ), '<p>', '</p>'); ?>
+		
 		<!-- instead of comment_form() we use comments_template(). If you want to fall back to wp, change this function call ;-) -->
 		<?php comments_template(); ?>
+		
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){?>
-		<?php locate_template( array( 'sidebar.php' ), true ) ?>
-<?php };?>
 <?php get_footer(); ?>
