@@ -23,10 +23,10 @@ class Custom_Community{
 		
 		
 		// Load predefined constants first thing
-		add_action( 'bp_cc_init', array( $this, 'load_constants' ), 2 );
+		add_action( 'cc_init', array( $this, 'load_constants' ), 2 );
 		
 		// Includes necessary files
-		add_action( 'bp_cc_init', array( $this, 'includes' ), 100, 4 );
+		add_action( 'cc_init', array( $this, 'includes' ), 100, 4 );
 		
 		// Includes the necessary js
 		add_action('wp_enqueue_scripts', array( $this, 'cc_js_site' ), 2 );
@@ -37,7 +37,8 @@ class Custom_Community{
 		// Let other plugins know that Custom Community has finished initializing
 		$this->loaded();
 		
-		$Theme_Generator = new Theme_Generator();
+		if(!is_admin())
+			$Theme_Generator = new Theme_Generator();
 	}
 	
 	/**
@@ -51,7 +52,7 @@ class Custom_Community{
 	 * @since 1.8.3
 	 */	
 	function init_hook() {
-		do_action( 'bp_cc_init' );
+		do_action( 'cc_init' );
 	}
 	
 	/**
@@ -64,7 +65,7 @@ class Custom_Community{
 	 * @since 1.8.3
 	 */	
 	function loaded() {
-		do_action( 'bp_cc_loaded' );
+		do_action( 'cc_loaded' );
 	}
 	
 	/**

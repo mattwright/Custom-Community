@@ -2,8 +2,8 @@
 
 <div id="leftsidebar">
   <div class="paddersidebar">
-  	<?php if( ! dynamic_sidebar( 'groupsidebarleft' )) : cc_groups_sidebar(); ?>
-  
+  	<?php if( ! dynamic_sidebar( 'groupsidebarleft' )) :  ?>
+  		<?php locate_template( array( 'groups/single/group-header-sidebar.php' ), true, false ); ?>
 	<?php endif;?>
   </div><!-- #padder -->	
 </div><!-- #sidebar -->

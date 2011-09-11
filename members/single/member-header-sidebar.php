@@ -1,18 +1,18 @@
-<?php do_action( 'bp_before_member_header' ) ?>
 <?php global $cap ?>
+		<?php do_action( 'bp_before_member_header' ) ?>
 <div id="item-header-avatar">
-	<a href="<?php bp_user_link() ?>">
+		<a href="<?php bp_user_link() ?>">
 		<?php $asize = '150';
-		if($cap->bp_profiles_avatar_size !=  '') 
-			$asize = $cap->bp_profiles_avatar_size;?>
+			if($cap->bp_profiles_avatar_size !=  '') 
+				$asize = $cap->bp_profiles_avatar_size;?>
 		
 		<?php bp_displayed_user_avatar( 'type=full&width='.$asize.'&height='.$asize ) ?>
 	</a>
 </div><!-- #item-header-avatar -->
 
-<div id="item-header-content">
-
-	<h2 class="fn"><a href="<?php bp_user_link() ?>"><?php bp_displayed_user_fullname() ?></a> <span class="highlight">@<?php bp_displayed_user_username() ?> <span>?</span></span></h2>
+	
+	<h3 style="" class="widgettitle"><a href="<?php bp_user_link() ?>"><?php bp_displayed_user_fullname() ?></a> </h3>
+	<span class="highlight">@<?php bp_displayed_user_username() ?> <span>?</span></span>
 	<span class="activity"><?php bp_last_activity( bp_displayed_user_id() ) ?></span>
 
 	<?php do_action( 'bp_before_member_header_meta' ) ?>
@@ -23,7 +23,10 @@
 				<?php bp_activity_latest_update( bp_displayed_user_id() ) ?>
 			</div>
 		<?php endif; ?>
-
+	</div>
+<div class="widget">
+		</div>
+	<div id="item-meta">
 		<div id="item-buttons">
 			<?php if ( function_exists( 'bp_add_friend_button' ) ) : ?>
 				<?php bp_add_friend_button() ?>
@@ -53,7 +56,7 @@
 
 	</div><!-- #item-meta -->
 
-</div><!-- #item-header-content -->
 
 <?php do_action( 'bp_after_member_header' ) ?>
+
 <?php do_action( 'template_notices' ) ?>

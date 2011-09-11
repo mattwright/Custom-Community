@@ -3,7 +3,7 @@
 <div id="sidebar" class="widgetarea">
 	<div class="right-sidebar-padder">
 	<?php if( ! dynamic_sidebar( 'membersidebarright' )) : ?>		
-		<?php cc_profiles_sidebar(); ?>
+  		<?php locate_template( array( 'members/single/member-header-sidebar.php' ), true, false ); ?>
 	<?php endif ?>
   </div><!-- #padder -->	
 </div><!-- #sidebar -->

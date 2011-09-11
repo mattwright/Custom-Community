@@ -1,9 +1,8 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
-
 <div id="leftsidebar">
   <div class="paddersidebar">
   	<?php if( ! dynamic_sidebar( 'membersidebarleft' )) : ?>			
-		<?php cc_profiles_sidebar(); ?>
+  		<?php locate_template( array( 'members/single/member-header-sidebar.php' ), true, false ); ?>
 	<?php endif;?>
   </div><!-- #padder -->	
 </div><!-- #sidebar -->

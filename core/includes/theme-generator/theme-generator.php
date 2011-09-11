@@ -1,7 +1,7 @@
 <?php 
 class Theme_Generator{
 
-var $detect;
+	var $detect;
 
 	/**
 	 * PHP 4 constructor
@@ -75,7 +75,12 @@ var $detect;
 	
 	
 	// HEADER FUNCTIONS START
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function innerrim_before_header(){
 		global $cap;
 		
@@ -84,6 +89,12 @@ var $detect;
 		}
 	}
 	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function innerrim_after_header(){
 		global $cap;
 		
@@ -92,6 +103,12 @@ var $detect;
 		}
 	}
 	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function menue_enable_search(){
 		global $cap;
 
@@ -117,6 +134,12 @@ var $detect;
 		}
 	}
 	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function header_logo(){
 		global $cap;	
 			if(is_home()): ?>
@@ -139,6 +162,12 @@ var $detect;
 		<?php endif;
 	}
 	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function bp_menu(){
 		global $cap;	
 	
@@ -194,7 +223,13 @@ var $detect;
 			</ul>
 		<?php endif;
 		}
-		
+
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function slideshow_home(){
 		global $cap;	
 		$cc_page_options=cc_get_page_meta();
@@ -207,7 +242,13 @@ var $detect;
 			echo slidertop();
 		}
 	}
-
+	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function favicon(){
 		global $cap;	
 		
@@ -218,7 +259,12 @@ var $detect;
 	
 
 	// FOOTER FUNCTIONS START
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function innerrim_before_footer(){
 		global $cap;
 		
@@ -226,7 +272,13 @@ var $detect;
 			echo '</div><!-- #innerrim -->'; 
 		}
 	}
-	
+
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function innerrim_after_footer(){
 		global $cap;
 		
@@ -234,7 +286,13 @@ var $detect;
 			echo '</div><!-- #innerrim -->';
 		}
 	}
-	
+
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function footer_content(){ ?>
 		<?php global $cap ?>
 		<?php if( ! dynamic_sidebar( 'footerfullwidth' )) :?>
@@ -300,7 +358,12 @@ var $detect;
 	
 
 	// Sidebars
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function sidebar_left(){
 		global $cap, $bp;
 	
@@ -361,6 +424,12 @@ var $detect;
   		}
 	}
 
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function sidebar_right(){
 		global $cap, $bp;
 	
@@ -395,7 +464,12 @@ var $detect;
 	
 
 	// Default Homepage
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function default_homepage_last_posts(){
 		global $cap;
 	
@@ -410,7 +484,12 @@ var $detect;
 	
 
 	// Helper Functions
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function excerpt_on(){
 		global $cap;
 	
@@ -423,12 +502,35 @@ var $detect;
 	
 
 	// GROUPS
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function before_group_home_content(){
 		global $cap;
 		if( $cap->bp_groups_header == false || $cap->bp_groups_header == 'on'):?>
 			<div id="item-header">
-				<?php locate_template( array( 'groups/single/group-header.php' ), true ) ?>
+				<?php if( ! dynamic_sidebar( 'groupheader' )) : ?>
+				 <?php locate_template( array( 'groups/single/group-header.php' ), true ) ?>
+				<?php endif; ?>
+				
+				<?php if (is_active_sidebar('groupheaderleft') ){ ?>
+					<div class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'groupheaderleft' )?>
+					</div>
+				<?php } ?>
+				<?php if (is_active_sidebar('groupheadercenter') ){ ?>
+					<div <?php if(!is_active_sidebar('groupheaderleft')) { echo 'style="margin-left:30% !important"'; } ?> class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'groupheadercenter' ) ?>
+					</div>
+				<?php } ?>
+				<?php if (is_active_sidebar('groupheaderright') ){ ?>
+					<div class="widgetarea cc-widget cc-widget-right">
+					<?php dynamic_sidebar( 'groupheaderright' ) ?>
+					</div>
+				<?php } ?>
 			</div>
 		<?php else:?>
 			<div id="item-header">
@@ -447,13 +549,39 @@ var $detect;
 			</div><!-- #item-nav -->
 		<?php }
 	}	
-	
+
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function before_member_home_content(){
 		global $cap;
 
 		if($cap->bp_profile_header == false || $cap->bp_profile_header == 'on'): ?>
 			<div id="item-header">
-				<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
+				<?php if( ! dynamic_sidebar( 'memberheader' )) : ?>
+					<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
+				<?php endif; ?>
+				
+				<div class="clear"></div>
+				
+				<?php if (is_active_sidebar('memberheaderleft') ){ ?>
+					<div class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'memberheaderleft' )?>
+					</div>
+				<?php } ?>
+				<?php if (is_active_sidebar('memberheadercenter') ){ ?>
+					<div <?php if(!is_active_sidebar('memberheaderleft')) { echo 'style="margin-left:30% !important"'; } ?> class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'memberheadercenter' ) ?>
+					</div>
+				<?php } ?>
+				<?php if (is_active_sidebar('memberheaderright') ){ ?>
+					<div class="widgetarea cc-widget cc-widget-right">
+					<?php dynamic_sidebar( 'memberheaderright' ) ?>
+					</div>
+				<?php } ?>
 			</div>
 		<?php else:?>
 			<div id="item-header">
@@ -476,7 +604,12 @@ var $detect;
 	
 
 	// custom login for theme
-	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */		
 	function custom_login() { 
 		global $cap;?> 
 		<style type="text/css">
@@ -534,6 +667,12 @@ var $detect;
 	<?php 
 	}
 	
+	/**
+	 * PHP 5 constructor
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function home_body_class($classes){
 	
 		if(defined('BP_VERSION')){
@@ -550,4 +689,4 @@ var $detect;
 		return $classes;
 	
 	}
-}?>	
+}?>
