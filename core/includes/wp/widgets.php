@@ -1,6 +1,33 @@
 <?php 
- 
-### widget for the community navigation
+
+// register all buddypress widgets if buddypress is activated 
+
+if(defined('BP_VERSION')){ 
+	if ( function_exists('cc_login_widget') )
+	    wp_register_sidebar_widget( 'cc_login_widget', 'BP Sidebar Login', 'cc_login_widget', '' );
+
+	if ( function_exists('widget_community_nav') )
+    	wp_register_sidebar_widget( 'widget_community_nav', 'Community Navigation', 'widget_community_nav', '' );
+
+    if ( function_exists('groups_header_widget') )
+        wp_register_sidebar_widget( 'groups_header_widget', 'Groups Header Widget', 'groups_header_widget');
+        wp_register_widget_control( 'groups_header_widget', 'Groups Header Control', 'groups_header_control', '' );
+    
+    if ( function_exists('profiles_header_widget') )
+        wp_register_sidebar_widget( 'profiles_header_widget','Profiles Header Widget', 'profiles_header_widget');
+        wp_register_widget_control( 'profiles_header_widget', 'Profiles Header Control', 'profiles_header_control', '' );
+        
+
+    if ( function_exists('forum_tags_widget') )
+	    wp_register_sidebar_widget( 'forum_tags_widget', 'Forum Tags', 'forum_tags_widget', '' );
+}
+
+/**
+ *  widget for the community navigation
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
 function widget_community_nav() { ?>
   		<div id="community-nav" class="widget-title" >
   		<ul class="item-list">
@@ -60,10 +87,13 @@ function widget_community_nav() { ?>
   	</div>
 <?php } ?>
 <?php
-if ( function_exists('widget_community_nav') )
-    wp_register_sidebar_widget( 'widget_community_nav', 'Community Navigation', 'widget_community_nav', '' );
 
-
+/**
+ *  buddypress login widget
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
 function cc_login_widget(){?>
 	<?php global $cap;?>
 		<?php do_action( 'bp_inside_before_sidebar' ) ?>
@@ -120,12 +150,14 @@ function cc_login_widget(){?>
 			</div>
 			<?php do_action( 'bp_after_sidebar_login_form' ) ?>
 		<?php endif; ?>
-<?php } ?>
-<?php if(defined('BP_VERSION')){ 
-	if ( function_exists('cc_login_widget') )
-	    wp_register_sidebar_widget( 'cc_login_widget', 'BP Sidebar Login', 'cc_login_widget', '' );
-}
+<?php } 
 
+/**
+ *  buddypress default forum topic tags widget to show forum tags on the forums directory
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
 function forum_tags_widget(){
  /* Show forum tags on the forums directory */
 	if ( BP_FORUMS_SLUG == bp_current_component() && bp_is_directory() ) : ?>
@@ -140,6 +172,12 @@ function forum_tags_widget(){
 	endif; 
 }
 
+/**
+ *  groups sidebar header widget
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
 function groups_header_widget($args) {
   extract($args);
 
@@ -151,10 +189,10 @@ function groups_header_widget($args) {
   }
 
   if($options[groups_header_position] != 'horizontal') {
-    cc_groups_sidebar();
-  } else {
+  		locate_template( array( 'groups/single/group-header-sidebar.php' ), true, false );
+    } else {
     if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group();
-        cc_groups_header();
+  		locate_template( array( 'groups/single/group-header.php' ), true, false );
     endwhile; endif;
   }
 }
@@ -180,6 +218,13 @@ function groups_header_control() {
 <?php
 }
 
+/**
+ *  members sidebar header widget
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
+
 function profiles_header_widget($args) {
   extract($args);
 
@@ -191,10 +236,10 @@ function profiles_header_widget($args) {
   }
 
   if($options[profiles_header_position] != 'horizontal') {
-    cc_profiles_sidebar();
-  } else {
+  		locate_template( array( 'members/single/member-header-sidebar.php' ), true, false );
+    } else {
     if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group();
-        cc_profiles_header();
+  		locate_template( array( 'members/single/member-header.php' ), true, false );
     endwhile; endif;
   }
 }
@@ -217,20 +262,4 @@ function profiles_header_control() {
     Vertical: <input type="radio" name="profiles_header_position" value="vertical" <?php if($options['profiles_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
     <input type="hidden" id="profiles_header_submit" name="profiles_header_submit" value="1" />
   </p>	
-<?php
-}
-
-if(defined('BP_VERSION')){ 
-    if ( function_exists('groups_header_widget') )
-        wp_register_sidebar_widget( 'groups_header_widget', 'Groups Header Widget', 'groups_header_widget');
-        wp_register_widget_control( 'groups_header_widget', 'Groups Header Control', 'groups_header_control', '' );
-    
-    if ( function_exists('profiles_header_widget') )
-        wp_register_sidebar_widget( 'profiles_header_widget','Profiles Header Widget', 'profiles_header_widget');
-        wp_register_widget_control( 'profiles_header_widget', 'Profiles Header Control', 'profiles_header_control', '' );
-        
-
-    if ( function_exists('forum_tags_widget') )
-	    wp_register_sidebar_widget( 'forum_tags_widget', 'Forum Tags', 'forum_tags_widget', '' );
-}
-?>
+<?php } ?>

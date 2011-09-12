@@ -6,7 +6,7 @@ class Theme_Generator{
 	/**
 	 * PHP 4 constructor
 	 *
-	 * @package Custom Community
+	 * @package custom community
 	 * @since 1.8.3
 	 */
 	function custom_community() {
@@ -32,7 +32,7 @@ class Theme_Generator{
 			$cap->preview = true;
 		}	
 		
-		// Load predefined constants first thing
+		// load predefined constants first
 		add_action( 'bp_cc_init', array( $this, 'load_constants' ), 2 );
 		
 		// header.php
@@ -49,34 +49,35 @@ class Theme_Generator{
 		add_action( 'bp_after_footer', array( $this, 'innerrim_after_footer' ), 2 );
 		add_action( 'bp_footer', array( $this, 'footer_content' ), 2 );
 		
-		// Sidebars
+		// sidebars
 		add_action( 'sidebar_left', array( $this, 'sidebar_left' ), 2 );
 		add_action( 'sidebar_right', array( $this, 'sidebar_right' ), 2 );
 		add_action( 'bp_inside_after_sidebar', array( $this, 'login_sidebar_widget' ), 2 );
 		
-		// Home
+		// home
 		add_action( 'bp_before_blog_home', array( $this, 'default_homepage_last_posts' ), 2 );
 		add_filter('body_class',array( $this, 'home_body_class'), 10 );
 		
-		// Helper Functions
+		// helper functions
 		add_action( 'blog_post_entry', array( $this, 'excerpt_on' ), 2 );
 		
-		// Groups
+		// groups
 		add_action( 'bp_before_group_home_content', array( $this, 'before_group_home_content' ), 2 );
 		
-		// Profil
+		// profile
 		add_action( 'bp_before_member_home_content', array( $this, 'before_member_home_content' ), 2 );
 		
-		// Custom Login
+		// custom login
 		add_action('login_head', array( $this, 'custom_login'), 2 );
 		
 		
 	}
 	
 	
-	// HEADER FUNCTIONS START
 	/**
-	 * PHP 5 constructor
+	 * header: add div 'innerrim' before header if the header is not set to full width
+	 * 
+	 * located: header.php - do_action( 'bp_before_header' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -90,7 +91,9 @@ class Theme_Generator{
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * header: add div 'innerrim' after header if the header is set to full width
+	 * 
+	 * located: header.php do_action( 'bp_after_header' ) on line 84
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -104,11 +107,14 @@ class Theme_Generator{
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * header: add a search field in the header
+	 * 
+	 * located: header.php do_action( 'bp_after_header_nav' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
 	 */	
+	
 	function menue_enable_search(){
 		global $cap;
 
@@ -135,7 +141,9 @@ class Theme_Generator{
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * header: add a header logo in the header
+	 * 
+	 * located: header.php do_action( 'bp_before_access' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -163,7 +171,9 @@ class Theme_Generator{
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * header: add the buddypress dropdown navigation to the menu
+	 * 
+	 * located: header.php do_action( 'bp_menu' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -225,7 +235,11 @@ class Theme_Generator{
 		}
 
 	/**
-	 * PHP 5 constructor
+	 * header: add the top slider to the homepage, all pages, or just on specific pages
+	 * 
+	 * !!! this function needs to be rewritten !!!
+	 * 
+	 * located: header.php do_action( 'bp_after_header' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -236,15 +250,17 @@ class Theme_Generator{
 	
 		if(defined('BP_VERSION')){ 
 			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
-				echo slidertop();
+				echo cc_slidertop(); // located under wp/templatetags
 			}
 		} elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
-			echo slidertop();
+			echo cc_slidertop(); // located under wp/templatetags
 		}
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * header: add the favicon icon to the site
+	 * 
+	 * located: header.php do_action( 'favicon' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -258,13 +274,14 @@ class Theme_Generator{
 	}
 	
 
-	// FOOTER FUNCTIONS START
 	/**
-	 * PHP 5 constructor
+	 * footer: add div 'innerrim' before footer if the footer is set to full width
+	 * 
+	 * located: footer.php do_action( 'bp_before_footer' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
+	 */	
 	function innerrim_before_footer(){
 		global $cap;
 		
@@ -274,7 +291,9 @@ class Theme_Generator{
 	}
 
 	/**
-	 * PHP 5 constructor
+	 * footer: add div 'innerrim' after footer if the footer is not set to full width
+	 * 
+	 * located: footer.php do_action( 'bp_after_footer' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -288,7 +307,9 @@ class Theme_Generator{
 	}
 
 	/**
-	 * PHP 5 constructor
+	 * footer: add the sidebars and their default widgets to the footer
+	 * 
+	 * located: footer.php do_action( 'bp_after_footer' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -357,14 +378,15 @@ class Theme_Generator{
 	}
 	
 
-	// Sidebars
 	/**
-	 * PHP 5 constructor
+	 * header: add the sidebar and their default widgets to the left sidebar
+	 * 
+	 * located: header.php do_action( 'sidebar_left' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
-	function sidebar_left(){
+	 */	
+		function sidebar_left(){
 		global $cap, $bp;
 	
 		$componet = explode('-',$this->detect->tk_get_page_type());
@@ -425,7 +447,9 @@ class Theme_Generator{
 	}
 
 	/**
-	 * PHP 5 constructor
+	 * footer: add the sidebar and their default widgets to the right sidebar
+	 * 
+	 * located: footer.php do_action( 'sidebar_left' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -455,6 +479,14 @@ class Theme_Generator{
 	
 	}
 	
+	/**
+	 * footer: add the buddypress default login widget to the right sidebar
+	 * 
+	 * located: footer.php do_action( 'bp_inside_after_sidebar' )
+	 *
+	 * @package Custom Community
+	 * @since 1.8.3
+	 */	
 	function login_sidebar_widget(){
 		global $cap;
 	
@@ -463,13 +495,14 @@ class Theme_Generator{
 	}
 	
 
-	// Default Homepage
 	/**
-	 * PHP 5 constructor
+	 * homepage: add the latest 3 posts to the default homepage in mouse-over magazine style
+	 * 
+	 * located: index.php do_action( 'bp_before_blog_home' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
+	 */	
 	function default_homepage_last_posts(){
 		global $cap;
 	
@@ -483,13 +516,14 @@ class Theme_Generator{
 	}
 	
 
-	// Helper Functions
 	/**
-	 * PHP 5 constructor
-	 *
+	 * check if to use content or excerpt and the excerpt length
+	 * 
+	 * located: multiple places
+	 * 
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
+	 */	
 	function excerpt_on(){
 		global $cap;
 	
@@ -501,13 +535,14 @@ class Theme_Generator{
 	}
 	
 
-	// GROUPS
 	/**
-	 * PHP 5 constructor
+	 * groups home: add the sidebars and their default widgets to the groups header
+	 * 
+	 * located: grous/home.php do_action( 'bp_before_group_home_content' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
+	 */	
 	function before_group_home_content(){
 		global $cap;
 		if( $cap->bp_groups_header == false || $cap->bp_groups_header == 'on'):?>
@@ -551,7 +586,9 @@ class Theme_Generator{
 	}	
 
 	/**
-	 * PHP 5 constructor
+	 * members home: add the sidebars and their default widgets to the members header
+	 * 
+	 * located: members/home.php do_action( 'bp_before_member_home_content' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -603,13 +640,14 @@ class Theme_Generator{
 	}
 	
 
-	// custom login for theme
 	/**
-	 * PHP 5 constructor
+	 * login page: overwrite the login css by adding it to the login_head
+	 * 
+	 * located: login.php do_action( 'login_head' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */		
+	 */	
 	function custom_login() { 
 		global $cap;?> 
 		<style type="text/css">
@@ -668,7 +706,10 @@ class Theme_Generator{
 	}
 	
 	/**
-	 * PHP 5 constructor
+	 * check if the class 'home' exists in the body_class if buddypress is activated.
+	 * if not, add class 'home' or 'bubble' if buddypress is deactivated 
+	 * 
+	 * do_action( 'body_class' )
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3

@@ -3,9 +3,9 @@
 define( 'CC_VERSION', '1.8.5' );
 
 /**
- * Loads Custom Community files
+ * loads custom community files
  *
- * @package BuddyPress Custom Community
+ * @package Custom Community
  * @since 1.8.3
  */
 function cc_init() {

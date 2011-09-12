@@ -42,10 +42,10 @@ class Custom_Community{
 	}
 	
 	/**
-	 * Defines Custom Community init action
+	 * defines custom community init action
 	 *
-	 * This action fires on WP's init action and provides a way for the rest of Custom Community,
-	 * as well as other dependent plugins, to hook into the loading process in an
+	 * this action fires on WP's init action and provides a way for the rest of custom community,
+	 * as well as other dependend plugins, to hook into the loading process in an
 	 * orderly fashion.
 	 *
 	 * @package Custom Community
@@ -56,9 +56,9 @@ class Custom_Community{
 	}
 	
 	/**
-	 * Defines Custom Community action
+	 * defines custom community action
 	 *
-	 * This action tells Custom Community and other plugins that the main initialization process has
+	 * this action tells custom community and other plugins that the main initialization process has
 	 * finished.
 	 * 
 	 * @package Custom Community
@@ -69,9 +69,9 @@ class Custom_Community{
 	}
 	
 	/**
-	 * Defines constants needed throughout the theme.
+	 * defines constants needed throughout the theme.
 	 *
-	 * These constants can be overridden in bp-custom.php or wp-config.php.
+	 * these constants can be overridden in bp-custom.php or wp-config.php.
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -85,7 +85,7 @@ class Custom_Community{
 	}	
 	
 	/**
-	 * Loads the textdomain for the plugin
+	 * loads the textdomain for the plugin
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -95,7 +95,7 @@ class Custom_Community{
 	}
 	
 	/**
-	 * Includes files needed by Custom Community
+	 * includes files needed by custom community
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
@@ -105,29 +105,29 @@ class Custom_Community{
 	
 		require_once($this->require_path('/_inc/ajax.php'));
 		
-		// Helper Functions
+		// helper functions
 		require_once($this->require_path('/core/includes/helper-functions.php'));
 		
-		// Theme layout specific functions
+		// theme layout specific functions
 		require_once($this->require_path('/core/includes/theme-generator/style.php'));
 		require_once($this->require_path('/core/includes/theme-generator/theme-generator.php'));
 		
-		// Wordpress specific functions
+		// wordpress specific functions
 		require_once($this->require_path('/core/includes/wp/shortcodes.php'));
 		require_once($this->require_path('/core/includes/wp/templatetags.php'));
 		require_once($this->require_path('/core/includes/wp/widgets.php'));
 
-		// Buddypress specific functions
+		// buddypress specific functions
 		if(defined('BP_VERSION')){
 			require_once($this->require_path('/core/includes/bp/templatetags.php'));
 			require_once($this->require_path('/core/includes/bp/buddydev-search.php'));
 		}
 		
-		// TKF specific functions
+		// themekraft framework specific functions
 		require_once($this->require_path('/core/includes/tkf/wp/detect.php'));
 		
 		
-		// Admin specific functions
+		// admin specific functions
 		//if ( is_admin() )
 		//	require_once($this->require_path('admin/cheezcap.php'));
 			
@@ -149,7 +149,7 @@ class Custom_Community{
 		
 	}	
 	
-	/** check if its a child theme or parent and return the correct path */
+	/** check if it's a child theme or parent theme and return the correct path */
 	function require_path($path){
 	if( TEMPLATEPATH != STYLESHEETPATH && is_file(STYLESHEETPATH . $path) ): 	
         return STYLESHEETPATH . $path;

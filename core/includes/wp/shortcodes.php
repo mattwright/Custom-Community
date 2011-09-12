@@ -1,5 +1,5 @@
 <?php 
-// [shortcode horizontal line]
+// shortcode horizontal line
 function h_line($atts) { 
 
 	global $cap;
@@ -39,7 +39,7 @@ function h_line($atts) {
 }
 add_shortcode('cc_h_line', 'h_line');
 
-//[shortcode facebook like button]
+// shortcode facebook like button
 function facebook_like() { 
 
  $pageURL = 'http';
@@ -56,19 +56,19 @@ return $tmp;
 }
 add_shortcode('cc_facebook_like', 'facebook_like');
 
-// [blockquote_left = add a quotation, left floated]
+// blockquote_left = add a quotation, left floated
 function blockquote_left($atts,$content = null) { 
 	return '<span class="cc_blockquote cc_blockquote_left">"'.$content.'"</span>';
 }
 add_shortcode('cc_blockquote_left', 'blockquote_left');
 
-// [blockquote_right = add a quotation, right floated]
+// blockquote_right = add a quotation, right floated
 function blockquote_right($atts,$content = null) { 
 	return '<span class="cc_blockquote cc_blockquote_right">"'.$content.'"</span>';
 }
 add_shortcode('cc_blockquote_right', 'blockquote_right');
 
-// [button = add a button with custom text and link]
+// button = add a button with custom text and link
 function button($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'link' => '',
@@ -78,25 +78,25 @@ function button($atts,$content = null) {
 }
 add_shortcode('cc_button', 'button');
 
-// [break = horizontal line / enter]
+// break = horizontal line / enter
 function horline($atts,$content = null) { 
 	return '<br />';
 }
 add_shortcode('cc_break', 'horline');
 
-// [clear = reset all CSS from the elements before]
+// clear = reset all css from the elements before
 function clear($atts,$content = null) { 
 	return '<div class="clear"></div>';
 }
 add_shortcode('cc_clear', 'clear');
 
-// [col_end = end of a column shortcode for advanced use (hierarchical mode)]
+// col_end = end of a column shortcode for advanced use (hierarchical mode)
 function col_end(){
 return '</div>';
 }
 add_shortcode('cc_col_end', 'col_end');
 
-// [full_width_col = full width column]
+// full_width_col = full width column
 function full_width_col($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'background_color' => 'none',
@@ -136,7 +136,7 @@ function full_width_col($atts,$content = null) {
 }
 add_shortcode('cc_full_width_col', 'full_width_col');
 
-// [half_col_left = half column, left floated]
+// half_col_left = half column, left floated
 function half_col_left($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'background_color' => 'none',
@@ -175,7 +175,7 @@ function half_col_left($atts,$content = null) {
 }
 add_shortcode('cc_half_col_left', 'half_col_left');
 
-// [half_col_right = half column, right floated]
+// half_col_right = half column, right floated
 function half_col_right($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'background_color' => 'none',
@@ -215,7 +215,7 @@ function half_col_right($atts,$content = null) {
 }
 add_shortcode('cc_half_col_right', 'half_col_right');
 
-// [third_col = one third column, left floated]
+// third_col = one third column, left floated
 function third_col($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'background_color' => 'none',
@@ -255,7 +255,7 @@ function third_col($atts,$content = null) {
 }
 add_shortcode('cc_third_col', 'third_col');
 
-// [third_col_right = one third column, right floated]
+// third_col_right = one third column, right floated
 function third_col_right($atts,$content = null) { 
 	extract(shortcode_atts(array(
 		'background_color' => 'none',
@@ -295,7 +295,7 @@ function third_col_right($atts,$content = null) {
 }
 add_shortcode('cc_third_col_right', 'third_col_right');
 
-// [list posts]
+// list posts
 function cc_list_posts($atts,$content = null) {
 	global $cap, $cc_page_options, $post;	
 	$tmp = '';
@@ -375,7 +375,7 @@ function cc_list_posts($atts,$content = null) {
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 
-// [slideshow]
+// slideshow
 function slider($atts,$content = null) {
 	global $post;
 	extract(shortcode_atts(array(
@@ -584,8 +584,8 @@ function slider($atts,$content = null) {
 		return $tmp . chr(13);
 }
 
-// [nothing]
-// [empty = test to display shortcodes inside shortcodes without execution]
+// nothing
+// empty = just to display shortcodes without execution - needed for demos.
 function nothing($atts,$content = null) {  
 	return $content;
 }

@@ -25,7 +25,7 @@ class TK_WP_Detect {
 	/**
 	* tk_get_wp_type
 	* 
-	* @returns string 'wp' for a wordpress blog 'wpmu' for a wordpress network blog
+	* @return string 'wp' for a wordpress blog 'wpmu' for a wordpress network blog.
 	*/ 
 	function tk_get_wp_type(){
 		global $blog_id;
@@ -45,7 +45,7 @@ class TK_WP_Detect {
 	/**
 	* tk_is_buddypress
 	* 
-	* @returns boolean true if buddypress is installed, false if not
+	* @return boolean true if buddypress is installed, false if not.
 	*/ 
 	function tk_is_buddypress(){
 			if ( defined( 'BP_VERSION' ) ){ return true; }else{ return false; }
@@ -54,11 +54,11 @@ class TK_WP_Detect {
 	/**
 	* tk_get_page_type
 	* 
-	* @returns string returns the page type of the actual shown page
+	* @return string: the page type of the current shown page
 	*/ 
 	function tk_get_page_type(){
 		
-		// If is wordpress and no buddypress
+		// if is wordpress and no buddypress
 		if( $this->tk_get_wp_type() == "wp" ) {
 			if( is_admin() ) $page_type = 'wp-admin';
 			if( ( is_home() || is_front_page()) && !$this->tk_is_signup() ) $page_type = 'wp-home';
@@ -75,7 +75,7 @@ class TK_WP_Detect {
 			if( is_404() ) $page_type = 'wp-404';
 		}
 		
-		// If is wordpress mu
+		// if is wordpress mu
 		if( $this->tk_get_wp_type() == "mu" ) {
 			if( is_admin() ) $page_type = 'mu-admin'; // Whats happening here on mu blogs?
 			if( ( is_home() || is_front_page()) && !tk_is_signup() ) $page_type = 'mu-home';
