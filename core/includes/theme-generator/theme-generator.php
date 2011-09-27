@@ -23,6 +23,7 @@ class Theme_Generator{
 		global $bp;
 		
 		$this->detect = new TK_WP_Detect();
+		$componet = explode('-',$this->detect->tk_get_page_type());
 		
 		if($cap->sidebar_position == ''){
 			$cap->sidebar_position = 'right';
@@ -31,6 +32,18 @@ class Theme_Generator{
 			$cap->header_text = 'off';
 			$cap->preview = true;
 		}	
+		
+		if($componet[2] == 'groups' && !empty($componet[3])) {
+			$sidebar_position = $cap->bp_groups_sidebars;
+		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
+			$sidebar_position = $cap->bp_profile_sidebars;
+		}
+		
+		switch ($sidebar_position) {
+			case 'left': $cap->rightsidebar_width = 0; break;
+			case 'right': $cap->leftsidebar_width = 0; break;
+			case 'left and right': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+		}
 		
 		// load predefined constants first
 		add_action( 'bp_cc_init', array( $this, 'load_constants' ), 2 );
@@ -386,59 +399,19 @@ class Theme_Generator{
 	 * @package Custom Community
 	 * @since 1.8.3
 	 */	
-		function sidebar_left(){
+	function sidebar_left(){
 		global $cap, $bp;
 	
 		$componet = explode('-',$this->detect->tk_get_page_type());
-		$lw = get_leftsidebar_width();
-		$rw = get_rightsidebar_width();
 		
 		if($componet[2] == 'groups' && !empty($componet[3])) {
-				
-				switch ($cap->bp_groups_sidebars) {
-				    case 'left': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: 0; } </style>'; break;
-				    case 'right': echo '<style type="text/css"> div#content .padder{ margin-right: '.$rw.'; margin-left: 0; } </style>'; break;
-				    case 'left and right': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: '.$rw.'; } </style>'; break;
-				}
-			
-				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ):
-					locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-				endif;
-				
-				if($cap->bp_groups_sidebars == 'none'){  ?>
-
-					<style type="text/css">
-						
-					<?php if ( $cap->bg_container_img == "" ) { 	// check if a custiom image is selected for the container else display no container image by default (the vertical lines) ?>	
-					#container { background-image: none; background-image: none !important; }	
-					<?php } ?>
-					
-					div#content .padder { margin-left: 0; margin-right: 0; }
-					</style>
-					
-			<?php } ?>
-		<?php 
+			if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ):
+				locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
+			endif;
 		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
-		
-			
-			switch ($cap->bp_profile_sidebars) 
-			{
-			    case 'left': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: 0; } </style>'; break;
-			    case 'right': echo '<style type="text/css"> div#content .padder{ margin-right: '.$rw.'; margin-left: 0; } </style>'; break;
-			    case 'left and right': echo '<style type="text/css"> div#content .padder{ margin-left: '.$lw.'; margin-right: '.$rw.'; } </style>'; break;
-			} 
-			
 			if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ):
 				locate_template( array( 'members/single/member-sidebar-left.php' ), true );
 			endif;
-		
-			if($cap->bp_profile_sidebars == 'none'){ ?>
-				<style type="text/css">	
-					div#content .padder { margin-left: 0; margin-right: 0; }
-				</style>
-	
-			<?php } ?>
-		<?php 
 		} else {
 			if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
@@ -455,28 +428,24 @@ class Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_right(){
-		global $cap, $bp;
+	global $cap, $bp;
 	
 		$componet = explode('-',$this->detect->tk_get_page_type());
 		
 		if($componet[2] == 'groups' && !empty($componet[3])) {
-			
 				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ):
 					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
 				endif;
-				
 		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
-			
+
 			if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ):
 				locate_template( array( 'members/single/member-sidebar-right.php' ), true );
 			endif;
-		
 		} else {
 			if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
-				locate_template( array( 'sidebar-left.php' ), true );
+				locate_template( array( 'sidebar.php' ), true );
 			}    
   		}
-	
 	}
 	
 	/**

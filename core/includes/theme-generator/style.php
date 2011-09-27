@@ -505,13 +505,13 @@ width:100%;
 }
 
 div#content .padder {
--moz-border-radius:0px !important;
-border-left:none;
-border-right:none;
-margin-left:224px;
-margin-right:225px;
-min-height:300px;
-padding-top:30px;
+-moz-border-radius: 0px !important;
+border-left: none;
+border-right: none;
+margin-left: <?php echo $cap->rightsidebar_width // default setzen! 224px in config.php ?>px;
+margin-right: <?php echo $cap->rightsidebar_width // default setzen! 225px in config.php  ?>px;
+min-height: 300px;
+padding-top: 30px;
 overflow: hidden;
 }
 
@@ -3684,7 +3684,7 @@ form#whats-new-form h5, form#whats-new-form #whats-new-textarea, .activity-list 
 div.activity-comments form .ac-textarea, div.activity-comments form textarea, div.activity-comments form div.ac-reply-content, 
 li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
 div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
-#footer, #footer a, div.widget ul li a, a:hover, a:active, .widget li.cat-item a, #item-nav a:hover {
+#footer, #footer a, div.widget ul li a, .widget li.cat-item a, #item-nav a:hover {
 	font-size: <?php echo $cap->font_size?>px;
 }
 <?php };?> 

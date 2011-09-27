@@ -85,44 +85,6 @@ function cc_change_groups_tab_order() {
 	}
 }
 
-/**
- * get the current leftsidebar width from theme settings 
- *
- * @package Custom Community
- * @since 1.8.3
- */
-function leftsidebar_width() {
-	echo get_leftsidebar_width();
-}
-	function get_leftsidebar_width() {
-		global $cap;
-		$width = '224';
-		if ( $cap->leftsidebar_width != '') { 
-			$width = $cap->leftsidebar_width; 
-		}
-		$width .= 'px';		
-		return $width; 
-	}
-
-/**
- * get the current rightsidebar width from theme settings
- *
- * @package Custom Community
- * @since 1.8.3
- */
-function rightsidebar_width() {
-	echo get_rightsidebar_width();
-}
-	function get_rightsidebar_width() {
-		global $cap;
-		$width = '225';
-		if ( $cap->rightsidebar_width != '') { 
-			$width = $cap->rightsidebar_width; 
-		}
-		$width .= 'px';
-		return $width; 
-	}
-	
 
 /**
  * find out the right color scheme and create the array of css elements with the hex codes
@@ -448,4 +410,5 @@ function cc_list_posts_on_page(){
         }
 	}
 }
+
 ?>
