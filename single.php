@@ -97,7 +97,7 @@
 			
 						<?php endif; ?>
 						</div>
-					</div>
+					
 				</div>
 
 			<?php do_action( 'bp_after_blog_single_post' ) ?>

@@ -508,8 +508,8 @@ div#content .padder {
 -moz-border-radius: 0px !important;
 border-left: none;
 border-right: none;
-margin-left: <?php echo $cap->rightsidebar_width // default setzen! 224px in config.php ?>px;
-margin-right: <?php echo $cap->rightsidebar_width // default setzen! 225px in config.php  ?>px;
+margin-left: <?php echo $cap->leftsidebar_width ?>px;
+margin-right: <?php echo $cap->rightsidebar_width ?>px;
 min-height: 300px;
 padding-top: 30px;
 overflow: hidden;
@@ -4416,9 +4416,7 @@ menu background colour drop down menu item hover  **/
 		width: <?php echo $cap->leftsidebar_width ?>px;
 		margin-right: -<?php echo$cap->leftsidebar_width ?>px;
 	} 
-	div#content .padder { 
-		margin-left: <?php if($cap->sidebar_position != 'full-width' && $cap->sidebar_position != 'right'){ echo $cap->leftsidebar_width; } else { echo '0'; } ?>px;
-	}
+	
 	div.v_line_left {
 		margin-left: <?php echo $cap->leftsidebar_width ?>px;
 	}
@@ -4471,9 +4469,7 @@ div#leftsidebar {
 		margin-left: -<?php echo$cap->rightsidebar_width ?>px;
 	} 
 	
-	div#content .padder { 
-		margin-right: <?php if($cap->sidebar_position != 'full-width' && $cap->sidebar_position != 'left'){ echo $cap->rightsidebar_width; } else { echo '0'; } ?>px;
-	}
+	
 	div.v_line_right {
 		right: <?php echo $cap->rightsidebar_width ?>px;
 	}

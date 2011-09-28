@@ -111,7 +111,7 @@ class TK_WP_Detect {
 			$action = $bp->current_action;
 	
 			if($bp->displayed_user-id != 0 && $slug == 'activity' && $action == 'just-me'){
-				$slug = profil;	
+				$slug = profile;	
 			}
 		
 			$component = $this->tk_get_bp_component_by_slug( $slug );

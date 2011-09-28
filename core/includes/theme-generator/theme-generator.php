@@ -23,30 +23,11 @@ class Theme_Generator{
 		global $bp;
 		
 		$this->detect = new TK_WP_Detect();
-		$componet = explode('-',$this->detect->tk_get_page_type());
-		
-		if($cap->sidebar_position == ''){
-			$cap->sidebar_position = 'right';
-			$cap->menue_disable_home = true;
-			$cap->enable_slideshow_home = 'home';
-			$cap->header_text = 'off';
-			$cap->preview = true;
-		}	
-		
-		if($componet[2] == 'groups' && !empty($componet[3])) {
-			$sidebar_position = $cap->bp_groups_sidebars;
-		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
-			$sidebar_position = $cap->bp_profile_sidebars;
-		}
-		
-		switch ($sidebar_position) {
-			case 'left': $cap->rightsidebar_width = 0; break;
-			case 'right': $cap->leftsidebar_width = 0; break;
-			case 'left and right': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
-		}
-		
+	
 		// load predefined constants first
-		add_action( 'bp_cc_init', array( $this, 'load_constants' ), 2 );
+		add_action( 'bp_head', array( $this, 'load_constants' ), 2 );
+		
+		//Theme_Generator::load_constants();
 		
 		// header.php
 		add_action( 'bp_before_header', array( $this, 'innerrim_before_header' ), 2 );
@@ -86,6 +67,31 @@ class Theme_Generator{
 		
 	}
 	
+
+	function load_constants(){
+		global $cap;
+	
+		$component = explode('-',$this->detect->tk_get_page_type());
+		
+		if($cap->sidebar_position == ''){
+			$cap->sidebar_position = 'right';
+			$cap->menue_disable_home = true;
+			$cap->enable_slideshow_home = 'home';
+			$cap->header_text = 'off';
+			$cap->preview = true;
+		}	
+		if($component[2] == 'groups' && !empty($component[3])) {
+			$sidebar_position = $cap->bp_groups_sidebars;
+		} elseif($component[2] == 'profile' && !empty($component[3])) {
+			$sidebar_position = $cap->bp_profile_sidebars;
+		}
+		switch ($sidebar_position) {
+			case 'left': $cap->rightsidebar_width = 0; break;
+			case 'right': $cap->leftsidebar_width = 0; break;
+			case 'none': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+		}
+		
+	}
 	
 	/**
 	 * header: add div 'innerrim' before header if the header is not set to full width
@@ -405,16 +411,20 @@ class Theme_Generator{
 	function sidebar_left(){
 		global $cap, $bp;
 	
-		$componet = explode('-',$this->detect->tk_get_page_type());
-		
-		if($componet[2] == 'groups' && !empty($componet[3])) {
-			if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ):
+		$component = explode('-',$this->detect->tk_get_page_type());
+			
+		if($component[2] == 'groups' && !empty($component[3])) {
+			if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
 				locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-			endif;
-		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
-			if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ):
+			} elseif($cap->bp_groups_sidebars == "default"){
+				locate_template( array( 'sidebar-left.php' ), true );
+			}
+		} elseif($component[2] == 'profile' && !empty($component[3])) {
+			if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
 				locate_template( array( 'members/single/member-sidebar-left.php' ), true );
-			endif;
+			} elseif( $cap->bp_profile_sidebars == "default"){
+				locate_template( array( 'sidebar-left.php' ), true );
+			}
 		} else {
 			if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
@@ -433,18 +443,21 @@ class Theme_Generator{
 	function sidebar_right(){
 	global $cap, $bp;
 	
-		$componet = explode('-',$this->detect->tk_get_page_type());
-		
-		if($componet[2] == 'groups' && !empty($componet[3])) {
-				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ):
-					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
-				endif;
-		} elseif($componet[2] == 'profil' && !empty($componet[3])) {
-
-			if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ):
+		$component = explode('-',$this->detect->tk_get_page_type());
+		if($component[2] == 'groups' && !empty($component[3])) {
+			if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
+				locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
+			} elseif($cap->bp_groups_sidebars == "default"){
+				locate_template( array( 'sidebar.php' ), true );
+			}
+		} elseif($component[2] == 'profile' && !empty($component[3])) {
+			if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
 				locate_template( array( 'members/single/member-sidebar-right.php' ), true );
-			endif;
+			} elseif( $cap->bp_profile_sidebars == "default"){
+				locate_template( array( 'sidebar.php' ), true );
+			}
 		} else {
+		
 			if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar.php' ), true );
 			}    
