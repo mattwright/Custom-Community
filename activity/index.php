@@ -153,5 +153,4 @@
 
 	<?php do_action( 'bp_after_directory_activity_page' ); ?>
 
-<?php get_sidebar( 'buddypress' ); ?>
 <?php get_footer( 'buddypress' ); ?>
