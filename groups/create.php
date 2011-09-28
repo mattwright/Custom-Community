@@ -9,7 +9,7 @@
 
 ?>
 
-<?php get_header( 'buddypress' ); ?>
+<?php get_header(); ?>
 
 	<div id="content">
 		<div class="padder">

@@ -103,8 +103,11 @@ function cc_page_metabox(){
 		$args = array('echo' => '0','hide_empty' => '0');
 		$categories = get_categories($args);
 	    $option = Array();
-		$option[0] = "All categories";
-		$i = 1;
+		$option[0] = Array (
+            'name' => 'All categories',
+            'slug' => 'all-categories'
+        );
+	    $i = 1;
 		foreach($categories as $category) { 
 			$option[$i][name] = $category->name;
 			$option[$i][slug] = $category->slug;
@@ -170,8 +173,9 @@ function cc_page_metabox(){
 					<?php }?>
 			</select><br />
 			Select a category to display: <select id="cc_page_template_cat" name="cc_page_template_cat">
+			
 					<?php foreach($option_categories as $option_cat){?>
-						<option <?php selected( $cc_page_options['cc_page_template_cat'], $option_cat ); ?>><?php echo $option_cat; ?></option>
+						<option <?php selected( $cc_page_options['cc_page_template_cat'], $option_cat['slug'] ); ?> value="<?php echo $option_cat['slug'] ?>"><?php echo $option_cat['name']; ?></option>
 					<?php }?>
 			</select>
 				How many posts to display? <input type="text" name="cc_page_template_amount" id="cc_page_template_amount" value="<?php echo $cc_page_template_amount; ?>" />

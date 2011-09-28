@@ -3391,23 +3391,6 @@ colour of the vertical lines  **/
 } 
 <?php endif; ?>	
 
-<?php if($cap->sidebar_position != ''): ?>
-/** ***   
-sidebar amount and position: adapting content width  **/
-div#content .padder {
-
-<?php if($cap->sidebar_position == 'full-width'){?>
-	margin-left: 0; margin-right: 0; 
-<?php } ?>
-<?php if($cap->sidebar_position == "right"){?>
-	margin-left:0px;
-<?php } ?>
-<?php if($cap->sidebar_position == "left"){?>
-	margin-right:0px;
-<?php } ?>
-} 
-<?php endif; ?>	
-
 <?php if($cap->bg_body_color || $cap->bg_body_img):?>
 /** ***   
 body background colour, image and repeat  **/

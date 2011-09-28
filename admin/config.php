@@ -25,14 +25,18 @@ function cap_get_options() {
 	$args = array('echo' => '0','hide_empty' => '0');
 	$categories = get_categories($args);
 	$option = Array();
-	$option[0] = "All categories";
+	$option[0] = Array (
+            'name' => 'All categories',
+            'slug' => 'all-categories'
+        );
 	$i = 1;
 	foreach($categories as $category) {
 		$option[$i][name] = $category->name;
 		$option[$i][slug] = $category->slug;
 		$i++;
 	}
-    $option_categories = $option;
+
+	$option_categories = $option;
     
 	return array(
 	new Group ("General", "general",
@@ -523,7 +527,7 @@ function cap_get_options() {
 			"Left sidebar width", 
 			"Change the left sidebar width - in pixel. Just enter a number. ", 
 			"leftsidebar_width", 
-			"",
+			"250",
 			"",
 			"start",
 			"Left sidebar"),
@@ -550,7 +554,7 @@ function cap_get_options() {
 			"Right sidebar width", 
 			"Change the right sidebar width - in pixel. Just enter a number. ", 
 			"rightsidebar_width", 
-			"",
+			"250",
 			"",
 			"start",
 			"Right sidebar"),

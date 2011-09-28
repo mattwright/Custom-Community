@@ -40,7 +40,6 @@
 					        break;
 					        }
 						}
-						
 					?>		
 				<?php if($cc_post_options['cc_post_template_avatar'] != '1') { ?>
 					<div class="author-box">
@@ -53,12 +52,12 @@
 				
 				<div class="post-content" style="<?php if($cc_post_options['cc_post_template_avatar'] == '1') { echo 'margin-left:0;'; } ?>">	
 				<?php if ($single_class != false){ ?>
-				<div class="<?php echo $single_class ?>">
+					<div class="<?php echo $single_class ?>">
 				<?php } ?>
 
 				<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 				<?php if($cc_post_options['cc_post_template_date'] != '1') {?>
-				<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){  printf( __( ' by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); }?></em></p>
+					<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){  printf( __( ' by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); }?></em></p>
 				<?php } ?> 
 
 				<div class="entry">
@@ -70,7 +69,6 @@
 						<?php the_post_thumbnail()?>
 					<?php } ?>		
 					<?php wp_link_pages(array('before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
-				
 				</div>
 				
 				<div class="clear"></div>
