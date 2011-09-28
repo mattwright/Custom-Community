@@ -70,7 +70,7 @@ class Theme_Generator{
 
 	function load_constants(){
 		global $cap;
-	
+
 		$component = explode('-',$this->detect->tk_get_page_type());
 		
 		if($cap->sidebar_position == ''){
@@ -80,6 +80,9 @@ class Theme_Generator{
 			$cap->header_text = 'off';
 			$cap->preview = true;
 		}	
+		
+		$sidebar_position = $cap->sidebar_position;
+		
 		if($component[2] == 'groups' && !empty($component[3])) {
 			$sidebar_position = $cap->bp_groups_sidebars;
 		} elseif($component[2] == 'profile' && !empty($component[3])) {
@@ -89,6 +92,7 @@ class Theme_Generator{
 			case 'left': $cap->rightsidebar_width = 0; break;
 			case 'right': $cap->leftsidebar_width = 0; break;
 			case 'none': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+			case 'full-width': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
 		}
 		
 	}

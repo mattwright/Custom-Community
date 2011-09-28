@@ -400,4 +400,5 @@ function bp_dtheme_content_nav( $nav_id ) {
 	<?php endif;
 }
 endif;
+
 ?>

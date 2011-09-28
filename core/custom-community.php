@@ -1,5 +1,4 @@
 <?php
-
 class Custom_Community{
 	
 	/**
@@ -36,6 +35,10 @@ class Custom_Community{
 
 		// Let other plugins know that Custom Community has finished initializing
 		$this->loaded();
+		
+		//initialize
+		BPUnifiedsearch::get_instance();//that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
+		
 		
 		if(!is_admin())
 			$Theme_Generator = new Theme_Generator();
@@ -102,7 +105,6 @@ class Custom_Community{
 	 */	
 	function includes() {
 			
-	
 		require_once($this->require_path('/_inc/ajax.php'));
 		
 		// helper functions
@@ -120,12 +122,11 @@ class Custom_Community{
 		// buddypress specific functions
 		if(defined('BP_VERSION')){
 			require_once($this->require_path('/core/includes/bp/templatetags.php'));
-			require_once($this->require_path('/core/includes/bp/buddydev-search.php'));
+			require_once($this->require_path('/core/includes/bp/buddydev-search.php'));	
 		}
 		
 		// themekraft framework specific functions
 		require_once($this->require_path('/core/includes/tkf/wp/detect.php'));
-		
 		
 		// admin specific functions
 		//if ( is_admin() )
