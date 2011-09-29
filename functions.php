@@ -90,7 +90,7 @@ global $cap, $content_width;
 	
 	// Define disable the admin bar
 	if($cap->bp_login_bar_top == 'off') {
-	define( 'BP_DISABLE_ADMIN_BAR', false );
+		define( 'BP_DISABLE_ADMIN_BAR', true );
 	}
 	
 }
@@ -204,8 +204,6 @@ function cc_admin_header_image() { ?>
 	</div>
 <?php }
 endif;
-
-
 
 add_filter('widget_text', 'do_shortcode');
 add_action( 'widgets_init', 'cc_widgets_init' );

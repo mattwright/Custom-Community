@@ -45,21 +45,23 @@ function cc_excerpt_length() {
  * @package Custom Community
  * @since 1.8.3
  */
-add_action( 'wp', 'cc_change_profile_tab_order', 999 );
+add_action( 'bp_init', 'cc_change_profile_tab_order' );
 function cc_change_profile_tab_order() {
 	global $bp, $cap;
-		
+	
 	if($cap->bp_profiles_nav_order == '')
-		return
+		return;
 	
 	$order = $cap->bp_profiles_nav_order;
 	$order = str_replace(' ','',$order); 
 	$order = explode(",", $order);
 	$i = 1;
+	
 	foreach($order as $item) {
 		$bp->bp_nav[$item]['position'] = $i;
 		$i ++;
 	}
+	
 }
 
 /**
@@ -68,19 +70,27 @@ function cc_change_profile_tab_order() {
  * @package Custom Community
  * @since 1.8.3
  */
-add_action('wp', 'cc_change_groups_tab_order');
+add_action('bp_init', 'cc_change_groups_tab_order');
 function cc_change_groups_tab_order() {
 	global $bp, $cap;
 
+	
+	// In BP 1.3, bp_options_nav for groups is keyed by group slug instead of by 'groups', to
+	// differentiate it from the top-level groups directories and the groups subtab of member
+	// profiles
+	$group_slug = isset( $bp->groups->current_group->slug ) ? $bp->groups->current_group->slug : false;
+	
+	
 	if($cap->bp_groups_nav_order == '')
-		return
+		return;
+
 		
 	$order = $cap->bp_groups_nav_order;
 	$order = str_replace(' ','',$order); 
 	$order = explode(",", $order);
 	$i = 1;
 	foreach($order as $item) {
-		$bp->bp_options_nav['groups'][$item]['position'] = $i;
+		$bp->bp_options_nav[$group_slug][$item]['position'] = $i;
 		$i ++;
 	}
 }
@@ -256,15 +266,31 @@ function cc_slidertop(){
 
 	else:
 
-		$slidercat = $cap->slideshow_cat;
-		$slider_style = $cap->slideshow_style;
-		$caption = $cap->slideshow_caption;
-		$slideshow_amount = $cap->slideshow_amount;
-		$slideshow_time = $cap->slideshow_time;
-		$slideshow_orderby = $cap->slideshow_orderby;
-		$slideshow_post_type = $cap->slideshow_post_type;
-		$slideshow_show_page = $cap->slideshow_show_page;
-	
+		if( $cap->slideshow_cat != '' ){
+			$slidercat = $cap->slideshow_cat;
+		}
+		if( $cap->slideshow_style != '' ){
+			$slider_style = $cap->slideshow_style;
+		}
+		if( $cap->slideshow_caption != '' ){
+			$caption = $cap->slideshow_caption;
+		}
+		if( $cap->slideshow_amount != '' ){
+			$slideshow_amount = $cap->slideshow_amount;
+		}
+		if( $cap->slideshow_time != '' ){
+			$slideshow_time = $cap->slideshow_time;
+		}
+		if( $cap->slideshow_orderby != '' ){
+			$slideshow_orderby = $cap->slideshow_orderby;
+		}
+		if( $cap->slideshow_post_type != '' ){
+			$slideshow_post_type = $cap->slideshow_post_type;
+		}
+		if( $cap->slideshow_show_page != '' ){
+			$slideshow_show_page = $cap->slideshow_show_page;
+		}
+		
 	endif;
 	
 	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){ ?>

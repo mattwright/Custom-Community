@@ -63,7 +63,7 @@ max-width:1000px;
 min-width:1000px;
 }
 .v_line {
-    border-right: 1px solid #<?php echo $body_bg_color; ?>;
+    border-right: 1px solid #<?php echo $details_bg_color; ?>;
     height: 100%;
     position: absolute;
     width: 0;
@@ -226,6 +226,9 @@ margin-right: 4px;
 font-size: 11px;
 padding: 1px 4px;
 margin-left: 4px;
+}
+label.accessibly-hidden {
+    display: none;
 }
 #header div#logo h1 a, #header div#logo h4 a {
 color: #<?php echo $font_color; ?>;
@@ -2168,7 +2171,7 @@ div.comment-avatar-box a {
 div.post div.author-box img {
 float: none;
 border: 1px solid #<?php echo $body_bg_color; ?>;
-margin: 8px 0 0 0;
+margin: 0;
 background:none repeat scroll 0 0 transparent;
 float: none;
 padding:0;
@@ -2867,7 +2870,7 @@ border: solid 1px #777;
 overflow: hidden;
 position: relative;
 float:left;
-margin: 15px 15px 0 0;
+margin: 20px 20px 0 0;
 }
 
 #content .boxgrid img {
@@ -4521,7 +4524,7 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
-			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin: 0 0 12px -19px; padding: 5px 22px 5px 20px;<?php 	
+			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin: 0 0 12px -20px; padding: 5px 22px 5px 20px;<?php 	
         	break;
         case 'transparent':
 			?>background: transparent;<?php	

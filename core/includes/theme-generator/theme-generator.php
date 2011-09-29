@@ -147,7 +147,6 @@ class Theme_Generator{
 				<div class="padder">
 					
 						<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
-							<label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
 							<input type="text" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
 							<?php echo bp_search_form_type_select() ?>
 
@@ -340,10 +339,10 @@ class Theme_Generator{
 	 * @package Custom Community
 	 * @since 1.8.3
 	 */	
-	function footer_content(){ ?>
-		<?php global $cap ?>
-		<?php if( ! dynamic_sidebar( 'footerfullwidth' )) :?>
-			<?php if($cap->preview == true){ ?>
+	function footer_content(){ 
+		global $cap;
+		if( ! dynamic_sidebar( 'footerfullwidth' )) :
+			if($cap->preview == true){ ?>
 				<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
 						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'buddypress'); ?></h3>
 						<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
