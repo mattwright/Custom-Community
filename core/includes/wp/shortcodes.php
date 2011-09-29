@@ -311,11 +311,15 @@ function cc_list_posts($atts,$content = null) {
 	), $atts));
 
 	$img_position = 'boxgrid';
-    
-	if($category_name == 'All categories'){
+    	
+	if($category_name == 'all-categories'){
 		$category_name = '0';
 	}
 		
+	if($page_id != ''){
+		$page_id = explode(',',$page_id);
+	}
+	
 	$args = array(
 		'orderby' => $orderby,
 		'post_type' => $post_type,
@@ -402,8 +406,12 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
-	if($category_name == 'All categories'){
+	if($category_name == 'all-categories'){
 		$category_name = '0';
+	}
+	
+	if($page_id != ''){
+		$page_id = explode(',',$page_id);
 	}
 	
 	$tmp = '<script type="text/javascript">'. chr(13);
@@ -507,11 +515,6 @@ function slider($atts,$content = null) {
 	}
 	$tmp .= '</style>'. chr(13);	
 	
-	
-	if($page_id != ''){
-		$page_id = explode(',',$page_id);
-	}
-	
 	$args = array(
 		'orderby' => $orderby,
 		'post_type' => $post_type,
@@ -522,7 +525,6 @@ function slider($atts,$content = null) {
 	
 	remove_all_filters('posts_orderby');
 	query_posts($args);
-	
 	
 	if (have_posts()) :
 
