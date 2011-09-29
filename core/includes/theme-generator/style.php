@@ -2129,26 +2129,12 @@ margin-right: auto;
 
 div.post .wp-caption {
 border: 1px solid #<?php echo $body_bg_color; ?>;
-text-align: center;
-background-color: #f3f3f3;
-padding-top: 4px;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-margin-bottom:12px;
 }
 
 div.post .wp-caption img {
 margin: 0;
 padding: 0;
 border: 0 none;
-}
-
-div.post dd.wp-caption p.wp-caption-text, div.post .wp-caption p.wp-caption-text {
-font-size: 0.9em;
-line-height: 17px;
-padding: 0 4px 5px 0;
-margin: 0;
 }
 
 div.author-box, div.comment-avatar-box {

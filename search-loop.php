@@ -31,7 +31,7 @@
                 </div><!-- Post ends here... -->
 				<?php do_action( 'bp_after_blog_post' ) ?>
                 <?php endwhile;?>
-				<?php if(!bpmag_is_advance_search()):?>
+				<?php if(!cc_is_advance_search()):?>
 				<div class="navigation">
 					<?php if(function_exists("wp_pagenavi"))wp_pagenavi();else{ ?>
 					<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'bpmag' ) ) ?></div>

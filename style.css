@@ -27,3 +27,20 @@ margin-right: 15px;
 float: right;
 margin-left: 15px;
 }
+
+div.post .wp-caption {
+text-align: center;
+background-color: #f3f3f3;
+padding-top: 4px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+margin-bottom:12px;
+}
+
+div.post dd.wp-caption p.wp-caption-text, div.post .wp-caption p.wp-caption-text {
+font-size: 0.9em;
+line-height: 17px;
+padding: 0 4px 5px 0;
+margin: 0;
+}
