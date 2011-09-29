@@ -494,10 +494,10 @@ class Theme_Generator{
 	 */	
 	function default_homepage_last_posts(){
 		global $cap;
-	
+		
 		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
 			$args = array(
-				'amount' => '3',
+				'amount' => '2',
 		 	);
 				
 			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 

@@ -4,7 +4,6 @@
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_home' ) ?>
-		
 		<div class="page" id="blog-latest">
 
 			<?php if ( have_posts() ) : ?>

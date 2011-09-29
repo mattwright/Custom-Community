@@ -484,7 +484,7 @@ float:left;
 margin-right:-225px;
 margin-top: 0px;
 position:relative;
-width:224px;
+width:225px;
 }
 .paddersidebar{ padding:30px 15px 30px 20px; }
 
@@ -2867,7 +2867,7 @@ border: solid 1px #777;
 overflow: hidden;
 position: relative;
 float:left;
-margin:20px 20px 0 0;
+margin: 15px 15px 0 0;
 }
 
 #content .boxgrid img {

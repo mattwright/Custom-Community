@@ -302,7 +302,7 @@ function cc_list_posts($atts,$content = null) {
 	
 	extract(shortcode_atts(array(
 		'amount' => '12',
-		'category_name' => 'All categories',
+		'category_name' => '0',
 		'img_position' => 'mouse_over',
 		'height' => 'auto',
 		'page_id' => '',
