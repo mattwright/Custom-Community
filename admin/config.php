@@ -31,8 +31,8 @@ function cap_get_options() {
         );
 	$i = 1;
 	foreach($categories as $category) {
-		$option[$i][name] = $category->name;
-		$option[$i][slug] = $category->slug;
+		$option[$i]['name'] = $category->name;
+		$option[$i]['slug'] = $category->slug;
 		$i++;
 	}
 

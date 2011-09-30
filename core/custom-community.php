@@ -36,9 +36,8 @@ class Custom_Community{
 		// Let other plugins know that Custom Community has finished initializing
 		$this->loaded();
 		
-		//initialize
-		BPUnifiedsearch::get_instance();//that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
-		
+		if ( function_exists( 'bp_is_active' ) )
+			BPUnifiedsearch::get_instance();//that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
 		
 		if(!is_admin())
 			$Theme_Generator = new Theme_Generator();

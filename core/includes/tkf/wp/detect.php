@@ -95,6 +95,9 @@ class TK_WP_Detect {
 	}
 
 	function tk_is_signup(){
+		if(empty($_REQUEST['action']))
+			return false;
+	
 		if( $_REQUEST['action'] == 'register' ){
 			return true;
 		}else{
@@ -110,7 +113,7 @@ class TK_WP_Detect {
 			$slug = $bp->current_component;
 			$action = $bp->current_action;
 	
-			if($bp->displayed_user-id != 0 && $slug == 'activity' && $action == 'just-me'){
+			if($bp->displayed_user->id != 0 && $slug == 'activity' && $action == 'just-me'){
 				$slug = profile;	
 			}
 		
@@ -122,7 +125,7 @@ class TK_WP_Detect {
 					if( bp_is_group_forum_topic() ){
 						$page_type = 'bp-component-' . $component . '-' . $action . '-topic';							
 					
-					}elseif ( !bp_is_activity_front_page() &&  bp_is_activity_component() && $action != 'just-me' ){
+					}elseif ( !bp_is_component_front_page( 'activity' ) &&  bp_is_activity_component() && $action != 'just-me' ){
 						$page_type = 'bp-component-activity-activity';
 					}else{
 						$page_type = 'bp-component-' . $component . '-' . $action;

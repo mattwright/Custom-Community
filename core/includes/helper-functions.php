@@ -238,7 +238,7 @@ function color_scheme(){
 	        return $color; 
 	}
 	
-	/**
+/**
  * load the array for the top slider depending on the page settings or theme settings
  *
  * @package Custom Community
@@ -330,7 +330,7 @@ function cc_slidertop(){
  			);					
 	}
 
-	$tmp .= '<div id="cc_slider-top">';
+	$tmp = '<div id="cc_slider-top">';
 	$tmp .= slider($atts,$content = null);
 	$tmp .= '</div>';
 	if($cap->slideshow_shadow != "no shadow"){

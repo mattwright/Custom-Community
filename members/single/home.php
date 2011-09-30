@@ -6,31 +6,43 @@
 		<?php do_action( 'bp_before_member_home_content' ) ?>
 			
 			<div id="item-body">
-				<?php do_action( 'bp_before_member_body' ) ?>
 
-				<?php if ( bp_is_user_activity() || !bp_current_component() ) : ?>
-					<?php locate_template( array( 'members/single/activity.php' ), true ) ?>
+				<?php do_action( 'bp_before_member_body' );
 
-				<?php elseif ( bp_is_user_blogs() ) : ?>
-					<?php locate_template( array( 'members/single/blogs.php' ), true ) ?>
+				if ( bp_is_user_activity() || !bp_current_component() ) :
+					locate_template( array( 'members/single/activity.php'  ), true );
 
-				<?php elseif ( bp_is_user_friends() ) : ?>
-					<?php locate_template( array( 'members/single/friends.php' ), true ) ?>
+				 elseif ( bp_is_user_blogs() ) :
+					locate_template( array( 'members/single/blogs.php'     ), true );
 
-				<?php elseif ( bp_is_user_groups() ) : ?>
-					<?php locate_template( array( 'members/single/groups.php' ), true ) ?>
+				elseif ( bp_is_user_friends() ) :
+					locate_template( array( 'members/single/friends.php'   ), true );
 
-				<?php elseif ( bp_is_user_messages() ) : ?>
-					<?php locate_template( array( 'members/single/messages.php' ), true ) ?>
+				elseif ( bp_is_user_groups() ) :
+					locate_template( array( 'members/single/groups.php'    ), true );
 
-				<?php elseif ( bp_is_user_profile() ) : ?>
-					<?php locate_template( array( 'members/single/profile.php' ), true ) ?>
+				elseif ( bp_is_user_messages() ) :
+					locate_template( array( 'members/single/messages.php'  ), true );
 
-				<?php endif; ?>
+				elseif ( bp_is_user_profile() ) :
+					locate_template( array( 'members/single/profile.php'   ), true );
 
-				<?php do_action( 'bp_after_member_body' ) ?>
+				elseif ( bp_is_user_forums() ) :
+					locate_template( array( 'members/single/forums.php'    ), true );
+
+				elseif ( bp_is_user_settings() ) :
+					locate_template( array( 'members/single/settings.php'  ), true );
+
+				// If nothing sticks, load a generic template
+				else :
+					locate_template( array( 'members/single/plugins.php'   ), true );
+
+				endif;
+
+				do_action( 'bp_after_member_body' ); ?>
 
 			</div><!-- #item-body -->
+
 
 			<?php do_action( 'bp_after_member_home_content' ) ?>
 

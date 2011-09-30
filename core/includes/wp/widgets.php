@@ -39,7 +39,7 @@ function widget_community_nav() { ?>
 				</li>
 			<?php endif; ?>
 	
-			<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member() ) : ?> class="selected"<?php endif; ?>>
+			<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user() ) : ?> class="selected"<?php endif; ?>>
 				<a href="<?php echo site_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'buddypress' ) ?>"><?php _e( 'Members', 'buddypress' ) ?></a>
 			</li>
 	
@@ -54,14 +54,14 @@ function widget_community_nav() { ?>
 					</li>
 				<?php endif; ?>
 			<?php endif; ?>
-			<?php if ( bp_is_active( 'blogs' ) && bp_core_is_multisite() ) : ?>
+			<?php if ( bp_is_active( 'blogs' ) && is_multisite() ) : ?>
 				<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'buddypress' ) ?>"><?php _e( 'Blogs', 'buddypress' ) ?></a>
 				</li>
 			<?php endif; ?>
   		</ul>
 				
-   <?php if( bp_is_single_item() || bp_is_member() ) { ?>
+   <?php if( bp_is_single_item() || bp_is_user() ) { ?>
 	   	<?php if(bp_is_group()){ ?>
 		<div id="community-single-nav" class="widget-title" >
 		  <ul class="item-list">
@@ -73,7 +73,7 @@ function widget_community_nav() { ?>
 		</div>	
 		<?php } ?>
 
-		<?php if(bp_is_member()){ ?>
+		<?php if(bp_is_user()){ ?>
 		<div id="community-single-nav" class="widget-title" >
 		  <ul class="item-list">
 		  <h3 class="widgettitle"><?php _e( '@ Member', 'buddypress' ) ?></h3>

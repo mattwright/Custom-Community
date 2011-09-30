@@ -83,11 +83,14 @@ class Theme_Generator{
 		
 		$sidebar_position = $cap->sidebar_position;
 		
-		if($component[2] == 'groups' && !empty($component[3])) {
-			$sidebar_position = $cap->bp_groups_sidebars;
-		} elseif($component[2] == 'profile' && !empty($component[3])) {
-			$sidebar_position = $cap->bp_profile_sidebars;
+		if(!empty($component[2])){
+			if($component[2] == 'groups' && !empty($component[3]) && $cap->bp_groups_sidebars != 'default') {
+				$sidebar_position = $cap->bp_groups_sidebars;
+			} elseif($component[2] == 'profile' && !empty($component[3]) && $cap->bp_profile_sidebars != 'default') {
+				$sidebar_position = $cap->bp_profile_sidebars;
+			}
 		}
+			
 		switch ($sidebar_position) {
 			case 'left': $cap->rightsidebar_width = 0; break;
 			case 'right': $cap->leftsidebar_width = 0; break;
@@ -217,12 +220,12 @@ class Theme_Generator{
 		<?php else : ?>
 			<ul>
 			<?php if($cap->menue_disable_home == true){ ?>
-				<li id="nav-home"<?php if ( bp_is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
+				<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
 				</li>
 			<?php }?>
 				<?php if($cap->menue_enable_community == true){ ?>
-				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
+				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'buddypress' ) ?>"><?php _e( 'Community', 'buddypress' ) ?></a>
 					<ul class="children">
 						<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
@@ -231,7 +234,7 @@ class Theme_Generator{
 							</li>
 						<?php endif; ?>
 		
-						<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_member() ) : ?> class="selected"<?php endif; ?>>
+						<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user() ) : ?> class="selected"<?php endif; ?>>
 							<a href="<?php echo site_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'buddypress' ) ?>"><?php _e( 'Members', 'buddypress' ) ?></a>
 						</li>
 		
@@ -246,7 +249,7 @@ class Theme_Generator{
 							<?php endif; ?>
 						<?php endif; ?>
 		
-						<?php if ( bp_is_active( 'blogs' ) && bp_core_is_multisite() ) : ?>
+						<?php if ( bp_is_active( 'blogs' ) && is_multisite() ) : ?>
 							<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
 								<a href="<?php echo site_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'buddypress' ) ?>"><?php _e( 'Blogs', 'buddypress' ) ?></a>
 							</li>
@@ -274,7 +277,7 @@ class Theme_Generator{
 		$cc_page_options=cc_get_page_meta();
 	
 		if(defined('BP_VERSION')){ 
-			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_activity_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
 				echo cc_slidertop(); // located under wp/templatetags
 			}
 		} elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
@@ -415,24 +418,27 @@ class Theme_Generator{
 		global $cap, $bp;
 	
 		$component = explode('-',$this->detect->tk_get_page_type());
-			
-		if($component[2] == 'groups' && !empty($component[3])) {
-			if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
-				locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-			} elseif($cap->bp_groups_sidebars == "default"){
+		if(!empty($component[2])){	
+			if($component[2] == 'groups' && !empty($component[3])) {
+				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
+					locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
+				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+					locate_template( array( 'sidebar-left.php' ), true );
+				}
+			} elseif($component[2] == 'profile' && !empty($component[3])) {
+				if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
+					locate_template( array( 'members/single/member-sidebar-left.php' ), true );
+				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+					locate_template( array( 'sidebar-left.php' ), true );
+				}
+			} else if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
-			}
-		} elseif($component[2] == 'profile' && !empty($component[3])) {
-			if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
-				locate_template( array( 'members/single/member-sidebar-left.php' ), true );
-			} elseif( $cap->bp_profile_sidebars == "default"){
-				locate_template( array( 'sidebar-left.php' ), true );
-			}
+			}  
 		} else {
 			if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
 			}    
-  		}
+	  	}
 	}
 
 	/**
@@ -444,27 +450,31 @@ class Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_right(){
-	global $cap, $bp;
+		global $cap, $bp;
 	
 		$component = explode('-',$this->detect->tk_get_page_type());
-		if($component[2] == 'groups' && !empty($component[3])) {
-			if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
-				locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
-			} elseif($cap->bp_groups_sidebars == "default"){
+		if(!empty($component[2])){	
+			if($component[2] == 'groups' && !empty($component[3])) {
+				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
+					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
+				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+					locate_template( array( 'sidebar.php' ), true );
+				}
+			} elseif($component[2] == 'profile' && !empty($component[3])) {
+				if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
+					locate_template( array( 'members/single/member-sidebar-right.php' ), true );
+				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+					locate_template( array( 'sidebar.php' ), true );
+				}
+			} else if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar.php' ), true );
-			}
-		} elseif($component[2] == 'profile' && !empty($component[3])) {
-			if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
-				locate_template( array( 'members/single/member-sidebar-right.php' ), true );
-			} elseif( $cap->bp_profile_sidebars == "default"){
-				locate_template( array( 'sidebar.php' ), true );
-			}
+			}     
 		} else {
-		
 			if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar.php' ), true );
 			}    
   		}
+		
 	}
 	
 	/**
@@ -705,8 +715,8 @@ class Theme_Generator{
 	function home_body_class($classes){
 	
 		if(defined('BP_VERSION')){
-			if(!in_array('home',$classes)){
-				if (bp_is_front_page() )
+			if( !in_array( 'home', $classes ) ){
+				if ( is_front_page() )
 				$classes[] = 'home';
 			}
 		}

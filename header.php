@@ -7,7 +7,7 @@
 		
 		<?php do_action('favicon') ?>
 		
-		<title> <?php cc_wp_title(); ?> </title>
+		<title> <?php wp_title(); ?> </title>
 		
 		<?php do_action( 'bp_head' ) ?>
 
@@ -18,7 +18,7 @@
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php _e('Site Wide Activity RSS Feed', 'buddypress' ) ?>" href="<?php bp_sitewide_activity_feed_link() ?>" />
 		<?php endif; ?>
 
-		<?php if ( function_exists( 'bp_member_activity_feed_link' ) && bp_is_member() ) : ?>
+		<?php if ( function_exists( 'bp_member_activity_feed_link' ) && bp_is_user() ) : ?>
 			<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php bp_displayed_user_fullname() ?> | <?php _e( 'Activity RSS Feed', 'buddypress' ) ?>" href="<?php bp_member_activity_feed_link() ?>" />
 		<?php endif; ?>
 

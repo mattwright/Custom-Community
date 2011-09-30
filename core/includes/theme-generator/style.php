@@ -179,7 +179,7 @@ z-index:1000;
 #header {
 position: relative;
 color: #<?php echo $font_color; ?>;
-<?php if($cap->header_img != none){?>
+<?php if($cap->header_img == ''){?>
 background: url(<?php echo get_template_directory_uri() ?>/images/default-header.png);
 <?php } ?>
 -moz-border-radius-bottomleft: 6px;
@@ -1743,7 +1743,7 @@ margin-bottom: 0;
 div.activity-comments ul li > ul {
 margin-top: 5px;
 margin-left: 25px;
-width:100%;
+width:95%;
 }
 body.activity-permalink div.activity-comments ul li > ul {
 margin-top: 15px;
@@ -1787,6 +1787,7 @@ border:medium none;
 -webkit-border-radius: 4px;
 border-radius: 4px;
 padding: 8px;
+width: 80%;
 }
 div.activity-comments li form.ac-form {
 margin-right: 15px;

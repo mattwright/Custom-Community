@@ -428,9 +428,10 @@ class autoconfig {
 		if ( array_key_exists( $name, $this->cache ) )
 			return $this->cache[$name];
 
-		$option = $this->data[$name];
-		if ( empty($option) )
+		if ( empty($this->data[$name]) )
 			return ''; 
+		
+		$option = $this->data[$name];
 		$value = $this->cache[$name] = $option->get();
 		return $value;
 	}

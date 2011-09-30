@@ -109,8 +109,8 @@ function cc_page_metabox(){
         );
 	    $i = 1;
 		foreach($categories as $category) { 
-			$option[$i][name] = $category->name;
-			$option[$i][slug] = $category->slug;
+			$option[$i]['name'] = $category->name;
+			$option[$i]['slug'] = $category->slug;
 			$i++;
 		}
     	$option_categories = $option;
@@ -191,24 +191,49 @@ function cc_add_page_meta($id){
 
 	global $post;
 	
+	if(empty($post->post_type))
+		return;
+	
 	if ($post->post_type != 'page')
-	return;
+		return;
 	
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
 	{
 	     return $post_id;
 	}
-	update_post_meta($post->ID, "_cc_page_slider_on",cc_clean_input( $_POST["cc_page_slider_on"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_page_slider_cat",cc_clean_input( $_POST["cc_page_slider_cat"], 'text') );
-	update_post_meta($post->ID, "_cc_page_template_on",cc_clean_input( $_POST["cc_page_template_on"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_page_template_cat",cc_clean_input( $_POST["cc_page_template_cat"], 'text') );
-	update_post_meta($post->ID, "_cc_page_template_amount",cc_clean_input( $_POST["cc_page_template_amount"], 'text') );
-	update_post_meta($post->ID, "_cc_page_slider_orderby",cc_clean_input( $_POST["cc_page_slider_orderby"], 'text') );
-	update_post_meta($post->ID, "_cc_page_slider_amount",cc_clean_input( $_POST["cc_page_slider_amount"], 'text') );
-	update_post_meta($post->ID, "_cc_page_slider_post_type",cc_clean_input( $_POST["cc_page_slider_post_type"], 'text') );
-	update_post_meta($post->ID, "_cc_page_slider_show_page",cc_clean_input( $_POST["cc_page_slider_show_page"], 'text') );
-	update_post_meta($post->ID, "_cc_posts_on_page_type",cc_clean_input( $_POST["cc_posts_on_page_type"], 'text') );
-	update_post_meta($post->ID, "_cc_page_slider_style",cc_clean_input( $_POST["cc_page_slider_style"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_on"]))
+		update_post_meta($post->ID, "_cc_page_slider_on",cc_clean_input( $_POST["cc_page_slider_on"], 'checkbox') );	
+
+	if(!empty($_POST["cc_page_slider_cat"]))
+		update_post_meta($post->ID, "_cc_page_slider_cat",cc_clean_input( $_POST["cc_page_slider_cat"], 'text') );
+
+	if(!empty($_POST["cc_page_template_on"]))
+		update_post_meta($post->ID, "_cc_page_template_on",cc_clean_input( $_POST["cc_page_template_on"], 'checkbox') );
+
+	if(!empty($_POST["cc_page_template_cat"]))
+		update_post_meta($post->ID, "_cc_page_template_cat",cc_clean_input( $_POST["cc_page_template_cat"], 'text') );
+	
+	if(!empty($_POST["cc_page_template_amount"]))
+		update_post_meta($post->ID, "_cc_page_template_amount",cc_clean_input( $_POST["cc_page_template_amount"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_orderby"]))
+		update_post_meta($post->ID, "_cc_page_slider_orderby",cc_clean_input( $_POST["cc_page_slider_orderby"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_amount"]))
+		update_post_meta($post->ID, "_cc_page_slider_amount",cc_clean_input( $_POST["cc_page_slider_amount"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_post_type"]))
+		update_post_meta($post->ID, "_cc_page_slider_post_type",cc_clean_input( $_POST["cc_page_slider_post_type"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_show_page"]))
+		update_post_meta($post->ID, "_cc_page_slider_show_page",cc_clean_input( $_POST["cc_page_slider_show_page"], 'text') );
+	
+	if(!empty($_POST["cc_posts_on_page_type"]))
+		update_post_meta($post->ID, "_cc_posts_on_page_type",cc_clean_input( $_POST["cc_posts_on_page_type"], 'text') );
+	
+	if(!empty($_POST["cc_page_slider_style"]))
+		update_post_meta($post->ID, "_cc_page_slider_style",cc_clean_input( $_POST["cc_page_slider_style"], 'text') );
 }
  
   function cc_get_page_meta(){
