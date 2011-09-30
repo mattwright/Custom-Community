@@ -1406,6 +1406,7 @@ margin: 0;
 ul.activity-list li {
 padding: 8px 0 0 0;
 overflow: hidden;
+border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 }
 ul.activity-list > li:first-child {
 padding-top: 5px;
@@ -1708,8 +1709,10 @@ list-style: none;
 }
 
 div.activity-comments ul {
-clear: left;
-margin-right:-10px;
+    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+    border-radius: 0 0 0 0;
+    clear: left;
+    margin-left: 2%;
 }
 
 
@@ -1721,6 +1724,7 @@ background:none;
 margin-bottom:8px;
 padding:10px 0 10px 0;
 border-top: 1px solid #<?php echo $body_bg_color; ?>;
+margin-left: 1%;
 }
 
 body.activity-permalink div.activity-comments ul li {
@@ -1741,9 +1745,8 @@ margin-bottom: 0;
 }
 
 div.activity-comments ul li > ul {
-margin-top: 5px;
-margin-left: 25px;
-width:95%;
+    margin-left: 54px;
+    margin-top: 5px;
 }
 body.activity-permalink div.activity-comments ul li > ul {
 margin-top: 15px;
@@ -1759,12 +1762,15 @@ margin-right:10px;
 div.activity-comments div.acomment-content {
 font-size: 11px;
 background:none repeat scroll 0 0 transparent;
-border-top:1px solid #<?php echo $body_bg_color; ?>;
 color:#<?php echo $font_color; ?>;
 margin:10px 10px 10px 0;
 overflow:hidden;
 padding:4px 0;
 }
+div.acomment-options {
+    margin-left: 63px;
+}
+
 div.acomment-content .time-since { display: none; }
 div.acomment-content .activity-delete-link { display: none; }
 div.acomment-content .comment-header { display: none; }
@@ -2177,7 +2183,6 @@ margin: 16px 0 0 4px;
 background:none repeat scroll 0 0 transparent;
 float: none;
 padding:0;
-width:50px;
 }
 
 div.comment-content {
@@ -3357,6 +3362,8 @@ div.search-result {
     margin-bottom: 22px;
     padding: 20px;
 }
+
+textarea { resize: vertical; }
 
 
 

@@ -537,6 +537,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	
 	function cc_show_blogs_search(){
 	
+	if(!is_multisite())
+		return;
+		
 	    ?>
 	  <div class="blogs-search-result search-result">
 	  <h2 class="content-title"><?php _e("Blogs Search","bpmag");?></h2>
@@ -553,6 +556,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	
 	 //modify the query string with the search term
 	function cc_global_search_qs(){
+		if(empty($_REQUEST['search-terms']))
+			return;
+	
 		return "search_terms=".$_REQUEST['search-terms'];
 	}
 	

@@ -110,7 +110,7 @@
 			</div>
 
 			<div class="comment-content">
-
+				
 				<h3 id="reply" class="comments-header">
 					<?php comment_form_title( __( 'Leave a Reply', 'buddypress' ), __( 'Leave a Reply to %s', 'buddypress' ), true ); ?>
 				</h3>
@@ -130,7 +130,8 @@
 					<?php do_action( 'bp_before_blog_comment_form' ) ?>
 
 					<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform" class="standard-form">
-
+<?php do_action( 'comment_form_top', $post->ID ); ?>
+			
 						<?php if ( $user_ID ) : ?>
 							<?php if(defined('BP_VERSION')){ ?>
 								<p class="log-in-out">
@@ -159,10 +160,10 @@
 
 						<?php endif; ?>
 
-						<p class="form-textarea">
+						<div class="form-textarea">
 							<label for="comment"><?php _e('Comment', 'buddypress'); ?></label>
 							<textarea name="comment" id="comment" cols="60" rows="10" tabindex="4"></textarea>
-						</p>
+						</div>
 
 						<?php do_action( 'bp_blog_comment_form' ) ?>
 

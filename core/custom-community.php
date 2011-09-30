@@ -19,8 +19,7 @@ class Custom_Community{
 	 */	
 	function __construct() {
 		global $bp;
-		
-		
+			
 		// Load predefined constants first thing
 		add_action( 'cc_init', array( $this, 'load_constants' ), 2 );
 		
@@ -115,7 +114,7 @@ class Custom_Community{
 		
 		// wordpress specific functions
 		require_once($this->require_path('/core/includes/wp/shortcodes.php'));
-		require_once($this->require_path('/core/includes/wp/templatetags.php'));
+		//require_once($this->require_path('/core/includes/wp/templatetags.php'));
 		require_once($this->require_path('/core/includes/wp/widgets.php'));
 
 		// buddypress specific functions

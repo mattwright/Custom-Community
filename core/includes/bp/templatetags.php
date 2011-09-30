@@ -318,54 +318,6 @@ function bp_dtheme_comment_form( $default_labels ) {
 add_filter( 'comment_form_defaults', 'bp_dtheme_comment_form', 10 );
 endif;
 
-if ( !function_exists( 'bp_dtheme_before_comment_form' ) ) :
-/**
- * Adds the user's avatar before the comment form box.
- *
- * The 'comment_form_top' action is used to insert our HTML within <div id="reply">
- * so that the nested comments comment-reply javascript moves the entirety of the comment reply area.
- *
- * @see comment_form()
- * @since 1.5
- */
-function bp_dtheme_before_comment_form() {
-?>
-	<div class="comment-avatar-box">
-		<div class="avb">
-			<?php if ( bp_loggedin_user_id() ) : ?>
-				<a href="<?php echo bp_loggedin_user_domain() ?>">
-					<?php echo get_avatar( bp_loggedin_user_id(), 50 ) ?>
-				</a>
-			<?php else : ?>
-				<?php echo get_avatar( 0, 50 ) ?>
-			<?php endif; ?>
-		</div>
-	</div>
-
-	<div class="comment-content standard-form">
-<?php
-}
-add_action( 'comment_form_top', 'bp_dtheme_before_comment_form' );
-endif;
-
-if ( !function_exists( 'bp_dtheme_after_comment_form' ) ) :
-/**
- * Closes tags opened in bp_dtheme_before_comment_form().
- *
- * @see bp_dtheme_before_comment_form()
- * @see comment_form()
- * @since 1.5
- */
-function bp_dtheme_after_comment_form() {
-?>
-
-	</div><!-- .comment-content standard-form -->
-
-<?php
-}
-add_action( 'comment_form', 'bp_dtheme_after_comment_form' );
-endif;
-
 if ( !function_exists( 'bp_dtheme_sidebar_login_redirect_to' ) ) :
 /**
  * Adds a hidden "redirect_to" input field to the sidebar login form.

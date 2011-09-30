@@ -8,11 +8,17 @@
 			<?php do_action( 'bp_before_blog_search' ) ?>
 			<?php global $wp_query;
 				$wp_query->is_search=true;
-				$search_term=$_REQUEST['search-terms'];
-				if(empty($search_term))
+				
+				if(!empty($_REQUEST['search-terms'])){
+					$search_term=$_REQUEST['search-terms'];
+				} elseif(!empty($_REQUEST['s'])) {
 					$search_term=$_REQUEST['s'];
-				$wp_query->query("s=".$search_term);?>
-			<?php if ( have_posts() ) : ?>
+				}
+				
+			if(!empty($search_term)){
+				$wp_query->query("s=".$search_term);
+
+			if ( have_posts() ) : ?>
             <?php while(have_posts()):the_post(); global $post;?>
 			<?php do_action( 'bp_before_blog_post' ) ?>
                 <div class="post"> <!-- Post goes here... --> 
@@ -49,5 +55,6 @@
 				</div>
 				
 
-			<?php endif; ?>
+				<?php endif; ?>
+				<?php } ?>
 			<?php do_action( 'bp_after_blog_search' ) ?>        
