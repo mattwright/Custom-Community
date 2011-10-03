@@ -32,7 +32,7 @@ class Theme_Generator{
 		// header.php
 		add_action( 'bp_before_header', array( $this, 'innerrim_before_header' ), 2 );
 		add_action( 'bp_after_header', array( $this, 'innerrim_after_header' ), 2 );
-		add_action( 'bp_after_header_nav', array( $this, 'menue_enable_search' ), 2 );
+		add_action( 'bp_before_access', array( $this, 'menue_enable_search' ), 2 );
 		add_action( 'bp_before_access', array( $this, 'header_logo' ), 2 );
 		add_action( 'bp_menu', array( $this, 'bp_menu' ), 2 );
 		add_action( 'bp_after_header', array( $this, 'slideshow_home' ), 2 );
@@ -153,7 +153,7 @@ class Theme_Generator{
 							<input type="text" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
 							<?php echo bp_search_form_type_select() ?>
 
-							<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ) ?>" />
+							<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'cc' ) ?>" />
 
 							<?php wp_nonce_field( 'bp_search_form' ) ?>
 
@@ -180,19 +180,19 @@ class Theme_Generator{
 		global $cap;	
 			if(is_home()): ?>
 			<div id="logo">
-			<h1><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
+			<h1><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
 			<div id="blog-description"><?php bloginfo('description'); ?></div>
 			
 			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
 			<?php } ?>
 			</div>
 		<?php else: ?>
 			<div id="logo">
-			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
+			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
 			<div id="blog-description"><?php bloginfo('description'); ?></div>
 			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
 			<?php } ?>
 			</div>
 		<?php endif;
@@ -213,7 +213,7 @@ class Theme_Generator{
 			if($cap->menue_disable_home == true){ ?>
 				<ul>
 					<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
-						<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
+						<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
 					</li>
 				</ul>
 			<?php } ?>
@@ -221,37 +221,37 @@ class Theme_Generator{
 			<ul>
 			<?php if($cap->menue_disable_home == true){ ?>
 				<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'buddypress' ) ?>"><?php _e( 'Home', 'buddypress' ) ?></a>
+					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
 				</li>
 			<?php }?>
 				<?php if($cap->menue_enable_community == true){ ?>
 				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'buddypress' ) ?>"><?php _e( 'Community', 'buddypress' ) ?></a>
+					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'cc' ) ?>"><?php _e( 'Community', 'cc' ) ?></a>
 					<ul class="children">
 						<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
 							<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'buddypress' ) ?>"><?php _e( 'Activity', 'buddypress' ) ?></a>
+								<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'cc' ) ?>"><?php _e( 'Activity', 'cc' ) ?></a>
 							</li>
 						<?php endif; ?>
 		
 						<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user() ) : ?> class="selected"<?php endif; ?>>
-							<a href="<?php echo site_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'buddypress' ) ?>"><?php _e( 'Members', 'buddypress' ) ?></a>
+							<a href="<?php echo site_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'cc' ) ?>"><?php _e( 'Members', 'cc' ) ?></a>
 						</li>
 		
 						<?php if ( bp_is_active( 'groups' ) ) : ?>
 							<li<?php if ( bp_is_page( BP_GROUPS_SLUG ) || bp_is_group() ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_GROUPS_SLUG ?>/" title="<?php _e( 'Groups', 'buddypress' ) ?>"><?php _e( 'Groups', 'buddypress' ) ?></a>
+								<a href="<?php echo site_url() ?>/<?php echo BP_GROUPS_SLUG ?>/" title="<?php _e( 'Groups', 'cc' ) ?>"><?php _e( 'Groups', 'cc' ) ?></a>
 							</li>
 							<?php if ( bp_is_active( 'forums' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() ) : ?>
 								<li<?php if ( bp_is_page( BP_FORUMS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-									<a href="<?php echo site_url() ?>/<?php echo BP_FORUMS_SLUG ?>/" title="<?php _e( 'Forums', 'buddypress' ) ?>"><?php _e( 'Forums', 'buddypress' ) ?></a>
+									<a href="<?php echo site_url() ?>/<?php echo BP_FORUMS_SLUG ?>/" title="<?php _e( 'Forums', 'cc' ) ?>"><?php _e( 'Forums', 'cc' ) ?></a>
 								</li>
 							<?php endif; ?>
 						<?php endif; ?>
 		
 						<?php if ( bp_is_active( 'blogs' ) && is_multisite() ) : ?>
 							<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo site_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'buddypress' ) ?>"><?php _e( 'Blogs', 'buddypress' ) ?></a>
+								<a href="<?php echo site_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'cc' ) ?>"><?php _e( 'Blogs', 'cc' ) ?></a>
 							</li>
 						<?php endif; ?>
 					</ul>
@@ -347,7 +347,7 @@ class Theme_Generator{
 		if( ! dynamic_sidebar( 'footerfullwidth' )) :
 			if($cap->preview == true){ ?>
 				<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
-						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'buddypress'); ?></h3>
+						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'cc'); ?></h3>
 						<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
 						6 widget areas for members + 6 for groups. 
 						</p></div>
@@ -360,7 +360,7 @@ class Theme_Generator{
 		<div class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footerleft' )){ ?>
 				<div class="widget">
-					<h3 class="widgettitle" ><?php _e('Links', 'buddypress'); ?></h3>
+					<h3 class="widgettitle" ><?php _e('Links', 'cc'); ?></h3>
 					<ul>
 						<?php wp_list_bookmarks('title_li=&categorize=0&orderby=id'); ?>
 					</ul>
@@ -373,7 +373,7 @@ class Theme_Generator{
 		<div <?php if(!is_active_sidebar('footerleft') && $cap->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footercenter' )){ ?>
 				<div class="widget">
-					<h3 class="widgettitle" ><?php _e('Archives', 'buddypress'); ?></h3>
+					<h3 class="widgettitle" ><?php _e('Archives', 'cc'); ?></h3>
 					<ul>
 						<?php wp_get_archives( 'type=monthly' ); ?>
 					</ul>
@@ -386,7 +386,7 @@ class Theme_Generator{
 		<div class="widgetarea cc-widget cc-widget-right">
 			<?php if( ! dynamic_sidebar( 'footerright' )){ ?>
 				<div class="widget">
-					<h3 class="widgettitle" ><?php _e('Meta', 'buddypress'); ?></h3>
+					<h3 class="widgettitle" ><?php _e('Meta', 'cc'); ?></h3>
 					<ul>
 						<?php wp_register(); ?>
 						<li><?php wp_loginout(); ?></li>
@@ -400,7 +400,7 @@ class Theme_Generator{
   		<div class="clear"></div>
 	  	<br />
 		<br />
-		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'buddypress' ), bloginfo('name') ); ?>
+		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'cc' ), bloginfo('name') ); ?>
 		Just another <a class="credits" href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.</div>
 	<?php 
 	}
@@ -526,9 +526,9 @@ class Theme_Generator{
 		global $cap;
 	
 		if($cap->excerpt_on != 'content'){
-			the_excerpt( __( 'Read the rest of this entry &rarr;', 'buddypress' ) );
+			the_excerpt( __( 'Read the rest of this entry &rarr;', 'cc' ) );
 		} else {
-			the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); 
+			the_content( __( 'Read the rest of this entry &rarr;', 'cc' ) ); 
 		}
 	}
 	
@@ -705,7 +705,7 @@ class Theme_Generator{
 	
 	/**
 	 * check if the class 'home' exists in the body_class if buddypress is activated.
-	 * if not, add class 'home' or 'bubble' if buddypress is deactivated 
+	 * if not, add class 'home' or 'bubble' if cc is deactivated 
 	 * 
 	 * do_action( 'body_class' )
 	 *

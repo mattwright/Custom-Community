@@ -34,13 +34,13 @@
 						<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 							<ul>
 								<li>
-									<a href="#post-topic-reply" class="show-hide-new"><?php _e( 'New Reply', 'buddypress' ) ?></a>
+									<a href="#post-topic-reply" class="show-hide-new"><?php _e( 'New Reply', 'cc' ) ?></a>
 								</li>
 
 								<?php if ( bp_forums_has_directory() ) : ?>
 
 									<li>
-										<a href="<?php bp_forums_directory_permalink() ?>"><?php _e( 'Forum Directory', 'buddypress') ?></a>
+										<a href="<?php bp_forums_directory_permalink() ?>"><?php _e( 'Forum Directory', 'cc') ?></a>
 									</li>
 
 								<?php endif; ?>
@@ -94,7 +94,7 @@
 
 										</a>
 
-										<?php echo sprintf( __( '%s said %s ago:', 'buddypress' ), bp_get_the_topic_post_poster_name(), bp_get_the_topic_post_time_since() ) ?>
+										<?php echo sprintf( __( '%s said %s ago:', 'cc' ), bp_get_the_topic_post_poster_name(), bp_get_the_topic_post_time_since() ) ?>
 
 									</div>
 
@@ -114,7 +114,7 @@
 
 										<?php do_action( 'bp_group_forum_post_meta' ); ?>
 
-										<a href="#post-<?php bp_the_topic_post_id() ?>" title="<?php _e( 'Permanent link to this post', 'buddypress' ) ?>">#</a>
+										<a href="#post-<?php bp_the_topic_post_id() ?>" title="<?php _e( 'Permanent link to this post', 'cc' ) ?>">#</a>
 									</div>
 								</li>
 
@@ -150,12 +150,12 @@
 
 										<?php do_action( 'groups_forum_new_reply_before' ) ?>
 
-										<h4><?php _e( 'Add a reply:', 'buddypress' ) ?></h4>
+										<h4><?php _e( 'Add a reply:', 'cc' ) ?></h4>
 
 										<textarea name="reply_text" id="reply_text"></textarea>
 
 										<div class="submit">
-											<input type="submit" name="submit_reply" id="submit" value="<?php _e( 'Post Reply', 'buddypress' ) ?>" />
+											<input type="submit" name="submit_reply" id="submit" value="<?php _e( 'Post Reply', 'cc' ) ?>" />
 										</div>
 
 										<?php do_action( 'groups_forum_new_reply_after' ) ?>
@@ -166,7 +166,7 @@
 								<?php else : ?>
 
 									<div id="message" class="info">
-										<p><?php _e( 'This topic is closed, replies are no longer accepted.', 'buddypress' ) ?></p>
+										<p><?php _e( 'This topic is closed, replies are no longer accepted.', 'cc' ) ?></p>
 									</div>
 
 								<?php endif; ?>
@@ -181,7 +181,7 @@
 			<?php else: ?>
 
 				<div id="message" class="info">
-					<p><?php _e( 'There are no posts for this topic.', 'buddypress' ) ?></p>
+					<p><?php _e( 'There are no posts for this topic.', 'cc' ) ?></p>
 				</div>
 
 			<?php endif;?>

@@ -9,14 +9,14 @@
 
 			<li id="members-order-select" class="last filter">
 
-				<label for="members-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+				<label for="members-order-by"><?php _e( 'Order By:', 'cc' ); ?></label>
 				<select id="members-order-by">
-					<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
-					<option value="newest"><?php _e( 'Newest Registered', 'buddypress' ); ?></option>
+					<option value="active"><?php _e( 'Last Active', 'cc' ); ?></option>
+					<option value="newest"><?php _e( 'Newest Registered', 'cc' ); ?></option>
 
 					<?php if ( bp_is_active( 'xprofile' ) ) : ?>
 
-						<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
+						<option value="alphabetical"><?php _e( 'Alphabetical', 'cc' ); ?></option>
 
 					<?php endif; ?>
 
@@ -101,7 +101,7 @@
 <?php else: ?>
 
 	<div id="message" class="info">
-		<p><?php _e( 'This group has no members.', 'buddypress' ); ?></p>
+		<p><?php _e( 'This group has no members.', 'cc' ); ?></p>
 	</div>
 
 <?php endif; ?>

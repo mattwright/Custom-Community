@@ -2144,6 +2144,11 @@ padding: 0;
 border: 0 none;
 }
 
+div.post img.size-full {
+   height: auto;
+   max-width: 100%;
+}
+
 div.author-box, div.comment-avatar-box {
 width:50px; 
 float:left; 

@@ -533,7 +533,7 @@ function top_level_settings() {
 		</div>
 		
 			<p class="submit">
-				<input type="submit" class="button-primary" value="<?php _e( 'Save Options','buddypress' ); ?>" />
+				<input type="submit" class="button-primary" value="<?php _e( 'Save Options','cc' ); ?>" />
 			</p>
 			
 		</form>

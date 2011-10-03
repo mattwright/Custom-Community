@@ -352,7 +352,7 @@ function cc_list_posts($atts,$content = null) {
 			if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 			if($height != 'auto'){ $height = $height.'px'; }
-			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','buddypress').'</a></p>';
+			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
 			if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
 			$tmp .= '</div>';
 			if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
@@ -577,8 +577,8 @@ function slider($atts,$content = null) {
 		else :
 			$tmp .='<div id="cc_slider_prev" class="cc_slider" style="background: #ededed;">'. chr(13);
 			$tmp .='<div id="featured_prev" class="featured" style="background: #ededed;">'. chr(13);
-			$tmp .='<h2 class="center" style="margin-top:50px; margin-left: 20px;">'.__( 'Empty Slideshow', 'buddypress' ).'</h2>'. chr(13);
-			$tmp .='<p class="center" style="margin-top:20px; margin-left: 20px;">'.__( 'You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'buddypress' ).'</p>'. chr(13);
+			$tmp .='<h2 class="center" style="margin-top:50px; margin-left: 20px;">'.__( 'Empty Slideshow', 'cc' ).'</h2>'. chr(13);
+			$tmp .='<p class="center" style="margin-top:20px; margin-left: 20px;">'.__( 'You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'cc' ).'</p>'. chr(13);
 			$tmp .='</div></div>'. chr(13);
 			
 		endif;

@@ -24,9 +24,9 @@
 
 					<div class="entry">
 
-						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
+						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'cc' ) ); ?>
 
-						<?php wp_link_pages( array( 'before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
+						<?php wp_link_pages( array( 'before' => __( '<p><strong>Pages:</strong> ', 'cc' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
 						
 
 					</div>
@@ -39,7 +39,7 @@
 		<?php cc_list_posts_on_page(); ?> 
 			<div class="clear"></div>
 		<?php do_action( 'bp_after_blog_page' ) ?>
-		<?php edit_post_link( __( 'Edit this entry.', 'buddypress' ), '<p>', '</p>'); ?>
+		<?php edit_post_link( __( 'Edit this entry.', 'cc' ), '<p>', '</p>'); ?>
 		<?php comments_template(); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->

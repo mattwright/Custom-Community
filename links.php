@@ -13,7 +13,7 @@ Template Name: Links
 
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<h2 class="pagetitle"><?php _e( 'Links', 'buddypress' ) ?></h2>
+			<h2 class="pagetitle"><?php _e( 'Links', 'cc' ) ?></h2>
 
 			<ul id="links-list">
 				<?php wp_list_bookmarks(); ?>

@@ -79,14 +79,14 @@ function bp_dtheme_enqueue_scripts() {
 
 	// Add words that we need to use in JS to the end of the page so they can be translated and still used.
 	$params = array(
-		'my_favs'           => __( 'My Favorites', 'buddypress' ),
-		'accepted'          => __( 'Accepted', 'buddypress' ),
-		'rejected'          => __( 'Rejected', 'buddypress' ),
-		'show_all_comments' => __( 'Show all comments for this thread', 'buddypress' ),
-		'show_all'          => __( 'Show all', 'buddypress' ),
-		'comments'          => __( 'comments', 'buddypress' ),
-		'close'             => __( 'Close', 'buddypress' ),
-		'view'              => __( 'View', 'buddypress' )
+		'my_favs'           => __( 'My Favorites', 'cc' ),
+		'accepted'          => __( 'Accepted', 'cc' ),
+		'rejected'          => __( 'Rejected', 'cc' ),
+		'show_all_comments' => __( 'Show all comments for this thread', 'cc' ),
+		'show_all'          => __( 'Show all', 'cc' ),
+		'comments'          => __( 'comments', 'cc' ),
+		'close'             => __( 'Close', 'cc' ),
+		'view'              => __( 'View', 'cc' )
 	);
 
 	wp_localize_script( 'dtheme-ajax-js', 'BP_DTheme', $params );
@@ -139,14 +139,14 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 				<p>
 					<?php
 						/* translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp*/
-						printf( __( '<a href="%1$s" rel="nofollow">%2$s</a> said on <a href="%3$s"><span class="time-since">%4$s</span></a>', 'buddypress' ), get_comment_author_url(), get_comment_author(), get_comment_link(), get_comment_date() );
+						printf( __( '<a href="%1$s" rel="nofollow">%2$s</a> said on <a href="%3$s"><span class="time-since">%4$s</span></a>', 'cc' ), get_comment_author_url(), get_comment_author(), get_comment_link(), get_comment_date() );
 					?>
 				</p>
 			</div>
 
 			<div class="comment-entry">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-				 	<em class="moderate"><?php _e( 'Your comment is awaiting moderation.', 'buddypress' ); ?></em>
+				 	<em class="moderate"><?php _e( 'Your comment is awaiting moderation.', 'cc' ); ?></em>
 				<?php endif; ?>
 
 				<?php comment_text() ?>
@@ -158,7 +158,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 					<?php endif; ?>
 
 					<?php if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) : ?>
-						<?php printf( '<a class="button comment-edit-link bp-secondary-action" href="%1$s" title="%2$s">%3$s</a> ', get_edit_comment_link( $comment->comment_ID ), esc_attr__( 'Edit comment', 'buddypress' ), __( 'Edit', 'buddypress' ) ) ?>
+						<?php printf( '<a class="button comment-edit-link bp-secondary-action" href="%1$s" title="%2$s">%3$s</a> ', get_edit_comment_link( $comment->comment_ID ), esc_attr__( 'Edit comment', 'cc' ), __( 'Edit', 'cc' ) ) ?>
 					<?php endif; ?>
 
 			</div>
@@ -228,7 +228,7 @@ function bp_dtheme_show_notice() {
 	?>
 
 	<div id="message" class="updated fade">
-		<p><?php printf( __( 'Theme activated! This theme contains <a href="%s">custom header image</a> support and <a href="%s">sidebar widgets</a>.', 'buddypress' ), admin_url( 'themes.php?page=custom-header' ), admin_url( 'widgets.php' ) ) ?></p>
+		<p><?php printf( __( 'Theme activated! This theme contains <a href="%s">custom header image</a> support and <a href="%s">sidebar widgets</a>.', 'cc' ), admin_url( 'themes.php?page=custom-header' ), admin_url( 'widgets.php' ) ) ?></p>
 	</div>
 
 	<style type="text/css">#message2, #message0 { display: none; }</style>
@@ -297,11 +297,11 @@ function bp_dtheme_comment_form( $default_labels ) {
 	$req = get_option( 'require_name_email' );
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 	$fields =  array(
-		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'buddypress' ) . ( $req ? '<span class="required"> *</span>' : '' ) . '</label> ' .
+		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'cc' ) . ( $req ? '<span class="required"> *</span>' : '' ) . '</label> ' .
 		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'buddypress' ) . ( $req ? '<span class="required"> *</span>' : '' ) . '</label> ' .
+		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'cc' ) . ( $req ? '<span class="required"> *</span>' : '' ) . '</label> ' .
 		            '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'buddypress' ) . '</label>' .
+		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'cc' ) . '</label>' .
 		            '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
@@ -309,8 +309,8 @@ function bp_dtheme_comment_form( $default_labels ) {
 		'comment_field'  => '<p class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p>',
 		'fields'         => apply_filters( 'comment_form_default_fields', $fields ),
 		'logged_in_as'   => '',
-		'must_log_in'    => '<p class="alert">' . sprintf( __( 'You must be <a href="%1$s">logged in</a> to post a comment.', 'buddypress' ), wp_login_url( get_permalink() ) )	. '</p>',
-		'title_reply'    => __( 'Leave a reply', 'buddypress' )
+		'must_log_in'    => '<p class="alert">' . sprintf( __( 'You must be <a href="%1$s">logged in</a> to post a comment.', 'cc' ), wp_login_url( get_permalink() ) )	. '</p>',
+		'title_reply'    => __( 'Leave a reply', 'cc' )
 	);
 
 	return apply_filters( 'bp_dtheme_comment_form', array_merge( $default_labels, $new_labels ) );
@@ -346,8 +346,8 @@ function bp_dtheme_content_nav( $nav_id ) {
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<div id="<?php echo $nav_id; ?>" class="navigation">
-			<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'buddypress' ) ); ?></div>
-			<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'buddypress' ) ); ?></div>
+			<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'cc' ) ); ?></div>
+			<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'cc' ) ); ?></div>
 		</div><!-- #<?php echo $nav_id; ?> -->
 	<?php endif;
 }

@@ -6,7 +6,7 @@
 
 		<div class="page" id="attachments-page">
 
-			<h2 class="pagetitle"><?php _e( 'Blog', 'buddypress' ) ?></h2>
+			<h2 class="pagetitle"><?php _e( 'Blog', 'cc' ) ?></h2>
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -22,9 +22,9 @@
 						<div class="entry">
 							<p class="<?php echo $classname; ?>"><?php echo $attachment_link; ?><br /><?php echo basename($post->guid); ?></p>
 
-							<?php the_content( __('<p class="serif">Read the rest of this entry &rarr;</p>', 'buddypress' ) ); ?>
+							<?php the_content( __('<p class="serif">Read the rest of this entry &rarr;</p>', 'cc' ) ); ?>
 
-							<?php wp_link_pages( array( 'before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
+							<?php wp_link_pages( array( 'before' => __( '<p><strong>Pages:</strong> ', 'cc' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
 						</div>
 
 					</div>
@@ -35,7 +35,7 @@
 
 				<?php endwhile; else: ?>
 
-					<p><?php _e( 'Sorry, no attachments matched your criteria.', 'buddypress' ) ?></p>
+					<p><?php _e( 'Sorry, no attachments matched your criteria.', 'cc' ) ?></p>
 
 				<?php endif; ?>
 		</div>

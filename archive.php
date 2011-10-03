@@ -5,14 +5,14 @@
 
 		<div class="page" id="blog-archives">
 
-			<h3 class="pagetitle"><?php printf( __( 'You are browsing the archive for %1$s.', 'buddypress' ), wp_title( false, false ) ); ?></h3>
+			<h3 class="pagetitle"><?php printf( __( 'You are browsing the archive for %1$s.', 'cc' ), wp_title( false, false ) ); ?></h3>
 
 			<?php if ( have_posts() ) : ?>
 
 				<div class="navigation">
 
-					<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'buddypress' ) ) ?></div>
+					<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'cc' ) ) ?></div>
+					<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'cc' ) ) ?></div>
 
 				</div>
 
@@ -25,22 +25,22 @@
 						<div class="author-box">
 							<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
 						<?php if(defined('BP_VERSION')){ ?>
-							<p><?php printf( __( 'by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
+							<p><?php printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
 						<?php } ?>						</div>
 
 						<div class="post-content">
-							<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+							<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cc' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-							<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'buddypress' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){  printf( __( 'by %s', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); } ?></em></p>
+							<p class="date"><?php the_time('F j, Y') ?> <em><?php _e( 'in', 'cc' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){  printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ); } ?></em></p>
 
 							<div class="entry">
 								<?php do_action('blog_post_entry')?>
 							</div>
 
 							<?php $tags = get_the_tags(); if($tags)	{  ?>
-								<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'buddypress' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
+								<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'cc' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'cc' ), __( '1 Comment &#187;', 'cc' ), __( '% Comments &#187;', 'cc' ) ); ?></span></p>
 							<?php } else {?>
-								<p class="postmetadata"><span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
+								<p class="postmetadata"><span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'cc' ), __( '1 Comment &#187;', 'cc' ), __( '% Comments &#187;', 'cc' ) ); ?></span></p>
 							<?php } ?>
 						</div>
 
@@ -52,14 +52,14 @@
 
 				<div class="navigation">
 
-					<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'buddypress' ) ) ?></div>
+					<div class="alignleft"><?php next_posts_link( __( '&larr; Previous Entries', 'cc' ) ) ?></div>
+					<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'cc' ) ) ?></div>
 
 				</div>
 
 			<?php else : ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
+				<h2 class="center"><?php _e( 'Not Found', 'cc' ) ?></h2>
 				<?php locate_template( array( 'searchform.php' ), true ) ?>
 
 			<?php endif; ?>

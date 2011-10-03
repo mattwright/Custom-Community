@@ -36,9 +36,9 @@
 	<table class="forum">
 		<thead>
 			<tr>
-				<th id="th-title"><?php _e( 'Topic', 'buddypress' ); ?></th>
-				<th id="th-postcount"><?php _e( 'Posts', 'buddypress' ); ?></th>
-				<th id="th-freshness"><?php _e( 'Freshness', 'buddypress' ); ?></th>
+				<th id="th-title"><?php _e( 'Topic', 'cc' ); ?></th>
+				<th id="th-postcount"><?php _e( 'Posts', 'cc' ); ?></th>
+				<th id="th-freshness"><?php _e( 'Freshness', 'cc' ); ?></th>
 
 				<?php do_action( 'bp_directory_forums_extra_cell_head' ); ?>
 
@@ -51,14 +51,14 @@
 
 			<tr class="<?php bp_the_topic_css_class(); ?>">
 				<td class="td-title">
-					<a class="topic-title" href="<?php bp_the_topic_permalink(); ?>" title="<?php bp_the_topic_title(); ?> - <?php _e( 'Permalink', 'buddypress' ); ?>">
+					<a class="topic-title" href="<?php bp_the_topic_permalink(); ?>" title="<?php bp_the_topic_title(); ?> - <?php _e( 'Permalink', 'cc' ); ?>">
 
 						<?php bp_the_topic_title(); ?>
 
 					</a>
 
 					<p class="topic-meta">
-						<span class="topic-by"><?php /* translators: "started by [poster] in [forum]" */ printf( __( 'Started by %1$s', 'buddypress' ), bp_get_the_topic_poster_avatar( 'height=20&width=20') . bp_get_the_topic_poster_name() ); ?></span>
+						<span class="topic-by"><?php /* translators: "started by [poster] in [forum]" */ printf( __( 'Started by %1$s', 'cc' ), bp_get_the_topic_poster_avatar( 'height=20&width=20') . bp_get_the_topic_poster_name() ); ?></span>
 
 						<?php if ( bp_is_directory() || bp_is_user_forums() ) : ?>
 
@@ -69,7 +69,7 @@
 													'<a href="' . bp_get_the_topic_object_permalink() . '" title="' . bp_get_the_topic_object_name() . '">' . bp_get_the_topic_object_name() .'</a>';
 
 									/* translators: "started by [poster] in [forum]" */
-									printf( __( 'in %1$s', 'buddypress' ), $topic_in );
+									printf( __( 'in %1$s', 'cc' ), $topic_in );
 								?>
 
 							</span>
@@ -119,7 +119,7 @@
 <?php else: ?>
 
 	<div id="message" class="info">
-		<p><?php _e( 'Sorry, there were no forum topics found.', 'buddypress' ); ?></p>
+		<p><?php _e( 'Sorry, there were no forum topics found.', 'cc' ); ?></p>
 	</div>
 
 <?php endif; ?>
