@@ -1,4 +1,4 @@
-<?php get_header( 'buddypress' ) ?>
+<?php get_header() ?>
 
 	<div id="content">
 		<div class="padder">
@@ -36,6 +36,4 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-	<?php get_sidebar( 'buddypress' ) ?>
-
-<?php get_footer( 'buddypress' ) ?>
+<?php get_footer() ?>

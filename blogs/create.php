@@ -9,7 +9,7 @@
 
 ?>
 
-<?php get_header( 'buddypress' ); ?>
+<?php get_header(); ?>
 
 	<?php do_action( 'bp_before_directory_blogs_content' ); ?>
 
@@ -41,6 +41,4 @@
 
 	<?php do_action( 'bp_after_directory_blogs_content' ); ?>
 
-<?php get_sidebar( 'buddypress' ); ?>
-<?php get_footer( 'buddypress' ); ?>
-
+<?php get_footer(); ?>

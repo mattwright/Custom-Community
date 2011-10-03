@@ -314,5 +314,4 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php get_sidebar( 'cc' ); ?>
-<?php get_footer( 'cc' ); ?>
+<?php get_footer(); ?>

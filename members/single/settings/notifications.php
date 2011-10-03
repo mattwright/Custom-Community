@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php get_header( 'buddypress' ) ?>
+<?php get_header() ?>
 
 	<div id="content">
 		<div class="padder">
@@ -47,19 +47,19 @@
 					</ul>
 				</div><!-- .item-list-tabs -->
 
-				<h3><?php _e( 'Email Notification', 'buddypress' ); ?></h3>
+				<h3><?php _e( 'Email Notification', 'cc' ); ?></h3>
 
 				<?php do_action( 'bp_template_content' ) ?>
 
 				<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/notifications'; ?>" method="post" class="standard-form" id="settings-form">
-					<p><?php _e( 'Send a notification by email when:', 'buddypress' ); ?></p>
+					<p><?php _e( 'Send a notification by email when:', 'cc' ); ?></p>
 
 					<?php do_action( 'bp_notification_settings' ); ?>
 
 					<?php do_action( 'bp_members_notification_settings_before_submit' ); ?>
 
 					<div class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
+						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'cc' ); ?>" id="submit" class="auto" />
 					</div>
 
 					<?php do_action( 'bp_members_notification_settings_after_submit' ); ?>
@@ -77,6 +77,4 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php get_sidebar( 'buddypress' ) ?>
-
-<?php get_footer( 'buddypress' ) ?>
+<?php get_footer() ?>

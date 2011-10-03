@@ -1,4 +1,4 @@
-<?php get_header( 'buddypress' ) ?>
+<?php get_header() ?>
 
 <div class="activity no-ajax" role="main">
 	<?php if ( bp_has_activities( 'display_comments=threaded&show_hidden=true&include=' . bp_current_action() ) ) : ?>
@@ -14,4 +14,4 @@
 	<?php endif; ?>
 </div>
 
-<?php get_footer( 'buddypress' ) ?>
+<?php get_footer() ?>

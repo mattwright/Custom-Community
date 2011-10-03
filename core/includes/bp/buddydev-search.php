@@ -49,7 +49,7 @@ class BPUnifiedsearch{
             $bp->search->slug=BP_SEARCH_SLUG;
             $bp->search->has_directory=true;
             $bp->search->id='search';
-            $bp->search->name=__('Search Page');
+            $bp->search->name=__('Search Page', 'cc');
             $bp->search->root_slug=isset($bp->pages->search->slug)?$bp->pages->search->slug:$bp->search->slug;
        }
      

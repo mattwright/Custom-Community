@@ -47,7 +47,7 @@ global $cap, $content_width;
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain( 'buddypress', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( 'cc', TEMPLATEPATH . '/languages' );
 
 	$locale = get_locale();
 	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -470,11 +470,11 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	function cc_show_member_search(){
 	    ?>
 	   <div class="memberss-search-result search-result">
-	   <h2 class="content-title"><?php _e("Members Results","bpmag");?></h2>
+	   <h2 class="content-title"><?php _e("Members Results","cc");?></h2>
 	  <?php locate_template( array( 'members/members-loop.php' ), true ) ;  ?>
 	  <?php global $members_template;
 		if($members_template->total_member_count>1):?>
-			<a href="<?php echo bp_get_root_domain().'/'.BP_MEMBERS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e(sprintf("View all %d matched Members",$members_template->total_member_count),"bpmag");?></a>
+			<a href="<?php echo bp_get_root_domain().'/'.BP_MEMBERS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e(sprintf("View all %d matched Members",$members_template->total_member_count),"cc");?></a>
 		<?php 	endif; ?>
 	</div>
 	<?php	
@@ -485,10 +485,10 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	function cc_show_groups_search(){
 	    ?>
 	<div class="groups-search-result search-result">
-	 	<h2 class="content-title"><?php _e("Group Search","bpmag");?></h2>
+	 	<h2 class="content-title"><?php _e("Group Search","cc");?></h2>
 		<?php locate_template( array('groups/groups-loop.php' ), true ) ;  ?>
 		
-		<a href="<?php echo bp_get_root_domain().'/'.BP_GROUPS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Groups","bpmag");?></a>
+		<a href="<?php echo bp_get_root_domain().'/'.BP_GROUPS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Groups","cc");?></a>
 	</div>
 		<?php
 	 //endif;
@@ -506,10 +506,10 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	    ?>
 	 <div class="blog-search-result search-result">
 	 
-	  <h2 class="content-title"><?php _e("Blog Search","bpmag");?></h2>
+	  <h2 class="content-title"><?php _e("Blog Search","cc");?></h2>
 	   
 	   <?php locate_template( array( 'search-loop.php' ), true ) ;  ?>
-	   <a href="<?php echo bp_get_root_domain().'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Posts","bpmag");?></a>
+	   <a href="<?php echo bp_get_root_domain().'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Posts","cc");?></a>
 	</div>
 	   <?php
 	  }
@@ -521,9 +521,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	function cc_show_forums_search(){
 	    ?>
 	 <div class="forums-search-result search-result">
-	   <h2 class="content-title"><?php _e("Forums Search","bpmag");?></h2>
+	   <h2 class="content-title"><?php _e("Forums Search","cc");?></h2>
 	  <?php locate_template( array( 'forums/forums-loop.php' ), true ) ;  ?>
-	  <a href="<?php echo bp_get_root_domain().'/'.BP_FORUMS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched forum posts","bpmag");?></a>
+	  <a href="<?php echo bp_get_root_domain().'/'.BP_FORUMS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched forum posts","cc");?></a>
 	</div>
 	  <?php
 	  }
@@ -542,9 +542,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 		
 	    ?>
 	  <div class="blogs-search-result search-result">
-	  <h2 class="content-title"><?php _e("Blogs Search","bpmag");?></h2>
+	  <h2 class="content-title"><?php _e("Blogs Search","cc");?></h2>
 	  <?php locate_template( array( 'blogs/blogs-loop.php' ), true ) ;  ?>
-	  <a href="<?php echo bp_get_root_domain().'/'.BP_BLOGS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Blogs","bpmag");?></a>
+	  <a href="<?php echo bp_get_root_domain().'/'.BP_BLOGS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Blogs","cc");?></a>
 	 </div>
 	  <?php
 	  }
