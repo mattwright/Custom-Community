@@ -10,7 +10,7 @@ ob_start(); ?>
 <style type="text/css">
 
 <?php 
-$switch_css = switch_css();
+$switch_css = cc_switch_css();
 extract($switch_css);
 ?>
 		
@@ -157,8 +157,8 @@ font-style: italic;
 /* > Admin Bar
 -------------------------------------------------------------- */
 
-body#bp-default.activity-permalink #wp-admin-bar .padder, 
-body#bp-default #wp-admin-bar .padder {
+body#cc.activity-permalink #wp-admin-bar .padder, 
+body#cc #wp-admin-bar .padder {
 max-width:100%;
 min-width:100%;
 }
@@ -2791,7 +2791,7 @@ div.cc_slider li.ui-tabs-nav-item a:hover{
 background:#<?php echo $details_hover_bg_color; ?>;
 }
 div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected{
-background:url(<?php echo get_template_directory_uri() ?>/images/<?php color_scheme(); ?>/selected-item.png) top left no-repeat transparent;
+background:url(<?php echo get_template_directory_uri() ?>/images/<?php cc_color_scheme(); ?>/selected-item.png) top left no-repeat transparent;
 }
 div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected a{
 background:#<?php echo $container_alt_bg_color; ?>;

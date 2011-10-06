@@ -39,7 +39,7 @@ class Custom_Community{
 			BPUnifiedsearch::get_instance();//that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
 		
 		if(!is_admin())
-			$Theme_Generator = new Theme_Generator();
+			$Theme_Generator = new CC_Theme_Generator();
 	}
 	
 	/**

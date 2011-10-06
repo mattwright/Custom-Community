@@ -5,7 +5,7 @@
  * @package Custom Community
  * @since 1.8.3
  */
-function require_path($path){
+function cc_require_path($path){
 	Custom_Community::require_path($path);
 }
 	
@@ -103,7 +103,7 @@ function cc_change_groups_tab_order() {
  * @since 1.8.3
  */
 	
-function switch_css(){
+function cc_switch_css(){
 	global $cap;
 		
 	$switch_css =  array(
@@ -203,10 +203,10 @@ function switch_css(){
  * @package Custom Community
  * @since 1.8.3
  */
-function color_scheme(){
-	echo get_color_scheme();
+function cc_color_scheme(){
+	echo cc_get_color_scheme();
 }
-	function get_color_scheme(){
+	function cc_get_color_scheme(){
 		global $cap;
 		if(isset( $_GET['show_style']))
 			$cap->style_css = $_GET['show_style']; 

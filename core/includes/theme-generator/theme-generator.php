@@ -1,5 +1,5 @@
 <?php 
-class Theme_Generator{
+class CC_Theme_Generator{
 
 	var $detect;
 
@@ -27,7 +27,7 @@ class Theme_Generator{
 		// load predefined constants first
 		add_action( 'bp_head', array( $this, 'load_constants' ), 2 );
 		
-		//Theme_Generator::load_constants();
+		//CC_Theme_Generator::load_constants();
 		
 		// header.php
 		add_action( 'bp_before_header', array( $this, 'innerrim_before_header' ), 2 );
@@ -35,6 +35,7 @@ class Theme_Generator{
 		add_action( 'bp_before_access', array( $this, 'menue_enable_search' ), 2 );
 		add_action( 'bp_before_access', array( $this, 'header_logo' ), 2 );
 		add_action( 'bp_menu', array( $this, 'bp_menu' ), 2 );
+		add_filter( 'wp_page_menu_args', array( $this, 'remove_home_nav_from_fallback'), 100 ); 
 		add_action( 'bp_after_header', array( $this, 'slideshow_home' ), 2 );
 		add_action( 'favicon', array( $this, 'favicon' ), 2 );
 		
@@ -262,6 +263,12 @@ class Theme_Generator{
 		<?php endif;
 		}
 
+	
+	function remove_home_nav_from_fallback( $args ) {
+		$args['show_home'] = false;
+		return $args;
+	}
+	
 	/**
 	 * header: add the top slider to the homepage, all pages, or just on specific pages
 	 * 

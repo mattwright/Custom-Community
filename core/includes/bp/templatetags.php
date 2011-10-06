@@ -221,7 +221,7 @@ if ( !function_exists( 'bp_dtheme_show_notice' ) ) :
 function bp_dtheme_show_notice() {
 	global $pagenow;
 
-	// Bail if bp-default theme was not just activated
+	// Bail if cc theme was not just activated
 	if ( empty( $_GET['activated'] ) || ( 'themes.php' != $pagenow ) || !is_admin() )
 		return;
 
