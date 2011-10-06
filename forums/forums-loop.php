@@ -21,15 +21,15 @@
 	<table class="forum zebra">
 		<thead>
 			<tr>
-				<th id="th-title"><?php _e( 'Topic Title', 'buddypress' ) ?></th>
-				<th id="th-poster"><?php _e( 'Latest Poster', 'buddypress' ) ?></th>
+				<th id="th-title"><?php _e( 'Topic Title', 'cc' ) ?></th>
+				<th id="th-poster"><?php _e( 'Latest Poster', 'cc' ) ?></th>
 
 				<?php if ( !bp_is_group_forum() ) : ?>
-					<th id="th-group"><?php _e( 'Posted In Group', 'buddypress' ) ?></th>
+					<th id="th-group"><?php _e( 'Posted In Group', 'cc' ) ?></th>
 				<?php endif; ?>
 
-				<th id="th-postcount"><?php _e( 'Posts', 'buddypress' ) ?></th>
-				<th id="th-freshness"><?php _e( 'Freshness', 'buddypress' ) ?></th>
+				<th id="th-postcount"><?php _e( 'Posts', 'cc' ) ?></th>
+				<th id="th-freshness"><?php _e( 'Freshness', 'cc' ) ?></th>
 
 				<?php do_action( 'bp_directory_forums_extra_cell_head' ) ?>
 
@@ -42,7 +42,7 @@
 
 			<tr class="<?php bp_the_topic_css_class() ?>">
 				<td class="td-title">
-					<a class="topic-title" href="<?php bp_the_topic_permalink() ?>" title="<?php bp_the_topic_title() ?> - <?php _e( 'Permalink', 'buddypress' ) ?>">
+					<a class="topic-title" href="<?php bp_the_topic_permalink() ?>" title="<?php bp_the_topic_title() ?> - <?php _e( 'Permalink', 'cc' ) ?>">
 						<?php bp_the_topic_title() ?>
 					</a>
 				</td>
@@ -92,7 +92,7 @@
 <?php else: ?>
 
 	<div id="message" class="info">
-		<p><?php _e( 'Sorry, there were no forum topics found.', 'buddypress' ) ?></p>
+		<p><?php _e( 'Sorry, there were no forum topics found.', 'cc' ) ?></p>
 	</div>
 
 <?php endif;?>

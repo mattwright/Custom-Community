@@ -30,7 +30,7 @@
 		
 		<?php do_action( 'bp_after_blog_page' ) ?>
 		
-		<?php edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
+		<?php edit_post_link( __( 'Edit this page.', 'cc' ), '<p class="edit-link">', '</p>'); ?>
 		
 		<!-- instead of comment_form() we use comments_template(). If you want to fall back to wp, change this function call ;-) -->
 		<?php comments_template(); ?>
