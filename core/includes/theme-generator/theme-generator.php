@@ -665,13 +665,15 @@ class Theme_Generator{
 		}
 		
 		<?php if($cap->bg_loginpage_body_img || $cap->bg_loginpage_body_color){ ?>
-			html, .wp-dialog {
+			html, boddy, .login {
 				<?php if($cap->bg_loginpage_body_img){ ?>
 					background-image: url('<?php echo $cap->bg_loginpage_body_img; ?>');
 				<?php } ?>
 				<?php if($cap->bg_loginpage_body_color){ ?>
 					background-color: #<?php echo $cap->bg_loginpage_body_color; ?>;
 				<?php } ?>
+				height: 100%;
+				padding-top: 0px;
 			}
 		<?php } ?>
 		
@@ -680,6 +682,10 @@ class Theme_Generator{
 			color:#<?php echo $cap->bg_loginpage_body_color; ?>;
 		}
 		<?php } ?>
+		#login{
+		    margin: auto;
+    		padding-top: 30px;
+		}
 		.login #nav a {
 			color:#777 !important;
 		}
