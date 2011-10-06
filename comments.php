@@ -1,210 +1,57 @@
+	<div id="comments">
+	<?php if ( post_password_required() ) : ?>
+		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'cc' ); ?></p>
+	</div><!-- #comments -->
 	<?php
-		if ( post_password_required() ) :
-			echo '<h3 class="comments-header">' . __('Password Protected', 'cc') . '</h3>';
-			echo '<p class="alert password-protected">' . __('Enter the password to view comments.', 'cc') . '</p>';
+			/* Stop the rest of comments.php from being processed,
+			 * but don't kill the script entirely -- we still have
+			 * to fully load the template.
+			 */
 			return;
 		endif;
-
-		if ( is_page() && !have_comments() && !comments_open() && !pings_open() )
-			return;
 	?>
 
+	<?php // You can start editing here -- including this comment! ?>
+
 	<?php if ( have_comments() ) : ?>
-
-		<div id="comments">
-
+		<h2 id="comments-title">
 			<?php
-			$numTrackBacks = 0; $numComments = 0;
-			foreach ( (array)$comments as $comment ) if ( get_comment_type() != "comment") $numTrackBacks++; else $numComments++;
+				printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'cc' ),
+					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
+		</h2>
 
-			<span class="title"><?php the_title() ?></span>
-			<h3 id="comments"><?php comments_number( 'No Comments', 'One Comment', $numComments . ' Comments' );?></h3>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-above">
+			<h1 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cc' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cc' ) ); ?></div>
+		</nav>
+		<?php endif; // check for comment navigation ?>
 
-			<?php do_action( 'bp_before_blog_comment_list' ) ?>
+		<ol class="commentlist">
+			<?php
+				wp_list_comments();
+			?>
+		</ol>
 
-			<ol class="commentlist">
-			
-			<?php if(defined('BP_VERSION')){ ?>
-				<?php wp_list_comments( array( 'callback' => 'bp_dtheme_blog_comments' ) ); ?>
-			<?php } else {?>		
-				<?php if ( have_comments() ) : ?>
-					
-					<div class="navigation">
-						<div class="alignleft"><?php previous_comments_link() ?></div>
-						<div class="alignright"><?php next_comments_link() ?></div>
-					</div>
-	
-					<ol class="commentlist">
-					<?php wp_list_comments(); ?>
-					</ol>
-				
-					<div class="navigation">
-						<div class="alignleft"><?php previous_comments_link() ?></div>
-						<div class="alignright"><?php next_comments_link() ?></div>
-					</div>
-				 <?php else : // this is displayed if there are no comments so far ?>
-				
-					<?php if ( comments_open() ) : ?>
-						<!-- If comments are open, but there are no comments. -->
-						<p class="nocomments">No comments yet.</p>
-					 <?php else : // comments are closed ?>
-						<!-- If comments are closed. -->
-						<p class="nocomments">Comments are closed.</p>
-				
-					<?php endif; ?>
-				<?php endif; ?>
-			<?php } ?>		
-			
-			</ol><!-- .comment-list -->
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-below">
+			<h1 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cc' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cc' ) ); ?></div>
+		</nav>
+		<?php endif; // check for comment navigation ?>
 
-			<?php do_action( 'bp_after_blog_comment_list' ) ?>
-
-			<?php if ( get_option( 'page_comments' ) ) : ?>
-
-				<div class="comment-navigation paged-navigation">
-
-					<?php paginate_comments_links(); ?>
-
-				</div>
-
-			<?php endif; ?>
-
-		</div><!-- #comments -->
-
-	<?php else : ?>
-
-		<?php if ( pings_open() && !comments_open() && is_single() ) : ?>
-
-			<p class="comments-closed pings-open">
-				<?php printf( __('Comments are closed, but <a href="%1$s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'cc'), trackback_url( '0' ) ); ?>
-			</p>
-
-		<?php elseif ( !comments_open() && is_single() ) : ?>
-
-			<p class="comments-closed">
-				<?php _e('Comments are closed.', 'cc'); ?>
-			</p>
-
-		<?php endif; ?>
-
+	<?php
+		/* If there are no comments and comments are closed, let's leave a little note, shall we?
+		 * But we don't want the note on pages or post types that do not support comments.
+		 */
+		elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
+		<p class="nocomments"><?php _e( 'Comments are closed.', 'cc' ); ?></p>
 	<?php endif; ?>
 
-		<?php if ( comments_open() ) : ?>
+	<?php comment_form(); ?>
 
-		<div id="respond">
-
-			<div class="comment-avatar-box">
-				<div class="avb">
-				<?php if(defined('BP_VERSION')){ ?>
-					<?php if ( bp_loggedin_user_id() ) : ?>
-						<a href="<?php echo bp_loggedin_user_domain() ?>">
-							<?php echo get_avatar( bp_loggedin_user_id(), 50 ); ?>
-						</a>
-					
-					<?php else : ?>
-						<?php echo get_avatar( 0, 50 ); ?>
-					<?php endif; ?>
-					<?php } else { echo get_avatar( 0, 50 ); }?>
-				</div>
-			</div>
-
-			<div class="comment-content">
-				
-				<h3 id="reply" class="comments-header">
-					<?php comment_form_title( __( 'Leave a Reply', 'cc' ), __( 'Leave a Reply to %s', 'cc' ), true ); ?>
-				</h3>
-
-				<p id="cancel-comment-reply">
-					<?php cancel_comment_reply_link( __( 'Click here to cancel reply.', 'cc' ) ); ?>
-				</p>
-
-				<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
-
-					<p class="alert">
-						<?php printf( __('You must be <a href="%1$s" title="Log in">logged in</a> to post a comment.', 'cc'), wp_login_url( get_permalink() ) ); ?>
-					</p>
-
-				<?php else : ?>
-
-					<?php do_action( 'bp_before_blog_comment_form' ) ?>
-
-					<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform" class="standard-form">
-<?php do_action( 'comment_form_top', $post->ID ); ?>
-			
-						<?php if ( $user_ID ) : ?>
-							<?php if(defined('BP_VERSION')){ ?>
-								<p class="log-in-out">
-									<?php printf( __('Logged in as <a href="%1$s" title="%2$s">%2$s</a>.', 'cc'), bp_loggedin_user_domain(), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e('Log out of this account', 'cc'); ?>"><?php _e('Log out &rarr;', 'cc'); ?></a>
-								</p>
-							<?php } ?>
-
-						<?php else : ?>
-
-							<?php $req = get_option( 'require_name_email' ); ?>
-
-							<p class="form-author">
-								<label for="author"><?php _e('Name', 'cc'); ?> <?php if ( $req ) : ?><span class="required"><?php _e('*', 'cc'); ?></span><?php endif; ?></label>
-								<input type="text" class="text-input" name="author" id="author" value="<?php echo $comment_author; ?>" size="40" tabindex="1" />
-							</p>
-
-							<p class="form-email">
-								<label for="email"><?php _e('Email', 'cc'); ?>  <?php if ( $req ) : ?><span class="required"><?php _e('*', 'cc'); ?></span><?php endif; ?></label>
-								<input type="text" class="text-input" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="40" tabindex="2" />
-							</p>
-
-							<p class="form-url">
-								<label for="url"><?php _e('Website', 'cc'); ?></label>
-								<input type="text" class="text-input" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="40" tabindex="3" />
-							</p>
-
-						<?php endif; ?>
-
-						<div class="form-textarea">
-							<label for="comment"><?php _e('Comment', 'cc'); ?></label>
-							<textarea name="comment" id="comment" cols="60" rows="10" tabindex="4"></textarea>
-						</div>
-
-						<?php do_action( 'bp_blog_comment_form' ) ?>
-
-						<p class="form-submit">
-							<input class="submit-comment button" name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit', 'cc'); ?>" />
-							<?php comment_id_fields(); ?>
-						</p>
-
-						<div class="comment-action">
-							<?php do_action( 'comment_form', $post->ID ); ?>
-						</div>
-
-					</form>
-
-					<?php do_action( 'bp_after_blog_comment_form' ) ?>
-
-				<?php endif; ?>
-
-			</div><!-- .comment-content -->
-		</div><!-- #respond -->
-
-		<?php endif; ?>
-
-	<?php if ( isset( $numTrackBacks ) ): ?>
-			<div id="trackbacks">
-
-				<span class="title"><?php the_title() ?></span>
-
-				<?php if ( 1 == $numTrackBacks ) : ?>
-					<h3><?php printf( __( '%d Trackback', 'cc' ), $numTrackBacks ) ?></h3>
-				<?php else : ?>
-					<h3><?php printf( __( '%d Trackbacks', 'cc' ), $numTrackBacks ) ?></h3>
-				<?php endif; ?>
-
-				<ul id="trackbacklist">
-					<?php foreach ( (array)$comments as $comment ) : ?>
-
-						<?php if ( get_comment_type() != 'comment' ) : ?>
-							<li><h5><?php comment_author_link() ?></h5><em>on <?php comment_date() ?></em></li>
-	  					<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		<?php endif; ?>
+</div><!-- #comments -->
