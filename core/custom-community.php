@@ -86,16 +86,6 @@ class Custom_Community{
 	}	
 	
 	/**
-	 * loads the textdomain for the plugin
-	 *
-	 * @package Custom Community
-	 * @since 1.8.3
-	 */	 
-	function load_plugin_textdomain() {
-		load_plugin_textdomain( 'cc', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	}
-	
-	/**
 	 * includes files needed by custom community
 	 *
 	 * @package Custom Community
@@ -137,6 +127,12 @@ class Custom_Community{
 	     if( is_admin() )
 	        return;
 	
+		// on single blog post pages with comments open and threaded comments
+	    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { 
+	        // enqueue the javascript that performs in-link comment reply fanciness
+	        wp_enqueue_script( 'comment-reply' ); 
+	    }
+	        
 	    wp_deregister_script( 'ep-jquery-css' );
 	        
 	    wp_enqueue_script( 'jquery' );

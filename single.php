@@ -89,6 +89,8 @@
 		
 						<div class="clear"></div>
 		
+						<?php edit_post_link( __( 'Edit this entry.', 'cc' ), '<p>', '</p>'); ?>
+		
 						<?php comments_template(); ?>
 			
 						<?php endwhile; else: ?>
