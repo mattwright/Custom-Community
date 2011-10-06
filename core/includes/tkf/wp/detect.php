@@ -78,7 +78,7 @@ class TK_WP_Detect {
 		// if is wordpress mu
 		if( $this->tk_get_wp_type() == "mu" ) {
 			if( is_admin() ) $page_type = 'mu-admin'; // Whats happening here on mu blogs?
-			if( ( is_home() || is_front_page()) && !tk_is_signup() ) $page_type = 'mu-home';
+			if( ( is_home() || is_front_page()) && !$this->tk_is_signup() ) $page_type = 'mu-home';
 			if( is_single() ) $page_type = 'mu-post';	
 			if( is_page() ) $page_type = 'mu-page';	 	
 			if( is_sticky() ) $page_type = 'mu-sticky';	 				
@@ -155,13 +155,13 @@ class TK_WP_Detect {
 		if ( defined( 'BP_REGISTER_SLUG' ) ) $component_slugs[ BP_REGISTER_SLUG ] = "register";
 		if ( defined( 'BP_ACTIVATION_SLUG' ) ) $component_slugs[ BP_ACTIVATION_SLUG ] = "activate";
 		if ( defined( 'BP_SEARCH_SLUG' ) ) $component_slugs[ BP_SEARCH_SLUG ] = "search";
-		
-		if( $component_slugs[ $slug ] != '' ){
+	
+		if( !empty($component_slugs[ $slug ]) ){
 			$component = $component_slugs[ $slug ];
 		}else{
 			$component = $slug;
 		}
-		return $component;	
+	return $component;	
 	}
 
 	function tk_bp_is_active_component( $slug ){

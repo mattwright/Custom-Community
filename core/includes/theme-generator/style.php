@@ -1964,9 +1964,9 @@ color: #<?php echo $font_color; ?>;
 font-size: 11px;
 }
 div#topic-meta div.admin-links {
-bottom: 0;
-right: 0;
-top: auto;
+    bottom: 0;
+    margin-top: -52px;
+    right: 0;
 }
 
 div#topic-meta {
@@ -1974,8 +1974,9 @@ position: relative;
 padding: 5px 0;
 }
 div#topic-meta h3 {
-font-size: 20px;
+    font-size: 20px;
 }
+
 
 div#new-topic-post {
 margin: 0;
@@ -2181,6 +2182,23 @@ width:50px;
 /* > WordPress & BuddyPress Comment Styles
 -------------------------------------------------------------- */
 
+div#comments nav {
+height: auto;
+overflow: auto;
+padding-bottom: 15px;
+}
+
+div.nav-previous {
+width: 50%; 
+float: left; 
+text-align: left; 
+}
+div.nav-next {
+float: left;
+width: 50%;  
+text-align: right; 
+}
+
 div.comment-avatar-box img {
 float: none;
 border: 1px solid #<?php echo $body_bg_color; ?>;
@@ -2201,7 +2219,7 @@ margin-top: 30px;
 
 #comments h3, #trackbacks h3, #respond h3 {
 font-size: 20px;
-margin: 5px 0 25px 0;
+margin: 5px 0 15px 0;
 font-weight: normal;
 color: #<?php echo $font_color; ?>;
 }
@@ -2230,7 +2248,7 @@ border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 
 .commentlist ul li {
 padding: 0 12px; 
-background: #<?php echo $container_alt_bg_color; ?>;
+background: #<?php echo $details_hover_bg_color; ?>;
 }
 .commentlist ul ul li {
 padding: 0 12px; 
@@ -2268,6 +2286,14 @@ div.post .commentlist div.comment-content ul {
 div.post .commentlist div.comment-content li {
 	border: none; 
 	margin-bottom: 0;
+}
+
+p.form-allowed-tags {
+    display: none;
+}
+
+#comments textarea {
+    width: 98%;
 }
 
 /* > Additional WP comment styles 

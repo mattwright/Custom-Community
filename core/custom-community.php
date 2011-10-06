@@ -27,7 +27,7 @@ class Custom_Community{
 		add_action( 'cc_init', array( $this, 'includes' ), 100, 4 );
 		
 		// Includes the necessary js
-		add_action('wp_enqueue_scripts', array( $this, 'cc_js_site' ), 2 );
+		add_action('wp_enqueue_scripts', array( $this, 'enqueue_script' ), 2 );
 		
 		// Let plugins know that Custom Community has started loading
 		$this->init_hook();
@@ -123,14 +123,21 @@ class Custom_Community{
 	}
 	
 	### add css and js
- 	function cc_js_site() {
+ 	function enqueue_script() {
 	     if( is_admin() )
 	        return;
 	
 		// on single blog post pages with comments open and threaded comments
-	    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { 
+		if(defined('BP_VERSION')){
+			if ( is_singular() && bp_is_blog_page() && get_option( 'thread_comments' ) ) {
+		    // enqueue the javascript that performs in-link comment reply fanciness
+	        wp_enqueue_script( 'comment-reply' ); 
+	    	}
+	    } else {
+			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { 
 	        // enqueue the javascript that performs in-link comment reply fanciness
 	        wp_enqueue_script( 'comment-reply' ); 
+	    	}
 	    }
 	        
 	    wp_deregister_script( 'ep-jquery-css' );

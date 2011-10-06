@@ -23,7 +23,7 @@
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-above">
-			<h1 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h1>
+			<h3 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h3>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cc' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cc' ) ); ?></div>
 		</nav>
@@ -37,7 +37,7 @@
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below">
-			<h1 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h1>
+			<h3 class="assistive-text"><?php _e( 'Comment navigation', 'cc' ); ?></h3>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cc' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cc' ) ); ?></div>
 		</nav>
