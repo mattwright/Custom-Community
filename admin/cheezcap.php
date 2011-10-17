@@ -74,6 +74,9 @@ function cap_add_admin() {
 				break;
 			case 'Import':
 				$method = 'Import';
+				if(empty($_FILES['file']['tmp_name']))
+					return ;
+				
 				$data = unserialize( implode ('', file ($_FILES['file']['tmp_name'])));
 				break;
 		}

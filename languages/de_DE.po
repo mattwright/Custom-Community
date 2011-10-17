@@ -351,7 +351,7 @@ msgid "Updates"
 msgstr ""
 
 #: activity/index.php:101
-#: forums/forums-loop.php:40
+#: forums/forums-loop.php:31
 #: members/single/activity.php:27
 #@ cc
 msgid "Posts"
@@ -500,7 +500,6 @@ msgstr ""
 #: search-loop.php:43
 #: search.php:17
 #: search.php:53
-#: single.php:13
 #@ cc
 msgid "&larr; Previous Entries"
 msgstr ""
@@ -512,7 +511,6 @@ msgstr ""
 #: search-loop.php:44
 #: search.php:18
 #: search.php:54
-#: single.php:14
 #@ cc
 msgid "Next Entries &rarr;"
 msgstr ""
@@ -522,7 +520,7 @@ msgstr ""
 #: index.php:20
 #: search.php:30
 #: search.php:37
-#: single.php:48
+#: single.php:44
 #, php-format
 #@ cc
 msgid "by %s"
@@ -531,7 +529,7 @@ msgstr ""
 #: archive.php:32
 #: index.php:28
 #: search.php:35
-#: single.php:58
+#: single.php:54
 #@ cc
 msgid "Permanent Link to"
 msgstr ""
@@ -539,7 +537,7 @@ msgstr ""
 #: archive.php:34
 #: index.php:30
 #: search.php:37
-#: single.php:60
+#: single.php:56
 #@ cc
 msgid "in"
 msgstr ""
@@ -547,7 +545,7 @@ msgstr ""
 #: archive.php:41
 #: index.php:36
 #: search.php:43
-#: single.php:78
+#: single.php:74
 #@ cc
 msgid "Tags: "
 msgstr ""
@@ -558,7 +556,7 @@ msgstr ""
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:83
+#: single.php:79
 #@ cc
 msgid "No Comments &#187;"
 msgstr ""
@@ -569,7 +567,7 @@ msgstr ""
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:83
+#: single.php:79
 #@ cc
 msgid "1 Comment &#187;"
 msgstr ""
@@ -580,7 +578,7 @@ msgstr ""
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:83
+#: single.php:79
 #@ cc
 msgid "% Comments &#187;"
 msgstr ""
@@ -605,7 +603,7 @@ msgstr ""
 #: attachment.php:27
 #: full-width.php:29
 #: page.php:18
-#: single.php:71
+#: single.php:67
 #@ cc
 msgid "<p><strong>Pages:</strong> "
 msgstr ""
@@ -696,111 +694,26 @@ msgstr ""
 msgid "Alphabetical"
 msgstr ""
 
-#: comments.php:3
-#@ cc
-msgid "Password Protected"
-msgstr ""
-
-#: comments.php:4
-#@ cc
-msgid "Enter the password to view comments."
-msgstr ""
-
-#: comments.php:80
-#, php-format
-#@ cc
-msgid "Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post\">trackbacks</a> and pingbacks are open."
-msgstr ""
-
-#: comments.php:86
+#: comments.php:52
 #@ cc
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:115
-#@ cc
-msgid "Leave a Reply"
-msgstr ""
-
-#: comments.php:115
-#, php-format
-#@ cc
-msgid "Leave a Reply to %s"
-msgstr ""
-
-#: comments.php:119
-#@ cc
-msgid "Click here to cancel reply."
-msgstr ""
-
-#: comments.php:125
-#, php-format
-#@ cc
-msgid "You must be <a href=\"%1$s\" title=\"Log in\">logged in</a> to post a comment."
-msgstr ""
-
-#: comments.php:138
-#, php-format
-#@ cc
-msgid "Logged in as <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
-msgstr ""
-
-#: comments.php:138
-#@ cc
-msgid "Log out of this account"
-msgstr ""
-
-#: comments.php:138
-#@ cc
-msgid "Log out &rarr;"
-msgstr ""
-
-#: comments.php:147
 #: core/includes/bp/templatetags.php:300
 #: members/single/profile/profile-wp.php:15
 #@ cc
 msgid "Name"
 msgstr ""
 
-#: comments.php:147
-#: comments.php:152
-#@ cc
-msgid "*"
-msgstr ""
-
-#: comments.php:152
 #: core/includes/bp/templatetags.php:302
 #@ cc
 msgid "Email"
 msgstr ""
 
-#: comments.php:157
 #: core/includes/bp/templatetags.php:304
 #: members/single/profile/profile-wp.php:33
 #@ cc
 msgid "Website"
-msgstr ""
-
-#: comments.php:164
-#@ cc
-msgid "Comment"
-msgstr ""
-
-#: comments.php:171
-#@ cc
-msgid "Submit"
-msgstr ""
-
-#: comments.php:196
-#, php-format
-#@ cc
-msgid "%d Trackback"
-msgstr ""
-
-#: comments.php:198
-#, php-format
-#@ cc
-msgid "%d Trackbacks"
 msgstr ""
 
 #: core/includes/bp/buddydev-search.php:52
@@ -882,92 +795,92 @@ msgstr ""
 msgid "Leave a reply"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:156
+#: core/includes/theme-generator/theme-generator.php:157
 #: searchform.php:5
 #@ cc
 msgid "Search"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:183
-#: core/includes/theme-generator/theme-generator.php:187
-#: core/includes/theme-generator/theme-generator.php:192
-#: core/includes/theme-generator/theme-generator.php:195
-#: core/includes/theme-generator/theme-generator.php:216
-#: core/includes/theme-generator/theme-generator.php:224
+#: core/includes/theme-generator/theme-generator.php:184
+#: core/includes/theme-generator/theme-generator.php:188
+#: core/includes/theme-generator/theme-generator.php:193
+#: core/includes/theme-generator/theme-generator.php:196
+#: core/includes/theme-generator/theme-generator.php:217
+#: core/includes/theme-generator/theme-generator.php:225
 #@ cc
 msgid "Home"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:229
+#: core/includes/theme-generator/theme-generator.php:230
 #: core/includes/wp/widgets.php:34
 #@ cc
 msgid "Community"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:233
+#: core/includes/theme-generator/theme-generator.php:234
 #: core/includes/wp/widgets.php:38
 #@ cc
 msgid "Activity"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:238
+#: core/includes/theme-generator/theme-generator.php:239
 #: core/includes/wp/widgets.php:43
 #: groups/single/admin.php:229
 #@ cc
 msgid "Members"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:243
+#: core/includes/theme-generator/theme-generator.php:244
 #: core/includes/wp/widgets.php:48
 #@ cc
 msgid "Groups"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:247
+#: core/includes/theme-generator/theme-generator.php:248
 #: core/includes/wp/widgets.php:53
 #@ cc
 msgid "Forums"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:254
+#: core/includes/theme-generator/theme-generator.php:255
 #: core/includes/wp/widgets.php:59
 #@ cc
 msgid "Blogs"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:350
+#: core/includes/theme-generator/theme-generator.php:357
 #@ cc
 msgid "20 widget areas all over the site"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:363
+#: core/includes/theme-generator/theme-generator.php:370
 #: links.php:16
 #: sidebar.php:45
 #@ cc
 msgid "Links"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:376
+#: core/includes/theme-generator/theme-generator.php:383
 #: sidebar.php:39
 #@ cc
 msgid "Archives"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:389
+#: core/includes/theme-generator/theme-generator.php:396
 #: sidebar.php:51
 #@ cc
 msgid "Meta"
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:403
+#: core/includes/theme-generator/theme-generator.php:410
 #, php-format
 #@ cc
 msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
 msgstr ""
 
-#: core/includes/theme-generator/theme-generator.php:529
-#: core/includes/theme-generator/theme-generator.php:531
-#: single.php:67
+#: core/includes/theme-generator/theme-generator.php:536
+#: core/includes/theme-generator/theme-generator.php:538
+#: single.php:63
 #@ cc
 msgid "Read the rest of this entry &rarr;"
 msgstr ""
@@ -1039,36 +952,17 @@ msgstr ""
 msgid "Forum Topic Tags"
 msgstr ""
 
-#: forums/forums-loop.php:39
-#@ cc
-msgid "Topic"
-msgstr ""
-
-#: forums/forums-loop.php:41
+#: forums/forums-loop.php:32
 #@ cc
 msgid "Freshness"
 msgstr ""
 
-#: forums/forums-loop.php:54
+#: forums/forums-loop.php:45
 #@ cc
 msgid "Permalink"
 msgstr ""
 
-#. translators: "started by [poster] in [forum]
-#: forums/forums-loop.php:61
-#, php-format
-#@ cc
-msgid "Started by %1$s"
-msgstr ""
-
-#. translators: "started by [poster] in [forum]
-#: forums/forums-loop.php:72
-#, php-format
-#@ cc
-msgid "in %1$s"
-msgstr ""
-
-#: forums/forums-loop.php:122
+#: forums/forums-loop.php:95
 #@ cc
 msgid "Sorry, there were no forum topics found."
 msgstr ""
@@ -1224,31 +1118,31 @@ msgid "%s said %s ago:"
 msgstr ""
 
 #: forums/single/topic.php:117
-#: groups/single/forum/topic.php:91
+#: groups/single/forum/topic.php:81
 #@ cc
 msgid "Permanent link to this post"
 msgstr ""
 
 #: forums/single/topic.php:153
-#: groups/single/forum/topic.php:127
+#: groups/single/forum/topic.php:117
 #@ cc
 msgid "Add a reply:"
 msgstr ""
 
 #: forums/single/topic.php:158
-#: groups/single/forum/topic.php:132
+#: groups/single/forum/topic.php:122
 #@ cc
 msgid "Post Reply"
 msgstr ""
 
 #: forums/single/topic.php:169
-#: groups/single/forum/topic.php:143
+#: groups/single/forum/topic.php:133
 #@ cc
 msgid "This topic is closed, replies are no longer accepted."
 msgstr ""
 
 #: forums/single/topic.php:184
-#: groups/single/forum/topic.php:157
+#: groups/single/forum/topic.php:147
 #@ cc
 msgid "There are no posts for this topic."
 msgstr ""
@@ -1260,8 +1154,7 @@ msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
 msgstr ""
 
 #: full-width.php:42
-#: page.php:33
-#: single.php:92
+#: single.php:91
 #@ cc
 msgid "Edit this entry."
 msgstr ""
@@ -1698,18 +1591,13 @@ msgstr ""
 msgid "Delete Group"
 msgstr ""
 
-#: groups/single/forum/topic.php:31
-#@ cc
-msgid "Topic tags:"
-msgstr ""
-
-#: groups/single/forum/topic.php:77
+#: groups/single/forum/topic.php:67
 #, php-format
 #@ cc
 msgid "%1$s said %2$s:"
 msgstr ""
 
-#: groups/single/forum/topic.php:122
+#: groups/single/forum/topic.php:112
 #@ cc
 msgid "You will auto join this group when you reply to this topic."
 msgstr ""
@@ -1769,33 +1657,8 @@ msgstr ""
 msgid "Send Invites"
 msgstr ""
 
-#: header.php:17
-#@ cc
-msgid "Site Wide Activity RSS Feed"
-msgstr ""
-
-#: header.php:21
-#@ cc
-msgid "Activity RSS Feed"
-msgstr ""
-
-#: header.php:25
-#@ cc
-msgid "Group Activity RSS Feed"
-msgstr ""
-
-#: header.php:28
-#@ cc
-msgid "Blog Posts RSS Feed"
-msgstr ""
-
-#: header.php:29
-#@ cc
-msgid "Blog Posts Atom Feed"
-msgstr ""
-
 #: index.php:30
-#: single.php:60
+#: single.php:56
 #, php-format
 #@ cc
 msgid " by %s"
@@ -2263,8 +2126,71 @@ msgstr ""
 msgid "Search by Tags!"
 msgstr ""
 
-#: single.php:98
+#: single.php:96
 #@ cc
 msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: comments.php:3
+#@ cc
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:19
+#, php-format
+#@ cc
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:26
+#: comments.php:40
+#@ cc
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:27
+#: comments.php:41
+#@ cc
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:28
+#: comments.php:42
+#@ cc
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: forums/forums-loop.php:24
+#@ cc
+msgid "Topic Title"
+msgstr ""
+
+#: forums/forums-loop.php:25
+#@ cc
+msgid "Latest Poster"
+msgstr ""
+
+#: forums/forums-loop.php:28
+#@ cc
+msgid "Posted In Group"
+msgstr ""
+
+#: page.php:33
+#@ cc
+msgid "Edit this page."
+msgstr ""
+
+#: single.php:86
+#@ cc
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:87
+#@ cc
+msgctxt "Next post link"
+msgid "&rarr;"
 msgstr ""
 

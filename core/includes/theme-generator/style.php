@@ -776,9 +776,17 @@ div.item-list-tabs ul li span {
 	color: #<?php echo $font_color; ?>;
 }
 div.item-list-tabs ul li a span {
-display: inline;
-padding: 0;
-color: inherit;
+    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px;
+    color: inherit;
+    display: inline;
+    font-size: 11px;
+    padding: 2px 4px;
+}
+div.item-list-tabs ul li.selected a span {
+    background: none repeat scroll 0 0 #<?php echo $container_bg_color; ?>;
 }
 div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
 -moz-border-radius-topleft:6px;
@@ -2811,8 +2819,8 @@ width: 756px;
 }
 div.cc_slider .featured .ui-tabs-panel .info{
 position:absolute;
-top:180px; left:0;
-height:70px;
+top:170px; left:0;
+height:80px;
 background: url(<?php echo get_template_directory_uri() ?>/images/slideshow/transparent-bg.png);
 width:100%;
 }

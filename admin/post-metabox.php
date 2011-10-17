@@ -1,34 +1,29 @@
-<?php 
-add_action('edit_form_advanced', 'cc_post_metabox');
-function cc_post_metabox(){ 	
-	global $post;
+<?php
+
+add_action( 'add_meta_boxes', 'cc_post_metabox' );
+function cc_post_metabox() {
+    add_meta_box( 
+        'cc_post_metabox',
+        __( 'Custom Community Post Settings', 'cc_pro' ),
+        'cc_post_metabox_inner',
+        'post' 
+    );
+}
+
+function cc_post_metabox_inner( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'cc_post_metabox_noncename' );
+
+  // The actual fields for data entry
+ 	global $post;
 	
    	$cc_post_options=cc_get_post_meta();
    	
 	$option_post_templates[0] = "img-left-content-right";
-	if(defined('is_pro')){
-		$option_post_templates[1] = "img-right-content-left";
-		$option_post_templates[2] = "img-over-content";
-		$option_post_templates[3] = "img-under-content";
-	} else {
-		$option_post_templates[1] = "more options in the pro version";
-	}
+	$option_post_templates[1] = "more options in the pro version";
 	
 	?>
-
-	<style type="text/css">
-	#cc_page_template_amount{
-		width:40px;
-	}
-	</style>
-	<div id="cc_page_metabox" class="postbox">
-	<div class="handlediv" title="<?php _e('klick','cc'); ?>">
-		<br />
-	</div>
-	<h3 class="hndle"><?php _e('Custom Community settings','cc')?></h3>
-	<div class="inside">
-	
-	<?php wp_nonce_field('cc_post_metabox','cc_post_meta_nonce'); ?>
 
 	<b>Use a post template for this post</b>
 	<p>You can select a predefined post template:<br />
@@ -53,36 +48,75 @@ function cc_post_metabox(){
 	<input name="cc_post_template_comments_info" id="cc_post_template_comments_info" type="checkbox" <?php checked( $cc_post_options['cc_post_template_comments_info'], 1 ); ?> value="1" />
 	</p>
 	
-	</div>	
-	</div>
-<?php
+	<?php
 }
- 
-add_action('save_post','cc_add_post_meta');
-function cc_add_post_meta(){
 
+add_action( 'save_post', 'cc_post_save_postdata' );
+function cc_post_save_postdata( $post_id ) {
 	global $post;
 	
-	if(!isset($post))
+	if(empty($post->post_type))
 		return;
 	
-	if ($post->post_type == 'page')
+	if ($post->post_type != 'post')
 		return;
 	
-	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
-	{
-	     return $post_id;
-	}
 	
-	update_post_meta($post->ID, "_cc_post_template_on",cc_clean_input( $_POST["cc_post_template_on"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_post_template_type",cc_clean_input( $_POST["cc_post_template_type"], 'text') );
-	update_post_meta($post->ID, "_cc_post_template_avatar",cc_clean_input( $_POST["cc_post_template_avatar"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_post_template_date",cc_clean_input( $_POST["cc_post_template_date"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_post_template_tags",cc_clean_input( $_POST["cc_post_template_tags"], 'checkbox') );
-	update_post_meta($post->ID, "_cc_post_template_comments_info",cc_clean_input( $_POST["cc_post_template_comments_info"], 'checkbox') );
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
 
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+
+  if ( !wp_verify_nonce( $_POST['cc_post_metabox_noncename'], plugin_basename( __FILE__ ) ) )
+      return;
+
+  
+  // Check permissions
+  if ( 'page' == $_POST['post_type'] ) 
+  {
+    if ( !current_user_can( 'edit_page', $post_id ) )
+        return;
+  }
+  else
+  {
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return;
+  }
+
+  if(empty($_POST["cc_post_template_on"]))
+		$_POST["cc_post_template_on"] = 0;
+		
+	update_post_meta($post->ID, "_cc_post_template_on",cc_clean_input( $_POST["cc_post_template_on"], 'checkbox') );
+	
+	if(!empty($_POST["cc_post_template_type"]))
+		update_post_meta($post->ID, "_cc_post_template_type",cc_clean_input( $_POST["cc_post_template_type"], 'text') );
+
+	if(empty($_POST["cc_post_template_avatar"]))
+		$_POST["cc_post_template_avatar"] = 0;
+	
+	update_post_meta($post->ID, "_cc_post_template_avatar",cc_clean_input( $_POST["cc_post_template_avatar"], 'checkbox') );
+	
+	if(empty($_POST["cc_post_template_date"]))
+		$_POST["cc_post_template_date"] = 0;
+		
+	update_post_meta($post->ID, "_cc_post_template_date",cc_clean_input( $_POST["cc_post_template_date"], 'checkbox') );
+
+	if(empty($_POST["cc_post_template_tags"]))
+		$_POST["cc_post_template_tags"]  = 0;
+	
+	update_post_meta($post->ID, "_cc_post_template_tags",cc_clean_input( $_POST["cc_post_template_tags"], 'checkbox') );
+
+	if(empty($_POST["cc_post_template_comments_info"]))
+		$_POST["cc_post_template_comments_info"]  = 0;
+	
+	update_post_meta($post->ID, "_cc_post_template_comments_info",cc_clean_input( $_POST["cc_post_template_comments_info"], 'checkbox') );
+  
+  
 }
- 
+
 function cc_get_post_meta(){
 	global $post;
 	$cc_page['cc_post_template_on']=get_post_meta($post->ID,"_cc_post_template_on", true);
@@ -190,7 +224,7 @@ add_action('save_post','cc_add_page_meta');
 function cc_add_page_meta($id){
 
 	global $post;
-	
+
 	if(empty($post->post_type))
 		return;
 	

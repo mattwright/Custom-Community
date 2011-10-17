@@ -422,8 +422,12 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_left(){
-		global $cap, $bp;
-	
+		global $cap, $bp, $post;
+		
+		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
+		if( $tmp == 'full-width.php')
+			return;
+		
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
@@ -457,8 +461,12 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_right(){
-		global $cap, $bp;
+		global $cap, $bp, $post;
 	
+		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
+		if( $tmp == 'full-width.php')
+			return;
+		
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
@@ -513,7 +521,7 @@ class CC_Theme_Generator{
 		
 		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
 			$args = array(
-				'amount' => '2',
+				'amount' => '3',
 		 	);
 				
 			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 

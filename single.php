@@ -64,7 +64,8 @@
 								<?php if ($single_class == 'single-img-under-content'){ ?>
 									<?php the_post_thumbnail()?>
 								<?php } ?>		
-								<?php wp_link_pages(array('before' => __( '<p><strong>Pages:</strong> ', 'cc' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
+								<div class="clear"></div>
+								<?php wp_link_pages(array('before' => __( '<p class="cc_pagecount"><strong>Pages:</strong> ', 'cc' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
 							</div>
 								
 							<div class="clear"></div>
