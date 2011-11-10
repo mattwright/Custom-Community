@@ -2431,7 +2431,9 @@ min-height:64px;
 width:189px;
 margin-bottom:0 !important;
 }
-
+div.widget ul li.vcard a {
+float: left;
+} 
 li.vcard, div.widget ul#groups-list li {
 padding:0px !important;
 }
