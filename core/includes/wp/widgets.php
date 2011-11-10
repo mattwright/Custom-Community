@@ -29,7 +29,7 @@ if(defined('BP_VERSION')){
  * @since 1.8.3
  */	
 function widget_community_nav() { ?>
-  		<div id="community-nav" class="widget-title" >
+  		<div id="community-nav" class="widget widget-title" >
   		<ul class="item-list">
          	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>
 					

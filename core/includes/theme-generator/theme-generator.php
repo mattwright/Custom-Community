@@ -70,7 +70,7 @@ class CC_Theme_Generator{
 	
 
 	function load_constants(){
-		global $cap;
+		global $cap, $post;
 
 		$component = explode('-',$this->detect->tk_get_page_type());
 		
@@ -92,6 +92,9 @@ class CC_Theme_Generator{
 			}
 		}
 			
+		$leftsidebar_width = $cap->leftsidebar_width;
+		$rightsidebar_width = $cap->rightsidebar_width;
+		
 		switch ($sidebar_position) {
 			case 'left': $cap->rightsidebar_width = 0; break;
 			case 'right': $cap->leftsidebar_width = 0; break;
@@ -99,6 +102,15 @@ class CC_Theme_Generator{
 			case 'full-width': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
 		}
 		
+		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
+		
+		switch ($tmp) {
+			case 'left-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = 0; break;
+			case 'right-sidebar.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = $rightsidebar_width; break;
+			case 'left-and-right-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = $rightsidebar_width; break;
+			case 'full-width.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+		}
+
 	}
 	
 	/**
@@ -425,9 +437,15 @@ class CC_Theme_Generator{
 		global $cap, $bp, $post;
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-		if( $tmp == 'full-width.php')
+
+		if( $tmp == 'full-width.php' || $tmp == 'right-sidebar.php')
 			return;
 		
+		if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'left-sidebar.php'){
+			locate_template( array( 'sidebar-left.php' ), true );
+			return;		
+		}
+
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
@@ -464,8 +482,14 @@ class CC_Theme_Generator{
 		global $cap, $bp, $post;
 	
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-		if( $tmp == 'full-width.php')
+		
+		if( $tmp == 'full-width.php' || $tmp == 'left-sidebar.php')
 			return;
+		
+		if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'right-sidebar.php'){
+			locate_template( array( 'sidebar.php' ), true );
+			return;		
+		}
 		
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
@@ -541,6 +565,7 @@ class CC_Theme_Generator{
 		global $cap;
 	
 		if($cap->excerpt_on != 'content'){
+			add_filter('excerpt_length', 'cc_excerpt_length');
 			the_excerpt( __( 'Read the rest of this entry &rarr;', 'cc' ) );
 		} else {
 			the_content( __( 'Read the rest of this entry &rarr;', 'cc' ) ); 

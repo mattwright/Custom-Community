@@ -5,10 +5,6 @@
 ?>
 <?php get_header() ?>
 
-	<style type="text/css">	
-	div#content .padder { margin: 0; }
-	</style>
-
 	<div id="content">
 		<div class="padder">
 

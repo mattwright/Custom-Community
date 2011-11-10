@@ -5,9 +5,21 @@
 
 		<div class="page" id="blog-archives">
 
-			<h3 class="pagetitle"><?php printf( __( 'You are browsing the archive for %1$s.', 'cc' ), wp_title( false, false ) ); ?></h3>
-
 			<?php if ( have_posts() ) : ?>
+
+			   	<header class="page-header">
+						<h3 class="page-title">
+							<?php if ( is_day() ) : ?>
+								<?php printf( __( 'Daily Archives: %s', 'cc' ), '<span>' . get_the_date() . '</span>' ); ?>
+							<?php elseif ( is_month() ) : ?>
+								<?php printf( __( 'Monthly Archives: %s', 'cc' ), '<span>' . get_the_date( 'F Y' ) . '</span>' ); ?>
+							<?php elseif ( is_year() ) : ?>
+								<?php printf( __( 'Yearly Archives: %s', 'cc' ), '<span>' . get_the_date( 'Y' ) . '</span>' ); ?>
+							<?php else : ?>
+								<?php printf( __( 'You are browsing the Blog for %1$s.', 'cc' ), wp_title( false, false ) ); ?>
+							<?php endif; ?>
+						</h3>
+				</header>
 
 				<div class="navigation">
 

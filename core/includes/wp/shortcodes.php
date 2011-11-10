@@ -308,6 +308,7 @@ function cc_list_posts($atts,$content = null) {
 		'page_id' => '',
 		'post_type' => 'post',
 		'orderby' => '',
+		'order' => '',
 	), $atts));
 
 	$img_position = 'boxgrid';
@@ -322,6 +323,7 @@ function cc_list_posts($atts,$content = null) {
 	
 	$args = array(
 		'orderby' => $orderby,
+		'order' => $order,
 		'post_type' => $post_type,
 		'post__in' => $page_id,
 		'category_name' => $category_name,
@@ -410,6 +412,10 @@ function slider($atts,$content = null) {
 		$category_name = '0';
 	}
 	
+	if($page_id != '' && $post_type = 'post'){
+		 $post_type = 'page';
+	}
+
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
 	}

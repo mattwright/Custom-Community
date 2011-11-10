@@ -2459,10 +2459,11 @@ padding-top:4px;
 div.widget_tag_cloud div {
 padding:8px 10px 8px 0;
 }
-div.widget ul.children li {
-display:none;
+div.widget ul.children, 
+div.widget ul.children ul {
+margin-left: 12px;
+margin-top: 4px; 
 }
-
 div.widget ul li a {
 }
 div.widget ul li a:hover {
@@ -2503,9 +2504,10 @@ margin-left:5px;
 /* =Menu Top
 -------------------------------------------------------------- */
 
-div.menu-top {
+div#header div.menu-top {
 font-size: 13px;
 margin-left: 12px;
+position: absolute;
 width: 100%;
 }
 
@@ -4429,7 +4431,6 @@ menu background colour hover and drop down list  **/
 #access ul li.current-menu-item a:hover,  
 #access li:hover > a, #access ul ul:hover > a, 
 #access ul ul li, #access ul ul a {
-	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_hover; ?>;
 	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_hover; ?> !important;
 }
 <?php } ?> 
