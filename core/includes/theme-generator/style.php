@@ -3577,7 +3577,7 @@ adapting footer widgets to container background colour, image, repeat and corner
 
 <?php if($cap->bg_footer_color != '' || $cap->bg_footer_img != '' || $cap->footer_height != ''): ?>
 /** ***   
-footer widgets - height, color, image and repeat  **/
+footer WIDGETS and header WIDGETS - height, bg_color, image and repeat  **/
 
 #footer .cc-widget, #header .cc-widget{
 	<?php if($cap->bg_footer_color) { ?>
