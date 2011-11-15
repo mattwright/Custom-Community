@@ -1,7 +1,7 @@
 <?php
 	
-require_once('admin/cheezcap.php');
-require_once('core/loader.php');
+require_once( dirname(__FILE__) . '/admin/cheezcap.php');
+require_once( dirname(__FILE__) . '/core/loader.php');
 
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'cc_setup' );
