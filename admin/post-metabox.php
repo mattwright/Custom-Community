@@ -145,7 +145,7 @@ function cc_page_metabox(){
 		foreach($categories as $category) { 
 			$option[$i]['name'] = $category->name;
 			$option[$i]['slug'] = $category->slug;
-			$i++;
+			$i++;	
 		}
     	$option_categories = $option;
 		
