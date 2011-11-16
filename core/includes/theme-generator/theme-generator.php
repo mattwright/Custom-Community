@@ -437,7 +437,6 @@ class CC_Theme_Generator{
 		global $cap, $bp, $post;
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-
 		if( $tmp == 'full-width.php' || $tmp == 'right-sidebar.php')
 			return;
 		
@@ -448,16 +447,18 @@ class CC_Theme_Generator{
 
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
+		
 			if($component[2] == 'groups' && !empty($component[3])) {
 				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
 					locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
+			
 				if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
 					locate_template( array( 'members/single/member-sidebar-left.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
 			} else if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
@@ -496,13 +497,13 @@ class CC_Theme_Generator{
 			if($component[2] == 'groups' && !empty($component[3])) {
 				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
 					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
 					locate_template( array( 'sidebar.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
 				if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
 					locate_template( array( 'members/single/member-sidebar-right.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
 					locate_template( array( 'sidebar.php' ), true );
 				}
 			} else if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){

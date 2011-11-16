@@ -21,7 +21,7 @@
  	<?php do_action( 'bp_before_header' ) ?>
 	
 	<div id="header">	
-
+	
     	<?php wp_nav_menu( array( 'container_class' => 'menu menu-top', 'theme_location' => 'menu_top','container' => 'div', 'fallback_cb' => false ) ); ?>
 	
 		<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
