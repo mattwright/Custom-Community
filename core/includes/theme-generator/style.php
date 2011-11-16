@@ -2433,7 +2433,7 @@ margin-bottom:0 !important;
 }
 div.widget ul li.vcard a {
 float: left;
-} 
+}
 li.vcard, div.widget ul#groups-list li {
 padding:0px !important;
 }
@@ -4677,7 +4677,7 @@ echo compress($inhalte);
 function compress($buffer) {
 	    /*Kommentar entfernen */
 	    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-	    /* entfernen von abstŠnden, Zeilen usw.*/
+	    /* entfernen von abstï¿½nden, Zeilen usw.*/
 	    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
 	    return $buffer;
 }
