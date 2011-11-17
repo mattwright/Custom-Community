@@ -529,8 +529,8 @@ if($cap->buddydev_search == true && defined('BP_VERSION')) {
 	  }
 	
 	//Hook Forums results to search page
-	if ( bp_is_active( 'forums' ) && bp_is_active( 'groups' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() )
-	 add_action("advance-search","cc_show_forums_search",20);
+	if ( bp_is_active( 'forums' ) && bp_is_active( 'groups' ) && ( function_exists( 'bp_forums_is_installed_correctly' )))
+		add_action("advance-search","cc_show_forums_search",20);
 	
 	
 	//show blogs search result
