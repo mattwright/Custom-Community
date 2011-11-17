@@ -193,6 +193,7 @@ min-height: 50px;
 height:auto !important;
 padding-top: 25px; 
 background-repeat: no-repeat; 
+z-index: 999999;
 }
 #header #search-bar {
 position: absolute;
@@ -807,6 +808,16 @@ background-repeat: no-repeat;
 padding-right: 30px !important;
 z-index: 1000;
 }
+
+form#send_message_form input#send:focus,
+div.ac-reply-content input.loading,
+div#whats-new-submit input#aw-whats-new-submit.loading {
+background-image: url(<?php echo get_template_directory_uri() ?>/images/ajax-loader.gif );
+background-position: 5% 50%;
+background-repeat: no-repeat;
+padding-left: 20px;	
+}
+
 div#item-nav ul li.loading a {
 background-position: 88% 50%;
 }
@@ -1817,7 +1828,7 @@ margin-bottom: 0;
 }
 
 div.activity-comments form.loading {
-background-image: url(<?php echo get_template_directory_uri() ?>/images/ajax-loader.gif );
+background-image: url(<?php echo get_template_directory_uri() ?>/images/ajax-loader.gif);
 background-position: 2% 95%;
 background-repeat: no-repeat;
 }
@@ -4053,13 +4064,15 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 
 <?php if($cap->default_homepage_hide_avatar == "hide"){?>
 /** ***   
-standard wordpress  home page: hide avatar**/
+standard wordpress home page: hide avatar**/
 
-body.home div.post div.post-content, div.comment-content {
+body.home div.post div.post-content, div.comment-content, 
+body.home.bubble div.post div.post-content, body.bubble div.comment-content {
     margin-left: 0;
 }
 
-body.home div.author-box {
+body.home div.post div.author-box, 
+body.home.bubble div.post div.author-box {
 	display: none;
 }
 <?php } ?>
@@ -4068,24 +4081,27 @@ body.home div.author-box {
 /** ***   
 standard wordpress home page: bubble style**/
 
-body.bubble div.author-box p {
-    display: none;
-}
 body.bubble div.post h2.posttitle {
     line-height: 120%;
     margin: 0 0 12px;
 }
-div.post span.marker {
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
-    height: 20px;
-    margin: 17px 0 0 -25px;
-    position: absolute;
-    width: 20px;
-}
+
+<?php if($cap->default_homepage_hide_avatar == "hide") { ?>
+	div.post span.marker { display: none; }
+<?php } else { ?>
+	div.post span.marker {
+	    -moz-transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+	    height: 20px;
+	    margin: 17px 0 0 -25px;
+	    position: absolute;
+	    width: 20px;
+	}
+<?php } ?>
+
 body.bubble div.post div.post-content {
 	border-radius: 11px;
 	-moz-border-radius: 11px;
@@ -4677,7 +4693,7 @@ echo compress($inhalte);
 function compress($buffer) {
 	    /*Kommentar entfernen */
 	    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-	    /* entfernen von abstŠnden, Zeilen usw.*/
+	    /* entfernen von abstï¿½nden, Zeilen usw.*/
 	    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
 	    return $buffer;
 }

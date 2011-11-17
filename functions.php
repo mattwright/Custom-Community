@@ -441,9 +441,9 @@ function cc_widgets_init(){
 	);
 
 }
-if($cap->buddydev_search == true && defined('BP_VERSION')) {
-	
-	/* Add these code to your functions.php to allow Single Search page for all buddypress components*/
+if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp_is_active')) {
+		
+	//* Add these code to your functions.php to allow Single Search page for all buddypress components*/
 	//	Remove Buddypress search drowpdown for selecting members etc
 	add_filter("bp_search_form_type_select", "cc_remove_search_dropdown"  );
 	function cc_remove_search_dropdown($select_html){
