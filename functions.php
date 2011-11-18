@@ -1,7 +1,7 @@
 <?php
 	
-require_once('admin/cheezcap.php');
-require_once('core/loader.php');
+require_once( dirname(__FILE__) . '/admin/cheezcap.php');
+require_once( dirname(__FILE__) . '/core/loader.php');
 
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'cc_setup' );
@@ -441,9 +441,9 @@ function cc_widgets_init(){
 	);
 
 }
-if($cap->buddydev_search == true && defined('BP_VERSION')) {
-	
-	/* Add these code to your functions.php to allow Single Search page for all buddypress components*/
+if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp_is_active')) {
+		
+	//* Add these code to your functions.php to allow Single Search page for all buddypress components*/
 	//	Remove Buddypress search drowpdown for selecting members etc
 	add_filter("bp_search_form_type_select", "cc_remove_search_dropdown"  );
 	function cc_remove_search_dropdown($select_html){

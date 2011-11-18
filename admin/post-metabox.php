@@ -278,7 +278,7 @@ function cc_add_page_meta($id){
 		$cc_page['cc_page_template_on']=get_post_meta($post->ID,"_cc_page_template_on", true);
 		$cc_page['cc_page_template_cat']=get_post_meta($post->ID,"_cc_page_template_cat", true);
 		$cc_page['cc_page_template_amount']=get_post_meta($post->ID,"_cc_page_template_amount", true);
-//		$cc_page['cc_page_slider_time']=get_post_meta($post->ID,"_cc_page_slider_time", true);
+		$cc_page['cc_page_slider_time']=get_post_meta($post->ID,"_cc_page_slider_time", true);
 		$cc_page['cc_page_slider_amount']=get_post_meta($post->ID,"_cc_page_slider_amount", true);
 		$cc_page['cc_page_slider_post_type']=get_post_meta($post->ID,"_cc_page_slider_post_type", true);
 		$cc_page['cc_page_slider_show_page']=get_post_meta($post->ID,"_cc_page_slider_show_page", true);

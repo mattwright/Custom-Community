@@ -27,10 +27,10 @@
 
 	<div id="whats-new-content">
 		<div id="whats-new-textarea">
-			<textarea name="whats-new" id="whats-new" cols="50" rows="10"><?php if ( isset( $_GET['r'] ) ) : ?>@<?php echo esc_attr( $_GET['r'] ); ?> <?php endif; ?></textarea>
+			<textarea style="height: 20px;" name="whats-new" id="whats-new" cols="50" rows="10"><?php if ( isset( $_GET['r'] ) ) : ?>@<?php echo esc_attr( $_GET['r'] ); ?> <?php endif; ?></textarea>
 		</div>
 
-		<div id="whats-new-options">
+		<div id="whats-new-options" style="height: 0px; overflow: hidden;">
 			<div id="whats-new-submit">
 				<input type="submit" name="aw-whats-new-submit" id="aw-whats-new-submit" value="<?php _e( 'Post Update', 'cc' ); ?>" />
 			</div>
