@@ -258,31 +258,35 @@ function cc_slidertop(){
 	$slideshow_post_type = 'post';
 	$slideshow_show_page = '';
 	
-	if($cc_page_options['cc_page_slider_on'] == 1 ){
+//	echo '<pre>';
+//	print_r( $cc_page_options );
+//	echo '<pre>';
+	
+	if($cc_page_options["cc_page_slider_on"] == 1 ){
 				
-		if( $cc_page_options[cc_page_slider_cat] != ''&& $cc_page_options[cc_page_slider_show_page] == '' ){
-			$slidercat = $cc_page_options[cc_page_slider_cat];
+		if( $cc_page_options["cc_page_slider_cat"] != '' && $cc_page_options["cc_page_slider_show_page"] == '' ){
+			$slidercat = $cc_page_options["cc_page_slider_cat"];
 		}
-		if( $cc_page_options[cc_page_slider_style] != '' ){
-			$slider_style = $cc_page_options[cc_page_slider_style];
+		if( $cc_page_options["cc_page_slider_style"] != '' ){
+			$slider_style = $cc_page_options["cc_page_slider_style"];
 		}
-		if( $cc_page_options[cc_page_slider_caption] != '' ){
-			$caption = $cc_page_options[cc_page_slider_caption];
+		if( $cc_page_options["cc_page_slider_caption"] != '' ){
+			$caption = $cc_page_options["cc_page_slider_caption"];
 		}
-		if( $cc_page_options[cc_page_slider_amount]  != '' ){
-			$slideshow_amount = $cc_page_options[cc_page_slider_amount];
+		if( $cc_page_options["cc_page_slider_amount"]  != '' ){
+			$slideshow_amount = $cc_page_options["cc_page_slider_amount"];
 		}
-		if( $cc_page_options[cc_page_slider_time] != '' ){
-			$slideshow_time = $cc_page_options[cc_page_slider_time];
+		if( $cc_page_options["cc_page_slider_time"] != '' ){
+			$slideshow_time = $cc_page_options["cc_page_slider_time"];
 		}
-		if( $cc_page_options[cc_page_slider_orderby] != '' ){
-			$slideshow_orderby = $cc_page_options[cc_page_slider_orderby];
+		if( $cc_page_options["cc_page_slider_orderby"] != '' ){
+			$slideshow_orderby = $cc_page_options["cc_page_slider_orderby"];
 		}
-		if( $cap->$cc_page_options[cc_page_slider_post_type] != '' ){
-			$slideshow_post_type = $cc_page_options[cc_page_slider_post_type];
+		if( $cap->$cc_page_options["cc_page_slider_post_type"] != '' ){
+			$slideshow_post_type = $cc_page_options["cc_page_slider_post_type"];
 		}
-		if( $cc_page_options[cc_page_slider_show_page] != '' ){
-			$slideshow_show_page = $cc_page_options[cc_page_slider_show_page];
+		if( $cc_page_options["cc_page_slider_show_page"] != '' ){
+			$slideshow_show_page = $cc_page_options["cc_page_slider_show_page"];
 		}
 
 	}else{
