@@ -68,7 +68,7 @@ global $cap, $content_width;
 	define( 'HEADER_TEXTCOLOR', '888888' );
 	
 	// No CSS, just an IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/_inc/images/default_header.jpg' );
+	define( 'HEADER_IMAGE', '%s/images/default-header.png' );
 
 	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
 	// Add a filter to cc_header_image_width and cc_header_image_height to change these values.
@@ -208,6 +208,26 @@ endif;
 add_filter('widget_text', 'do_shortcode');
 add_action( 'widgets_init', 'cc_widgets_init' );
 function cc_widgets_init(){
+	register_sidebars( 1,
+		array(
+			'name' => 'sidebar right',
+			'id' => 'sidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title'  => '<h3 class="widgettitle">',
+			'after_title'   => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'sidebar left',
+			'id' => 'leftsidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
 	### Add Sidebars
 	register_sidebars( 1,
 		array(
@@ -243,26 +263,6 @@ function cc_widgets_init(){
 		array(
 			'name' => 'header right',
 			'id' => 'headerright',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div><div class="clear"></div>',
-			'before_title' => '<h3 class="widgettitle">',
-			'after_title' => '</h3>'
-		)
-	);
-	register_sidebars( 1,
-		array(
-			'name' => 'Sidebar',
-			'id' => 'sidebar',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div><div class="clear"></div>',
-			'before_title'  => '<h3 class="widgettitle">',
-			'after_title'   => '</h3>'
-		)
-	);
-	register_sidebars( 1,
-		array(
-			'name' => 'left sidebar',
-			'id' => 'leftsidebar',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div><div class="clear"></div>',
 			'before_title' => '<h3 class="widgettitle">',
