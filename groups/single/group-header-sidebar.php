@@ -24,14 +24,14 @@
 	</div>
 	<div class="clear"></div>
 	<div id="item-meta">
-	 <h3 class="widgettitle">Description</h3>
+	 <h3 class="widgettitle"><?php _e('Description', 'cc'); ?></h3>
 		<?php bp_group_description() ?>
 	</div>
 	<?php do_action( 'bp_group_header_meta' ) ?>
 
 	<div style="height:105px" id="item-list">
 	<?php if ( bp_group_is_visible() ) : ?>
-		<h3 class="widgettitle">Group Admins</h3>
+		<h3 class="widgettitle"><?php _e('Group Admins', 'cc'); ?></h3>
 		<?php bp_group_list_admins() ?>
 		<?php do_action( 'bp_after_group_menu_admins' ) ?>
 	</div>
