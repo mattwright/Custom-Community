@@ -22,306 +22,306 @@ msgstr ""
 #: 404.php:7
 #@ cc
 msgid "Page not found"
-msgstr "Seite nicht gefunden"
+msgstr "Strani ni mogoče najti."
 
 #: 404.php:9
 #@ cc
 msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
-msgstr "Es tut uns leid, aber wir können die aufgerufene Seite nicht finden. Vielleicht könnte Ihnen die Suche helfen."
+msgstr "Oprostite, vendar strani, ki jo iščete, ni mogoče najti. Mogoče bo iskalnik v pomoč."
 
 #: _inc/ajax.php:147
 #@ cc
 msgid "Please enter some content to post."
-msgstr "Bitte fügen Sie Inhalt in den Artikel ein."
+msgstr "Prosim vnesite vsebino za objavo."
 
 #: _inc/ajax.php:164
 #@ cc
 msgid "There was a problem posting your update, please try again."
-msgstr "Es gab ein Problem beim publizieren Ihrer Aktualisierung, bitte versuchen Sie es erneut."
+msgstr "Pojavil se je problem s posodobitvijo Vaše objave. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:189
 #@ cc
 msgid "Please do not leave the comment area blank."
-msgstr "Bittel lassen Sie den Kommentarbereich nicht leer."
+msgstr "Prosim, izpolnite polje s komentarjem."
 
 #: _inc/ajax.php:194
 #: _inc/ajax.php:205
 #@ cc
 msgid "There was an error posting that reply, please try again."
-msgstr "Beim Veröffentlichen trat ein Fehler auf, bitte versuchen Sie es erneut."
+msgstr "Prišlo je do napake pri objavi Vašega odgovora. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:262
 #: _inc/ajax.php:297
 #@ cc
 msgid "There was a problem when deleting. Please try again."
-msgstr "Beim Löschen ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
+msgstr "Prišlo je do napake pri brisanju. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:312
 #: activity/entry.php:72
 #@ cc
 msgid "Remove Favorite"
-msgstr "Favorit entferrnen"
+msgstr "Odstrani priljubjene."
 
 #: _inc/ajax.php:321
 #: activity/entry.php:68
 #@ cc
 msgid "Favorite"
-msgstr "Favorit"
+msgstr "Priljubljene"
 
 #: _inc/ajax.php:380
 #: groups/create.php:234
 #: groups/single/send-invites.php:42
 #@ cc
 msgid "Remove Invite"
-msgstr "Einladung löschen"
+msgstr "Odstrani povabilo"
 
 #: _inc/ajax.php:406
 #@ cc
 msgid "Friendship could not be canceled."
-msgstr "Kontakt konnte nicht beendet werden."
+msgstr "Prijateljstva ni bilo mogoče preklicati."
 
 #: _inc/ajax.php:408
 #@ cc
 msgid "Add Friend"
-msgstr "Kontakt hinzufügen"
+msgstr "Dodaj prijatelja"
 
 #: _inc/ajax.php:416
 #@ cc
 msgid "Friendship could not be requested."
-msgstr "Kontakt konnte nicht angefragt werden."
+msgstr "Prijateljstvo ne more biti zahtevano."
 
 #: _inc/ajax.php:418
 #@ cc
 msgid "Friendship Requested"
-msgstr "Kontaktanfrage"
+msgstr "Prošnja za prijateljstvo"
 
 #: _inc/ajax.php:421
 #@ cc
 msgid "Request Pending"
-msgstr "Anfrage gestellt"
+msgstr "Prošnja v teku"
 
 #: _inc/ajax.php:433
 #@ cc
 msgid "There was a problem accepting that request. Please try again."
-msgstr "Es gab ein problem bei der Annahme Ihrer Anfrage. Bitte vesuchen Sie es erneut."
+msgstr "Prišlo je do napake pri sprejemanju te prošnje. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:444
 #@ cc
 msgid "There was a problem rejecting that request. Please try again."
-msgstr "Es gab ein Problem bei der Ablehung der Anfrage. Bitte versuchen Sie es erneut."
+msgstr "Prišlo je do napake pri zavrnitvi te prošnje. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:467
 #@ cc
 msgid "Error joining group"
-msgstr "Fehler beim Beitritt zur Gruppe"
+msgstr "Napaka pri pridružitvi k skupini."
 
 #: _inc/ajax.php:469
 #@ cc
 msgid "Leave Group"
-msgstr "Gruppe verlassen"
+msgstr "Zapusti skupino"
 
 #: _inc/ajax.php:477
 #@ cc
 msgid "Error requesting membership"
-msgstr "Fehler bei der Anfrage zur Mitgliedschaft"
+msgstr "Napaka pri zahtevanju članstva"
 
 #: _inc/ajax.php:479
 #@ cc
 msgid "Membership Requested"
-msgstr "Mitgliedschaft angefragt"
+msgstr "Potrebno članstvo"
 
 #: _inc/ajax.php:488
 #@ cc
 msgid "Error leaving group"
-msgstr "Fehler beim verlassen der Gruppe"
+msgstr "Napaka pri zapuščanju skupine"
 
 #: _inc/ajax.php:491
 #@ cc
 msgid "Join Group"
-msgstr "Gruppe beitreten"
+msgstr "Pridruži se skupini"
 
 #: _inc/ajax.php:493
 #@ cc
 msgid "Request Membership"
-msgstr "Mitgliedschaft angefragt"
+msgstr "Zaprosi za članstvo"
 
 #: _inc/ajax.php:505
 #@ cc
 msgid "There was a problem closing the notice."
-msgstr "Es gab ein Problem beim Schließen der Notiz."
+msgstr "Prišlo je do napake pri zapiranju opozorila."
 
 #: _inc/ajax.php:530
 #, php-format
 #@ cc
 msgid "Sent %s"
-msgstr "Gesendet %s"
+msgstr "Poslano %s"
 
 #: _inc/ajax.php:547
 #@ cc
 msgid "There was a problem sending that reply. Please try again."
-msgstr "Es gab ein Problem beim senden der Antwort. Bitte versuchen Sie es erneut."
+msgstr "Prišlo je do napake pri pošiljanju Vašega odgovora. Prosim, poskusite ponovno."
 
 #: _inc/ajax.php:557
 #@ cc
 msgid "There was a problem marking messages as unread."
-msgstr "Es gab Problem dabei, alle Nachrichten als ungelesen zu markieren."
+msgstr "Prišlo je do napake pri označitvi sporočila kot neprebrano."
 
 #: _inc/ajax.php:573
 #@ cc
 msgid "There was a problem marking messages as read."
-msgstr "Es gab Problem dabei, alle Nachrichten als gelesen zu markieren."
+msgstr "Prišlo je do napake pri označitvi sporočila kot prebrano."
 
 #: _inc/ajax.php:589
 #@ cc
 msgid "There was a problem deleting messages."
-msgstr "Es gab ein Problem beim löschen der Nachrichten."
+msgstr "Prišlo je do napake pri brisanju sporočila."
 
 #: _inc/ajax.php:596
 #@ cc
 msgid "Messages deleted."
-msgstr "Nachrichten gelöscht."
+msgstr "Sporočila zbrisana."
 
 #: activity/activity-loop.php:41
 #@ cc
 msgid "Load More"
-msgstr "Mehr laden"
+msgstr "Naloži več"
 
 #: activity/activity-loop.php:55
 #@ cc
 msgid "Sorry, there was no activity found. Please try a different filter."
-msgstr "Es wurden keine Aktivitäten gefunden. Bitte versuchen Sie einen anderen Filter."
+msgstr "Oprostite, ni bilo najdene aktivnosti. Prosim, poskusite z drugačnim filtrom."
 
 #. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
 #: activity/comment.php:28
 #, php-format
 #@ cc
 msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
-msgstr "<a href=\"%1$s\">%2$s</a> geantwortet <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> odgovorjeno <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
 
 #: activity/comment.php:33
 #: forums/single/edit.php:10
 #: groups/single/forum/edit.php:10
 #@ cc
 msgid "Reply"
-msgstr "Antworten"
+msgstr "Odgovori"
 
 #: activity/comment.php:39
 #: members/single/messages/messages-loop.php:50
 #: members/single/messages/single.php:24
 #@ cc
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Izbriši"
 
 #: activity/entry.php:37
 #@ cc
 msgid "In reply to: "
-msgstr "Antwort auf:"
+msgstr "V odgovor za:"
 
 #: activity/entry.php:37
 #@ cc
 msgid "View Thread / Permalink"
-msgstr "Diskussion / Link anzeigen"
+msgstr "Poglej trajno povezavo"
 
 #: activity/entry.php:37
 #: core/includes/bp/templatetags.php:89
 #@ cc
 msgid "View"
-msgstr "Ansehen"
+msgstr "Pogled"
 
 #: activity/entry.php:60
 #, php-format
 #@ cc
 msgid "Comment <span>%s</span>"
-msgstr "Kommentare <span>%s</span>"
+msgstr "Komentar <span>%s</span>"
 
 #: activity/entry.php:68
 #@ cc
 msgid "Mark as Favorite"
-msgstr "Als Favorit markieren"
+msgstr "Označi kot priljubljeno"
 
 #: activity/entry.php:104
 #@ cc
 msgid "Post"
-msgstr "Artikel"
+msgstr "Objavi"
 
 #: activity/entry.php:104
 #@ cc
 msgid "or press esc to cancel."
-msgstr "oder drücke esc um abzubrechen."
+msgstr "ali pritisni esc za preklic"
 
 #: activity/index.php:23
 #@ cc
 msgid "Site Activity"
-msgstr "Aktivitäten auf der Seite"
+msgstr "Aktivnost na strani"
 
 #: activity/index.php:41
 #@ cc
 msgid "The public activity for everyone on this site."
-msgstr "Die Aktivitäten aller Benutzer dieser Seite."
+msgstr "Javna aktiva za vsakogar na tej strani."
 
 #: activity/index.php:41
 #: members/index.php:35
 #, php-format
 #@ cc
 msgid "All Members <span>%s</span>"
-msgstr "Alle Mitglieder <span>%s</span>"
+msgstr "Vsi člani <span>%s</span>"
 
 #: activity/index.php:51
 #@ cc
 msgid "The activity of my friends only."
-msgstr "Nur die Aktivitäten meiner Kontakte."
+msgstr "Aktivnost mojih prijateljev."
 
 #: activity/index.php:51
 #: members/index.php:39
 #, php-format
 #@ cc
 msgid "My Friends <span>%s</span>"
-msgstr "Meine Kontakte <span>%s</span>"
+msgstr "Moji prijatelji <span>%s</span>"
 
 #: activity/index.php:63
 #@ cc
 msgid "The activity of groups I am a member of."
-msgstr "Die Aktivitäten der Gruppen in denen ich Mitglied bin."
+msgstr "Aktivnost skupin, katerih sem član."
 
 #: activity/index.php:63
 #: groups/index.php:41
 #, php-format
 #@ cc
 msgid "My Groups <span>%s</span>"
-msgstr "Meine Gruppen <span>%s</span>"
+msgstr "Moje skupine <span>%s</span>"
 
 #: activity/index.php:73
 #@ cc
 msgid "The activity I've marked as a favorite."
-msgstr "Die Aktivitäten die ich favorisiert habe."
+msgstr "Aktivnosti, ki sem jih označil kot priljubljene."
 
 #: activity/index.php:73
 #, php-format
 #@ cc
 msgid "My Favorites <span>%s</span>"
-msgstr "Meine Favoriten <span>%s</span>"
+msgstr "Moje priljubljene <span>%s</span>"
 
 #: activity/index.php:79
 #@ cc
 msgid "Activity that I have been mentioned in."
-msgstr "Aktivitäten in denen ich erwähnt wurde."
+msgstr "Aktivnost, v katerih sem bil omenjen."
 
 #: activity/index.php:79
 #@ cc
 msgid "Public Mentions"
-msgstr "Öffentliche Erwähnungen"
+msgstr "Javne pohvale"
 
 #: activity/index.php:79
 #, php-format
 #@ cc
 msgid "<span>%s new</span>"
-msgstr "<span>%s neu</span>"
+msgstr "<span>%s novo</span>"
 
 #: activity/index.php:89
 #: groups/single/activity.php:3
 #@ cc
 msgid "RSS Feed"
-msgstr "RSS Feed"
+msgstr "RSS novice"
 
 #: activity/index.php:89
 #: groups/single/activity.php:3
@@ -334,152 +334,167 @@ msgstr "RSS"
 #: members/single/activity.php:18
 #@ cc
 msgid "Show:"
-msgstr "Anzeigen:"
+msgstr "Pokaži:"
 
 #: activity/index.php:96
 #: groups/single/activity.php:10
 #: members/single/activity.php:20
 #@ cc
 msgid "Everything"
-msgstr "Alles"
+msgstr "Vse"
 
 #: activity/index.php:97
 #: groups/single/activity.php:11
 #: members/single/activity.php:21
 #@ cc
 msgid "Updates"
-msgstr "Aktualisierungen"
+msgstr "Posodobitve"
 
 #: activity/index.php:101
 #: forums/forums-loop.php:31
 #: members/single/activity.php:27
 #@ cc
 msgid "Posts"
-msgstr "Artikel"
+msgstr "Objave"
 
 #: activity/index.php:102
 #: members/single/activity.php:28
 #@ cc
 msgid "Comments"
-msgstr "Kommentare"
+msgstr "Komentarji"
 
 #: activity/index.php:108
 #: groups/single/activity.php:14
 #: members/single/activity.php:43
 #@ cc
 msgid "Forum Topics"
-msgstr "Forenthemen"
+msgstr "Forum teme"
 
 #: activity/index.php:109
 #: groups/single/activity.php:15
 #: members/single/activity.php:44
 #@ cc
 msgid "Forum Replies"
-msgstr "Forenantworten"
+msgstr "Forum odgovori"
 
 #: activity/index.php:115
 #: members/single/activity.php:50
 #@ cc
 msgid "New Groups"
-msgstr "Neue Gruppen"
+msgstr "Nove skupine"
 
 #: activity/index.php:116
 #: groups/single/activity.php:18
 #: members/single/activity.php:51
 #@ cc
 msgid "Group Memberships"
-msgstr "Mitgliedschaft in Gruppen"
+msgstr "Članstvo v skupinah"
 
 #: activity/index.php:122
 #: members/single/activity.php:35
 #@ cc
 msgid "Friendships"
-msgstr "Kontakte"
+msgstr "Prijateljstva"
 
 #: activity/index.php:126
 #@ cc
 msgid "New Members"
-msgstr "Neue Mitglieder"
+msgstr "Novi člani"
 
 #: activity/post-form.php:23
 #, php-format
 #@ cc
 msgid "What's new in %s, %s?"
-msgstr "Was gibt es Neues in %s, %s?"
+msgstr "Kaj je novega v %s, %s?"
 
 #: activity/post-form.php:25
 #, php-format
 #@ cc
 msgid "What's new, %s?"
-msgstr "Was gibt es Neues, %s?"
+msgstr "Kaj je novega, %s?"
 
 #: activity/post-form.php:35
 #@ cc
 msgid "Post Update"
-msgstr "Aktualisierung veröffentichen"
+msgstr "Objavi posodobitev"
 
 #: activity/post-form.php:42
 #@ cc
 msgid "Post in"
-msgstr "Artikel in"
+msgstr "Objavi v"
 
 #: activity/post-form.php:45
 #: members/single/profile/profile-wp.php:8
 #@ cc
 msgid "My Profile"
-msgstr "Mein Profil"
+msgstr "Moj profil"
 
 #: admin/library.php:536
 #@ cc
 msgid "Save Options"
-msgstr "Einstellungen speichern"
+msgstr "Shrani možnosti"
 
-#: admin/page-meta-box.php:65
-#: admin/post-meta-box.php:46
-#@ buddypress
-msgid "klick"
-msgstr "Klick"
-
-#: admin/page-meta-box.php:68
-#: admin/post-meta-box.php:49
-#@ default
-msgid "Custom Community settings"
-msgstr "Custom Community Einstellungen"
-
-#: admin/page-meta-box.php:99
-#: admin/post-meta-box.php:53
+#: admin/post-metabox.php:25
+#: admin/post-metabox.php:139
 #@ cc
-#@ default
+msgid "klick"
+msgstr "Klikni"
+
+#: admin/post-metabox.php:28
+#: admin/post-metabox.php:142
+#@ cc
+msgid "Custom Community settings"
+msgstr "Custom Community nastavitve"
+
+#: admin/post-metabox.php:35
+#: admin/post-metabox.php:168
+#@ cc
 msgid "Post template on"
-msgstr ""
+msgstr "Objavi temo "
 
-#: admin/post-meta-box.php:63
-#@ default
+#: admin/post-metabox.php:45
+#@ cc
 msgid "Hide avatar"
-msgstr "Avatar verbergen"
+msgstr "Skrij avatar"
 
-#: admin/post-meta-box.php:65
-#@ default
+#: admin/post-metabox.php:47
+#@ cc
 msgid "Hide date/category"
-msgstr "Datum/Kategorie verbergen"
+msgstr "Skrij datum/katagorijo"
 
-#: admin/post-meta-box.php:67
-#@ default
+#: admin/post-metabox.php:49
+#@ cc
 msgid "Hide tags"
-msgstr "Schlagwörter verbergen"
+msgstr "Skrij značke"
 
-#: admin/post-meta-box.php:70
-#@ default
+#: admin/post-metabox.php:52
+#@ cc
 msgid "Hide comment-info"
-msgstr "Kommentarinformation verbergen"
+msgstr "Skrij info komentarja"
 
-#: admin/page-meta-box.php:72
-#@ default
+#: admin/post-metabox.php:150
+#@ cc
 msgid "Slideshow on"
-msgstr "Slideshow an"
+msgstr "Predvajane v teku"
 
-#: archive.php:26
-#: archive.php:67
+#: admin/post-metabox.php:162
+#@ cc
+msgid "Get The PRO Version for more options:"
+msgstr "Kupi PRO verzijo za več možnosti"
+
+#: admin/post-metabox.php:164
+#@ cc
+msgid "Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount"
+msgstr "Uporabi svoje tipe objav in strani pri predvajanju, prikaži/skrij napis, določi drsni čas v ms, vrstni red in količino"
+
+#: archive.php:8
+#, php-format
+#@ cc
+msgid "You are browsing the archive for %1$s."
+msgstr "Brskate po arhivu %1$s."
+
+#: archive.php:14
+#: archive.php:55
 #: core/includes/bp/templatetags.php:349
 #: index.php:50
 #: search-loop.php:43
@@ -487,10 +502,10 @@ msgstr "Slideshow an"
 #: search.php:53
 #@ cc
 msgid "&larr; Previous Entries"
-msgstr "&larr; Vorherige Einträge"
+msgstr "&larr; Prejšnji vnos"
 
-#: archive.php:27
-#: archive.php:68
+#: archive.php:15
+#: archive.php:56
 #: core/includes/bp/templatetags.php:350
 #: index.php:51
 #: search-loop.php:44
@@ -498,10 +513,10 @@ msgstr "&larr; Vorherige Einträge"
 #: search.php:54
 #@ cc
 msgid "Next Entries &rarr;"
-msgstr "Nächste Einträge &rarr;"
+msgstr "Naslednji vnos &rarr;"
 
-#: archive.php:40
-#: archive.php:46
+#: archive.php:28
+#: archive.php:34
 #: index.php:20
 #: search.php:30
 #: search.php:37
@@ -509,70 +524,70 @@ msgstr "Nächste Einträge &rarr;"
 #, php-format
 #@ cc
 msgid "by %s"
-msgstr "von %s"
+msgstr "od %s"
 
-#: archive.php:44
+#: archive.php:32
 #: index.php:28
 #: search.php:35
 #: single.php:54
 #@ cc
 msgid "Permanent Link to"
-msgstr "Link zu"
+msgstr "Stalna povezava na"
 
-#: archive.php:46
+#: archive.php:34
 #: index.php:30
 #: search.php:37
 #: single.php:56
 #@ cc
 msgid "in"
-msgstr "in"
+msgstr "v"
 
-#: archive.php:53
+#: archive.php:41
 #: index.php:36
 #: search.php:43
-#: single.php:75
+#: single.php:74
 #@ cc
 msgid "Tags: "
-msgstr "Schlagwörter:"
+msgstr "Značke:"
 
-#: archive.php:53
-#: archive.php:55
+#: archive.php:41
+#: archive.php:43
 #: index.php:36
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:80
+#: single.php:79
 #@ cc
 msgid "No Comments &#187;"
-msgstr "Keine Kommentare &#187;"
+msgstr "Brez komentarjev &#187;"
 
-#: archive.php:53
-#: archive.php:55
+#: archive.php:41
+#: archive.php:43
 #: index.php:36
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:80
+#: single.php:79
 #@ cc
 msgid "1 Comment &#187;"
-msgstr "1 Kommentar &#187;"
+msgstr "1 komentar &#187;"
 
-#: archive.php:53
-#: archive.php:55
+#: archive.php:41
+#: archive.php:43
 #: index.php:36
 #: index.php:38
 #: search-loop.php:33
 #: search.php:43
-#: single.php:80
+#: single.php:79
 #@ cc
 msgid "% Comments &#187;"
-msgstr "% Kommentare &#187;"
+msgstr "% komentarjev &#187;"
 
-#: archive.php:74
+#: archive.php:62
 #: index.php:57
 #@ cc
 msgid "Not Found"
-msgstr "Nicht gefunden"
+msgstr "Ni bilo najdeno"
 
 #: attachment.php:9
 #: search.php:10
@@ -583,52 +598,54 @@ msgstr "Blog"
 #: attachment.php:25
 #@ cc
 msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
-msgstr "<p class=\"serif\">Den Rest der Einträge lesen &rarr;</p>"
+msgstr "<p class=\"serif\">Preberi preostali del vnosa &rarr;</p>"
 
 #: attachment.php:27
-#: full-width.php:25
+#: full-width.php:29
+#: page.php:18
+#: single.php:67
 #@ cc
 msgid "<p><strong>Pages:</strong> "
-msgstr "<p><strong>Seiten:</strong> "
+msgstr "<p><strong>Strani:</strong> "
 
 #: attachment.php:38
 #@ cc
 msgid "Sorry, no attachments matched your criteria."
-msgstr "Leider stimmt kein Anhang mit Ihren Kriterien überein."
+msgstr "Oprostite, nobena priponka se ne ujema z Vašimi kriteriji."
 
 #: blogs/blogs-loop.php:90
 #@ cc
 msgid "Sorry, there were no sites found."
-msgstr "Es wurden keine Seiten gefunden."
+msgstr "Oprostite, ni bilo najdenih strani."
 
 #: blogs/create.php:21
 #: blogs/index.php:23
 #@ cc
 msgid "Create a Site"
-msgstr "Seite erstellen"
+msgstr "Ustvari stran"
 
 #: blogs/create.php:21
 #: blogs/index.php:23
 #@ cc
 msgid "Site Directory"
-msgstr "Seitenverzeichnis"
+msgstr "Direktorij strani"
 
 #: blogs/create.php:32
 #@ cc
 msgid "Site registration is currently disabled"
-msgstr "Seitenregistrierung ist zur Zeit deaktiviert"
+msgstr "Registracija na strani trenuntno ni mogoča."
 
 #: blogs/index.php:35
 #, php-format
 #@ cc
 msgid "All Sites <span>%s</span>"
-msgstr "Allle Seiten <span>%s</span>"
+msgstr "Vse strani <span>%s</span>"
 
 #: blogs/index.php:39
 #, php-format
 #@ cc
 msgid "My Sites <span>%s</span>"
-msgstr "Meine Seiten <span>%s</span>"
+msgstr "Moje strani <span>%s</span>"
 
 #: blogs/index.php:55
 #: forums/index.php:60
@@ -643,7 +660,7 @@ msgstr "Meine Seiten <span>%s</span>"
 #: members/single/groups.php:20
 #@ cc
 msgid "Order By:"
-msgstr "Ordnen nach:"
+msgstr "Po vrsti:"
 
 #: blogs/index.php:57
 #: forums/index.php:62
@@ -658,13 +675,13 @@ msgstr "Ordnen nach:"
 #: members/single/groups.php:22
 #@ cc
 msgid "Last Active"
-msgstr "Zuletzt aktiv"
+msgstr "Nazadnje aktiven"
 
 #: blogs/index.php:58
 #: members/single/blogs.php:22
 #@ cc
 msgid "Newest"
-msgstr "Neueste"
+msgstr "Najnovejše"
 
 #: blogs/index.php:59
 #: groups/index.php:62
@@ -675,304 +692,352 @@ msgstr "Neueste"
 #: members/single/groups.php:25
 #@ cc
 msgid "Alphabetical"
-msgstr "Alphabetisch"
+msgstr "Po abecedi"
+
+#: comments.php:3
+#@ cc
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Ta prispevek je zaščiten z geslom. Vpiši geslo za ogled komentarja."
+
+#: comments.php:19
+#, php-format
+#@ cc
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Ena od misli na &ldquo;%2$s&rdquo;"
+msgstr[1] "Ena od misli na &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s misli o &ldquo;%2$s&rdquo;"
+msgstr[3] "%1$s misli o &ldquo;%2$s&rdquo;"
+
+#: comments.php:26
+#: comments.php:40
+#@ cc
+msgid "Comment navigation"
+msgstr "Navigacija komentarja"
+
+#: comments.php:27
+#: comments.php:41
+#@ cc
+msgid "&larr; Older Comments"
+msgstr "&larr; Starejši komentarji"
+
+#: comments.php:28
+#: comments.php:42
+#@ cc
+msgid "Newer Comments &rarr;"
+msgstr "Novejši komentarji &rarr;"
 
 #: comments.php:52
 #@ cc
 msgid "Comments are closed."
-msgstr "Kommentare sind geschlossen."
-
-#: core/includes/bp/templatetags.php:300
-#: members/single/profile/profile-wp.php:15
-#@ cc
-msgid "Name"
-msgstr "Name"
-
-#: core/includes/bp/templatetags.php:302
-#@ cc
-msgid "Email"
-msgstr "Email"
-
-#: core/includes/bp/templatetags.php:304
-#: members/single/profile/profile-wp.php:33
-#@ cc
-msgid "Website"
-msgstr "Webseite"
+msgstr "Komentarji so zaprti."
 
 #: core/includes/bp/buddydev-search.php:52
 #@ cc
 msgid "Search Page"
-msgstr "Suche Seite"
+msgstr "Išči stran"
 
 #: core/includes/bp/templatetags.php:82
 #@ cc
 msgid "My Favorites"
-msgstr "Meine Favoriten"
+msgstr "Moje priljubljene"
 
 #: core/includes/bp/templatetags.php:83
 #@ cc
 msgid "Accepted"
-msgstr "Akzeptiert"
+msgstr "Sprejeto"
 
 #: core/includes/bp/templatetags.php:84
 #@ cc
 msgid "Rejected"
-msgstr "Abgelehnt"
+msgstr "Zavrnjeno"
 
 #: core/includes/bp/templatetags.php:85
 #@ cc
 msgid "Show all comments for this thread"
-msgstr "Alle Kommentare der Diskussion anzeigen"
+msgstr "Pokaži vse komentarje na to temo"
 
 #: core/includes/bp/templatetags.php:86
 #@ cc
 msgid "Show all"
-msgstr "Zeige alle"
+msgstr "Prikaži vse"
 
 #: core/includes/bp/templatetags.php:87
 #@ cc
 msgid "comments"
-msgstr "Kommentare"
+msgstr "Komentarji"
 
 #: core/includes/bp/templatetags.php:88
 #@ cc
 msgid "Close"
-msgstr "Schließen"
+msgstr "Zapri"
 
 #. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
 #: core/includes/bp/templatetags.php:142
 #, php-format
 #@ cc
 msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
-msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> sagte auf <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> je dejal na <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
 
 #: core/includes/bp/templatetags.php:149
 #@ cc
 msgid "Your comment is awaiting moderation."
-msgstr "Ihr Kommentar wartet auf Moderation."
+msgstr "Vaš komentar je v obdelavi."
 
 #: core/includes/bp/templatetags.php:161
 #@ cc
 msgid "Edit comment"
-msgstr "Kommentar bearbeiten"
+msgstr "Uredi komentar"
 
 #: core/includes/bp/templatetags.php:161
 #@ cc
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Uredi"
 
 #: core/includes/bp/templatetags.php:231
 #, php-format
 #@ cc
 msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
-msgstr "Theme aktiviert!"
+msgstr "Tema aktivirana! Tema vsebuje <a href=\"%s\">sliko glave po meri</a> podporo in <a href=\"%s\">gradnike</a>."
+
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+#@ cc
+msgid "Name"
+msgstr "Ime"
+
+#: core/includes/bp/templatetags.php:302
+#@ cc
+msgid "Email"
+msgstr "E-pošta"
+
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+#@ cc
+msgid "Website"
+msgstr "Spletna stran"
 
 #: core/includes/bp/templatetags.php:312
 #, php-format
 #@ cc
 msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
-msgstr "Sie müssen <a href=\"%1$s\">eingeloggt</a> sein um einen Kommentar zu posten."
+msgstr "Morate biti <a href=\"%1$s\">prijavljeni</a> za objavo komentarja."
 
 #: core/includes/bp/templatetags.php:313
 #@ cc
 msgid "Leave a reply"
-msgstr "Antwort hinterlassen"
+msgstr "Pusti odgovor"
 
-#: core/includes/theme-generator/theme-generator.php:169
+#: core/includes/theme-generator/theme-generator.php:157
 #: searchform.php:5
 #@ cc
 msgid "Search"
-msgstr "Suchen"
+msgstr "Išči"
 
+#: core/includes/theme-generator/theme-generator.php:184
+#: core/includes/theme-generator/theme-generator.php:188
+#: core/includes/theme-generator/theme-generator.php:193
 #: core/includes/theme-generator/theme-generator.php:196
-#: core/includes/theme-generator/theme-generator.php:200
-#: core/includes/theme-generator/theme-generator.php:205
-#: core/includes/theme-generator/theme-generator.php:208
-#: core/includes/theme-generator/theme-generator.php:229
-#: core/includes/theme-generator/theme-generator.php:237
+#: core/includes/theme-generator/theme-generator.php:217
+#: core/includes/theme-generator/theme-generator.php:225
 #@ cc
 msgid "Home"
-msgstr "Startseite"
+msgstr "Domov"
 
-#: core/includes/theme-generator/theme-generator.php:242
+#: core/includes/theme-generator/theme-generator.php:230
 #: core/includes/wp/widgets.php:34
 #@ cc
 msgid "Community"
-msgstr "Community"
+msgstr "Skupnost"
 
-#: core/includes/theme-generator/theme-generator.php:246
+#: core/includes/theme-generator/theme-generator.php:234
 #: core/includes/wp/widgets.php:38
 #@ cc
 msgid "Activity"
-msgstr "Aktivität"
+msgstr "Aktivnost"
 
-#: core/includes/theme-generator/theme-generator.php:251
+#: core/includes/theme-generator/theme-generator.php:239
 #: core/includes/wp/widgets.php:43
 #: groups/single/admin.php:229
 #@ cc
 msgid "Members"
-msgstr "Mitglieder"
+msgstr "Člani"
 
-#: core/includes/theme-generator/theme-generator.php:256
+#: core/includes/theme-generator/theme-generator.php:244
 #: core/includes/wp/widgets.php:48
 #@ cc
 msgid "Groups"
-msgstr "Gruppen"
+msgstr "Skupine"
 
-#: core/includes/theme-generator/theme-generator.php:260
+#: core/includes/theme-generator/theme-generator.php:248
 #: core/includes/wp/widgets.php:53
 #@ cc
 msgid "Forums"
-msgstr "Foren"
+msgstr "Forumi"
 
-#: core/includes/theme-generator/theme-generator.php:267
+#: core/includes/theme-generator/theme-generator.php:255
 #: core/includes/wp/widgets.php:59
 #@ cc
 msgid "Blogs"
-msgstr "Blogs"
+msgstr "Blogi"
 
-#: core/includes/theme-generator/theme-generator.php:369
+#: core/includes/theme-generator/theme-generator.php:357
 #@ cc
 msgid "20 widget areas all over the site"
-msgstr "20 Widgetbereiche in der gesamten Seite"
+msgstr "20 polj za gradnike na celi strani"
 
-#: core/includes/theme-generator/theme-generator.php:382
+#: core/includes/theme-generator/theme-generator.php:370
 #: links.php:16
 #: sidebar.php:45
 #@ cc
 msgid "Links"
-msgstr "Links"
+msgstr "Povezave"
 
-#: core/includes/theme-generator/theme-generator.php:395
+#: core/includes/theme-generator/theme-generator.php:383
 #: sidebar.php:39
 #@ cc
 msgid "Archives"
-msgstr "Archive"
+msgstr "Arhivi"
 
-#: core/includes/theme-generator/theme-generator.php:408
+#: core/includes/theme-generator/theme-generator.php:396
 #: sidebar.php:51
 #@ cc
 msgid "Meta"
 msgstr "Meta"
 
-#: core/includes/theme-generator/theme-generator.php:423
+#: core/includes/theme-generator/theme-generator.php:410
 #, php-format
 #@ cc
 msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
-msgstr ""
+msgstr "%s je ponosno predstavljen od <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> in <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
 
-#: core/includes/theme-generator/theme-generator.php:576
-#: core/includes/theme-generator/theme-generator.php:578
+#: core/includes/theme-generator/theme-generator.php:536
+#: core/includes/theme-generator/theme-generator.php:538
 #: single.php:63
 #@ cc
 msgid "Read the rest of this entry &rarr;"
-msgstr "Rest des Eintrags ansehen &rarr;"
+msgstr "Preberi preostanek vnosa &rarr;"
 
-#: core/includes/wp/shortcodes.php:639
+#: core/includes/wp/shortcodes.php:355
 #@ cc
 msgid "read more"
-msgstr "weiterlesen"
+msgstr "preberi več"
 
-#: core/includes/wp/shortcodes.php:868
+#: core/includes/wp/shortcodes.php:580
 #@ cc
 msgid "Empty Slideshow"
-msgstr "Leere Slideshow"
+msgstr "Prazen slideshow"
 
-#: core/includes/wp/shortcodes.php:869
+#: core/includes/wp/shortcodes.php:581
 #@ cc
 msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
-msgstr ""
+msgstr "Niste izbrali prispevkov za Vaš slideshow <br>Preverite nastavitve Vaše teme za celoten slideshow ali nastavitve strani za slideshow strani...  <br>in napišite prispevek! Preverite <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> za več informacij."
 
 #: core/includes/wp/widgets.php:68
 #@ cc
 msgid "@ Group"
-msgstr "@ Gruppe"
+msgstr "@ Skupina"
 
 #: core/includes/wp/widgets.php:79
 #@ cc
 msgid "@ Member"
-msgstr "@ Mitglied"
+msgstr "@ Član"
 
 #: core/includes/wp/widgets.php:111
 #@ cc
 msgid "Log Out"
-msgstr "Abmelden"
+msgstr "Odjava"
 
 #: core/includes/wp/widgets.php:128
 #@ cc
 msgid "To start connecting please log in first."
-msgstr "Um sich zu verbinden, melden Sie sich zuerst an."
+msgstr "Za povezavo se prosim najprej vpišite."
 
 #: core/includes/wp/widgets.php:133
 #, php-format
 #@ cc
 msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
-msgstr "Sie können auch ein <a href=\"%s\" title=\"Konto erstellen\">Konto erstellen</a>."
+msgstr "Lahko tudi <a href=\"%s\" title=\"Create an account\">ustvarite račun</a>."
 
 #: core/includes/wp/widgets.php:138
 #: registration/register.php:37
 #@ cc
 msgid "Username"
-msgstr "Benutzername"
+msgstr "Uporabniško ime"
 
 #: core/includes/wp/widgets.php:141
 #@ cc
 msgid "Password"
-msgstr "Passwort"
+msgstr "Geslo"
 
 #: core/includes/wp/widgets.php:144
 #@ cc
 msgid "Remember Me"
-msgstr "Erinner mich"
+msgstr "Zapomni si me"
 
 #: core/includes/wp/widgets.php:147
 #@ cc
 msgid "Log In"
-msgstr "Anmelden"
+msgstr "Prijava"
 
 #: core/includes/wp/widgets.php:166
 #@ cc
 msgid "Forum Topic Tags"
-msgstr "Forenthemen Tags"
+msgstr "Značke tem foruma"
+
+#: forums/forums-loop.php:24
+#@ cc
+msgid "Topic Title"
+msgstr "Naslov teme"
+
+#: forums/forums-loop.php:25
+#@ cc
+msgid "Latest Poster"
+msgstr "Zadnja objava"
+
+#: forums/forums-loop.php:28
+#@ cc
+msgid "Posted In Group"
+msgstr "Objavljeno v skupini"
 
 #: forums/forums-loop.php:32
 #@ cc
 msgid "Freshness"
-msgstr "Frische"
+msgstr "Sveže"
 
 #: forums/forums-loop.php:45
 #@ cc
 msgid "Permalink"
-msgstr "Link"
+msgstr "Trajna povezava"
 
 #: forums/forums-loop.php:95
 #@ cc
 msgid "Sorry, there were no forum topics found."
-msgstr "Es wurden keine Forenthemen gefunden."
+msgstr "Oprostite, ni bilo najdenih forum tem."
 
 #: forums/index.php:23
 #@ cc
 msgid "Forums Directory"
-msgstr "Forenverzeichnis"
+msgstr "Direktorij foruma"
 
 #: forums/index.php:23
 #: forums/single/forum.php:19
 #: groups/single/forum.php:17
 #@ cc
 msgid "New Topic"
-msgstr "Neues Thema"
+msgstr "Nova tema"
 
 #: forums/index.php:40
 #, php-format
 #@ cc
 msgid "All Topics <span>%s</span>"
-msgstr "Alle Themen <span>%s</span>"
+msgstr "Vse teme <span>%s</span>"
 
 #: forums/index.php:44
 #, php-format
 #@ cc
 msgid "My Topics <span>%s</span>"
-msgstr "Meine themen <span>%s</span>"
+msgstr "Moje teme <span>%s</span>"
 
 #: forums/index.php:63
 #: forums/single/forum.php:37
@@ -980,7 +1045,7 @@ msgstr "Meine themen <span>%s</span>"
 #: members/single/forums.php:21
 #@ cc
 msgid "Most Posts"
-msgstr "Meine Artikel"
+msgstr "Največkrat objavljeno"
 
 #: forums/index.php:64
 #: forums/single/forum.php:38
@@ -988,12 +1053,12 @@ msgstr "Meine Artikel"
 #: members/single/forums.php:22
 #@ cc
 msgid "Unreplied"
-msgstr "Unbeantwortet"
+msgstr "Neodgovorjeno"
 
 #: forums/index.php:100
 #@ cc
 msgid "Create New Topic:"
-msgstr "Neues Thema erstellen:"
+msgstr "Ustvari novo temo:"
 
 #: forums/index.php:104
 #: forums/single/edit.php:49
@@ -1001,7 +1066,7 @@ msgstr "Neues Thema erstellen:"
 #: groups/single/forum.php:71
 #@ cc
 msgid "Title:"
-msgstr "Titel:"
+msgstr "Naslov:"
 
 #: forums/index.php:107
 #: forums/single/edit.php:52
@@ -1009,42 +1074,42 @@ msgstr "Titel:"
 #: groups/single/forum.php:74
 #@ cc
 msgid "Content:"
-msgstr "Inhalt:"
+msgstr "Vsebina:"
 
 #: forums/index.php:110
 #: groups/single/forum/edit.php:55
 #: groups/single/forum.php:77
 #@ cc
 msgid "Tags (comma separated):"
-msgstr "Schlagwörter (kommagetrennt):"
+msgstr "Značke (loči z vejico):"
 
 #: forums/index.php:113
 #@ cc
 msgid "Post In Group Forum:"
-msgstr ""
+msgstr "Objavi v skupinskem forumu:"
 
 #. translators: no option picked in select box
 #: forums/index.php:116
 #@ cc
 msgid "----"
-msgstr ""
+msgstr "----"
 
 #: forums/index.php:133
 #: groups/single/forum.php:83
 #@ cc
 msgid "Post Topic"
-msgstr "Thema verfassen"
+msgstr "Objavi temo"
 
 #: forums/index.php:134
 #@ cc
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "Prekliči"
 
 #: forums/index.php:145
 #, php-format
 #@ cc
 msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
-msgstr ""
+msgstr "Niste član nobene skupine, zato nimate skupinskih forumov, v katerih bi lahko objavljali prispevke. Da lahko pričnete objavljati, najprej poiščite skupino, ki se ujema s temo, ki bi jo radi načeli. Če ta skupina ne obstaja, zakaj ne  <a href='%s'>ustvari novo skupino</a>? Ko se pridružite ali ustvarite skupino, lahko objavite temo v ta skupinski forum."
 
 #: forums/single/edit.php:16
 #: forums/single/forum.php:25
@@ -1054,13 +1119,13 @@ msgstr ""
 #: groups/single/forum.php:23
 #@ cc
 msgid "Forum Directory"
-msgstr "Forenverzeichnis"
+msgstr "Direktorij foruma"
 
 #: forums/single/edit.php:25
 #: groups/single/forum/edit.php:25
 #@ cc
 msgid "Edit:"
-msgstr "Bearbeiten:"
+msgstr "Uredi:"
 
 #: forums/single/edit.php:57
 #: forums/single/edit.php:73
@@ -1073,186 +1138,183 @@ msgstr "Bearbeiten:"
 #: members/single/settings/notifications.php:62
 #@ cc
 msgid "Save Changes"
-msgstr "Änderungen speichern"
+msgstr "Shrani spremembe"
 
 #: forums/single/edit.php:88
 #: groups/single/forum/edit.php:91
 #@ cc
 msgid "This topic does not exist."
-msgstr "Dieses Thema existiert nicht."
+msgstr "Ta tema ne obstaja."
 
 #: forums/single/forum-header.php:13
 #: groups/groups-loop.php:47
 #, php-format
 #@ cc
 msgid "active %s"
-msgstr "aktiv %s"
+msgstr "aktiven %s"
 
 #: forums/single/topic.php:37
 #: groups/single/forum/topic.php:10
 #@ cc
 msgid "New Reply"
-msgstr "Neue Antwort"
+msgstr "Nov odgovor"
 
 #: forums/single/topic.php:97
 #, php-format
 #@ cc
 msgid "%s said %s ago:"
-msgstr "%s sagte %s zuvor:"
+msgstr "%s je dejal pred %s :"
 
 #: forums/single/topic.php:117
 #: groups/single/forum/topic.php:81
 #@ cc
 msgid "Permanent link to this post"
-msgstr "Link zu dem Artikel"
+msgstr "Trajna povezava do tega prispevka"
 
 #: forums/single/topic.php:153
 #: groups/single/forum/topic.php:117
 #@ cc
 msgid "Add a reply:"
-msgstr "Antworten:"
+msgstr "Dodaj odgovor:"
 
 #: forums/single/topic.php:158
 #: groups/single/forum/topic.php:122
 #@ cc
 msgid "Post Reply"
-msgstr "Antwort schreiben"
+msgstr "Objavi odgovor:"
 
 #: forums/single/topic.php:169
 #: groups/single/forum/topic.php:133
 #@ cc
 msgid "This topic is closed, replies are no longer accepted."
-msgstr "Das Thema wurde geschlossen, Antworten werden nicht mehr angenommen."
+msgstr "Ta tema je zaprta, odgovori niso več možni."
 
 #: forums/single/topic.php:184
 #: groups/single/forum/topic.php:147
 #@ cc
 msgid "There are no posts for this topic."
-msgstr ""
+msgstr "Ni prispevkov za to temo."
 
-#: full-width.php:23
-#: left-and-right-sidebar.php:22
-#: left-sidebar.php:22
+#: full-width.php:27
 #: page.php:17
-#: right-sidebar.php:22
 #@ cc
 msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
-msgstr ""
+msgstr "<p class=\"serif\">Preberi preostanek te strani &rarr;</p>"
 
-#: full-width.php:38
-#: single.php:92
+#: full-width.php:42
+#: single.php:91
 #@ cc
 msgid "Edit this entry."
-msgstr "Eintrag ändern."
+msgstr "Uredi vnos."
+
+#: functions.php:59
+#@ cc
+msgid "Header top menu"
+msgstr "Glava zgornjega menija"
 
 #: functions.php:60
 #@ cc
-msgid "Header top menu"
-msgstr ""
-
-#: functions.php:61
-#@ cc
 msgid "Header bottom menu"
-msgstr ""
+msgstr "Glava spodnjega menija"
 
-#: functions.php:474
+#: functions.php:473
 #@ cc
 msgid "Members Results"
-msgstr ""
+msgstr "Rezultati članov"
 
-#: functions.php:489
+#: functions.php:488
 #@ cc
 msgid "Group Search"
-msgstr "Suche in Gruppe"
+msgstr "Išči skupino"
 
-#: functions.php:492
+#: functions.php:491
 #@ cc
 msgid "View All matched Groups"
-msgstr "Zeige alle gefundenen Gruppen"
+msgstr "Prikaži vse sorodne skupine"
 
-#: functions.php:510
+#: functions.php:509
 #@ cc
 msgid "Blog Search"
-msgstr "Blogsuche"
+msgstr "Išči blog"
 
-#: functions.php:513
+#: functions.php:512
 #@ cc
 msgid "View All matched Posts"
-msgstr "Zeige alle gefundenen Artikel"
+msgstr "Prikaži vse sorodne prispevke"
 
-#: functions.php:525
+#: functions.php:524
 #@ cc
 msgid "Forums Search"
-msgstr "Forensuche"
+msgstr "Išči forum"
 
-#: functions.php:527
+#: functions.php:526
 #@ cc
 msgid "View All matched forum posts"
-msgstr "Zeige alle gefundenen Forenartikel"
+msgstr "Prikaži vse sorodne forum prispevke"
 
-#: functions.php:546
+#: functions.php:545
 #@ cc
 msgid "Blogs Search"
-msgstr ""
+msgstr "Išči bloge"
 
-#: functions.php:548
+#: functions.php:547
 #@ cc
 msgid "View All matched Blogs"
-msgstr "Zeige alle gefundenen Blogs"
+msgstr "Prikaži vse sorodne bloge"
 
 #: groups/create.php:18
 #: groups/index.php:23
 #@ cc
 msgid "Create a Group"
-msgstr "Gruppe erstellen"
+msgstr "Ustvari novo skupino"
 
 #: groups/create.php:18
 #: groups/index.php:23
 #@ cc
 msgid "Groups Directory"
-msgstr "Gruppenverzeichnis"
+msgstr "Direktorij skupine"
 
 #: groups/create.php:39
 #: groups/single/admin.php:16
 #@ cc
 msgid "Group Name (required)"
-msgstr "Name der Gruppe (erforderlich)"
+msgstr "Ime skupine (zahtevano)"
 
 #: groups/create.php:42
 #: groups/single/admin.php:19
 #@ cc
 msgid "Group Description (required)"
-msgstr "Beschreibung der Gruppe (erforderlich)"
+msgstr "Opis skupine (zahtevano)"
 
 #: groups/create.php:62
 #: groups/single/admin.php:47
 #@ cc
 msgid "Enable discussion forum"
-msgstr ""
+msgstr "Omogoči razpravo na forumu"
 
 #: groups/create.php:69
 #, php-format
 #@ cc
 msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
-msgstr "<strong>Achtung blogübergreifender Administrator:</strong> Gruppenforen benötigen <a href=\"%s\">eine korrekte Installation und ein Einbindung</a> von bbPress."
+msgstr "<strong>Pozor, administrator strani:</strong> Skupinski forum zahteva <a href=\"%s\">pravilne nastavitve in konfiguracijo</a> bbPress inštalacije.."
 
 #: groups/create.php:78
 #: groups/single/admin.php:56
 #@ cc
 msgid "Privacy Options"
-msgstr "Privatsphären-Einstellungen"
+msgstr "Nastavitve zasebnosti"
 
 #: groups/create.php:82
 #: groups/single/admin.php:61
 #@ cc
 msgid "This is a public group"
-msgstr "Dies ist eine öffentliche Gruppe"
+msgstr "To je javna skupina"
 
 #: groups/create.php:84
 #: groups/single/admin.php:63
 #@ cc
 msgid "Any site member can join this group."
-msgstr "Jeder Benutzer darf dieser Gruppe beitreten."
+msgstr "Vsak član strani se lahko priključi k tej skupini."
 
 #: groups/create.php:85
 #: groups/create.php:94
@@ -1260,25 +1322,25 @@ msgstr "Jeder Benutzer darf dieser Gruppe beitreten."
 #: groups/single/admin.php:74
 #@ cc
 msgid "This group will be listed in the groups directory and in search results."
-msgstr "Diese Gruppe wird im Gruppenverzeichnis und in der Suche angezeigt"
+msgstr "Ta skupina bo navedena v direktoriju skupine in v rezultatih iskanja."
 
 #: groups/create.php:86
 #: groups/single/admin.php:65
 #@ cc
 msgid "Group content and activity will be visible to any site member."
-msgstr "Inhalt der Gruppe und Aktivitäten sind für jeden Benutzer sichtbar."
+msgstr "Vsebina skupine in aktivnost bosta vidni vsem članom strani."
 
 #: groups/create.php:91
 #: groups/single/admin.php:71
 #@ cc
 msgid "This is a private group"
-msgstr "Dies ist eine private Gruppe"
+msgstr "To je zasebna skupina"
 
 #: groups/create.php:93
 #: groups/single/admin.php:73
 #@ cc
 msgid "Only users who request membership and are accepted can join the group."
-msgstr "Ausschliesslich Benutzer, die eine Mitgliedschaft beantragt haben und zugelassen wurden, können der Gruppe beitreten."
+msgstr "Samo uporabniki, ki so zaprosili za članstvo in so sprejeti, se lahko pridružijo skupini."
 
 #: groups/create.php:95
 #: groups/create.php:104
@@ -1286,549 +1348,548 @@ msgstr "Ausschliesslich Benutzer, die eine Mitgliedschaft beantragt haben und zu
 #: groups/single/admin.php:85
 #@ cc
 msgid "Group content and activity will only be visible to members of the group."
-msgstr "Inhalt der Gruppe und Aktivitäten sind für nur für Gruppenmitglieder sichtbar."
+msgstr "Vsebina skupine in aktivnost bosta vidni samo članom skupine."
 
 #: groups/create.php:100
 #: groups/single/admin.php:81
 #@ cc
 msgid "This is a hidden group"
-msgstr "Dies ist eine versteckte Gruppe"
+msgstr "To je skrita skupina"
 
 #: groups/create.php:102
 #: groups/single/admin.php:83
 #@ cc
 msgid "Only users who are invited can join the group."
-msgstr "Dieser Gruppe können nur Benutzer beitreten, die eingeladen wurden."
+msgstr "Samo uporabniki, ki so povabljeni, se lahko pridružijo skupini."
 
 #: groups/create.php:103
 #: groups/single/admin.php:84
 #@ cc
 msgid "This group will not be listed in the groups directory or search results."
-msgstr "Diese Gruppe wird nicht im Gruppenverzeichnis und in der Suche angezeigt"
+msgstr "Ta skupina ne bo navedena v direktoriju skupine ali v rezultatih iskanja."
 
 #: groups/create.php:111
 #: groups/single/admin.php:92
 #@ cc
 msgid "Group Invitations"
-msgstr "Einladungen in die Gruppe"
+msgstr "Povabilo v skupino"
 
 #: groups/create.php:113
 #: groups/single/admin.php:94
 #@ cc
 msgid "Which members of this group are allowed to invite others?"
-msgstr "Welche Mitglieder der Gruppe dürfen andere Benutzer einladen?"
+msgstr "Katerim članom te skupine je dovoljeno povabiti ostale?"
 
 #: groups/create.php:118
 #: groups/single/admin.php:99
 #@ cc
 msgid "All group members"
-msgstr "Alle Gruppenmitglieder"
+msgstr "Vsi člani skupine"
 
 #: groups/create.php:123
 #: groups/single/admin.php:104
 #@ cc
 msgid "Group admins and mods only"
-msgstr "Nur Administratoren und Moderatoren der Gruppe"
+msgstr "Samo administratorji in moderatorji skupin"
 
 #: groups/create.php:128
 #: groups/single/admin.php:109
 #@ cc
 msgid "Group admins only"
-msgstr "Nur Administratoren der Gruppe"
+msgstr "Samo administratorji skupin"
 
 #: groups/create.php:154
 #: groups/single/admin.php:127
 #@ cc
 msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
-msgstr "Hier können Sie ein Bild, bspw. ein Logo für Ihre Gruppe einstellen. <br /><br />Das Bild erscheint im Gruppenverzeichnis sowie in den Suchresultaten."
+msgstr "Naloži sliko, ki jo želiš uporabiti kot avatar za to skupino. Slika bo vidna na glavni strani skupine in v rezultatih iskanja,"
 
 #: groups/create.php:158
 #: groups/single/admin.php:131
 #: members/single/profile/change-avatar.php:18
 #@ cc
 msgid "Upload Image"
-msgstr "Bild hochladen"
+msgstr "Naloži sliko"
 
 #: groups/create.php:162
 #@ cc
 msgid "To skip the avatar upload process, hit the \"Next Step\" button."
-msgstr "Klicken Sie auf „Weiter“, wenn Sie erst später ein Bild einstellen wollen."
+msgstr "Če želiš preskočiti proces nalaganja avatarja, pritisni \"Naslednji korak\" gumb."
 
 #: groups/create.php:169
 #@ cc
 msgid "Crop Group Avatar"
-msgstr "Gruppenbild zuschneiden"
+msgstr "Obreži avatar skupine"
 
 #: groups/create.php:171
 #: groups/single/admin.php:151
 #: members/single/profile/change-avatar.php:33
 #@ cc
 msgid "Avatar to crop"
-msgstr "Profilbild schneiden"
+msgstr "Avatar za obrez"
 
 #: groups/create.php:174
 #: groups/single/admin.php:154
 #: members/single/profile/change-avatar.php:36
 #@ cc
 msgid "Avatar preview"
-msgstr "Vorschau"
+msgstr "Predogled avatarja"
 
 #: groups/create.php:177
 #: groups/single/admin.php:157
 #: members/single/profile/change-avatar.php:39
 #@ cc
 msgid "Crop Image"
-msgstr "Profilbild schneiden"
+msgstr "Obreži sliko"
 
 #: groups/create.php:216
 #: groups/single/send-invites.php:22
 #@ cc
 msgid "Select people to invite from your friends list."
-msgstr "Wählen Sie die Kontakte, die zu dieser Grupe eingeladen werden sollen."
+msgstr "Povabi prijatelje iz svojega seznama."
 
 #: groups/create.php:251
 #: groups/single/send-invites.php:73
 #@ cc
 msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
-msgstr "Sie können bestehende Kontakte in Ihre Gruppe einladen. Sie können jederzeit Einladungen über die Funktion „Einladungen senden“ versenden."
+msgstr "Ko si ustvariš mrežo prijateljev, boš lahko dodajal druge v svojo skupino. Povabilo lahko pošlješ kadarkoli, tako da izbereš  \"Pošlji povabilo\" , ko se nahajaš v svoji skupini."
 
 #: groups/create.php:273
 #@ cc
 msgid "Back to Previous Step"
-msgstr "Zurück"
+msgstr "Na prejšnji korak"
 
 #: groups/create.php:280
 #@ cc
 msgid "Next Step"
-msgstr "Weiter"
+msgstr "Naslednji korak"
 
 #: groups/create.php:287
 #@ cc
 msgid "Create Group and Continue"
-msgstr "Gruppe erstellen und fortfahren"
+msgstr "Ustvari skupino in nadaljuj"
 
 #: groups/create.php:294
 #@ cc
 msgid "Finish"
-msgstr "Fertigstellen"
+msgstr "Končaj"
 
 #: groups/groups-loop.php:95
 #@ cc
 msgid "There were no groups found."
-msgstr "Es wurden keine Gruppen gefunden."
+msgstr "Skupine niso bile najdene."
 
 #: groups/index.php:37
 #, php-format
 #@ cc
 msgid "All Groups <span>%s</span>"
-msgstr "Alle Gruppen <span>%s</span>"
+msgstr "Vse skupine <span>%s</span>"
 
 #: groups/index.php:60
 #: members/single/groups.php:23
 #@ cc
 msgid "Most Members"
-msgstr "Meiste Mitglieder"
+msgstr "Največ članov"
 
 #: groups/index.php:61
 #: members/single/groups.php:24
 #@ cc
 msgid "Newly Created"
-msgstr "Kürzlich erstellt"
+msgstr "Na novo ustvarjeno"
 
 #: groups/single/admin.php:25
 #@ cc
 msgid "Notify group members of changes via email"
-msgstr "Benachrichtige Mitglieder der Gruppe bei Änderungen per Email"
+msgstr "Obvesti člane skupine o spremembah preko e-pošte"
 
 #: groups/single/admin.php:26
 #: registration/register.php:205
 #@ cc
 msgid "Yes"
-msgstr "Ja"
+msgstr "Da"
 
 #: groups/single/admin.php:27
 #: registration/register.php:206
 #@ cc
 msgid "No"
-msgstr "Nein"
+msgstr "Ne"
 
 #: groups/single/admin.php:137
 #@ cc
 msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
-msgstr "Wenn Sie Ihr aktuelles Profilbild löschen wollen ohne ein Neues hochzuladen, nutzen Sie bitte den \"Profilbild löschen\"-Button."
+msgstr "Če želite odstraniti obstoječi avatar in ne naložiti novega, prosim uporabite gumb izbriši avatar."
 
 #: groups/single/admin.php:139
 #: members/single/profile/change-avatar.php:24
 #@ cc
 msgid "Delete Avatar"
-msgstr "Avatar löschen"
+msgstr "Izbriši avatar"
 
 #: groups/single/admin.php:149
 #@ cc
 msgid "Crop Avatar"
-msgstr "Avatar zuschneiden"
+msgstr "Obreži avatar"
 
 #: groups/single/admin.php:177
 #@ cc
 msgid "Administrators"
-msgstr "Administratoren"
+msgstr "Administratorji"
 
 #: groups/single/admin.php:185
 #: groups/single/admin.php:210
 #, php-format
 #@ cc
 msgid "Profile picture of %s"
-msgstr "Profilbild von %s"
+msgstr "Profilna slika  %s"
 
 #: groups/single/admin.php:189
 #: groups/single/admin.php:215
 #@ cc
 msgid "Demote to Member"
-msgstr "Zum Mitglied degradieren"
+msgstr "Spremeniti v člana"
 
 #: groups/single/admin.php:203
 #@ cc
 msgid "Moderators"
-msgstr "Moderatoren"
+msgstr "Moderatorji"
 
 #: groups/single/admin.php:214
 #: groups/single/admin.php:270
 #@ cc
 msgid "Promote to Admin"
-msgstr "Zum Administrator befördern"
+msgstr "Povišati v administratorja"
 
 #: groups/single/admin.php:258
 #@ cc
 msgid "(banned)"
-msgstr "(verbannt)"
+msgstr "(blokiraj)"
 
 #: groups/single/admin.php:264
 #@ cc
 msgid "Unban this member"
-msgstr "Dieses Mitglied entsperren"
+msgstr "Odblokiraj člana"
 
 #: groups/single/admin.php:264
 #@ cc
 msgid "Remove Ban"
-msgstr "Bann aufheben"
+msgstr "Odstrani blokado"
 
 #: groups/single/admin.php:268
 #@ cc
 msgid "Kick and ban this member"
-msgstr "Diesen Benutzer kicken und bannen"
+msgstr "Blokiraj člana za vedno!"
 
 #: groups/single/admin.php:268
 #@ cc
 msgid "Kick &amp; Ban"
-msgstr "Kicken &amp; Bannen"
+msgstr "Odstranjen &amp; Blokiran"
 
 #: groups/single/admin.php:269
 #@ cc
 msgid "Promote to Mod"
-msgstr "Zum Moderator befördern"
+msgstr "Povišaj v moderatorja"
 
 #: groups/single/admin.php:274
 #@ cc
 msgid "Remove this member"
-msgstr "Dieses Mitglied entfernen"
+msgstr "Odstrani člana"
 
 #: groups/single/admin.php:274
 #@ cc
 msgid "Remove from group"
-msgstr "Aus der Gruppe entfernen"
+msgstr "Odstrani iz skupine"
 
 #: groups/single/admin.php:288
 #: groups/single/members.php:104
 #@ cc
 msgid "This group has no members."
-msgstr "Diese Gruppe hat keine Mitglieder"
+msgstr "Ta skupina nima članov."
 
 #: groups/single/admin.php:318
 #: members/single/friends/requests.php:37
 #: members/single/groups/invites.php:23
 #@ cc
 msgid "Accept"
-msgstr "Akzeptieren"
+msgstr "Sprejmi"
 
 #: groups/single/admin.php:320
 #: members/single/friends/requests.php:38
 #: members/single/groups/invites.php:24
 #@ cc
 msgid "Reject"
-msgstr "Ablehnen"
+msgstr "Zavrni"
 
 #: groups/single/admin.php:333
 #@ cc
 msgid "There are no pending membership requests."
-msgstr "Es liegen keine Anfragen auf Gruppenmitgliedschaft vor."
+msgstr "Ni prošenj za članstvo v teku."
 
 #: groups/single/admin.php:350
 #@ cc
 msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
-msgstr "WARNUNG: Das Löschen dieser Gruppe entfernt ALLE verknüpften Inhalte. Es gibt keinen Weg zurück, also seien Sie bitte vorsichtig mit dieser Option."
+msgstr "OPOZORILO: Izbris te skupine bo v celoti odstranil VSO vsebino povezano z njo. Ni poti nazaj, prosim bodite pozorni pri tej možnosti."
 
 #: groups/single/admin.php:353
 #@ cc
 msgid "I understand the consequences of deleting this group."
-msgstr "Ich verstehe die Folgen, die sich aus dem Löschen dieser Gruppe ergeben."
+msgstr "Razumem posledice izbrisa te skupine."
 
 #: groups/single/admin.php:358
 #@ cc
 msgid "Delete Group"
-msgstr "Gruppe löschen"
+msgstr "Izbriši skupino"
 
 #: groups/single/forum/topic.php:67
 #, php-format
 #@ cc
 msgid "%1$s said %2$s:"
-msgstr "%1$s sagte %2$s:"
+msgstr "%1$s je dejal %2$s:"
 
 #: groups/single/forum/topic.php:112
 #@ cc
 msgid "You will auto join this group when you reply to this topic."
-msgstr "Sie werden automatisch Gruppenmitglied, wenn Sie diesem Thema antworten."
+msgstr "Z odgovorom na to temo se avtomatično pridružite skupini."
 
 #: groups/single/forum.php:65
 #@ cc
 msgid "You will auto join this group when you start a new topic."
-msgstr "Sie werden automatisch Gruppenmitglied, wenn Sie ein neues Thema eröffnen."
+msgstr "Z odprtjem nove teme se avtomatično pridružite skupini."
 
 #: groups/single/forum.php:69
 #@ cc
 msgid "Post a New Topic:"
-msgstr "Neues Thema eröffnen:"
+msgstr "Objavi novo temo:"
 
 #: groups/single/group-header-sidebar.php:16
 #: groups/single/group-header.php:35
 #, php-format
 #@ cc
 msgid "active %s ago"
-msgstr "aktiv %s"
+msgstr "aktiven pred %s  "
 
-#: groups/single/group-header-sidebar.php:34
 #: groups/single/group-header.php:6
 #@ cc
 msgid "Group Admins"
-msgstr "Administratoren der Gruppe"
+msgstr "Administratorji skupine"
 
 #: groups/single/group-header.php:14
 #@ cc
 msgid "Group Mods"
-msgstr "Moderatoren der Gruppe"
+msgstr "Moderatorji skupine"
 
 #: groups/single/members.php:15
 #: members/index.php:58
 #: members/single/friends.php:23
 #@ cc
 msgid "Newest Registered"
-msgstr "Zuletzt registriert"
+msgstr "Nazadnje registriran"
 
 #: groups/single/request-membership.php:4
 #, php-format
 #@ cc
 msgid "You are requesting to become a member of the group '%s'."
-msgstr "Sie möchten Mitglied der Gruppe '%s' werden."
+msgstr "Prosite za članstvo v skupini '%s'."
 
 #: groups/single/request-membership.php:7
 #@ cc
 msgid "Comments (optional)"
-msgstr "Kommentare (optional)"
+msgstr "Komentarji (po želji)"
 
 #: groups/single/request-membership.php:12
 #@ cc
 msgid "Send Request"
-msgstr "Sende Anfrage"
+msgstr "Pošlji prošnjo"
 
 #: groups/single/send-invites.php:60
 #@ cc
 msgid "Send Invites"
-msgstr "Sende Einladungen"
+msgstr "Pošlji povabila"
 
 #: index.php:30
 #: single.php:56
 #, php-format
 #@ cc
 msgid " by %s"
-msgstr " von %s"
+msgstr " od %s"
 
 #: index.php:58
 #@ cc
 msgid "Sorry, but you are looking for something that isn't here."
-msgstr "Was Sie suchen, gibt es hier nicht."
+msgstr "Oprostite, iščete nekaj kar ne obstaja."
 
 #: members/index.php:23
 #@ cc
 msgid "Members Directory"
-msgstr "Mitgliederverzeichnis"
+msgstr "Direktorij članov"
 
 #: members/members-loop.php:108
 #@ cc
 msgid "Sorry, no members were found."
-msgstr "Keine Kontakte gefunden."
+msgstr "Oprostite, ni bilo najdenih članov."
 
 #: members/single/friends/requests.php:68
 #@ cc
 msgid "You have no pending friendship requests."
-msgstr "Sie haben keine Kontaktanfragen."
+msgstr "Nimate prošenj za prijateljstvo."
 
 #: members/single/groups/invites.php:14
 #, php-format
 #@ cc
 msgid "%s members"
-msgstr "%s Mitglieder"
+msgstr "%s člani"
 
 #: members/single/groups/invites.php:37
 #@ cc
 msgid "You have no outstanding group invites."
-msgstr "Sie haben keine Gruppenanfragen."
+msgstr "Nimate posebnih povabil v skupino."
 
 #: members/single/member-header-sidebar.php:37
 #: members/single/member-header.php:34
 #@ cc
 msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
-msgstr "Beim Erwähnen des Benutzers wird dem Benutzer eine Nachricht gesendet um ihn darauf aufmerksam zu machen."
+msgstr "Omeni tega uporabnika v novem javnem sporočilu. Tako bo uporabnik dobil opozorilo, ki bo pritegnila njegovo pozornost."
 
 #: members/single/member-header-sidebar.php:37
 #: members/single/member-header.php:34
 #@ cc
 msgid "Mention this User"
-msgstr "Erwähne diesen User"
+msgstr "Omeni tega uporabnika"
 
 #: members/single/member-header-sidebar.php:43
 #: members/single/member-header.php:40
 #@ cc
 msgid "Send a private message to this user."
-msgstr "Sende eine privaten Nachricht an diesen Benutzer."
+msgstr "Pošlji zasebno sporočilo temu uporabniku."
 
 #: members/single/member-header-sidebar.php:43
 #: members/single/member-header.php:40
 #@ cc
 msgid "Send Private Message"
-msgstr "Sende private Nachricht"
+msgstr "Pošlji zasebno sporočilo"
 
 #: members/single/messages/compose.php:5
 #@ cc
 msgid "Send To (Username or Friend's Name)"
-msgstr "Sende zu (Benutzername oder name des Kontaktes)"
+msgstr "Pošlji (uporabniško ime ali ime prijatelja)"
 
 #: members/single/messages/compose.php:14
 #@ cc
 msgid "This is a notice to all users."
-msgstr "Das ist eine Nachricht an alle Benutzer."
+msgstr "To je obvestilo vsem uporabnikom"
 
 #: members/single/messages/compose.php:17
 #@ cc
 msgid "Subject"
-msgstr "Betreff"
+msgstr "Zadeva"
 
 #: members/single/messages/compose.php:20
 #@ cc
 msgid "Message"
-msgstr "Nachricht"
+msgstr "Sporočilo"
 
 #: members/single/messages/compose.php:28
 #@ cc
 msgid "Send Message"
-msgstr "Sende Nachricht"
+msgstr "Pošlji sporočilo"
 
 #: members/single/messages/messages-loop.php:31
 #@ cc
 msgid "From:"
-msgstr "Von:"
+msgstr "Od:"
 
 #: members/single/messages/messages-loop.php:36
 #@ cc
 msgid "To:"
-msgstr "An:"
+msgstr "Za:"
 
 #: members/single/messages/messages-loop.php:42
 #@ cc
 msgid "View Message"
-msgstr "Nachricht ansehen"
+msgstr "Poglej sporočilo"
 
 #: members/single/messages/messages-loop.php:50
 #: members/single/messages/notices-loop.php:38
 #: members/single/messages/single.php:24
 #@ cc
 msgid "Delete Message"
-msgstr "Nachricht löschen"
+msgstr "Izbriši sporočilo"
 
 #: members/single/messages/messages-loop.php:68
 #@ cc
 msgid "Sorry, no messages were found."
-msgstr "Es wurden keine Nachrichten gefunden."
+msgstr "Oprostite, ni sporočil."
 
 #: members/single/messages/notices-loop.php:31
 #@ cc
 msgid "Sent:"
-msgstr "Gesendet:"
+msgstr "Poslano:"
 
 #: members/single/messages/notices-loop.php:49
 #@ cc
 msgid "Sorry, no notices were found."
-msgstr "Keine Notizen gefunden."
+msgstr "Oprostite, ni obvestil."
 
 #: members/single/messages/single.php:14
 #@ cc
 msgid "You are alone in this conversation."
-msgstr "Sie sind allein in dieser Unterhaltung."
+msgstr "Ste sami v tej razpravi."
 
 #: members/single/messages/single.php:18
 #, php-format
 #@ cc
 msgid "Conversation between %s and you."
-msgstr "Unterhaltungen zwischen %s und Dir."
+msgstr "Razprava med %s in tabo."
 
 #: members/single/messages/single.php:75
 #@ cc
 msgid "Send a Reply"
-msgstr "Sende eine Antwort"
+msgstr "Pošlji odgovor"
 
 #: members/single/messages/single.php:91
 #@ cc
 msgid "Send Reply"
-msgstr "Sende Antwort"
+msgstr "Pošlji odgovor"
 
 #: members/single/profile/change-avatar.php:1
 #@ cc
 msgid "Change Avatar"
-msgstr "Profilbild ändern"
+msgstr "Spremeni avatar"
 
 #: members/single/profile/change-avatar.php:7
 #@ cc
 msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
-msgstr "Ihr Profilbild wird auf Ihrem Profil sowie auf der ganzen Webseite verwendet. Wenn mit Ihrer E-Mail-Adresse ein <a href=\"http://gravatar.com\">Gravatar</a> verknüpft ist, wird dieser verwendet, falls Sie kein anderes Profilbild hochladen."
+msgstr "Vaš avatar bo uporabljen na vašem profilu in na strani. Če obstaja <a href=\"http://gravatar.com\">Gravatar</a> povezan z vašim e-mail računom, bomo uporabili tega ali pa naložite sliko iz vašega računalnika."
 
 #: members/single/profile/change-avatar.php:14
 #@ cc
 msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
-msgstr "Klicken Sie hier, um ein JPG, GIF oder PNG-Bild von Ihrem Computer auszuwählen und klicken Sie dann auf 'Bild hochladen', um fortzufahren."
+msgstr "Klikni spodaj za JPG, GIF ali PNG format sliko iz svojega računalnika in potem klikni 'Naloži sliko' za nadaljevanje."
 
 #: members/single/profile/change-avatar.php:23
 #@ cc
 msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
-msgstr "Wenn Sie Ihr aktuelles Profilbild löschen, aber kein Neues hochladen wollen, so nutzen Sie einfach den 'Profilbild löschen'-Button."
+msgstr "Če želite izbrisati trenutni avatar ne da bi naložili novega, prosim uporabite gumb izbriši avatar."
 
 #: members/single/profile/change-avatar.php:24
 #@ cc
 msgid "Delete My Avatar"
-msgstr "Lösche meinen Avatar"
+msgstr "Izbriši moj avatar"
 
 #: members/single/profile/change-avatar.php:31
 #@ cc
 msgid "Crop Your New Avatar"
-msgstr "Bitte schneiden Sie Ihr Profilbild!"
+msgstr "Obreži svoj nov avatar"
 
 #: members/single/profile/change-avatar.php:55
 #@ cc
 msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
-msgstr "Ihr Profilbild wird auf Ihrem Profil sowie auf der ganzen Webseite verwendet. Wenn Sie Ihr Profilbild ändern möchten, verknüpfen Sie Ihre E-Mail-Adresse mit <a href=\"http://gravatar.com\">Gravatar</a>."
+msgstr "Vaš avatar bo uporabljen na vašem profilu in na strani. Za spremembo avatarja, prosim ustvarite račun <a href=\"http://gravatar.com\">Gravatar</a> z enakim e-naslovom kot ste ga uporabili pri registraciji te strani."
 
 #: members/single/profile/edit.php:10
 #, php-format
 #@ cc
 msgid "Editing '%s' Profile Group"
-msgstr "'%s' Profilgruppe bearbeiten"
+msgstr "Urejanje '%s' Profila Skupine"
 
 #: members/single/profile/edit.php:26
 #: members/single/profile/edit.php:33
@@ -1852,30 +1913,30 @@ msgstr "'%s' Profilgruppe bearbeiten"
 #: registration/register.php:198
 #@ cc
 msgid "(required)"
-msgstr "(erforderlich)"
+msgstr "(obvezno)"
 
 #: members/single/profile/edit.php:58
 #: members/single/profile/edit.php:73
 #: registration/register.php:119
 #@ cc
 msgid "Clear"
-msgstr "Löschen"
+msgstr "Izbrisano"
 
 #: members/single/profile/profile-wp.php:8
 #, php-format
 #@ cc
 msgid "%s's Profile"
-msgstr "%s's Profil"
+msgstr "%s's profil"
 
 #: members/single/profile/profile-wp.php:24
 #@ cc
 msgid "About Me"
-msgstr "Über mich"
+msgstr "O meni"
 
 #: members/single/profile/profile-wp.php:42
 #@ cc
 msgid "Jabber"
-msgstr "Jabber"
+msgstr "Blebetanje"
 
 #: members/single/profile/profile-wp.php:51
 #@ cc
@@ -1890,440 +1951,248 @@ msgstr "Yahoo Messenger"
 #: members/single/settings/delete-account.php:50
 #@ cc
 msgid "Delete Account"
-msgstr "Konto löschen"
+msgstr "Izbriši račun"
 
 #: members/single/settings/delete-account.php:55
 #@ cc
 msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
-msgstr "ACHTUNG: Das Löschen Ihres Benutzerkontos entfernt ALLE verknüpfte Inhalte. Es gibt keinen Weg zurück, also seien Sie vorsichtig mit dieser Option."
+msgstr "OPOZORILO: Izbris tega računa bo v celoti odstranil VSO vsebino povezano z njim. Ni poti nazaj, prosim bodite pozorni pri tej možnosti."
 
 #: members/single/settings/delete-account.php:58
 #@ cc
 msgid "I understand the consequences of deleting my account."
-msgstr "Ich kenne die Folgen, die durch das Löschen meines Benutzerkontos enstehen."
+msgstr "Razumem posledice izbrisa tega računa."
 
 #: members/single/settings/delete-account.php:63
 #@ cc
 msgid "Delete My Account"
-msgstr "Lösche meinen Account"
+msgstr "Izbriši moj raćun."
 
 #: members/single/settings/general.php:50
 #@ cc
 msgid "General Settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "Splošne nastavitve"
 
 #: members/single/settings/general.php:56
 #@ cc
 msgid "Current Password <span>(required to update email or change current password)</span>"
-msgstr "Aktuelles Passwort <span>(erforderlich, um die E-Mail-Adresse zu aktualisieren oder das derzeitige Passwort selbst zu ändern)</span>"
+msgstr "Trenutno geslo <span>(obvezno za spremembo e-pošte ali trenutnega gesla )</span>"
 
 #: members/single/settings/general.php:57
 #@ cc
 msgid "Password Lost and Found"
-msgstr "Passwort verloren und wiedergefunden"
+msgstr "Geslo izgubljeno in najdeno"
 
 #: members/single/settings/general.php:57
 #@ cc
 msgid "Lost your password?"
-msgstr "Passwort vergessen?"
+msgstr "Ste izgubili geslo?"
 
 #: members/single/settings/general.php:59
 #@ cc
 msgid "Account Email"
-msgstr "Konto Email"
+msgstr "Račun e-pošte"
 
 #: members/single/settings/general.php:62
 #@ cc
 msgid "Change Password <span>(leave blank for no change)</span>"
-msgstr "Passwort ändern <span>(Leer lassen, um Ihr Passwort nicht zu ändern)</span>"
+msgstr "Spremeni geslo <span>(pusti prazno, če ni spremembe)</span>"
 
 #: members/single/settings/general.php:63
 #@ cc
 msgid "New Password"
-msgstr "Neues Passwort"
+msgstr "Novo geslo"
 
 #: members/single/settings/general.php:64
 #@ cc
 msgid "Repeat New Password"
-msgstr "Neues Passwort wiederholen"
+msgstr "Ponovi novo geslo"
 
 #: members/single/settings/notifications.php:50
 #@ cc
 msgid "Email Notification"
-msgstr "Benachrichtigungen per Email"
+msgstr "E-poštno obvestilo"
 
 #: members/single/settings/notifications.php:55
 #@ cc
 msgid "Send a notification by email when:"
-msgstr "Sende eine Benachrichtigung per Email wenn:"
+msgstr "Pošlji obvestilo preko e-pošte brž ko:"
+
+#: page.php:33
+#@ cc
+msgid "Edit this page."
+msgstr "Uredi to stran."
 
 #: registration/activate.php:12
 #@ cc
 msgid "Account Activated"
-msgstr "Konto aktiviert"
+msgstr "Račun aktiviran"
 
 #: registration/activate.php:17
 #@ cc
 msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
-msgstr "Ihr Benutzerkonto wurde erfolgreich aktiviert. Details zur Ihrer Anmeldung wurden an Ihre E-Mail-Adresse gesendet."
+msgstr "Vaš račun je bil uspešno aktiviran! Podrobnosti računa so bile poslane na Vašo e-pošto."
 
 #: registration/activate.php:19
 #@ cc
 msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
-msgstr "Ihr Benutzerkonto wurde erfolgreich aktiviert. Sie können sich nun mit Ihren Zugangsdaten anmelden."
+msgstr "Vaš račun je bil uspešno aktiviran! Zdaj se lahko prijavite z vašim uporabniškim imenom in geslom. "
 
 #: registration/activate.php:24
 #@ cc
 msgid "Activate your Account"
-msgstr "Konto aktivieren"
+msgstr "Aktiviraj svoj račun"
 
 #: registration/activate.php:28
 #@ cc
 msgid "Please provide a valid activation key."
-msgstr "Bitte geben Sie einen gültigen Aktivierungsschlüssel an."
+msgstr "Prosim, če posredujete veljavno aktivacijsko geslo. "
 
 #: registration/activate.php:32
 #@ cc
 msgid "Activation Key:"
-msgstr "Aktivierungsschlüssel:"
+msgstr "Aktivacijsko geslo:"
 
 #: registration/activate.php:36
 #@ cc
 msgid "Activate"
-msgstr "Aktivieren"
+msgstr "Aktiviraj"
 
 #: registration/register.php:16
 #@ cc
 msgid "User registration is currently not allowed."
-msgstr "Benutzerregistrierung ist derzeit nicht erlaubt."
+msgstr "Registracija uporabnika trenutno ni dovoljena."
 
 #: registration/register.php:23
 #@ cc
 msgid "Create an Account"
-msgstr "Konto erstellen"
+msgstr "Ustvari račun"
 
 #: registration/register.php:27
 #@ cc
 msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
-msgstr "Die Registrierung ist ganz unkompliziert, einfach das unten stehende Formular ausfüllen und schon Sind Sie Mitglied."
+msgstr "Registracija je enostavna, izpolni spodnja polja in nov račun bo ustvarjen zelo hitro."
 
 #: registration/register.php:35
 #@ cc
 msgid "Account Details"
-msgstr "Kotodetails"
+msgstr "Podrobnosti računa"
 
 #: registration/register.php:41
 #@ cc
 msgid "Email Address"
-msgstr "E-Mail-Adresse"
+msgstr "E-poštni naslov"
 
 #: registration/register.php:45
 #@ cc
 msgid "Choose a Password"
-msgstr "Wählen Sie ein Passwort"
+msgstr "Izberi geslo"
 
 #: registration/register.php:49
 #@ cc
 msgid "Confirm Password"
-msgstr "Gewähltes Passwort bitte wiederholen"
+msgstr "Potrdi geslo"
 
 #: registration/register.php:65
 #@ cc
 msgid "Profile Details"
-msgstr "Profildetails"
+msgstr "Podrobnosti profila"
 
 #: registration/register.php:183
 #@ cc
 msgid "Blog Details"
-msgstr "Blogdetails"
+msgstr "Blog podrobnosti"
 
 #: registration/register.php:185
 #@ cc
 msgid "Yes, I'd like to create a new site"
-msgstr "Ja, ich will eine neue Seite erstellen"
+msgstr "Da, želim ustvarit novo stran"
 
 #: registration/register.php:189
 #@ cc
 msgid "Blog URL"
-msgstr "Blog-URL"
+msgstr "Blog URL"
 
 #: registration/register.php:198
 #@ cc
 msgid "Site Title"
-msgstr "Seitentitel"
+msgstr "Naslov strani"
 
 #: registration/register.php:202
 #@ cc
 msgid "I would like my site to appear in search engines, and in public listings around this network."
-msgstr "I möchte, dass meine Webseite in Suchmaschinen erscheint und öffentlichen Verzeichnissen um dieses Netzwerk herum."
+msgstr "Želim, da se moja stran pojavi v iskalnikih in v javnih seznamih na tej mreži."
 
 #: registration/register.php:219
 #@ cc
 msgid "Complete Sign Up"
-msgstr "Registrierung abschließen"
+msgstr "Izpolni prijavo"
 
 #: registration/register.php:230
 #@ cc
 msgid "Sign Up Complete!"
-msgstr "Die Registrierung ist abgeschlossen!"
+msgstr "Prijava je izpolnjena!"
 
 #: registration/register.php:236
 #@ cc
 msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
-msgstr "Sie haben erfollgreich Ihr Konto erstellt! Um fortzufahren müssen Sie Ihr Konto aktivieren, indem Sie auf den Link in der Bestätigungsmail klicken."
+msgstr "Uspešno ste ustvarili svoj račun. Za nadaljevanje in uporabo te strani boste morali aktivirati svoj račun preko Vaše e-pošte, na katerega smo Vam poslali vse napotke."
 
 #: registration/register.php:238
 #@ cc
 msgid "You have successfully created your account! Please log in using the username and password you have just created."
-msgstr "Ihr Benutzerkonto wurde erfolgreich aktiviert. Sie können sich nun mit Ihren Zugangsdaten anmelden."
+msgstr "Uspešno ste ustvarili svoj račun! Prosim, prijavite se z vašim uporabniškim imenom in geslom."
 
 #: search-loop.php:34
 #@ cc
 msgid "Read more..."
-msgstr "Weiterlesen..."
+msgstr "Preberi več..."
 
 #: search-loop.php:51
 #, php-format
 #@ cc
 msgid "We are sorry, but we could not find anything for the search term '%s'"
-msgstr "Es konnte nichts zu dem Suchbegriff '%s' gefunden werden"
+msgstr "Oprostite, nismo našli ničesar za iskalni niz '%s'"
 
 #: search.php:14
 #@ cc
 msgid "Search Results"
-msgstr "Sucheergebnisse"
+msgstr "Rezultati iskanja"
 
 #: search.php:59
 #@ cc
 msgid "No posts found. Try a different search?"
-msgstr "Keine Artikel gefunden. Versuch eine andere Suche."
+msgstr "Prispevek ni najden. Poskusite z drugim iskanjem?"
 
 #: sidebar.php:11
 #@ cc
 msgid "Recent Posts"
-msgstr "Letzte Einträge"
+msgstr "Nedavni prispevki"
 
 #: sidebar.php:23
 #@ cc
 msgid "Random Posts"
-msgstr "Zufällige Einträge"
+msgstr "Naključni prispevki"
 
 #: sidebar.php:35
 #@ cc
 msgid "Search by Tags!"
-msgstr "Suche nach Schlagwörtern"
+msgstr "Išči med značkami!"
 
-#: single.php:97
-#@ cc
-msgid "Sorry, no posts matched your criteria."
-msgstr "Leider stimmen keine Inhalte zu Ihren Kriterien überein."
-
-#: comments.php:3
-#@ cc
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Dieser Eintrag ist passwortgeschützt. Geben Sie das Passwort um Kommentare zu sehen."
-
-#: comments.php:19
-#, php-format
-#@ cc
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "Ein Gedanke in &quot;% 2 $ s&quot;"
-msgstr[1] "%1$s Gedanken in &ldquo;%2$s&rdquo;"
-
-#: comments.php:26
-#: comments.php:40
-#@ cc
-msgid "Comment navigation"
-msgstr "Kommentarnavigation"
-
-#: comments.php:27
-#: comments.php:41
-#@ cc
-msgid "&larr; Older Comments"
-msgstr "&larr; &Auml;ltere Kommentare"
-
-#: comments.php:28
-#: comments.php:42
-#@ cc
-msgid "Newer Comments &rarr;"
-msgstr "Neuere Kommentare &rarr;"
-
-#: forums/forums-loop.php:24
-#@ cc
-msgid "Topic Title"
-msgstr "Titel des Themas"
-
-#: forums/forums-loop.php:25
-#@ cc
-msgid "Latest Poster"
-msgstr "Zuletzt geschrieben"
-
-#: forums/forums-loop.php:28
-#@ cc
-msgid "Posted In Group"
-msgstr "Veröffentlicht in Gruppe"
-
-#: left-and-right-sidebar.php:39
-#: left-sidebar.php:39
-#: page.php:34
-#: right-sidebar.php:39
-#@ cc
-msgid "Edit this page."
-msgstr "Diese Seite bearbeiten."
-
-#: single.php:87
+#: single.php:86
 #@ cc
 msgctxt "Previous post link"
 msgid "&larr;"
 msgstr "&larr;"
 
-#: single.php:88
+#: single.php:87
 #@ cc
 msgctxt "Next post link"
 msgid "&rarr;"
 msgstr "&rarr;"
 
-#: admin/get-pro.php:6
+#: single.php:96
 #@ cc
-msgid "FAQ, Forum and Community at <a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a>"
-msgstr ""
-
-#: admin/get-pro.php:9
-#@ cc
-msgid "For more information and help, please visit the <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> and <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
-msgstr ""
-
-#: admin/get-pro.php:11
-#@ cc
-msgid "See the <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo</a> page with many examples."
-msgstr ""
-
-#: admin/get-pro.php:14
-#@ cc
-msgid "Your Themekraft Team."
-msgstr ""
-
-#: admin/page-meta-box.php:74
-#@ cc
-msgid "Select a category to display in slideshow:"
-msgstr ""
-
-#: admin/page-meta-box.php:79
-#@ default
-msgid "Use Post Type: for Pages write \"page\""
-msgstr ""
-
-#: admin/page-meta-box.php:81
-#@ default
-msgid "post/page ids comma separated"
-msgstr ""
-
-#: admin/page-meta-box.php:83
-#@ cc
-msgid "Select a slideshow style:"
-msgstr ""
-
-#: admin/page-meta-box.php:88
-#@ default
-msgid "Caption off"
-msgstr ""
-
-#: admin/page-meta-box.php:90
-#@ default
-msgid "Define the sliding time in ms"
-msgstr ""
-
-#: admin/page-meta-box.php:92
-#@ default
-msgid "Order By"
-msgstr ""
-
-#: admin/page-meta-box.php:94
-#@ default
-msgid "Amount"
-msgstr ""
-
-#: admin/page-meta-box.php:97
-#@ cc
-msgid "Lists Posts under this Page"
-msgstr ""
-
-#: admin/page-meta-box.php:98
-#@ cc
-msgid "You can show your posts in a predefined template"
-msgstr ""
-
-#: admin/page-meta-box.php:101
-#@ cc
-msgid "Select a template to use:"
-msgstr ""
-
-#: admin/page-meta-box.php:106
-#@ cc
-msgid "Select a category to display"
-msgstr ""
-
-#: admin/page-meta-box.php:111
-#@ cc
-msgid "How many posts to display?"
-msgstr ""
-
-#: admin/post-meta-box.php:51
-#@ cc
-msgid "Use a post template for this post"
-msgstr ""
-
-#: admin/post-meta-box.php:52
-#@ cc
-msgid "You can select a predefined post template"
-msgstr ""
-
-#: admin/post-meta-box.php:55
-#@ cc
-msgid "Select a template to use"
-msgstr ""
-
-#: admin/post-meta-box.php:61
-#@ cc
-msgid "Show/hide meta info"
-msgstr ""
-
-#: archive.php:13
-#, php-format
-#@ cc
-msgid "Daily Archives: %s"
-msgstr ""
-
-#: archive.php:15
-#, php-format
-#@ cc
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#: archive.php:17
-#, php-format
-#@ cc
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#: archive.php:19
-#, php-format
-#@ cc
-msgid "You are browsing the Blog for %1$s."
-msgstr ""
-
-#: groups/single/group-header-sidebar.php:27
-#@ cc
-msgid "Description"
-msgstr "Beschreibung"
-
-#: left-and-right-sidebar.php:24
-#: left-sidebar.php:24
-#: page.php:19
-#: right-sidebar.php:24
-#: single.php:68
-#@ cc
-msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
-msgstr "<p class=\"cc_pagecount\"><strong>Seiten:</strong> "
+msgid "Sorry, no posts matched your criteria."
+msgstr "Oprostite, noben prispevek se ne ujema z vašim kriterijem."
 
