@@ -8,13 +8,16 @@ http://www.gnu.org/licenses/gpl-2.0.html
   
 ************************************************************* 
 
-Create your BuddyPress community within minutes. 
-Custom Community is a Buddypress theme that enables you to build 
-your site with all the features you love. Easy to use jQuery slideshow. 
+Create your individual website within minutes. 
 
-List your posts with thumbnail integration and fancy mouse over effect. 
-A powerful admin option page to customize every part of the theme. 
-Clean and simple css-design. 18 widget areas and 5 special widgets. 
+Custom Community is a WordPress and BuddyPress theme framework 
+that enables you to build your site with all the features you love. 
+Easy to use jQuery slideshow. List posts under your pages in magazine layouts. 
+Use powerful theme settings to customize every part of the theme. 
+
+20 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 
+3 predefined colour schemes (white, grey, black) with clean and simple 
+browsersafe css design to start from.
 
 ************************************************************* 
 
@@ -23,6 +26,15 @@ Theme Support - join our forums for free.
 Visit our forums for support questions or just to participate with your ideas!  
 http://themekraft.com/forums/ 
 
+
+************************************************************* 
+
+Footer Credits 
+
+If you appreciate our work, please leave the footer credits. 
+If you still want to delete or change them, you can find the concerning code in theme-generator.php 
+
+************************************************************* 
   
 Thanks for using Custom Community Theme. 
 We hope you enjoy it!  
