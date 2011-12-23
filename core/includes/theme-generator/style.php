@@ -77,12 +77,15 @@ min-width:1000px;
 h1, h2, h3, h4, h5, h6 {
 margin: 0 0 12px 0;
 }
-h1 { font-size: 28px; color:#<?php echo $font_color; ?>; margin-bottom: 25px; line-height: 170%; }
-h2 { font-size: 24px; color:#<?php echo $font_color; ?>;  margin-top: -8px; margin-bottom: 25px; line-height: 170%; }
-h3 { font-size: 20px; color:#<?php echo $font_color; ?>; }
-h4 { font-size: 16px; margin-bottom: 15px; }
-h5 { font-size: 14px; margin-bottom: 0; }
-h6 { font-size: 12px; margin-bottom: 0; }
+h1 { color:#<?php echo $font_color; ?>; margin-bottom: 25px; line-height: 170%; }
+h2 { color:#<?php echo $font_color; ?>;  margin-top: -8px; margin-bottom: 25px; line-height: 170%; }
+h3 { color:#<?php echo $font_color; ?>; }
+h1, h1 a, h1 a:hover, h1 a:focus { font-size: 28px; }
+h2, h2 a, h2 a:hover, h2 a:focus { font-size: 24px; }
+h3, h3 a, h3 a:hover, h3 a:focus { font-size: 20px; }
+h4, h4 a, h4 a:hover, h4 a:focus { font-size: 16px; margin-bottom: 15px; }
+h5, h5 a, h5 a:hover, h5 a:focus { font-size: 14px; margin-bottom: 0; }
+h6, h6 a, h6 a:hover, h6 a:focus { font-size: 12px; margin-bottom: 0; }
 a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration: none; padding: 1px 0; }
 a:hover, a:active { color: #<?php echo $font_color; ?>; }
 a:focus { outline: none; }
@@ -193,7 +196,7 @@ min-height: 50px;
 height:auto !important;
 padding-top: 25px; 
 background-repeat: no-repeat; 
-z-index: 999999;
+z-index: 999;
 }
 #header #search-bar {
 position: absolute;
@@ -3700,25 +3703,83 @@ body {
 /** ***   
 standard font size  **/
 
-div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle,div.widgetarea h3.widgettitle, a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a, 
-span.highlight, #item-nav a, div.widget ul li a:hover, #subnav a:hover, div.widget ul#blog-post-list li a, div.widget ul#blog-post-list li, div.widget ul#blog-post-list li p, 
-div.widget ul#blog-post-list li div, div.widget ul li.recentcomments a, div#sidebar div#sidebar-me h4,div.widgetarea div#sidebar-me h4, 
-body, p, em, div.post, div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options, 
-div#item-header div#item-meta, ul.item-list li div.item-title span, ul.item-list li div.item-desc, 
-ul.item-list li div.meta, div.item-list-tabs ul li span, span.activity, div#message p, div.widget span.activity, 
-div.pagination, div#message.updated p, #subnav a, div.widget-title ul.item-list li a, 
-div#item-header span.activity, div#item-header span.highlight, 
-form.standard-form input:focus, form.standard-form textarea:focus, form.standard-form select:focus, table tr td.label, 
-table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
-form#whats-new-form h5, form#whats-new-form #whats-new-textarea, .activity-list li .activity-inreplyto, 
-.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header, 
-.activity-list .activity-content span.time-since, .activity-list .activity-content span.activity-header-meta a, 
-.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote, 
-.activity-list .activity-content .comment-header, .activity-header a:hover, div.activity-comments div.acomment-meta,  
-div.activity-comments form .ac-textarea, div.activity-comments form textarea, div.activity-comments form div.ac-reply-content, 
-li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
-div.admin-links, div.poster-name a, div.object-name a, div.post p.date a:hover, div.post p.postmetadata a:hover, div.comment-meta a:hover, div.comment-options a:hover, 
-#footer, #footer a, div.widget ul li a, .widget li.cat-item a, #item-nav a:hover {
+body, p, em, a,
+div.post, 
+div.post p.date, 
+div.post p.postmetadata, 
+div.comment-meta, 
+div.comment-options,  
+div.post p.date a, 
+div.post p.postmetadata a, 
+div.comment-meta a, 
+div.comment-options a, 
+span.highlight, 
+#item-nav a, 
+div#leftsidebar h3.widgettitle, 
+div#sidebar h3.widgettitle,
+div.widgetarea h3.widgettitle, 
+div.widget ul li a:hover, 
+#subnav a:hover, 
+div.widget ul#blog-post-list li a, 
+div.widget ul#blog-post-list li, 
+div.widget ul#blog-post-list li p, 
+div.widget ul#blog-post-list li div, 
+div.widget ul li.recentcomments a, 
+div#sidebar div#sidebar-me h4,
+div.widgetarea div#sidebar-me h4, 
+div#item-header div#item-meta, 
+ul.item-list li div.item-title span, 
+ul.item-list li div.item-desc, 
+ul.item-list li div.meta, 
+div.item-list-tabs ul li span, 
+span.activity, 
+div#message p, 
+div.widget span.activity, 
+div.pagination, 
+div#message.updated p, 
+#subnav a, 
+div.widget-title ul.item-list li a, 
+div#item-header span.activity, 
+div#item-header span.highlight, 
+form.standard-form input:focus, 
+form.standard-form textarea:focus, 
+form.standard-form select:focus, 
+table tr td.label, 
+table tr td.thread-info p.thread-excerpt, 
+table.forum td p.topic-text, 
+table.forum td.td-freshness, 
+form#whats-new-form, 
+form#whats-new-form h5, 
+form#whats-new-form #whats-new-textarea, 
+.activity-list li .activity-inreplyto, 
+.activity-list .activity-content .activity-header, 
+.activity-list .activity-content .comment-header, 
+.activity-list .activity-content span.time-since, 
+.activity-list .activity-content span.activity-header-meta a, 
+.activity-list .activity-content .activity-inner, 
+.activity-list .activity-content blockquote, 
+.activity-list .activity-content .comment-header, 
+.activity-header a:hover, 
+div.activity-comments div.acomment-meta,  
+div.activity-comments form .ac-textarea, 
+div.activity-comments form textarea, 
+div.activity-comments form div.ac-reply-content, 
+li span.unread-count, 
+tr.unread span.unread-count, 
+div.item-list-tabs ul li a span.unread-count, 
+ul#topic-post-list li div.poster-meta, 
+div.admin-links, 
+div.poster-name a, 
+div.object-name a, 
+div.post p.date a:hover, 
+div.post p.postmetadata a:hover, 
+div.comment-meta a:hover, 
+div.comment-options a:hover, 
+#footer, 
+#footer a, 
+div.widget ul li a, 
+.widget li.cat-item a, 
+#item-nav a:hover {
 	font-size: <?php echo $cap->font_size?>px;
 }
 <?php };?> 
@@ -3766,7 +3827,7 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 /** ***   
 title font style, size, weight and colour  **/
 
-h1, h2, h1 a, h2 a {
+h1, h2, h1 a, h2 a, h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus {
 <?php if($cap->title_font_style){?>
 	font-family: <?php echo $cap->title_font_style?>;
 <?php };?>
