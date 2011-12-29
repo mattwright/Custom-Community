@@ -205,7 +205,7 @@ function groups_header_control() {
      );
   }
 
-  if ($_POST['groups_header_submit']){
+  if (isset($_POST['groups_header_submit'])){
     $options['groups_header_position'] = htmlspecialchars($_POST['groups_header_position']);
     update_option("groups_header_position", $options);
   }?>
@@ -252,7 +252,7 @@ function profiles_header_control() {
      );
   }
 
-  if ($_POST['profiles_header_submit']){
+  if (isset($_POST['profiles_header_submit'])){
     $options['profiles_header_position'] = htmlspecialchars($_POST['profiles_header_position']);
     update_option("profiles_header_position", $options);
   }?>
