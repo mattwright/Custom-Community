@@ -383,7 +383,7 @@ add_shortcode('cc_list_posts', 'cc_list_posts');
 
 // slideshow
 function slider($atts,$content = null) {
-	global $post;
+	global $post, $cap;
 	extract(shortcode_atts(array(
 		'amount' => '4',
 		'category_name' => '0',
@@ -559,7 +559,14 @@ function slider($atts,$content = null) {
 		    if($width != '' || $height != ''){
 		    	if (get_the_post_thumbnail( $post->ID, array($width,$height),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg-1006x250.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array($width,$height),"class={$reflect}" ); }
 		    } else {
-		    	if (get_the_post_thumbnail( $post->ID, array(756,250),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ); }
+			$ftrdimg = '';
+			if ($cap->slideshow_style == 'content width') {
+				$ftrdimg = get_the_post_thumbnail( $post->ID, array(slider_feature_width(),250),"class={$reflect}"  );
+			}
+
+			if ($ftrdimg == '') {
+		    		if (get_the_post_thumbnail( $post->ID, array(756,250),""  ) == '') { $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg.jpg" />'; } else { $ftrdimg = get_the_post_thumbnail( $post->ID, array(756,250),"class={$reflect}"  ); }
+			}
 		    }
 		    
 			$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);

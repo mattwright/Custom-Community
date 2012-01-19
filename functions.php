@@ -3,6 +3,27 @@
 require_once( dirname(__FILE__) . '/admin/cheezcap.php');
 require_once( dirname(__FILE__) . '/core/loader.php');
 
+function slider_feature_width() {
+	global $cap;
+
+	$ww = 1000;
+	if ($cap->website_width != '' && $cap->website_width_unit == 'px') {
+		$ww = $cap->website_width;
+	}
+
+	$leftbar_width = $cap->leftsidebar_width;
+	$rightbar_width = $cap->rightsidebar_width;
+
+	switch ($cap->sidebar_position) {
+		case 'left': $rightbar_width = 0; break;
+		case 'right': $leftbar_width = 0; break;
+		case 'none': $leftbar_width = 0; $rightbar_width = 0; break;
+		case 'full-width': $leftbar_width = 0; $rightbar_width = 0; break;
+	}
+
+	return $ww - $leftbar_width - $rightbar_width - 244 - 40;
+}
+
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'cc_setup' );
 if ( ! function_exists( 'cc_setup' ) ):
@@ -40,6 +61,9 @@ global $cap, $content_width;
 		add_image_size( 'slider-thumbnail', 80, 50, true );
 		add_image_size( 'post-thumbnails', 222, 160, true  );
 		add_image_size( 'single-post-thumbnail', 598, 372, true );
+		if ($cap->slideshow_style == 'content width') {
+			add_image_size( 'slider-custom-content', slider_feature_width(), 250, true  );
+		}
 	}
 
 	// Add default posts and comments RSS feed links to head

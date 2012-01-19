@@ -865,7 +865,7 @@ function cap_get_options() {
 			"Slideshow style", 
 			"Select a type of slideshow.", 
 			"slideshow_style", 
-			array('default','full width')),
+			array('default','full width','content width')),
 		new DropdownOption(
 			"Caption", 
 			"Show just the images or also titles and excerpts?", 

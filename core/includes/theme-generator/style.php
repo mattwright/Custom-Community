@@ -2,6 +2,19 @@
 function dynamic_css(){
 global $cap;
 
+$slide_slider_width = 756;
+$slide_tab_width = 244;
+if ($cap->slideshow_style == 'content width') {
+	$ww = 1000;
+	if ($cap->website_width != '' && $cap->website_width_unit == 'px') {
+		$ww = $cap->website_width;
+	}
+	$slide_slider_width = $ww - $cap->leftsidebar_width - $cap->rightsidebar_width - $slide_tab_width - 40;
+}
+else if ($cap->website_width != '' && $cap->website_width_unit == 'px') {
+	$slide_tab_width = $cap->website_width - $slide_slider_width;
+}
+
 if($cap->menu_x == ""){
 $cap->menu_x = 'left'; 
 }
@@ -2777,7 +2790,7 @@ div.cc_slider ul.ui-tabs-nav {
     position: absolute;
     right: 0;
     top: 0;
-    width: <?php if ($cap->website_width != '' && $cap->website_width_unit == 'px' ) { $width = $cap->website_width; $i = $width - 756; echo $i; echo 'px'; } else { echo '244px'; } ?>;
+    width: <?php echo $slide_tab_width ?>px;
 }
 div.cc_slider ul.ui-tabs-nav li{
 padding:1px 2px 1px 13px;
@@ -2823,7 +2836,7 @@ div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected a{
 background:#<?php echo $container_alt_bg_color; ?>;
 }
 div.cc_slider .featured .ui-tabs-panel{
-width: 716px; 
+width: <?php echo $slide_slider_width - 40 ?>px; 
 height: 250px;
 overflow:hidden; 
 background:#<?php echo $container_bg_color; ?>; 
@@ -2833,7 +2846,7 @@ border: medium none;
 border-radius: 0 0 0 0;
 }
 div#cc_slider-top div.cc_slider .featured .ui-tabs-panel{
-width: 756px;
+width: <?php echo $slide_slider_width ?>px;
 }
 div.cc_slider .featured .ui-tabs-panel .info{
 position:absolute;

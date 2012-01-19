@@ -20,9 +20,14 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function __construct() {
-		global $bp;
+		global $bp, $cap;
 		
 		$this->detect = new TK_WP_Detect();
+
+		$slider_style = 'default';
+		if( $cap->slideshow_style != '' ){
+			$slider_style = $cap->slideshow_style;
+		}
 	
 		// load predefined constants first
 		add_action( 'bp_head', array( $this, 'load_constants' ), 2 );
@@ -36,8 +41,11 @@ class CC_Theme_Generator{
 		add_action( 'bp_before_access', array( $this, 'header_logo' ), 2 );
 		add_action( 'bp_menu', array( $this, 'bp_menu' ), 2 );
 		add_filter( 'wp_page_menu_args', array( $this, 'remove_home_nav_from_fallback'), 100 ); 
-		add_action( 'bp_after_header', array( $this, 'slideshow_home' ), 2 );
 		add_action( 'favicon', array( $this, 'favicon' ), 2 );
+
+		if($slider_style != 'content width'){
+			add_action( 'bp_after_header', array( $this, 'slideshow_home' ), 2 );
+		}
 		
 		// footer.php
 		add_action( 'bp_before_footer', array( $this, 'innerrim_before_footer' ), 2 );
@@ -50,9 +58,13 @@ class CC_Theme_Generator{
 		add_action( 'bp_inside_after_sidebar', array( $this, 'login_sidebar_widget' ), 2 );
 		
 		// home
+		if($slider_style == 'content width'){
+			add_action( 'bp_before_blog_home', array( $this, 'slideshow_home' ), 2 );
+		}
+		
 		add_action( 'bp_before_blog_home', array( $this, 'default_homepage_last_posts' ), 2 );
 		add_filter('body_class',array( $this, 'home_body_class'), 10 );
-		
+
 		// helper functions
 		add_action( 'blog_post_entry', array( $this, 'excerpt_on' ), 2 );
 		
