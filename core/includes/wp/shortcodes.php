@@ -412,12 +412,17 @@ function slider($atts,$content = null) {
 		$category_name = '0';
 	}
 	
-	if($page_id != '' && $post_type = 'post'){
+	if($page_id != '' && $post_type == 'post'){
 		 $post_type = 'page';
 	}
 
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
+	}
+
+	// Allow multiple post types to be comma-separated
+	if(strpos($post_type, ',') !== false){
+		$post_type = explode(',',$post_type);
 	}
 	
 	$tmp = '<script type="text/javascript">'. chr(13);
